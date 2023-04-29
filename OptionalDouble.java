@@ -185,7 +185,7 @@ public final class OptionalDouble {
         {
             if (this.present) {
                 final String valueStr = usvmToString(this.value);
-                result = ("OptionalDouble[") + (valueStr) + ("]");
+                result = "OptionalDouble[" + valueStr + "]";
             }
             else result = "OptionalDouble.empty";
         }
