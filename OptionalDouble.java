@@ -5,6 +5,7 @@ package com.example.helloworld;
 
 import static ru.spbpu.usvm.api.EngineInterfacing.*;
 
+import ???.AutomatonConstructor;
 import java.util.function.DoubleConsumer;
 import java.util.function.DoubleSupplier;
 import java.util.function.Supplier;
@@ -27,10 +28,22 @@ public final class OptionalDouble {
         }
     }
 
+    @AutomatonConstructor
+    public OptionalDouble(__$gaStates state, Object parent, double value, boolean present) {
+        this.state = state;
+        this.parent = parent;
+        this.value = value;
+        this.present = present;
+    }
+
     public static OptionalDouble _makeEmpty() {
         OptionalDouble result;
         {
-            result = <TODO: CallAutomatonConstructorExpression>;
+            result = new com.example.helloworld.OptionalDouble(
+                    com.example.helloworld.OptionalDouble.__$gaStates.Initialized,
+                    null,
+                    0d,
+                    false);
         }
         return result;
     }
@@ -52,7 +65,11 @@ public final class OptionalDouble {
     public static OptionalDouble of(double x) {
         OptionalDouble result;
         {
-            result = <TODO: CallAutomatonConstructorExpression>;
+            result = new com.example.helloworld.OptionalDouble(
+                    com.example.helloworld.OptionalDouble.__$gaStates.Initialized,
+                    null,
+                    x,
+                    true);
         }
         return result;
     }
@@ -190,5 +207,11 @@ public final class OptionalDouble {
             else result = "OptionalDouble.empty";
         }
         return result;
+    }
+
+    public enum __$gaStates {
+        Initialized,
+
+        Allocated
     }
 }
