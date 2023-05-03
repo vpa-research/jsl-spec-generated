@@ -3,8 +3,6 @@
 //
 package com.example.helloworld;
 
-import static ru.spbpu.usvm.api.EngineInterfacing.*;
-
 import ???.AutomatonConstructor;
 import java.util.function.DoubleConsumer;
 import java.util.function.DoubleSupplier;
@@ -12,39 +10,39 @@ import java.util.function.Supplier;
 import java.util.stream.DoubleStream;
 
 public final class OptionalDouble {
+    public __$lsl_States __$lsl_state = __$lsl_States.Allocated;
+
+    public Object __$lsl_parent = null;
+
     private double value = 0d;
 
     private boolean present = false;
 
     private OptionalDouble() {
-        this.__$libsl_state = __$libsl_States.Allocated;
-        this.__$libsl_parent = null;
-        if (this.__$libsl_state != __$libsl_States.Allocated) {
+        if (this.__$lsl_state != __$lsl_States.Allocated) {
             throw new java.lang.RuntimeException();
         }
         {
-            throw new java.lang.RuntimeException("Private constructor call");
+            ru.spbpu.usvm.api.LibSLHelpers.error("Private constructor call");
         }
-        if (this.__$libsl_state == __$libsl_States.Allocated) this.__$libsl_state = __$libsl_States.Initialized;
+        this.__$lsl_state = __$lsl_States.Initialized;
     }
 
     private OptionalDouble(double x) {
-        this.__$libsl_state = __$libsl_States.Allocated;
-        this.__$libsl_parent = null;
-        if (this.__$libsl_state != __$libsl_States.Allocated) {
+        if (this.__$lsl_state != __$lsl_States.Allocated) {
             throw new java.lang.RuntimeException();
         }
         {
-            throw new java.lang.RuntimeException("Private constructor call");
+            ru.spbpu.usvm.api.LibSLHelpers.error("Private constructor call");
         }
-        if (this.__$libsl_state == __$libsl_States.Allocated) this.__$libsl_state = __$libsl_States.Initialized;
+        this.__$lsl_state = __$lsl_States.Initialized;
     }
 
     @AutomatonConstructor
-    public OptionalDouble(__$libsl_States __$libsl_state, Object __$libsl_parent, double value,
+    public OptionalDouble(__$lsl_States __$lsl_state, Object __$lsl_parent, double value,
             boolean present) {
-        this.__$libsl_state = __$libsl_state;
-        this.__$libsl_parent = __$libsl_parent;
+        this.__$lsl_state = __$lsl_state;
+        this.__$lsl_parent = __$lsl_parent;
         this.value = value;
         this.present = present;
     }
@@ -53,7 +51,7 @@ public final class OptionalDouble {
         OptionalDouble result;
         {
             result = new com.example.helloworld.OptionalDouble(
-                    com.example.helloworld.OptionalDouble.__$libsl_States.Initialized,
+                    com.example.helloworld.OptionalDouble.__$lsl_States.Initialized,
                     null,
                     0d,
                     false);
@@ -69,41 +67,41 @@ public final class OptionalDouble {
 
     public static OptionalDouble empty() {
         OptionalDouble result;
-        if (this.__$libsl_state != __$libsl_States.Allocated) {
+        if (this.__$lsl_state != __$lsl_States.Allocated) {
             throw new java.lang.RuntimeException();
         }
         {
             result = _makeEmpty();
         }
-        if (this.__$libsl_state == __$libsl_States.Allocated) this.__$libsl_state = __$libsl_States.Initialized;
+        this.__$lsl_state = __$lsl_States.Initialized;
         return result;
     }
 
     public static OptionalDouble of(double x) {
         OptionalDouble result;
-        if (this.__$libsl_state != __$libsl_States.Allocated) {
+        if (this.__$lsl_state != __$lsl_States.Allocated) {
             throw new java.lang.RuntimeException();
         }
         {
             result = new com.example.helloworld.OptionalDouble(
-                    com.example.helloworld.OptionalDouble.__$libsl_States.Initialized,
+                    com.example.helloworld.OptionalDouble.__$lsl_States.Initialized,
                     null,
                     x,
                     true);
         }
-        if (this.__$libsl_state == __$libsl_States.Allocated) this.__$libsl_state = __$libsl_States.Initialized;
+        this.__$lsl_state = __$lsl_States.Initialized;
         return result;
     }
 
     public boolean equals(Object other) {
         boolean result;
-        if (this.__$libsl_state != __$libsl_States.Initialized) {
+        if (this.__$lsl_state != __$lsl_States.Initialized) {
             throw new java.lang.RuntimeException();
         }
         {
             if (other == this) result = true;
             else {
-                final boolean isSameType = usvmIsSameType(this, other);
+                final boolean isSameType = ru.spbpu.usvm.api.EngineInterfacing.usvmIsSameType(this, other);
                 if (isSameType) {
                     final double otherValue = ((OptionalDouble) other).value;
                     final boolean otherPresent = ((OptionalDouble) other).present;
@@ -118,7 +116,7 @@ public final class OptionalDouble {
 
     public double getAsDouble() {
         double result;
-        if (this.__$libsl_state != __$libsl_States.Initialized) {
+        if (this.__$lsl_state != __$lsl_States.Initialized) {
             throw new java.lang.RuntimeException();
         }
         {
@@ -130,47 +128,47 @@ public final class OptionalDouble {
 
     public int hashCode() {
         int result;
-        if (this.__$libsl_state != __$libsl_States.Initialized) {
+        if (this.__$lsl_state != __$lsl_States.Initialized) {
             throw new java.lang.RuntimeException();
         }
         {
-            if (this.present) result = usvmHashCode(this.value);
+            if (this.present) result = ru.spbpu.usvm.api.EngineInterfacing.usvmHashCode(this.value);
             else result = 0;
         }
         return result;
     }
 
     public void ifPresent(DoubleConsumer consumer) {
-        if (this.__$libsl_state != __$libsl_States.Initialized) {
+        if (this.__$lsl_state != __$lsl_States.Initialized) {
             throw new java.lang.RuntimeException();
         }
         {
             if (this.present) {
                 if (consumer == null) throw new java.lang.NullPointerException();
-                <TODO: call interface {consumer}>;
+                consumer.<TODO: call interface {DoubleConsumer => java.util.function::DoubleConsumer} with [1] items>;
             }
         }
     }
 
     public void ifPresentOrElse(DoubleConsumer consumer, Runnable emptyAction) {
-        if (this.__$libsl_state != __$libsl_States.Initialized) {
+        if (this.__$lsl_state != __$lsl_States.Initialized) {
             throw new java.lang.RuntimeException();
         }
         {
             if (this.present) {
                 if (consumer == null) throw new java.lang.NullPointerException();
-                <TODO: call interface {consumer}>;
+                consumer.<TODO: call interface {DoubleConsumer => java.util.function::DoubleConsumer} with [1] items>;
             }
             else {
                 if (emptyAction == null) throw new java.lang.NullPointerException();
-                <TODO: call interface {emptyAction}>;
+                emptyAction.<TODO: call interface {Runnable => java.lang::Runnable} with [0] items>;
             }
         }
     }
 
     public boolean isEmpty() {
         boolean result;
-        if (this.__$libsl_state != __$libsl_States.Initialized) {
+        if (this.__$lsl_state != __$lsl_States.Initialized) {
             throw new java.lang.RuntimeException();
         }
         {
@@ -181,7 +179,7 @@ public final class OptionalDouble {
 
     public boolean isPresent() {
         boolean result;
-        if (this.__$libsl_state != __$libsl_States.Initialized) {
+        if (this.__$lsl_state != __$lsl_States.Initialized) {
             throw new java.lang.RuntimeException();
         }
         {
@@ -192,7 +190,7 @@ public final class OptionalDouble {
 
     public double orElse(double other) {
         double result;
-        if (this.__$libsl_state != __$libsl_States.Initialized) {
+        if (this.__$lsl_state != __$lsl_States.Initialized) {
             throw new java.lang.RuntimeException();
         }
         {
@@ -204,20 +202,20 @@ public final class OptionalDouble {
 
     public double orElseGet(DoubleSupplier supplier) {
         double result;
-        if (this.__$libsl_state != __$libsl_States.Initialized) {
+        if (this.__$lsl_state != __$lsl_States.Initialized) {
             throw new java.lang.RuntimeException();
         }
         {
             if (supplier == null) throw new java.lang.NullPointerException();
             if (this.present) result = this.value;
-            else result = <TODO: call interface {supplier}>;
+            else result = supplier.<TODO: call interface {DoubleSupplier => java.util.function::DoubleSupplier} with [0] items>;
         }
         return result;
     }
 
     public double orElseThrow() {
         double result;
-        if (this.__$libsl_state != __$libsl_States.Initialized) {
+        if (this.__$lsl_state != __$lsl_States.Initialized) {
             throw new java.lang.RuntimeException();
         }
         {
@@ -227,15 +225,16 @@ public final class OptionalDouble {
         return result;
     }
 
-    public double orElseThrow(Supplier<? extends Q> exceptionSupplier) {
+    public <X extends java.lang.Throwable> double orElseThrow(
+            Supplier<X extends java.lang.Throwable> exceptionSupplier) {
         double result;
-        if (this.__$libsl_state != __$libsl_States.Initialized) {
+        if (this.__$lsl_state != __$lsl_States.Initialized) {
             throw new java.lang.RuntimeException();
         }
         {
             if (exceptionSupplier == null) throw new java.lang.NullPointerException();
             if (!this.present) {
-                final Object exception = <TODO: call interface {exceptionSupplier}>;
+                final Object exception = exceptionSupplier.<TODO: call interface {Supplier<~> => java.util.function::Supplier<~>} with [0] items>;
                 throw ((Throwable) exception);
             }
             else result = this.value;
@@ -245,7 +244,7 @@ public final class OptionalDouble {
 
     public DoubleStream stream() {
         DoubleStream result;
-        if (this.__$libsl_state != __$libsl_States.Initialized) {
+        if (this.__$lsl_state != __$lsl_States.Initialized) {
             throw new java.lang.RuntimeException();
         }
         {
@@ -256,12 +255,12 @@ public final class OptionalDouble {
 
     public String toString() {
         String result;
-        if (this.__$libsl_state != __$libsl_States.Initialized) {
+        if (this.__$lsl_state != __$lsl_States.Initialized) {
             throw new java.lang.RuntimeException();
         }
         {
             if (this.present) {
-                final String valueStr = usvmToString(this.value);
+                final String valueStr = ru.spbpu.usvm.api.EngineInterfacing.usvmToString(this.value);
                 result = "OptionalDouble[" + valueStr + "]";
             }
             else result = "OptionalDouble.empty";
@@ -269,9 +268,9 @@ public final class OptionalDouble {
         return result;
     }
 
-    public enum __$libsl_States {
-        Initialized,
+    public enum __$lsl_States {
+        Allocated,
 
-        Allocated
+        Initialized
     }
 }
