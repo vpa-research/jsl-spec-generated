@@ -67,21 +67,17 @@ public final class OptionalDouble {
 
     public static OptionalDouble empty() {
         OptionalDouble result;
-        if (this.__$lsl_state != __$lsl_States.Allocated) {
-            throw new java.lang.RuntimeException();
-        }
+        // WARNING: no state checks in static context
         {
             result = _makeEmpty();
         }
-        this.__$lsl_state = __$lsl_States.Initialized;
+        // WARNING: no state transitions in static context
         return result;
     }
 
     public static OptionalDouble of(double x) {
         OptionalDouble result;
-        if (this.__$lsl_state != __$lsl_States.Allocated) {
-            throw new java.lang.RuntimeException();
-        }
+        // WARNING: no state checks in static context
         {
             result = new com.example.helloworld.OptionalDouble(
                     com.example.helloworld.OptionalDouble.__$lsl_States.Initialized,
@@ -89,7 +85,7 @@ public final class OptionalDouble {
                     x,
                     true);
         }
-        this.__$lsl_state = __$lsl_States.Initialized;
+        // WARNING: no state transitions in static context
         return result;
     }
 
