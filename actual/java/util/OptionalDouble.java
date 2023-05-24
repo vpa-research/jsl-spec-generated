@@ -67,7 +67,7 @@ public class OptionalDouble implements LibSLRuntime.HasAutomaton {
         // TODO: method body
     }
 
-    public double orElseThrow(Supplier<X extends java.lang.Throwable> exceptionSupplier) throws X {
+    public double orElseThrow(Supplier<? extends X> exceptionSupplier) throws X {
         // TODO: method body
     }
 

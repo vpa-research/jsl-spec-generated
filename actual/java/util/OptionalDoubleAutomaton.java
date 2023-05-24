@@ -90,7 +90,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
             LibSLRuntime.automatonStateCheckViolation();
         }
         /* body */ {
-            if (other == this) {
+            if (other == self) {
                 result = true;
             } else {
                 final boolean isSameType = EngineInterfacing.isSameType(self, other);
@@ -242,8 +242,8 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
         return result;
     }
 
-    public double orElseThrow(OptionalDouble self,
-            Supplier<X extends java.lang.Throwable> exceptionSupplier) throws X {
+    public double orElseThrow(OptionalDouble self, Supplier<? extends X> exceptionSupplier) throws
+            X {
         double result;
         if (this.__$lsl_state != __$lsl_States.Initialized) {
             LibSLRuntime.automatonStateCheckViolation();

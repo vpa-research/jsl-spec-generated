@@ -91,7 +91,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
             LibSLRuntime.automatonStateCheckViolation();
         }
         /* body */ {
-            if (other == this) {
+            if (other == self) {
                 result = true;
             } else {
                 final boolean isSameType = EngineInterfacing.isSameType(self, other);
