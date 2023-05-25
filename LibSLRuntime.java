@@ -17,6 +17,11 @@ public final class LibSLRuntime {
         String value();
     }
 
+    @Target(ElementType.CONSTRUCTOR)
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface DirectCallOnly {
+    }
+
     public interface Automaton {
     }
 
