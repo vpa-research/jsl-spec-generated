@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
 import ru.spbpu.usvm.api.LibSLRuntime;
 
 @LibSLRuntime.InsteadOf("java.util.OptionalInt")
-public class OptionalInt implements LibSLRuntime.HasAutomaton {
+public final class OptionalInt implements LibSLRuntime.HasAutomaton {
     private OptionalIntAutomaton __$lsl_automaton = null;
 
     @LibSLRuntime.DirectCallOnly
@@ -83,7 +83,7 @@ public class OptionalInt implements LibSLRuntime.HasAutomaton {
         return this.__$lsl_automaton.orElseThrow(this);
     }
 
-    public int orElseThrow(Supplier exceptionSupplier) throws X {
+    public <X extends java.lang.Throwable> int orElseThrow(Supplier<T> exceptionSupplier) throws X {
         return this.__$lsl_automaton.orElseThrow(this, exceptionSupplier);
     }
 

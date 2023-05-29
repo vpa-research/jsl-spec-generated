@@ -66,10 +66,6 @@ public final class LibSLRuntime {
         return obj instanceof HasAutomaton;
     }
 
-    public static void automatonStateCheckViolation() {
-        throw new StateCheckException("Automaton state check violation detected");
-    }
-
     public static void error(final String msg) {
         throw new SemanticViolationException(msg);
     }

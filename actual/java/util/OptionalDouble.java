@@ -10,7 +10,7 @@ import java.util.stream.DoubleStream;
 import ru.spbpu.usvm.api.LibSLRuntime;
 
 @LibSLRuntime.InsteadOf("java.util.OptionalDouble")
-public class OptionalDouble implements LibSLRuntime.HasAutomaton {
+public final class OptionalDouble implements LibSLRuntime.HasAutomaton {
     private OptionalDoubleAutomaton __$lsl_automaton = null;
 
     @LibSLRuntime.DirectCallOnly
@@ -83,7 +83,8 @@ public class OptionalDouble implements LibSLRuntime.HasAutomaton {
         return this.__$lsl_automaton.orElseThrow(this);
     }
 
-    public double orElseThrow(Supplier exceptionSupplier) throws X {
+    public <X extends java.lang.Throwable> double orElseThrow(Supplier<T> exceptionSupplier) throws
+            X {
         return this.__$lsl_automaton.orElseThrow(this, exceptionSupplier);
     }
 
