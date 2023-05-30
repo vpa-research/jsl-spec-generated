@@ -217,7 +217,7 @@ public final class OptionalIntAutomaton implements LibSLRuntime.Automaton {
     }
 
     public <X extends java.lang.Throwable> int orElseThrow(OptionalInt self,
-            Supplier<T> exceptionSupplier) throws X {
+            Supplier<? extends X> exceptionSupplier) throws X {
         int result;
         EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {

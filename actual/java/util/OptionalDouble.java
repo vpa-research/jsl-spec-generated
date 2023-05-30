@@ -83,8 +83,8 @@ public final class OptionalDouble implements LibSLRuntime.HasAutomaton {
         return this.__$lsl_automaton.orElseThrow(this);
     }
 
-    public <X extends java.lang.Throwable> double orElseThrow(Supplier<T> exceptionSupplier) throws
-            X {
+    public <X extends java.lang.Throwable> double orElseThrow(
+            Supplier<? extends X> exceptionSupplier) throws X {
         return this.__$lsl_automaton.orElseThrow(this, exceptionSupplier);
     }
 

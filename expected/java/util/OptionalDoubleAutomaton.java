@@ -3,7 +3,7 @@
 //
 package actual.java.util;
 
-// #problem: wraper class name resolution
+// #warning: wraper class name resolution
 import java.util.function.DoubleConsumer;
 import java.util.function.DoubleSupplier;
 import java.util.function.Supplier;
@@ -30,7 +30,8 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
         this(__$lsl_States.Allocated, 0.0d, false);
     }
 
-    public void OptionalDouble(OptionalDouble self) { // #warning: this is a constructor
+    // #warning: this is a constructor
+    public void OptionalDouble(OptionalDouble self) {
         EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             LibSLRuntime.error("Private constructor call");
@@ -219,7 +220,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
     }
 
     public <X extends java.lang.Throwable> double orElseThrow(OptionalDouble self,
-            Supplier<X> exceptionSupplier) throws X {
+            Supplier<? extends X> exceptionSupplier) throws X {
         double result;
         EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
