@@ -59,11 +59,35 @@ public final class LibSLRuntime {
         if (!hasAutomaton(obj))
             return false;
 
-        return type.isInstance(((HasAutomaton) obj).__$lsl_getAutomaton());
+        return type.isInstance(getAutomatonFrom(obj));
     }
 
     public static boolean hasAutomaton(final Object obj) {
         return obj instanceof HasAutomaton;
+    }
+
+    /**
+     * <b> You have to be sure the automaton exists in the provided object!<b>
+     */
+    public static Automaton getAutomatonFrom(final Object obj) {
+        assert obj instanceof HasAutomaton;
+        final HasAutomaton objWithAutomaton = ((HasAutomaton) obj);
+        assert objWithAutomaton != null;
+
+        final Automaton automaton = objWithAutomaton.__$lsl_getAutomaton();
+        assert automaton != null;
+
+        return automaton;
+    }
+
+    /**
+     * <b> You have to be sure the automaton exists in the provided object!<b>
+     */
+    public static <T extends Automaton> T getAutomatonFrom(final Object obj, final Class<T> expectedAutomaton) {
+        final Automaton automaton = getAutomaton(obj);
+        assert expectedAutomaton.isInstance(automaton);
+
+        return expectedAutomaton.cast(automaton);
     }
 
     public static void error(final String msg) {
