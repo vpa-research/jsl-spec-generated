@@ -8,7 +8,7 @@ import java.util.function.DoubleConsumer;
 import java.util.function.DoubleSupplier;
 import java.util.function.Supplier;
 import java.util.stream.DoubleStream;
-import ru.spbpu.usvm.api.EngineInterfacing;
+import ru.spbpu.usvm.api.EngineInterface;
 import ru.spbpu.usvm.api.LibSLRuntime;
 
 public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
@@ -32,7 +32,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
 
     // #warning: this is a constructor
     public void OptionalDouble(OptionalDouble self) {
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Allocated);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             LibSLRuntime.error("Private constructor call");
         }
@@ -40,7 +40,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
     }
 
     public void OptionalDouble(OptionalDouble self, double x) {
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Allocated);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             LibSLRuntime.error("Private constructor call");
         }
@@ -83,15 +83,15 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
 
     public boolean equals(OptionalDouble self, Object other) {
         boolean result;
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (other == self) {
                 result = true;
             } else {
-                final boolean isSameType = EngineInterfacing.isSameType(self, other);
+                final boolean isSameType = EngineInterface.isSameType(self, other);
                 if (isSameType) {
-                    final double otherValue = ((OptionalDoubleAutomaton) ((LibSLRuntime.HasAutomaton) other).__$lsl_getAutomaton()).value;
-                    final boolean otherPresent = ((OptionalDoubleAutomaton) ((LibSLRuntime.HasAutomaton) other).__$lsl_getAutomaton()).present;
+                    final double otherValue = LibSLRuntime.getAutomatonFrom(other, OptionalDoubleAutomaton.class).value;
+                    final boolean otherPresent = LibSLRuntime.getAutomatonFrom(other, OptionalDoubleAutomaton.class).present;
                     if (this.present && otherPresent) {
                         result = this.value == otherValue;
                     } else {
@@ -107,7 +107,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
 
     public double getAsDouble(OptionalDouble self) {
         double result;
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (!this.present) {
                 throw new java.util.NoSuchElementException("No value present");
@@ -119,10 +119,10 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
 
     public int hashCode(OptionalDouble self) {
         int result;
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (this.present) {
-                result = EngineInterfacing.hashCode(this.value);
+                result = EngineInterface.hashCode(this.value);
             } else {
                 result = 0;
             }
@@ -131,7 +131,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
     }
 
     public void ifPresent(OptionalDouble self, DoubleConsumer consumer) {
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (this.present) {
                 if (consumer == null) {
@@ -144,7 +144,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
 
     public void ifPresentOrElse(OptionalDouble self, DoubleConsumer consumer,
             Runnable emptyAction) {
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (this.present) {
                 if (consumer == null) {
@@ -162,7 +162,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
 
     public boolean isEmpty(OptionalDouble self) {
         boolean result;
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = !this.present;
         }
@@ -171,7 +171,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
 
     public boolean isPresent(OptionalDouble self) {
         boolean result;
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = this.present;
         }
@@ -180,7 +180,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
 
     public double orElse(OptionalDouble self, double other) {
         double result;
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (this.present) {
                 result = this.value;
@@ -193,7 +193,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
 
     public double orElseGet(OptionalDouble self, DoubleSupplier supplier) {
         double result;
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (supplier == null) {
                 throw new java.lang.NullPointerException();
@@ -209,7 +209,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
 
     public double orElseThrow(OptionalDouble self) {
         double result;
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (!this.present) {
                 throw new java.util.NoSuchElementException("No value present");
@@ -222,7 +222,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
     public <X extends java.lang.Throwable> double orElseThrow(OptionalDouble self,
             Supplier<? extends X> exceptionSupplier) throws X {
         double result;
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (exceptionSupplier == null) {
                 throw new java.lang.NullPointerException();
@@ -239,7 +239,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
 
     public DoubleStream stream(OptionalDouble self) {
         DoubleStream result;
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.not_implemented();
         }
@@ -248,10 +248,10 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
 
     public String toString(OptionalDouble self) {
         String result;
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (this.present) {
-                final String valueStr = EngineInterfacing.toString(this.value);
+                final String valueStr = EngineInterface.toString(this.value);
                 result = "OptionalDouble[" + valueStr + "]";
             } else {
                 result = "OptionalDouble.empty";

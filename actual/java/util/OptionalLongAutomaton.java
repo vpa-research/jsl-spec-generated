@@ -7,7 +7,7 @@ import java.util.function.LongConsumer;
 import java.util.function.LongSupplier;
 import java.util.function.Supplier;
 import java.util.stream.LongStream;
-import ru.spbpu.usvm.api.EngineInterfacing;
+import ru.spbpu.usvm.api.EngineInterface;
 import ru.spbpu.usvm.api.LibSLRuntime;
 
 public final class OptionalLongAutomaton implements LibSLRuntime.Automaton {
@@ -30,7 +30,7 @@ public final class OptionalLongAutomaton implements LibSLRuntime.Automaton {
     }
 
     public void OptionalLong(OptionalLong self) {
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Allocated);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             LibSLRuntime.error("Private constructor call");
         }
@@ -38,7 +38,7 @@ public final class OptionalLongAutomaton implements LibSLRuntime.Automaton {
     }
 
     public void OptionalLong(OptionalLong self, long x) {
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Allocated);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             LibSLRuntime.error("Private constructor call");
         }
@@ -81,15 +81,15 @@ public final class OptionalLongAutomaton implements LibSLRuntime.Automaton {
 
     public boolean equals(OptionalLong self, Object other) {
         boolean result;
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (other == self) {
                 result = true;
             } else {
-                final boolean isSameType = EngineInterfacing.isSameType(self, other);
+                final boolean isSameType = EngineInterface.isSameType(self, other);
                 if (isSameType) {
-                    final long otherValue = ((OptionalLongAutomaton) ((LibSLRuntime.HasAutomaton) other).__$lsl_getAutomaton()).value;
-                    final boolean otherPresent = ((OptionalLongAutomaton) ((LibSLRuntime.HasAutomaton) other).__$lsl_getAutomaton()).present;
+                    final long otherValue = LibSLRuntime.getAutomatonFrom(other, OptionalLongAutomaton.class).value;
+                    final boolean otherPresent = LibSLRuntime.getAutomatonFrom(other, OptionalLongAutomaton.class).present;
                     if (this.present && otherPresent) {
                         result = this.value == otherValue;
                     } else {
@@ -105,7 +105,7 @@ public final class OptionalLongAutomaton implements LibSLRuntime.Automaton {
 
     public long getAsLong(OptionalLong self) {
         long result;
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (!this.present) {
                 throw new java.util.NoSuchElementException("No value present");
@@ -117,10 +117,10 @@ public final class OptionalLongAutomaton implements LibSLRuntime.Automaton {
 
     public int hashCode(OptionalLong self) {
         int result;
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (this.present) {
-                result = EngineInterfacing.hashCode(this.value);
+                result = EngineInterface.hashCode(this.value);
             } else {
                 result = 0;
             }
@@ -129,7 +129,7 @@ public final class OptionalLongAutomaton implements LibSLRuntime.Automaton {
     }
 
     public void ifPresent(OptionalLong self, LongConsumer consumer) {
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (this.present) {
                 if (consumer == null) {
@@ -141,7 +141,7 @@ public final class OptionalLongAutomaton implements LibSLRuntime.Automaton {
     }
 
     public void ifPresentOrElse(OptionalLong self, LongConsumer consumer, Runnable emptyAction) {
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (this.present) {
                 if (consumer == null) {
@@ -159,7 +159,7 @@ public final class OptionalLongAutomaton implements LibSLRuntime.Automaton {
 
     public boolean isEmpty(OptionalLong self) {
         boolean result;
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = !this.present;
         }
@@ -168,7 +168,7 @@ public final class OptionalLongAutomaton implements LibSLRuntime.Automaton {
 
     public boolean isPresent(OptionalLong self) {
         boolean result;
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = this.present;
         }
@@ -177,7 +177,7 @@ public final class OptionalLongAutomaton implements LibSLRuntime.Automaton {
 
     public long orElse(OptionalLong self, long other) {
         long result;
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (this.present) {
                 result = this.value;
@@ -190,7 +190,7 @@ public final class OptionalLongAutomaton implements LibSLRuntime.Automaton {
 
     public long orElseGet(OptionalLong self, LongSupplier supplier) {
         long result;
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (supplier == null) {
                 throw new java.lang.NullPointerException();
@@ -206,7 +206,7 @@ public final class OptionalLongAutomaton implements LibSLRuntime.Automaton {
 
     public long orElseThrow(OptionalLong self) {
         long result;
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (!this.present) {
                 throw new java.util.NoSuchElementException("No value present");
@@ -219,7 +219,7 @@ public final class OptionalLongAutomaton implements LibSLRuntime.Automaton {
     public <X extends java.lang.Throwable> long orElseThrow(OptionalLong self,
             Supplier<? extends X> exceptionSupplier) throws X {
         long result;
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (exceptionSupplier == null) {
                 throw new java.lang.NullPointerException();
@@ -236,7 +236,7 @@ public final class OptionalLongAutomaton implements LibSLRuntime.Automaton {
 
     public LongStream stream(OptionalLong self) {
         LongStream result;
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.not_implemented();
         }
@@ -245,10 +245,10 @@ public final class OptionalLongAutomaton implements LibSLRuntime.Automaton {
 
     public String toString(OptionalLong self) {
         String result;
-        EngineInterfacing.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (this.present) {
-                final String valueStr = EngineInterfacing.toString(this.value);
+                final String valueStr = EngineInterface.toString(this.value);
                 result = "OptionalLong[" + valueStr + "]";
             } else {
                 result = "OptionalLong.empty";
