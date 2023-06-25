@@ -9,6 +9,7 @@ import java.util.function.Supplier;
 import java.util.stream.DoubleStream;
 import ru.spbpu.usvm.api.EngineInterface;
 import ru.spbpu.usvm.api.LibSLRuntime;
+import runtime.LibSLGlobals;
 
 public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
     public __$lsl_States __$lsl_state = __$lsl_States.Allocated;
@@ -45,14 +46,6 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
         this.__$lsl_state = __$lsl_States.Initialized;
     }
 
-    public static OptionalDouble _makeEmpty() {
-        OptionalDouble result;
-        /* body */ {
-            result = new OptionalDouble(new OptionalDoubleAutomaton(OptionalDoubleAutomaton.__$lsl_States.Initialized, 0.0d, false));
-        }
-        return result;
-    }
-
     public static void _throwNPE() {
         /* body */ {
             throw new java.lang.NullPointerException();
@@ -63,7 +56,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
         OptionalDouble result;
         // WARNING: no state checks in static context
         /* body */ {
-            result = _makeEmpty();
+            result = LibSLGlobals.EMPTY_OPTIONAL_DOUBLE;
         }
         // WARNING: no state transitions in static context
         return result;
