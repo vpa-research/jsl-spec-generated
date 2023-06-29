@@ -7,7 +7,7 @@ import java.util.function.DoubleConsumer;
 import java.util.function.DoubleSupplier;
 import java.util.function.Supplier;
 import java.util.stream.DoubleStream;
-import ru.spbpu.usvm.api.LibSLRuntime;
+import runtime.LibSLRuntime;
 
 @LibSLRuntime.InsteadOf("java.util.OptionalDouble")
 public final class OptionalDouble implements LibSLRuntime.HasAutomaton {

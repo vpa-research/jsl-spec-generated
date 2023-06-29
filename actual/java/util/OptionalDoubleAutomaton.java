@@ -8,8 +8,8 @@ import java.util.function.DoubleSupplier;
 import java.util.function.Supplier;
 import java.util.stream.DoubleStream;
 import ru.spbpu.usvm.api.EngineInterface;
-import ru.spbpu.usvm.api.LibSLRuntime;
 import runtime.LibSLGlobals;
+import runtime.LibSLRuntime;
 
 public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
     public __$lsl_States __$lsl_state = __$lsl_States.Allocated;
