@@ -101,4 +101,9 @@ public final class LibSLRuntime {
     public static void not_implemented() {
         throw new IncompleteSpecificationException("NOT_IMPLEMENTED");
     }
+
+    // TODO: remove helper function
+    public static String toString(final Object obj) {
+        return obj == null ? "null" : obj.toString();
+    }
 }
