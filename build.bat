@@ -1,3 +1,3 @@
-@javac --patch-module java.base=expected  -d ./_out/ @sources.txt
+@javac --patch-module java.base=expected  -d ./out/ @sources.txt
 
 @pause

@@ -1,6 +1,6 @@
 @echo off
 
-cd ./_out
+cd ./out
 
 del .\org\usvm\api\* /Q
 rmdir /S /Q .\org

@@ -1,4 +1,4 @@
-/_out
+*.class
 /*.jar
 /expected/org.usvm.api
 /*.zip
