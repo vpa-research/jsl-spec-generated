@@ -49,7 +49,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     public void ArrayList(ArrayList self) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
-            ACTION: "LIST_RESIZE"[, this.storage, 0];
+            LibSLRuntime.UnknownAction.LIST_RESIZE(this.storage, 0);
         }
         this.__$lsl_state = __$lsl_States.Initialized;
     }
@@ -126,8 +126,8 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
         Object result;
         /* body */ {
             _checkValidIndex(index, this.length);
-            result = ACTION: "LIST_GET"[, this.storage, index];
-            ACTION: "LIST_REMOVE"[, this.storage, index, 1];
+            result = LibSLRuntime.UnknownAction.LIST_GET(this.storage, index);
+            LibSLRuntime.UnknownAction.LIST_REMOVE(this.storage, index, 1);
             this.modCount += 1;
             this.length -= 1;
         }
@@ -138,7 +138,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
         /* body */ {
             _rangeCheckForAdd(index, this.length);
             this.modCount += 1;
-            ACTION: "LIST_INSERT_AT"[, this.storage, index, element];
+            LibSLRuntime.UnknownAction.LIST_INSERT_AT(this.storage, index, element);
             this.length += 1;
         }
     }
@@ -147,8 +147,8 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
         Object result;
         /* body */ {
             _checkValidIndex(index, this.length);
-            result = ACTION: "LIST_GET"[, this.storage, index];
-            ACTION: "LIST_SET"[, this.storage, index, element];
+            result = LibSLRuntime.UnknownAction.LIST_GET(this.storage, index);
+            LibSLRuntime.UnknownAction.LIST_SET(this.storage, index, element);
         }
         return result;
     }
@@ -195,7 +195,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
         boolean result;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = ACTION: "LIST_FIND"[, this.storage, o, 0, this.length, 1] >= 0;
+            result = LibSLRuntime.UnknownAction.LIST_FIND(this.storage, o, 0, this.length, 1) >= 0;
         }
         return result;
     }
@@ -204,7 +204,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
         int result;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = ACTION: "LIST_FIND"[, this.storage, o, 0, this.length, 1];
+            result = LibSLRuntime.UnknownAction.LIST_FIND(this.storage, o, 0, this.length, 1);
         }
         return result;
     }
@@ -213,7 +213,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
         int result;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = ACTION: "LIST_FIND"[, this.storage, o, this.length - 1, -1, -1];
+            result = LibSLRuntime.UnknownAction.LIST_FIND(this.storage, o, this.length - 1, -1, -1);
         }
         return result;
     }
@@ -222,7 +222,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
         Object result;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            SymbolicList<Object> storageCopy = ACTION: "LIST_DUP"[, this.storage];
+            SymbolicList<Object> storageCopy = LibSLRuntime.UnknownAction.LIST_DUP(this.storage);
             result = new ArrayList(new ArrayListAutomaton(ArrayListAutomaton.__$lsl_States.Initialized, storageCopy, this.length, null));
         }
         return result;
@@ -241,7 +241,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
         Object[] result;
         Engine.assume();
         /* body */ {
-            result = ACTION: "LIST_TO_ARRAY"[, this.storage, a, 0, this.length];
+            result = LibSLRuntime.UnknownAction.LIST_TO_ARRAY(this.storage, a, 0, this.length);
         }
         return result;
     }
@@ -251,7 +251,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             _checkValidIndex(index, this.length);
-            result = ACTION: "LIST_GET"[, this.storage, index];
+            result = LibSLRuntime.UnknownAction.LIST_GET(this.storage, index);
         }
         return result;
     }
@@ -270,7 +270,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             this.modCount += 1;
-            ACTION: "LIST_INSERT_AT"[, this.storage, this.length, e];
+            LibSLRuntime.UnknownAction.LIST_INSERT_AT(this.storage, this.length, e);
             this.length += 1;
             result = true;
         }
@@ -311,8 +311,8 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
                     } else {
                         result = false;
                     }
-                    ACTION: "DO"[, "other._checkForComodification(otherExpectedModCount)"];
-                    ACTION: "DO"[, "this._checkForComodification(expectedModCount)"];
+                    LibSLRuntime.UnknownAction.DO("other._checkForComodification(otherExpectedModCount)");
+                    LibSLRuntime.UnknownAction.DO("this._checkForComodification(expectedModCount)");
                 } else {
                     result = false;
                 }
@@ -343,11 +343,11 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
         boolean result;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            int index = ACTION: "LIST_FIND"[, this.storage, o, 0, this.length, 1];
+            int index = LibSLRuntime.UnknownAction.LIST_FIND(this.storage, o, 0, this.length, 1);
             if (index == -1) {
                 result = false;
             } else {
-                ACTION: "LIST_REMOVE"[, this.storage, index, 1];
+                LibSLRuntime.UnknownAction.LIST_REMOVE(this.storage, index, 1);
                 result = true;
             }
         }
@@ -357,7 +357,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     public void clear(ArrayList self) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            ACTION: "LIST_RESIZE"[, this.storage, 0];
+            LibSLRuntime.UnknownAction.LIST_RESIZE(this.storage, 0);
             this.length = 0;
             this.modCount += 1;
         }
