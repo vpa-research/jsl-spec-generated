@@ -1,14 +1,19 @@
 expected/generated/java/util/ArrayList.java
 expected/generated/java/util/ArrayListAutomaton.java
+expected/generated/java/util/ArrayListAutomaton_Copy.java
 
-#expected/generated/java/util/Optional.java
-#expected/generated/java/util/OptionalAutomaton.java
+# expected/generated/java/util/Optional.java
+# expected/generated/java/util/OptionalAutomaton.java
+
 expected/generated/java/util/OptionalDouble.java
 expected/generated/java/util/OptionalDoubleAutomaton.java
-#expected/generated/java/util/OptionalInt.java
-#expected/generated/java/util/OptionalIntAutomaton.java
-#expected/generated/java/util/OptionalLong.java
-#expected/generated/java/util/OptionalLongAutomaton.java
+expected/generated/java/util/OptionalDoubleAutomaton_Copy.java
+
+# expected/generated/java/util/OptionalInt.java
+# expected/generated/java/util/OptionalIntAutomaton.java
+
+# expected/generated/java/util/OptionalLong.java
+# expected/generated/java/util/OptionalLongAutomaton.java
 
 #expected/generated/java/util/Random.java
 #expected/generated/java/util/RandomAutomaton.java

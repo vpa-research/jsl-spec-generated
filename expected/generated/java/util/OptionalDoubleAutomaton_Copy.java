@@ -7,11 +7,13 @@ import java.util.function.DoubleConsumer;
 import java.util.function.DoubleSupplier;
 import java.util.function.Supplier;
 import java.util.stream.DoubleStream;
+import org.jacodb.approximation.annotation.Approximate;
 import org.usvm.api.Engine;
 import runtime.LibSLGlobals;
 import runtime.LibSLRuntime;
 
-public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
+@Approximate(OptionalDoubleAutomaton.class)
+public final class OptionalDoubleAutomaton_Copy implements LibSLRuntime.Automaton {
     public byte __$lsl_state = __$lsl_States.Allocated;
 
     public double value;
@@ -19,7 +21,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
     public boolean present;
 
     @LibSLRuntime.AutomatonConstructor
-    public OptionalDoubleAutomaton(final byte __$lsl_state, final double value,
+    public OptionalDoubleAutomaton_Copy(final byte __$lsl_state, final double value,
             final boolean present) {
         this.__$lsl_state = __$lsl_state;
         this.value = value;
@@ -27,7 +29,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
     }
 
     @LibSLRuntime.AutomatonConstructor
-    public OptionalDoubleAutomaton() {
+    public OptionalDoubleAutomaton_Copy() {
         this(__$lsl_States.Allocated, 0.0d, false);
     }
 

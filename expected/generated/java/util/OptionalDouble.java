@@ -8,6 +8,7 @@ import java.util.function.DoubleSupplier;
 import java.util.function.Supplier;
 import java.util.stream.DoubleStream;
 import org.jacodb.approximation.annotation.Approximate;
+import org.usvm.api.Engine;
 import runtime.LibSLRuntime;
 
 @Approximate(java.util.OptionalDouble.class)
@@ -16,21 +17,25 @@ public final class OptionalDouble implements LibSLRuntime.HasAutomaton {
 
     @LibSLRuntime.DirectCallOnly
     public OptionalDouble(final OptionalDoubleAutomaton a) {
+        Engine.assume(a != null);
         this.__$lsl_automaton = a;
     }
 
     private OptionalDouble() {
         this(new OptionalDoubleAutomaton());
+        Engine.assume(this.__$lsl_automaton != null);
         this.__$lsl_automaton.OptionalDouble(this);
     }
 
     private OptionalDouble(double x) {
         this(new OptionalDoubleAutomaton());
+        Engine.assume(this.__$lsl_automaton != null);
         this.__$lsl_automaton.OptionalDouble(this, x);
     }
 
     @Override
     public LibSLRuntime.Automaton __$lsl_getAutomaton() {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton;
     }
 
@@ -44,56 +49,69 @@ public final class OptionalDouble implements LibSLRuntime.HasAutomaton {
 
     @Override
     public boolean equals(Object other) {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.equals(this, other);
     }
 
     public double getAsDouble() {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.getAsDouble(this);
     }
 
     @Override
     public int hashCode() {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.hashCode(this);
     }
 
     public void ifPresent(DoubleConsumer consumer) {
+        Engine.assume(this.__$lsl_automaton != null);
         this.__$lsl_automaton.ifPresent(this, consumer);
     }
 
     public void ifPresentOrElse(DoubleConsumer consumer, Runnable emptyAction) {
+        Engine.assume(this.__$lsl_automaton != null);
         this.__$lsl_automaton.ifPresentOrElse(this, consumer, emptyAction);
     }
 
     public boolean isEmpty() {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.isEmpty(this);
     }
 
     public boolean isPresent() {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.isPresent(this);
     }
 
     public double orElse(double other) {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.orElse(this, other);
     }
 
     public double orElseGet(DoubleSupplier supplier) {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.orElseGet(this, supplier);
     }
 
     public double orElseThrow() {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.orElseThrow(this);
     }
 
     public <X extends Throwable> double orElseThrow(Supplier<X> exceptionSupplier) throws X {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.orElseThrow(this, exceptionSupplier);
     }
 
     public DoubleStream stream() {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.stream(this);
     }
 
     @Override
     public String toString() {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.toString(this);
     }
 }

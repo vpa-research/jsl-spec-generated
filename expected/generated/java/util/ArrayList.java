@@ -16,6 +16,7 @@ import java.util.RandomAccess;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import org.usvm.api.Engine;
 import org.jacodb.approximation.annotation.Approximate;
 import runtime.LibSLRuntime;
 
@@ -25,167 +26,207 @@ public final class ArrayList extends AbstractList<Object> implements LibSLRuntim
 
     @LibSLRuntime.DirectCallOnly
     public ArrayList(final ArrayListAutomaton a) {
+        Engine.assume(a != null);
         this.__$lsl_automaton = a;
     }
 
     public ArrayList(int initialCapacity) {
         this(new ArrayListAutomaton());
+        Engine.assume(this.__$lsl_automaton != null);
         this.__$lsl_automaton.ArrayList(this, initialCapacity);
     }
 
     public ArrayList() {
         this(new ArrayListAutomaton());
+        Engine.assume(this.__$lsl_automaton != null);
         this.__$lsl_automaton.ArrayList(this);
     }
 
     public ArrayList(Collection c) {
         this(new ArrayListAutomaton());
+        Engine.assume(this.__$lsl_automaton != null);
         this.__$lsl_automaton.ArrayList(this, c);
     }
 
     @Override
     public LibSLRuntime.Automaton __$lsl_getAutomaton() {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton;
     }
 
     public void trimToSize() {
+        Engine.assume(this.__$lsl_automaton != null);
         this.__$lsl_automaton.trimToSize(this);
     }
 
     public void ensureCapacity(int minCapacity) {
+        Engine.assume(this.__$lsl_automaton != null);
         this.__$lsl_automaton.ensureCapacity(this, minCapacity);
     }
 
     public int size() {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.size(this);
     }
 
     public boolean isEmpty() {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.isEmpty(this);
     }
 
     public boolean contains(Object o) {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.contains(this, o);
     }
 
     public int indexOf(Object o) {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.indexOf(this, o);
     }
 
     public int lastIndexOf(Object o) {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.lastIndexOf(this, o);
     }
 
     public Object clone() {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.clone(this);
     }
 
     public Object[] toArray() {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.toArray(this);
     }
 
     public Object[] toArray(Object[] a) {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.toArray(this, a);
     }
 
     public Object get(int index) {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.get(this, index);
     }
 
     public Object set(int index, Object element) {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.set(this, index, element);
     }
 
     public boolean add(Object e) {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.add(this, e);
     }
 
     public void add(int index, Object element) {
+        Engine.assume(this.__$lsl_automaton != null);
         this.__$lsl_automaton.add(this, index, element);
     }
 
     public Object remove(int index) {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.remove(this, index);
     }
 
     public boolean equals(Object other) {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.equals(this, other);
     }
 
     public String toString() {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.toString(this);
     }
 
     public int hashCode() {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.hashCode(this);
     }
 
     public boolean remove(Object o) {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.remove(this, o);
     }
 
     public void clear() {
+        Engine.assume(this.__$lsl_automaton != null);
         this.__$lsl_automaton.clear(this);
     }
 
     public boolean addAll(Collection c) {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.addAll(this, c);
     }
 
     public boolean addAll(int index, Collection c) {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.addAll(this, index, c);
     }
 
     public boolean removeAll(Collection c) {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.removeAll(this, c);
     }
 
     public boolean retainAll(Collection c) {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.retainAll(this, c);
     }
 
     private void writeObject(ObjectOutputStream s) throws java.io.IOException {
+        Engine.assume(this.__$lsl_automaton != null);
         this.__$lsl_automaton.writeObject(this, s);
     }
 
     private void readObject(ObjectInputStream s) throws java.io.IOException,
             java.lang.ClassNotFoundException {
+        Engine.assume(this.__$lsl_automaton != null);
         this.__$lsl_automaton.readObject(this, s);
     }
 
     public ListIterator listIterator(int index) {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.listIterator(this, index);
     }
 
     public ListIterator listIterator() {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.listIterator(this);
     }
 
     public Iterator iterator() {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.iterator(this);
     }
 
     public List subList(int fromIndex, int toIndex) {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.subList(this, fromIndex, toIndex);
     }
 
     public void forEach(Consumer anAction) {
+        Engine.assume(this.__$lsl_automaton != null);
         this.__$lsl_automaton.forEach(this, anAction);
     }
 
     public Spliterator spliterator() {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.spliterator(this);
     }
 
     public boolean removeIf(Predicate filter) {
+        Engine.assume(this.__$lsl_automaton != null);
         return this.__$lsl_automaton.removeIf(this, filter);
     }
 
     public void replaceAll(Object op) {
+        Engine.assume(this.__$lsl_automaton != null);
         this.__$lsl_automaton.replaceAll(this, op);
     }
 
     public void sort(Comparator c) {
+        Engine.assume(this.__$lsl_automaton != null);
         this.__$lsl_automaton.sort(this, c);
     }
 }

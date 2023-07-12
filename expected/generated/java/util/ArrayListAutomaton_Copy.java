@@ -13,11 +13,13 @@ import java.util.ListIterator;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import org.jacodb.approximation.annotation.Approximate;
 import org.usvm.api.Engine;
 import org.usvm.api.SymbolicList;
 import runtime.LibSLRuntime;
 
-public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
+@Approximate(ArrayListAutomaton.class)
+public final class ArrayListAutomaton_Copy implements LibSLRuntime.Automaton {
     public byte __$lsl_state = __$lsl_States.Allocated;
 
     public SymbolicList<Object> storage;
@@ -27,7 +29,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     public int modCount;
 
     @LibSLRuntime.AutomatonConstructor
-    public ArrayListAutomaton(final byte __$lsl_state, final SymbolicList<Object> storage,
+    public ArrayListAutomaton_Copy(final byte __$lsl_state, final SymbolicList<Object> storage,
             final int length, final int modCount) {
         this.__$lsl_state = __$lsl_state;
         this.storage = storage;
@@ -36,7 +38,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     @LibSLRuntime.AutomatonConstructor
-    public ArrayListAutomaton() {
+    public ArrayListAutomaton_Copy() {
         this(__$lsl_States.Allocated, null, 0, 0);
     }
 
