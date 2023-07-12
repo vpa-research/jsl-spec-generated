@@ -3,8 +3,8 @@
 //
 package runtime;
 
-import java.util.OptionalDouble;
-import java.util.OptionalDoubleAutomaton;
+import generated.java.util.OptionalDouble;
+import generated.java.util.OptionalDoubleAutomaton;
 
 public class LibSLGlobals {
     public static final OptionalDouble EMPTY_OPTIONAL_DOUBLE;
