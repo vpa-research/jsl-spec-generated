@@ -7,7 +7,7 @@ import java.util.function.IntConsumer;
 import java.util.function.IntSupplier;
 import java.util.function.Supplier;
 import java.util.stream.IntStream;
-import ru.spbpu.usvm.api.EngineInterface;
+import org.usvm.api.Engine;
 import runtime.LibSLGlobals;
 import runtime.LibSLRuntime;
 
@@ -31,7 +31,7 @@ public final class OptionalIntAutomaton implements LibSLRuntime.Automaton {
     }
 
     public void OptionalInt(OptionalInt self) {
-        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Allocated);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             LibSLRuntime.error("Private constructor call");
         }
@@ -39,7 +39,7 @@ public final class OptionalIntAutomaton implements LibSLRuntime.Automaton {
     }
 
     public void OptionalInt(OptionalInt self, int x) {
-        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Allocated);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             LibSLRuntime.error("Private constructor call");
         }
@@ -74,12 +74,12 @@ public final class OptionalIntAutomaton implements LibSLRuntime.Automaton {
 
     public boolean equals(OptionalInt self, Object other) {
         boolean result;
-        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (other == self) {
                 result = true;
             } else {
-                final boolean isSameType = EngineInterface.isSameType(self, other);
+                final boolean isSameType = Engine.isSameType(self, other);
                 if (isSameType) {
                     final int otherValue = LibSLRuntime.getAutomatonFrom(other, OptionalIntAutomaton.class).value;
                     final boolean otherPresent = LibSLRuntime.getAutomatonFrom(other, OptionalIntAutomaton.class).present;
@@ -98,7 +98,7 @@ public final class OptionalIntAutomaton implements LibSLRuntime.Automaton {
 
     public int getAsInt(OptionalInt self) {
         int result;
-        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (!this.present) {
                 throw new java.util.NoSuchElementException("No value present");
@@ -110,10 +110,10 @@ public final class OptionalIntAutomaton implements LibSLRuntime.Automaton {
 
     public int hashCode(OptionalInt self) {
         int result;
-        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (this.present) {
-                result = EngineInterface.hashCode(this.value);
+                result = Engine.hashCode(this.value);
             } else {
                 result = 0;
             }
@@ -122,7 +122,7 @@ public final class OptionalIntAutomaton implements LibSLRuntime.Automaton {
     }
 
     public void ifPresent(OptionalInt self, IntConsumer consumer) {
-        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (this.present) {
                 if (consumer == null) {
@@ -134,7 +134,7 @@ public final class OptionalIntAutomaton implements LibSLRuntime.Automaton {
     }
 
     public void ifPresentOrElse(OptionalInt self, IntConsumer consumer, Runnable emptyAction) {
-        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (this.present) {
                 if (consumer == null) {
@@ -152,7 +152,7 @@ public final class OptionalIntAutomaton implements LibSLRuntime.Automaton {
 
     public boolean isEmpty(OptionalInt self) {
         boolean result;
-        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = !this.present;
         }
@@ -161,7 +161,7 @@ public final class OptionalIntAutomaton implements LibSLRuntime.Automaton {
 
     public boolean isPresent(OptionalInt self) {
         boolean result;
-        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = this.present;
         }
@@ -170,7 +170,7 @@ public final class OptionalIntAutomaton implements LibSLRuntime.Automaton {
 
     public int orElse(OptionalInt self, int other) {
         int result;
-        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (this.present) {
                 result = this.value;
@@ -183,7 +183,7 @@ public final class OptionalIntAutomaton implements LibSLRuntime.Automaton {
 
     public int orElseGet(OptionalInt self, IntSupplier supplier) {
         int result;
-        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (supplier == null) {
                 throw new java.lang.NullPointerException();
@@ -199,7 +199,7 @@ public final class OptionalIntAutomaton implements LibSLRuntime.Automaton {
 
     public int orElseThrow(OptionalInt self) {
         int result;
-        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (!this.present) {
                 throw new java.util.NoSuchElementException("No value present");
@@ -212,7 +212,7 @@ public final class OptionalIntAutomaton implements LibSLRuntime.Automaton {
     public <X extends java.lang.Throwable> int orElseThrow(OptionalInt self,
             Supplier<? extends X> exceptionSupplier) throws X {
         int result;
-        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (exceptionSupplier == null) {
                 throw new java.lang.NullPointerException();
@@ -229,7 +229,7 @@ public final class OptionalIntAutomaton implements LibSLRuntime.Automaton {
 
     public IntStream stream(OptionalInt self) {
         IntStream result;
-        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.not_implemented();
         }
@@ -238,10 +238,10 @@ public final class OptionalIntAutomaton implements LibSLRuntime.Automaton {
 
     public String toString(OptionalInt self) {
         String result;
-        EngineInterface.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (this.present) {
-                final String valueStr = EngineInterface.toString(this.value);
+                final String valueStr = Engine.toString(this.value);
                 result = "OptionalInt[" + valueStr + "]";
             } else {
                 result = "OptionalInt.empty";

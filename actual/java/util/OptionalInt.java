@@ -14,7 +14,7 @@ public final class OptionalInt implements LibSLRuntime.HasAutomaton {
     private OptionalIntAutomaton __$lsl_automaton = null;
 
     @LibSLRuntime.DirectCallOnly
-    public final OptionalInt(final OptionalIntAutomaton a) {
+    public OptionalInt(final OptionalIntAutomaton a) {
         this.__$lsl_automaton = a;
     }
 

@@ -14,7 +14,7 @@ public final class OptionalLong implements LibSLRuntime.HasAutomaton {
     private OptionalLongAutomaton __$lsl_automaton = null;
 
     @LibSLRuntime.DirectCallOnly
-    public final OptionalLong(final OptionalLongAutomaton a) {
+    public OptionalLong(final OptionalLongAutomaton a) {
         this.__$lsl_automaton = a;
     }
 

@@ -14,7 +14,7 @@ public final class OptionalDouble implements LibSLRuntime.HasAutomaton {
     private OptionalDoubleAutomaton __$lsl_automaton = null;
 
     @LibSLRuntime.DirectCallOnly
-    public final OptionalDouble(final OptionalDoubleAutomaton a) {
+    public OptionalDouble(final OptionalDoubleAutomaton a) {
         this.__$lsl_automaton = a;
     }
 

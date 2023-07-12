@@ -5,6 +5,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import org.usvm.api.Engine;
+import org.usvm.api.SymbolicList;
+
 public final class LibSLRuntime {
 
     public interface HasAutomaton {
@@ -70,12 +73,12 @@ public final class LibSLRuntime {
      * <b> You have to be sure the automaton exists in the provided object!<b>
      */
     public static Automaton getAutomatonFrom(final Object obj) {
-        assert obj instanceof HasAutomaton;
+        Engine.assume(obj instanceof HasAutomaton);
         final HasAutomaton objWithAutomaton = ((HasAutomaton) obj);
-        assert objWithAutomaton != null;
+        Engine.assume(objWithAutomaton != null);
 
         final Automaton automaton = objWithAutomaton.__$lsl_getAutomaton();
-        assert automaton != null;
+        Engine.assume(automaton != null);
 
         return automaton;
     }
@@ -84,8 +87,8 @@ public final class LibSLRuntime {
      * <b> You have to be sure the automaton exists in the provided object!<b>
      */
     public static <T extends Automaton> T getAutomatonFrom(final Object obj, final Class<T> expectedAutomaton) {
-        final Automaton automaton = getAutomaton(obj);
-        assert expectedAutomaton.isInstance(automaton);
+        final Automaton automaton = getAutomatonFrom(obj);
+        Engine.assume(expectedAutomaton.isInstance(automaton));
 
         return expectedAutomaton.cast(automaton);
     }
@@ -100,6 +103,17 @@ public final class LibSLRuntime {
 
     public static void not_implemented() {
         throw new IncompleteSpecificationException("NOT_IMPLEMENTED");
+    }
+
+    public static final class UnknownAction {
+        public static int LIST_FIND(SymbolicList list, Object value,
+                                    int a, int b, int delta) {
+            // FIXME: unused values - a, b, delta
+            final Integer key = Engine.makeSymbolic(Integer.class);
+            final Object something = list.get(key);
+            return value.equals(something) && list.containsKey(key)
+                    ? key : 0;
+        }
     }
 
     // TODO: remove helper function
