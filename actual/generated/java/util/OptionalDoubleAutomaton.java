@@ -54,7 +54,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
     }
 
     public static OptionalDouble empty() {
-        OptionalDouble result;
+        OptionalDouble result = null;
         // WARNING: no state checks in static context
         /* body */ {
             result = LibSLGlobals.EMPTY_OPTIONAL_DOUBLE;
@@ -64,7 +64,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
     }
 
     public static OptionalDouble of(double x) {
-        OptionalDouble result;
+        OptionalDouble result = null;
         // WARNING: no state checks in static context
         /* body */ {
             result = new OptionalDouble(new OptionalDoubleAutomaton(OptionalDoubleAutomaton.__$lsl_States.Initialized, x, true));
@@ -74,7 +74,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
     }
 
     public boolean equals(OptionalDouble self, Object other) {
-        boolean result;
+        boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (other == self) {
@@ -98,7 +98,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
     }
 
     public double getAsDouble(OptionalDouble self) {
-        double result;
+        double result = 0.0d;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (!this.present) {
@@ -110,7 +110,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
     }
 
     public int hashCode(OptionalDouble self) {
-        int result;
+        int result = 0;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (this.present) {
@@ -153,7 +153,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
     }
 
     public boolean isEmpty(OptionalDouble self) {
-        boolean result;
+        boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = !this.present;
@@ -162,7 +162,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
     }
 
     public boolean isPresent(OptionalDouble self) {
-        boolean result;
+        boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = this.present;
@@ -171,7 +171,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
     }
 
     public double orElse(OptionalDouble self, double other) {
-        double result;
+        double result = 0.0d;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (this.present) {
@@ -184,7 +184,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
     }
 
     public double orElseGet(OptionalDouble self, DoubleSupplier supplier) {
-        double result;
+        double result = 0.0d;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (supplier == null) {
@@ -200,7 +200,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
     }
 
     public double orElseThrow(OptionalDouble self) {
-        double result;
+        double result = 0.0d;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (!this.present) {
@@ -212,7 +212,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
     }
 
     public double orElseThrow(OptionalDouble self, Supplier exceptionSupplier) throws X {
-        double result;
+        double result = 0.0d;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (exceptionSupplier == null) {
@@ -229,7 +229,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
     }
 
     public DoubleStream stream(OptionalDouble self) {
-        DoubleStream result;
+        DoubleStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.not_implemented();
@@ -238,7 +238,7 @@ public final class OptionalDoubleAutomaton implements LibSLRuntime.Automaton {
     }
 
     public String toString(OptionalDouble self) {
-        String result;
+        String result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (this.present) {

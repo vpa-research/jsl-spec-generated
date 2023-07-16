@@ -39,7 +39,7 @@ public final class RandomAutomaton implements LibSLRuntime.Automaton {
     }
 
     public DoubleStream doubles(Random self) {
-        DoubleStream result;
+        DoubleStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
@@ -48,7 +48,7 @@ public final class RandomAutomaton implements LibSLRuntime.Automaton {
     }
 
     public DoubleStream doubles(Random self, double arg0, double arg1) {
-        DoubleStream result;
+        DoubleStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
@@ -57,7 +57,7 @@ public final class RandomAutomaton implements LibSLRuntime.Automaton {
     }
 
     public DoubleStream doubles(Random self, long arg0) {
-        DoubleStream result;
+        DoubleStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
@@ -66,7 +66,7 @@ public final class RandomAutomaton implements LibSLRuntime.Automaton {
     }
 
     public DoubleStream doubles(Random self, long arg0, double arg1, double arg2) {
-        DoubleStream result;
+        DoubleStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
@@ -75,7 +75,7 @@ public final class RandomAutomaton implements LibSLRuntime.Automaton {
     }
 
     public IntStream ints(Random self) {
-        IntStream result;
+        IntStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
@@ -84,7 +84,7 @@ public final class RandomAutomaton implements LibSLRuntime.Automaton {
     }
 
     public IntStream ints(Random self, int arg0, int arg1) {
-        IntStream result;
+        IntStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
@@ -93,7 +93,7 @@ public final class RandomAutomaton implements LibSLRuntime.Automaton {
     }
 
     public IntStream ints(Random self, long arg0) {
-        IntStream result;
+        IntStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
@@ -102,7 +102,7 @@ public final class RandomAutomaton implements LibSLRuntime.Automaton {
     }
 
     public IntStream ints(Random self, long arg0, int arg1, int arg2) {
-        IntStream result;
+        IntStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
@@ -111,7 +111,7 @@ public final class RandomAutomaton implements LibSLRuntime.Automaton {
     }
 
     public LongStream longs(Random self) {
-        LongStream result;
+        LongStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
@@ -120,7 +120,7 @@ public final class RandomAutomaton implements LibSLRuntime.Automaton {
     }
 
     public LongStream longs(Random self, long arg0) {
-        LongStream result;
+        LongStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
@@ -129,7 +129,7 @@ public final class RandomAutomaton implements LibSLRuntime.Automaton {
     }
 
     public LongStream longs(Random self, long arg0, long arg1) {
-        LongStream result;
+        LongStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
@@ -138,7 +138,7 @@ public final class RandomAutomaton implements LibSLRuntime.Automaton {
     }
 
     public LongStream longs(Random self, long arg0, long arg1, long arg2) {
-        LongStream result;
+        LongStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
@@ -147,10 +147,10 @@ public final class RandomAutomaton implements LibSLRuntime.Automaton {
     }
 
     public boolean nextBoolean(Random self) {
-        boolean result;
+        boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            result = Engine.makeSymbolic(boolean.class);
         }
         return result;
     }
@@ -163,43 +163,43 @@ public final class RandomAutomaton implements LibSLRuntime.Automaton {
     }
 
     public double nextDouble(Random self) {
-        double result;
+        double result = 0.0d;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            result = Engine.makeSymbolic(double.class);
         }
         return result;
     }
 
     public float nextFloat(Random self) {
-        float result;
+        float result = 0.0f;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            result = Engine.makeSymbolic(float.class);
         }
         return result;
     }
 
     public synchronized double nextGaussian(Random self) {
-        double result;
+        double result = 0.0d;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            result = Engine.makeSymbolic(double.class);
         }
         return result;
     }
 
     public int nextInt(Random self) {
-        int result;
+        int result = 0;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            result = Engine.makeSymbolic(int.class);
         }
         return result;
     }
 
     public int nextInt(Random self, int arg0) {
-        int result;
+        int result = 0;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
@@ -208,18 +208,17 @@ public final class RandomAutomaton implements LibSLRuntime.Automaton {
     }
 
     public long nextLong(Random self) {
-        long result;
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            result = Engine.makeSymbolic(long.class);
         }
         return result;
     }
 
-    public synchronized void setSeed(Random self, long arg0) {
+    public synchronized void setSeed(Random self, long seed) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
         }
     }
 

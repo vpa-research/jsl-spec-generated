@@ -113,7 +113,7 @@ public final class Random implements LibSLRuntime.HasAutomaton, Serializable {
         return this.__$lsl_automaton.nextLong(this);
     }
 
-    public synchronized void setSeed(long arg0) {
-        this.__$lsl_automaton.setSeed(this, arg0);
+    public synchronized void setSeed(long seed) {
+        this.__$lsl_automaton.setSeed(this, seed);
     }
 }

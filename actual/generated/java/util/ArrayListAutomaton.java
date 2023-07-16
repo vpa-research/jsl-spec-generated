@@ -45,8 +45,8 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             if (initialCapacity < 0) {
-                String initCapacity = Engine.toString(initialCapacity);
-                String message = "Illegal Capacity: " + initCapacity;
+                final String initCapacity = Engine.toString(initialCapacity);
+                final String message = "Illegal Capacity: " + initCapacity;
                 throw new java.lang.IllegalArgumentException(message);
             }
         }
@@ -72,9 +72,9 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     public void _checkValidIndex(int index, int length) {
         /* body */ {
             if ((index < 0) || (index >= length)) {
-                String idx = Engine.toString(index);
-                String len = Engine.toString(length);
-                String message = "Index " + idx + " out of bounds for length " + len;
+                final String idx = Engine.toString(index);
+                final String len = Engine.toString(length);
+                final String message = "Index " + idx + " out of bounds for length " + len;
                 throw new java.lang.IndexOutOfBoundsException(message);
             }
         }
@@ -83,16 +83,16 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     public void _rangeCheckForAdd(int index, int length) {
         /* body */ {
             if ((index < 0) || (index > length)) {
-                String idx = Engine.toString(index);
-                String len = Engine.toString(length);
-                String message = "Index: " + idx + ", Size: " + len;
+                final String idx = Engine.toString(index);
+                final String len = Engine.toString(length);
+                final String message = "Index: " + idx + ", Size: " + len;
                 throw new java.lang.IndexOutOfBoundsException(message);
             }
         }
     }
 
     public boolean _addAllElements(int index, Collection c) {
-        boolean result;
+        boolean result = false;
         /* body */ {
             this.modCount += 1;
             LibSLRuntime.not_implemented();
@@ -103,19 +103,19 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     public void _subListRangeCheck(int fromIndex, int toIndex, int size) {
         /* body */ {
             if (fromIndex < 0) {
-                String from = Engine.toString(fromIndex);
-                String message = "fromIndex = " + from;
+                final String from = Engine.toString(fromIndex);
+                final String message = "fromIndex = " + from;
                 throw new java.lang.IndexOutOfBoundsException(message);
             }
             if (toIndex > size) {
-                String to = Engine.toString(toIndex);
-                String message = "toIndex = " + to;
+                final String to = Engine.toString(toIndex);
+                final String message = "toIndex = " + to;
                 throw new java.lang.IndexOutOfBoundsException(message);
             }
             if (fromIndex > toIndex) {
-                String from = Engine.toString(fromIndex);
-                String to = Engine.toString(toIndex);
-                String message = "fromIndex(" + from + ") > toIndex(" + to + ")";
+                final String from = Engine.toString(fromIndex);
+                final String to = Engine.toString(toIndex);
+                final String message = "fromIndex(" + from + ") > toIndex(" + to + ")";
                 throw new java.lang.IllegalArgumentException(message);
             }
         }
@@ -130,7 +130,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public Object _deleteElement(int index) {
-        Object result;
+        Object result = null;
         /* body */ {
             _checkValidIndex(index, this.length);
             result = LibSLRuntime.UnknownAction.LIST_GET(this.storage, index);
@@ -151,7 +151,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public Object _setElement(int index, Object element) {
-        Object result;
+        Object result = null;
         /* body */ {
             _checkValidIndex(index, this.length);
             result = LibSLRuntime.UnknownAction.LIST_GET(this.storage, index);
@@ -181,7 +181,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public int size(ArrayList self) {
-        int result;
+        int result = 0;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = this.length;
@@ -190,7 +190,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public boolean isEmpty(ArrayList self) {
-        boolean result;
+        boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = this.length == 0;
@@ -199,7 +199,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public boolean contains(ArrayList self, Object o) {
-        boolean result;
+        boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = LibSLRuntime.UnknownAction.LIST_FIND(this.storage, o, 0, this.length, 1) >= 0;
@@ -208,7 +208,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public int indexOf(ArrayList self, Object o) {
-        int result;
+        int result = 0;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = LibSLRuntime.UnknownAction.LIST_FIND(this.storage, o, 0, this.length, 1);
@@ -217,7 +217,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public int lastIndexOf(ArrayList self, Object o) {
-        int result;
+        int result = 0;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = LibSLRuntime.UnknownAction.LIST_FIND(this.storage, o, this.length - 1, -1, -1);
@@ -226,7 +226,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public Object clone(ArrayList self) {
-        Object result;
+        Object result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             SymbolicList<Object> storageCopy = LibSLRuntime.UnknownAction.LIST_DUP(this.storage);
@@ -236,7 +236,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public Object[] toArray(ArrayList self) {
-        Object[] result;
+        Object[] result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.not_implemented();
@@ -245,8 +245,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public Object[] toArray(ArrayList self, Object[] a) {
-        Object[] result;
-        Engine.assume();
+        Object[] result = null;
         /* body */ {
             result = LibSLRuntime.UnknownAction.LIST_TO_ARRAY(this.storage, a, 0, this.length);
         }
@@ -254,7 +253,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public Object get(ArrayList self, int index) {
-        Object result;
+        Object result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             _checkValidIndex(index, this.length);
@@ -264,7 +263,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public Object set(ArrayList self, int index, Object element) {
-        Object result;
+        Object result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = _setElement(index, element);
@@ -273,7 +272,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public boolean add(ArrayList self, Object e) {
-        boolean result;
+        boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             this.modCount += 1;
@@ -292,7 +291,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public Object remove(ArrayList self, int index) {
-        Object result;
+        Object result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = _deleteElement(index);
@@ -301,8 +300,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public boolean equals(ArrayList self, Object other) {
-        boolean result;
-        Engine.assume();
+        boolean result = false;
         /* body */ {
             if (other == self) {
                 result = true;
@@ -318,8 +316,8 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
                     } else {
                         result = false;
                     }
-                    LibSLRuntime.UnknownAction.DO("other._checkForComodification(otherExpectedModCount)");
-                    LibSLRuntime.UnknownAction.DO("this._checkForComodification(expectedModCount)");
+                    other._checkForComodification(otherExpectedModCount);
+                    this._checkForComodification(expectedModCount);
                 } else {
                     result = false;
                 }
@@ -329,7 +327,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public String toString(ArrayList self) {
-        String result;
+        String result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.not_implemented();
@@ -338,7 +336,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public int hashCode(ArrayList self) {
-        int result;
+        int result = 0;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = Engine.hashCode(this.storage);
@@ -347,7 +345,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public boolean remove(ArrayList self, Object o) {
-        boolean result;
+        boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             int index = LibSLRuntime.UnknownAction.LIST_FIND(this.storage, o, 0, this.length, 1);
@@ -371,7 +369,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public boolean addAll(ArrayList self, Collection c) {
-        boolean result;
+        boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = _addAllElements(this.length, c);
@@ -380,7 +378,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public boolean addAll(ArrayList self, int index, Collection c) {
-        boolean result;
+        boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             _rangeCheckForAdd(index, this.length);
@@ -390,7 +388,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public boolean removeAll(ArrayList self, Collection c) {
-        boolean result;
+        boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.not_implemented();
@@ -399,7 +397,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public boolean retainAll(ArrayList self, Collection c) {
-        boolean result;
+        boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.not_implemented();
@@ -408,7 +406,6 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public void writeObject(ArrayList self, ObjectOutputStream s) throws java.io.IOException {
-        Engine.assume();
         /* body */ {
             int expectedModCount = this.modCount;
             LibSLRuntime.not_implemented();
@@ -420,14 +417,13 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
 
     public void readObject(ArrayList self, ObjectInputStream s) throws java.io.IOException,
             java.lang.ClassNotFoundException {
-        Engine.assume();
         /* body */ {
             LibSLRuntime.not_implemented();
         }
     }
 
     public ListIterator listIterator(ArrayList self, int index) {
-        ListIterator result;
+        ListIterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
@@ -436,7 +432,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public ListIterator listIterator(ArrayList self) {
-        ListIterator result;
+        ListIterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
@@ -445,7 +441,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public Iterator iterator(ArrayList self) {
-        Iterator result;
+        Iterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
@@ -454,7 +450,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public List subList(ArrayList self, int fromIndex, int toIndex) {
-        List result;
+        List result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             _subListRangeCheck(fromIndex, toIndex, this.length);
@@ -471,7 +467,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public Spliterator spliterator(ArrayList self) {
-        Spliterator result;
+        Spliterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
@@ -480,7 +476,7 @@ public final class ArrayListAutomaton implements LibSLRuntime.Automaton {
     }
 
     public boolean removeIf(ArrayList self, Predicate filter) {
-        boolean result;
+        boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (filter == null) {
