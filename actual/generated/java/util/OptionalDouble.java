@@ -3,96 +3,313 @@
 //
 package generated.java.util;
 
+import java.util.NoSuchElementException;
 import java.util.function.DoubleConsumer;
 import java.util.function.DoubleSupplier;
 import java.util.function.Supplier;
 import java.util.stream.DoubleStream;
+import org.usvm.api.Engine;
+import runtime.LibSLGlobals;
 import runtime.LibSLRuntime;
 
-@LibSLRuntime.InsteadOf("java.util.OptionalDouble")
-public final class OptionalDouble implements LibSLRuntime.HasAutomaton {
-    private OptionalDoubleAutomaton __$lsl_automaton = null;
+public final class OptionalDouble implements LibSLRuntime.Automaton {
+    public byte __$lsl_state = __$lsl_States.Allocated;
 
-    @LibSLRuntime.DirectCallOnly
-    public OptionalDouble(final OptionalDoubleAutomaton a) {
-        this.__$lsl_automaton = a;
+    public double value;
+
+    public boolean present;
+
+    @LibSLRuntime.AutomatonConstructor
+    public OptionalDouble(final LibSLRuntime.Token __$lsl_token, final byte __$lsl_state,
+            final double value, final boolean present) {
+        this.__$lsl_state = __$lsl_state;
+        this.value = value;
+        this.present = present;
     }
 
-    private OptionalDouble() {
-        this(new OptionalDoubleAutomaton());
-        this.__$lsl_automaton.OptionalDouble(this);
+    @LibSLRuntime.AutomatonConstructor
+    public OptionalDouble(final LibSLRuntime.Token __$lsl_token) {
+        this(__$lsl_token, __$lsl_States.Allocated, 0.0d, false);
     }
 
-    private OptionalDouble(double x) {
-        this(new OptionalDoubleAutomaton());
-        this.__$lsl_automaton.OptionalDouble(this, x);
+    /**
+     * [CONSTRUCTOR] OptionalDoubleAutomaton::OptionalDouble(OptionalDouble) -> OptionalDouble
+     */
+    public OptionalDouble() {
+        this(LibSLRuntime.Token.INSTANCE);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
+        /* body */ {
+            LibSLRuntime.error("Private constructor call");
+        }
+        this.__$lsl_state = __$lsl_States.Initialized;
     }
 
-    @Override
-    public LibSLRuntime.Automaton __$lsl_getAutomaton() {
-        return this.__$lsl_automaton;
+    /**
+     * [CONSTRUCTOR] OptionalDoubleAutomaton::OptionalDouble(OptionalDouble, double) -> OptionalDouble
+     */
+    public OptionalDouble(double x) {
+        this(LibSLRuntime.Token.INSTANCE);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
+        /* body */ {
+            LibSLRuntime.error("Private constructor call");
+        }
+        this.__$lsl_state = __$lsl_States.Initialized;
     }
 
+    /**
+     * [SUBROUTINE] OptionalDoubleAutomaton::_throwNPE() -> void
+     */
+    public static void _throwNPE() {
+        /* body */ {
+            throw new NullPointerException();
+        }
+    }
+
+    /**
+     * [FUNCTION] OptionalDoubleAutomaton::empty() -> OptionalDouble
+     */
     public static OptionalDouble empty() {
-        return OptionalDoubleAutomaton.empty();
+        OptionalDouble result = null;
+        // WARNING: no state checks in static context
+        /* body */ {
+            result = LibSLGlobals.EMPTY_OPTIONAL_DOUBLE;
+        }
+        // WARNING: no state transitions in static context
+        return result;
     }
 
+    /**
+     * [FUNCTION] OptionalDoubleAutomaton::of(double) -> OptionalDouble
+     */
     public static OptionalDouble of(double x) {
-        return OptionalDoubleAutomaton.of(x);
+        OptionalDouble result = null;
+        // WARNING: no state checks in static context
+        /* body */ {
+            result = new OptionalDouble(new OptionalDouble(OptionalDouble.__$lsl_States.Initialized, x, true));
+        }
+        // WARNING: no state transitions in static context
+        return result;
     }
 
-    @Override
+    /**
+     * [FUNCTION] OptionalDoubleAutomaton::equals(OptionalDouble, Object) -> boolean
+     */
     public boolean equals(Object other) {
-        return this.__$lsl_automaton.equals(this, other);
+        boolean result = false;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            if (other == this) {
+                result = true;
+            } else {
+                final boolean isSameType = Engine.typeEquals(this, other);
+                if (isSameType) {
+                    final double otherValue = LibSLRuntime.getAutomatonFrom(other, OptionalDouble.class).value;
+                    final boolean otherPresent = LibSLRuntime.getAutomatonFrom(other, OptionalDouble.class).present;
+                    if (present && otherPresent) {
+                        result = value == otherValue;
+                    } else {
+                        result = present == otherPresent;
+                    }
+                } else {
+                    result = false;
+                }
+            }
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] OptionalDoubleAutomaton::getAsDouble(OptionalDouble) -> double
+     */
     public double getAsDouble() {
-        return this.__$lsl_automaton.getAsDouble(this);
+        double result = 0.0d;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            if (!present) {
+                throw new NoSuchElementException("No value present");
+            }
+            result = value;
+        }
+        return result;
     }
 
-    @Override
+    /**
+     * [FUNCTION] OptionalDoubleAutomaton::hashCode(OptionalDouble) -> int
+     */
     public int hashCode() {
-        return this.__$lsl_automaton.hashCode(this);
+        int result = 0;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            if (present) {
+                result = LibSLRuntime.hashCode(value);
+            } else {
+                result = 0;
+            }
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] OptionalDoubleAutomaton::ifPresent(OptionalDouble, DoubleConsumer) -> void
+     */
     public void ifPresent(DoubleConsumer consumer) {
-        this.__$lsl_automaton.ifPresent(this, consumer);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            if (present) {
+                if (consumer == null) {
+                    throw new NullPointerException();
+                }
+                consumer.accept(value);
+            }
+        }
     }
 
+    /**
+     * [FUNCTION] OptionalDoubleAutomaton::ifPresentOrElse(OptionalDouble, DoubleConsumer, Runnable) -> void
+     */
     public void ifPresentOrElse(DoubleConsumer consumer, Runnable emptyAction) {
-        this.__$lsl_automaton.ifPresentOrElse(this, consumer, emptyAction);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            if (present) {
+                if (consumer == null) {
+                    throw new NullPointerException();
+                }
+                consumer.accept(value);
+            } else {
+                if (emptyAction == null) {
+                    throw new NullPointerException();
+                }
+                emptyAction.run();
+            }
+        }
     }
 
+    /**
+     * [FUNCTION] OptionalDoubleAutomaton::isEmpty(OptionalDouble) -> boolean
+     */
     public boolean isEmpty() {
-        return this.__$lsl_automaton.isEmpty(this);
+        boolean result = false;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = !present;
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] OptionalDoubleAutomaton::isPresent(OptionalDouble) -> boolean
+     */
     public boolean isPresent() {
-        return this.__$lsl_automaton.isPresent(this);
+        boolean result = false;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = present;
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] OptionalDoubleAutomaton::orElse(OptionalDouble, double) -> double
+     */
     public double orElse(double other) {
-        return this.__$lsl_automaton.orElse(this, other);
+        double result = 0.0d;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            if (present) {
+                result = value;
+            } else {
+                result = other;
+            }
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] OptionalDoubleAutomaton::orElseGet(OptionalDouble, DoubleSupplier) -> double
+     */
     public double orElseGet(DoubleSupplier supplier) {
-        return this.__$lsl_automaton.orElseGet(this, supplier);
+        double result = 0.0d;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            if (supplier == null) {
+                throw new NullPointerException();
+            }
+            if (present) {
+                result = value;
+            } else {
+                result = supplier.getAsDouble();
+            }
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] OptionalDoubleAutomaton::orElseThrow(OptionalDouble) -> double
+     */
     public double orElseThrow() {
-        return this.__$lsl_automaton.orElseThrow(this);
+        double result = 0.0d;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            if (!present) {
+                throw new NoSuchElementException("No value present");
+            }
+            result = value;
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] OptionalDoubleAutomaton::orElseThrow(OptionalDouble, Supplier) -> double
+     */
     public double orElseThrow(Supplier exceptionSupplier) throws X {
-        return this.__$lsl_automaton.orElseThrow(this, exceptionSupplier);
+        double result = 0.0d;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            if (exceptionSupplier == null) {
+                throw new NullPointerException();
+            }
+            if (!present) {
+                final Object exception = exceptionSupplier.get();
+                throw ((Throwable) exception);
+            } else {
+                result = value;
+            }
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] OptionalDoubleAutomaton::stream(OptionalDouble) -> DoubleStream
+     */
     public DoubleStream stream() {
-        return this.__$lsl_automaton.stream(this);
+        DoubleStream result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.not_implemented();
+        }
+        return result;
     }
 
-    @Override
+    /**
+     * [FUNCTION] OptionalDoubleAutomaton::toString(OptionalDouble) -> String
+     */
     public String toString() {
-        return this.__$lsl_automaton.toString(this);
+        String result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            if (present) {
+                final String valueStr = LibSLRuntime.toString(value);
+                result = "OptionalDouble[" + valueStr + "]";
+            } else {
+                result = "OptionalDouble.empty";
+            }
+        }
+        return result;
+    }
+
+    public static final class __$lsl_States {
+        public static final byte Allocated = (byte) 0;
+
+        public static final byte Initialized = (byte) 1;
     }
 }

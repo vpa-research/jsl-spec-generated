@@ -3,117 +3,306 @@
 //
 package generated.java.util;
 
-import java.io.Serializable;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
+import org.usvm.api.Engine;
 import runtime.LibSLRuntime;
 
-@LibSLRuntime.InsteadOf("java.util.Random")
-public final class Random implements LibSLRuntime.HasAutomaton, Serializable {
-    private RandomAutomaton __$lsl_automaton = null;
+public final class Random implements LibSLRuntime.Automaton {
+    public byte __$lsl_state = __$lsl_States.Allocated;
 
-    @LibSLRuntime.DirectCallOnly
-    public Random(final RandomAutomaton a) {
-        this.__$lsl_automaton = a;
+    @LibSLRuntime.AutomatonConstructor
+    public Random(final LibSLRuntime.Token __$lsl_token, final byte __$lsl_state) {
+        this.__$lsl_state = __$lsl_state;
     }
 
+    @LibSLRuntime.AutomatonConstructor
+    public Random(final LibSLRuntime.Token __$lsl_token) {
+        this(__$lsl_token, __$lsl_States.Allocated);
+    }
+
+    /**
+     * [CONSTRUCTOR] RandomAutomaton::Random(Random) -> Random
+     */
     public Random() {
-        this(new RandomAutomaton());
-        this.__$lsl_automaton.Random(this);
+        this(LibSLRuntime.Token.INSTANCE);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        this.__$lsl_state = __$lsl_States.Initialized;
     }
 
+    /**
+     * [CONSTRUCTOR] RandomAutomaton::Random(Random, long) -> Random
+     */
     public Random(long arg0) {
-        this(new RandomAutomaton());
-        this.__$lsl_automaton.Random(this, arg0);
+        this(LibSLRuntime.Token.INSTANCE);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        this.__$lsl_state = __$lsl_States.Initialized;
     }
 
-    @Override
-    public LibSLRuntime.Automaton __$lsl_getAutomaton() {
-        return this.__$lsl_automaton;
-    }
-
+    /**
+     * [FUNCTION] RandomAutomaton::doubles(Random) -> DoubleStream
+     */
     public DoubleStream doubles() {
-        return this.__$lsl_automaton.doubles(this);
+        DoubleStream result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] RandomAutomaton::doubles(Random, double, double) -> DoubleStream
+     */
     public DoubleStream doubles(double arg0, double arg1) {
-        return this.__$lsl_automaton.doubles(this, arg0, arg1);
+        DoubleStream result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] RandomAutomaton::doubles(Random, long) -> DoubleStream
+     */
     public DoubleStream doubles(long arg0) {
-        return this.__$lsl_automaton.doubles(this, arg0);
+        DoubleStream result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] RandomAutomaton::doubles(Random, long, double, double) -> DoubleStream
+     */
     public DoubleStream doubles(long arg0, double arg1, double arg2) {
-        return this.__$lsl_automaton.doubles(this, arg0, arg1, arg2);
+        DoubleStream result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] RandomAutomaton::ints(Random) -> IntStream
+     */
     public IntStream ints() {
-        return this.__$lsl_automaton.ints(this);
+        IntStream result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] RandomAutomaton::ints(Random, int, int) -> IntStream
+     */
     public IntStream ints(int arg0, int arg1) {
-        return this.__$lsl_automaton.ints(this, arg0, arg1);
+        IntStream result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] RandomAutomaton::ints(Random, long) -> IntStream
+     */
     public IntStream ints(long arg0) {
-        return this.__$lsl_automaton.ints(this, arg0);
+        IntStream result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] RandomAutomaton::ints(Random, long, int, int) -> IntStream
+     */
     public IntStream ints(long arg0, int arg1, int arg2) {
-        return this.__$lsl_automaton.ints(this, arg0, arg1, arg2);
+        IntStream result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] RandomAutomaton::longs(Random) -> LongStream
+     */
     public LongStream longs() {
-        return this.__$lsl_automaton.longs(this);
+        LongStream result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] RandomAutomaton::longs(Random, long) -> LongStream
+     */
     public LongStream longs(long arg0) {
-        return this.__$lsl_automaton.longs(this, arg0);
+        LongStream result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] RandomAutomaton::longs(Random, long, long) -> LongStream
+     */
     public LongStream longs(long arg0, long arg1) {
-        return this.__$lsl_automaton.longs(this, arg0, arg1);
+        LongStream result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] RandomAutomaton::longs(Random, long, long, long) -> LongStream
+     */
     public LongStream longs(long arg0, long arg1, long arg2) {
-        return this.__$lsl_automaton.longs(this, arg0, arg1, arg2);
+        LongStream result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] RandomAutomaton::nextBoolean(Random) -> boolean
+     */
     public boolean nextBoolean() {
-        return this.__$lsl_automaton.nextBoolean(this);
+        boolean result = false;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = Engine.makeSymbolic(boolean.class);
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] RandomAutomaton::nextBytes(Random, array<byte>) -> void
+     */
     public void nextBytes(byte[] arg0) {
-        this.__$lsl_automaton.nextBytes(this, arg0);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
     }
 
+    /**
+     * [FUNCTION] RandomAutomaton::nextDouble(Random) -> double
+     */
     public double nextDouble() {
-        return this.__$lsl_automaton.nextDouble(this);
+        double result = 0.0d;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = Engine.makeSymbolic(double.class);
+            Engine.assume((0.0d <= result) && (result < 1.0d));
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] RandomAutomaton::nextFloat(Random) -> float
+     */
     public float nextFloat() {
-        return this.__$lsl_automaton.nextFloat(this);
+        float result = 0.0f;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = Engine.makeSymbolic(float.class);
+            Engine.assume((0.0f <= result) && (result < 1.0f));
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] RandomAutomaton::nextGaussian(Random) -> double
+     */
     public synchronized double nextGaussian() {
-        return this.__$lsl_automaton.nextGaussian(this);
+        double result = 0.0d;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = Engine.makeSymbolic(double.class);
+            Engine.assume((-1.0d <= result) && (result < 1.0d));
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] RandomAutomaton::nextInt(Random) -> int
+     */
     public int nextInt() {
-        return this.__$lsl_automaton.nextInt(this);
+        int result = 0;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = Engine.makeSymbolic(int.class);
+        }
+        return result;
     }
 
-    public int nextInt(int arg0) {
-        return this.__$lsl_automaton.nextInt(this, arg0);
+    /**
+     * [FUNCTION] RandomAutomaton::nextInt(Random, int) -> int
+     */
+    public int nextInt(int bound) {
+        int result = 0;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            if (bound <= 0) {
+                throw new IllegalArgumentException("bound must be positive");
+            }
+            result = Engine.makeSymbolic(int.class);
+            Engine.assume((0 <= result) && (result < bound));
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] RandomAutomaton::nextLong(Random) -> long
+     */
     public long nextLong() {
-        return this.__$lsl_automaton.nextLong(this);
+        long result = 0L;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = Engine.makeSymbolic(long.class);
+        }
+        return result;
     }
 
+    /**
+     * [FUNCTION] RandomAutomaton::setSeed(Random, long) -> void
+     */
     public synchronized void setSeed(long seed) {
-        this.__$lsl_automaton.setSeed(this, seed);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+        }
+    }
+
+    public static final class __$lsl_States {
+        public static final byte Allocated = (byte) 0;
+
+        public static final byte Initialized = (byte) 1;
     }
 }
