@@ -623,7 +623,21 @@ public final class ArrayList implements LibSLRuntime.Automaton {
     public void forEach(Consumer anAction) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.not_implemented();
+            if (anAction == null) {
+                throw new NullPointerException();
+            }
+            final int expectedModCount = modCount;
+            final int size = length;
+            int i = 0;
+            while ((modCount == expectedModCount) && (i < size)) {
+                final Object item = storage.get(i);
+                anAction.accept(item);
+                i += 1;
+            }
+            ;
+            if (modCount != expectedModCount) {
+                throw new ConcurrentModificationException();
+            }
         }
     }
 

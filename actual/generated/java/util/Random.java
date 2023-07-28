@@ -246,7 +246,6 @@ public final class Random implements LibSLRuntime.Automaton {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = Engine.makeSymbolic(double.class);
-            Engine.assume((-1.0d <= result) && (result < 1.0d));
         }
         return result;
     }
