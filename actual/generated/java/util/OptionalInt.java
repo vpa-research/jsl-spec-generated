@@ -8,10 +8,12 @@ import java.util.function.IntConsumer;
 import java.util.function.IntSupplier;
 import java.util.function.Supplier;
 import java.util.stream.IntStream;
+import org.jacodb.approximation.annotation.Approximate;
 import org.usvm.api.Engine;
 import runtime.LibSLGlobals;
 import runtime.LibSLRuntime;
 
+@Approximate(java.util.OptionalInt.class)
 public final class OptionalInt implements LibSLRuntime.Automaton {
     public byte __$lsl_state = __$lsl_States.Allocated;
 

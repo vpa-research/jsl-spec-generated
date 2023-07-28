@@ -3,13 +3,16 @@
 //
 package generated.java.util;
 
+import java.io.Serializable;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
+import org.jacodb.approximation.annotation.Approximate;
 import org.usvm.api.Engine;
 import runtime.LibSLRuntime;
 
-public final class Random implements LibSLRuntime.Automaton {
+@Approximate(java.util.Random.class)
+public class Random implements LibSLRuntime.Automaton, Serializable {
     public byte __$lsl_state = __$lsl_States.Allocated;
 
     @LibSLRuntime.AutomatonConstructor
