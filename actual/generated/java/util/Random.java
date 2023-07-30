@@ -200,7 +200,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = Engine.makeSymbolic(boolean.class);
+            result = Engine.makeSymbolicBoolean();
         }
         return result;
     }
@@ -222,8 +222,9 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
         double result = 0.0d;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = Engine.makeSymbolic(double.class);
-            Engine.assume((0.0d <= result) && (result < 1.0d));
+            result = Engine.makeSymbolicDouble();
+            Engine.assume(0.0d <= result);
+            Engine.assume(result < 1.0d);
         }
         return result;
     }
@@ -235,8 +236,9 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
         float result = 0.0f;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = Engine.makeSymbolic(float.class);
-            Engine.assume((0.0f <= result) && (result < 1.0f));
+            result = Engine.makeSymbolicFloat();
+            Engine.assume(0.0f <= result);
+            Engine.assume(result < 1.0f);
         }
         return result;
     }
@@ -248,7 +250,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
         double result = 0.0d;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = Engine.makeSymbolic(double.class);
+            result = Engine.makeSymbolicDouble();
         }
         return result;
     }
@@ -260,7 +262,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
         int result = 0;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = Engine.makeSymbolic(int.class);
+            result = Engine.makeSymbolicInt();
         }
         return result;
     }
@@ -275,8 +277,9 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
             if (bound <= 0) {
                 throw new IllegalArgumentException("bound must be positive");
             }
-            result = Engine.makeSymbolic(int.class);
-            Engine.assume((0 <= result) && (result < bound));
+            result = Engine.makeSymbolicInt();
+            Engine.assume(0 <= result);
+            Engine.assume(result < bound);
         }
         return result;
     }
@@ -288,7 +291,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
         long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = Engine.makeSymbolic(long.class);
+            result = Engine.makeSymbolicLong();
         }
         return result;
     }
