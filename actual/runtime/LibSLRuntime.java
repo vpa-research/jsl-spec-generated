@@ -116,17 +116,126 @@ public final class LibSLRuntime {
 
 
 
-    // TODO: remove helper function ?
-    public static String toString(final Object obj) {
-        return obj == null ? "null" : obj.toString();
+    public static String toString(final boolean v) {
+        return v ? "true" : "false";
     }
 
-    // TODO: remove helper function ?
-    public static String hashCode(final Object obj) {
-        return obj == null ? 0 : obj.hashCode();
+    public static String toString(final byte v) {
+        // FIXME: use less complex approach
+        return Integer.toString((int) v);
     }
 
-    // TODO: remove helper function ?
+    public static String toString(final short v) {
+        // FIXME: use less complex approach
+        return Integer.toString((int) v);
+    }
+
+    public static String toString(final int v) {
+        // FIXME: use less complex approach
+        return Integer.toString(v);
+    }
+
+    public static String toString(final long v) {
+        // FIXME: use less complex approach
+        return Long.toString(v);
+    }
+
+    public static String toString(final char v) {
+        // FIXME: use less complex approach
+        return String.valueOf(v);
+    }
+
+    public static String toString(final float v) {
+        // FIXME: use less complex approach
+        return Float.toString(v);
+    }
+
+    public static String toString(final double v) {
+        // FIXME: use less complex approach
+        return Double.toString(v);
+    }
+
+    public static String toString(final Object v) {
+        return v == null ? "null" : v.toString();
+    }
+
+
+
+    public static int hashCode(final boolean v) {
+        // NOTE: copied from https://github.com/openjdk/jdk11/blob/master/src/java.base/share/classes/java/lang/Boolean.java#L227
+        return v ? 1231 : 1237;
+    }
+
+    public static int hashCode(final byte v) {
+        return (int) v;
+    }
+
+    public static int hashCode(final short v) {
+        return (int) v;
+    }
+
+    public static int hashCode(final int v) {
+        return v;
+    }
+
+    public static int hashCode(final long v) {
+        return (int) (v ^ (v >>> 32));
+    }
+
+    public static int hashCode(final char v) {
+        return (int) v;
+    }
+
+    public static int hashCode(final float v) {
+        // FIXME: use less complex approach
+        return Float.hashCode(v);
+    }
+
+    public static int hashCode(final double v) {
+        // FIXME: use less complex approach
+        return Double.hashCode(v);
+    }
+
+    public static int hashCode(final Object v) {
+        return v == null ? 0 : v.hashCode();
+    }
+
+
+
+    public static boolean equals(final boolean a, final boolean b) {
+        return a == b;
+    }
+
+    public static boolean equals(final byte a, final byte b) {
+        return a == b;
+    }
+
+    public static boolean equals(final short a, final short b) {
+        return a == b;
+    }
+
+    public static boolean equals(final int a, final int b) {
+        return a == b;
+    }
+
+    public static boolean equals(final long a, final long b) {
+        return a == b;
+    }
+
+    public static boolean equals(final char a, final char b) {
+        return a == b;
+    }
+
+    public static boolean equals(final float a, final float b) {
+        // FIXME: use Float.compare(a, b) ?
+        return a == b;
+    }
+
+    public static boolean equals(final double a, final double b) {
+        // FIXME: use Double.compare(a, b) ?
+        return a == b;
+    }
+
     public static boolean equals(final Object a, final Object b) {
         if (a == b)
             return true;
