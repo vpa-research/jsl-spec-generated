@@ -97,7 +97,8 @@ public final class LibSLRuntime {
         final var automaton = getAutomatonFrom(obj);
         Engine.assume(expectedAutomaton.isInstance(automaton));
 
-        return expectedAutomaton.cast(automaton);
+        @SuppressWarnings("unchecked") var result = (T) automaton;
+        return result;
     }
 
     public static void error(final String msg) {
@@ -121,28 +122,47 @@ public final class LibSLRuntime {
     }
 
     public static String toString(final byte v) {
-        // FIXME: use less complex approach
-        return Integer.toString((int) v);
+        // TODO: maybe use more sophisticated approach?
+        final var str = Engine.makeSymbolic(String.class);
+        Engine.assume(str != null);
+
+        Engine.assume(str.length() <= 4); // '-128' _ '128'
+
+        return str;
     }
 
     public static String toString(final short v) {
-        // FIXME: use less complex approach
-        return Integer.toString((int) v);
+        // TODO: maybe use more sophisticated approach?
+        final var str = Engine.makeSymbolic(String.class);
+        Engine.assume(str != null);
+
+        Engine.assume(str.length() <= 6); // '-32768' _ '32767'
+
+        return str;
     }
 
     public static String toString(final int v) {
-        // FIXME: use less complex approach
-        return Integer.toString(v);
+        // TODO: maybe use more sophisticated approach?
+        final var str = Engine.makeSymbolic(String.class);
+        Engine.assume(str != null);
+
+        Engine.assume(str.length() <= 11); // '-2147483648' _ '2147483647'
+
+        return str;
     }
 
     public static String toString(final long v) {
-        // FIXME: use less complex approach
-        return Long.toString(v);
+        // TODO: maybe use more sophisticated approach?
+        final var str = Engine.makeSymbolic(String.class);
+        Engine.assume(str != null);
+
+        Engine.assume(str.length() <= 20); // '-9223372036854775808' _ '9223372036854775807'
+
+        return str;
     }
 
     public static String toString(final char v) {
-        // FIXME: use less complex approach
-        return String.valueOf(v);
+        return new String(new char[]{ v });
     }
 
     public static String toString(final float v) {
