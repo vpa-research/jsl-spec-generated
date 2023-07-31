@@ -35,7 +35,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     /**
      * [CONSTRUCTOR] OptionalAutomaton::Optional(Optional) -> Optional
      */
-    public Optional() {
+    private Optional() {
         this(LibSLRuntime.Token.INSTANCE);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
@@ -47,7 +47,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     /**
      * [CONSTRUCTOR] OptionalAutomaton::Optional(Optional, T) -> Optional
      */
-    public Optional(Object obj) {
+    private Optional(Object obj) {
         this(LibSLRuntime.Token.INSTANCE);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
@@ -99,7 +99,7 @@ public final class Optional implements LibSLRuntime.Automaton {
             if (obj == null) {
                 throw new NullPointerException();
             }
-            result = new Optional(new Optional(Optional.__$lsl_States.Initialized, obj));
+            result = new Optional(LibSLRuntime.Token.INSTANCE, Optional.__$lsl_States.Initialized, obj);
         }
         // WARNING: no state transitions in static context
         return result;
@@ -115,7 +115,7 @@ public final class Optional implements LibSLRuntime.Automaton {
             if (obj == null) {
                 result = _makeEmpty();
             } else {
-                result = new Optional(new Optional(Optional.__$lsl_States.Initialized, obj));
+                result = new Optional(LibSLRuntime.Token.INSTANCE, Optional.__$lsl_States.Initialized, obj);
             }
         }
         // WARNING: no state transitions in static context
@@ -293,7 +293,7 @@ public final class Optional implements LibSLRuntime.Automaton {
                 if (mappedValue == null) {
                     result = _makeEmpty();
                 } else {
-                    result = new Optional(new Optional(Optional.__$lsl_States.Initialized, mappedValue));
+                    result = new Optional(LibSLRuntime.Token.INSTANCE, Optional.__$lsl_States.Initialized, mappedValue);
                 }
             }
         }

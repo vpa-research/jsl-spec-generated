@@ -37,7 +37,7 @@ public final class OptionalInt implements LibSLRuntime.Automaton {
     /**
      * [CONSTRUCTOR] OptionalIntAutomaton::OptionalInt(OptionalInt) -> OptionalInt
      */
-    public OptionalInt() {
+    private OptionalInt() {
         this(LibSLRuntime.Token.INSTANCE);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
@@ -49,7 +49,7 @@ public final class OptionalInt implements LibSLRuntime.Automaton {
     /**
      * [CONSTRUCTOR] OptionalIntAutomaton::OptionalInt(OptionalInt, int) -> OptionalInt
      */
-    public OptionalInt(int x) {
+    private OptionalInt(int x) {
         this(LibSLRuntime.Token.INSTANCE);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
@@ -87,7 +87,7 @@ public final class OptionalInt implements LibSLRuntime.Automaton {
         OptionalInt result = null;
         // WARNING: no state checks in static context
         /* body */ {
-            result = new OptionalInt(new OptionalInt(OptionalInt.__$lsl_States.Initialized, x, true));
+            result = new OptionalInt(LibSLRuntime.Token.INSTANCE, OptionalInt.__$lsl_States.Initialized, x, true);
         }
         // WARNING: no state transitions in static context
         return result;

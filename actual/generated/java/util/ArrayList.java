@@ -299,7 +299,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         /* body */ {
             final SymbolicList<Object> storageCopy = Engine.makeSymbolicList();
             storage.copy(storageCopy, 0, 0, length);
-            result = new ArrayList(new ArrayList(ArrayList.__$lsl_States.Initialized, storageCopy, length, 0));
+            result = new ArrayList(LibSLRuntime.Token.INSTANCE, ArrayList.__$lsl_States.Initialized, storageCopy, length, 0);
         }
         return result;
     }
@@ -552,7 +552,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     /**
      * [FUNCTION] ArrayListAutomaton::writeObject(ArrayList, ObjectOutputStream) -> void
      */
-    public void writeObject(ObjectOutputStream s) throws java.io.IOException {
+    private void writeObject(ObjectOutputStream s) throws java.io.IOException {
         /* body */ {
             LibSLRuntime.not_implemented();
         }
@@ -561,7 +561,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     /**
      * [FUNCTION] ArrayListAutomaton::readObject(ArrayList, ObjectInputStream) -> void
      */
-    public void readObject(ObjectInputStream s) throws java.io.IOException,
+    private void readObject(ObjectInputStream s) throws java.io.IOException,
             java.lang.ClassNotFoundException {
         /* body */ {
             LibSLRuntime.not_implemented();

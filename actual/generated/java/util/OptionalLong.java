@@ -37,7 +37,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
     /**
      * [CONSTRUCTOR] OptionalLongAutomaton::OptionalLong(OptionalLong) -> OptionalLong
      */
-    public OptionalLong() {
+    private OptionalLong() {
         this(LibSLRuntime.Token.INSTANCE);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
@@ -49,7 +49,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
     /**
      * [CONSTRUCTOR] OptionalLongAutomaton::OptionalLong(OptionalLong, long) -> OptionalLong
      */
-    public OptionalLong(long x) {
+    private OptionalLong(long x) {
         this(LibSLRuntime.Token.INSTANCE);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
@@ -87,7 +87,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
         OptionalLong result = null;
         // WARNING: no state checks in static context
         /* body */ {
-            result = new OptionalLong(new OptionalLong(OptionalLong.__$lsl_States.Initialized, x, true));
+            result = new OptionalLong(LibSLRuntime.Token.INSTANCE, OptionalLong.__$lsl_States.Initialized, x, true);
         }
         // WARNING: no state transitions in static context
         return result;

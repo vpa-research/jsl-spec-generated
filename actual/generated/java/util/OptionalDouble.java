@@ -37,7 +37,7 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
     /**
      * [CONSTRUCTOR] OptionalDoubleAutomaton::OptionalDouble(OptionalDouble) -> OptionalDouble
      */
-    public OptionalDouble() {
+    private OptionalDouble() {
         this(LibSLRuntime.Token.INSTANCE);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
@@ -49,7 +49,7 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
     /**
      * [CONSTRUCTOR] OptionalDoubleAutomaton::OptionalDouble(OptionalDouble, double) -> OptionalDouble
      */
-    public OptionalDouble(double x) {
+    private OptionalDouble(double x) {
         this(LibSLRuntime.Token.INSTANCE);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
@@ -87,7 +87,7 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
         OptionalDouble result = null;
         // WARNING: no state checks in static context
         /* body */ {
-            result = new OptionalDouble(new OptionalDouble(OptionalDouble.__$lsl_States.Initialized, x, true));
+            result = new OptionalDouble(LibSLRuntime.Token.INSTANCE, OptionalDouble.__$lsl_States.Initialized, x, true);
         }
         // WARNING: no state transitions in static context
         return result;

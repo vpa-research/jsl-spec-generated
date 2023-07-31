@@ -18,9 +18,9 @@ public class LibSLGlobals {
     public static final OptionalDouble EMPTY_OPTIONAL_DOUBLE;
 
     static {
-        EMPTY_OPTIONAL_INT = new OptionalInt(new OptionalInt(OptionalInt.__$lsl_States.Initialized, 0, false));
-        EMPTY_OPTIONAL_LONG = new OptionalLong(new OptionalLong(OptionalLong.__$lsl_States.Initialized, 0, false));
-        EMPTY_OPTIONAL = new Optional(new Optional(Optional.__$lsl_States.Initialized, null));
-        EMPTY_OPTIONAL_DOUBLE = new OptionalDouble(new OptionalDouble(OptionalDouble.__$lsl_States.Initialized, 0.0d, false));
+        EMPTY_OPTIONAL_INT = new OptionalInt(LibSLRuntime.Token.INSTANCE, OptionalInt.__$lsl_States.Initialized, 0, false);
+        EMPTY_OPTIONAL_LONG = new OptionalLong(LibSLRuntime.Token.INSTANCE, OptionalLong.__$lsl_States.Initialized, 0, false);
+        EMPTY_OPTIONAL = new Optional(LibSLRuntime.Token.INSTANCE, Optional.__$lsl_States.Initialized, null);
+        EMPTY_OPTIONAL_DOUBLE = new OptionalDouble(LibSLRuntime.Token.INSTANCE, OptionalDouble.__$lsl_States.Initialized, 0.0d, false);
     }
 }
