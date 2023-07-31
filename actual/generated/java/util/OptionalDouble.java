@@ -301,7 +301,7 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
         /* body */ {
             if (present) {
                 final String valueStr = LibSLRuntime.toString(value);
-                result = "OptionalDouble[" + valueStr + "]";
+                result = "OptionalDouble[".concat(valueStr).concat("]");
             } else {
                 result = "OptionalDouble.empty";
             }

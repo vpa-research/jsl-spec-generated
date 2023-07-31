@@ -301,7 +301,7 @@ public final class OptionalInt implements LibSLRuntime.Automaton {
         /* body */ {
             if (present) {
                 final String valueStr = LibSLRuntime.toString(value);
-                result = "OptionalInt[" + valueStr + "]";
+                result = "OptionalInt[".concat(valueStr).concat("]");
             } else {
                 result = "OptionalInt.empty";
             }

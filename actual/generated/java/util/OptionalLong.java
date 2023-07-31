@@ -301,7 +301,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
         /* body */ {
             if (present) {
                 final String valueStr = LibSLRuntime.toString(value);
-                result = "OptionalLong[" + valueStr + "]";
+                result = "OptionalLong[".concat(valueStr).concat("]");
             } else {
                 result = "OptionalLong.empty";
             }
