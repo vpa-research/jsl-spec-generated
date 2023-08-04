@@ -314,7 +314,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
             final int size = length;
             result = new Object[size];
             int i = 0;
-            for (i = 0; i != size; i += 1) {
+            for (i = 0; i < size; i += 1) {
                 final Object item = storage.get(i);
                 result[i] = item;
             }
@@ -334,14 +334,14 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
             int i = 0;
             if (aLen < size) {
                 result = new Object[size];
-                for (i = 0; i != size; i += 1) {
+                for (i = 0; i < size; i += 1) {
                     final Object item = storage.get(i);
                     result[i] = item;
                 }
                 ;
             } else {
                 result = a;
-                for (i = 0; i != size; i += 1) {
+                for (i = 0; i < size; i += 1) {
                     final Object item = storage.get(i);
                     result[i] = item;
                 }
