@@ -4,10 +4,11 @@
 package generated.java.util;
 
 import org.jacodb.approximation.annotation.Approximate;
+import org.usvm.api.Engine;
 
 @Approximate(ArrayList.class)
 public class ArrayList_hook {
     public ArrayList_hook(final Void o) {
-        // nothing
+        Engine.assume(false);
     }
 }

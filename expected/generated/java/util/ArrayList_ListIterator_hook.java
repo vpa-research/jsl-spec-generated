@@ -4,10 +4,11 @@
 package generated.java.util;
 
 import org.jacodb.approximation.annotation.Approximate;
+import org.usvm.api.Engine;
 
 @Approximate(ArrayList_ListIterator.class)
 public class ArrayList_ListIterator_hook {
     public ArrayList_ListIterator_hook(final Void o) {
-        // nothing
+        Engine.assume(false);
     }
 }
