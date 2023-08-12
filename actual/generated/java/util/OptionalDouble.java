@@ -41,7 +41,7 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
         this(LibSLRuntime.Token.INSTANCE);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
-            LibSLRuntime.error("Private constructor call");
+            LibSLRuntime.not_implemented();
         }
         this.__$lsl_state = __$lsl_States.Initialized;
     }
@@ -53,7 +53,7 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
         this(LibSLRuntime.Token.INSTANCE);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
-            LibSLRuntime.error("Private constructor call");
+            LibSLRuntime.not_implemented();
         }
         this.__$lsl_state = __$lsl_States.Initialized;
     }
@@ -263,7 +263,7 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
     /**
      * [FUNCTION] OptionalDoubleAutomaton::orElseThrow(OptionalDouble, Supplier) -> double
      */
-    public double orElseThrow(Supplier exceptionSupplier) throws X {
+    public double orElseThrow(Supplier exceptionSupplier) throws java.lang.Throwable {
         double result = 0.0d;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {

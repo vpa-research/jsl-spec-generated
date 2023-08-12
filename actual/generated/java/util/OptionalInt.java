@@ -41,7 +41,7 @@ public final class OptionalInt implements LibSLRuntime.Automaton {
         this(LibSLRuntime.Token.INSTANCE);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
-            LibSLRuntime.error("Private constructor call");
+            LibSLRuntime.not_implemented();
         }
         this.__$lsl_state = __$lsl_States.Initialized;
     }
@@ -53,7 +53,7 @@ public final class OptionalInt implements LibSLRuntime.Automaton {
         this(LibSLRuntime.Token.INSTANCE);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
-            LibSLRuntime.error("Private constructor call");
+            LibSLRuntime.not_implemented();
         }
         this.__$lsl_state = __$lsl_States.Initialized;
     }
@@ -263,7 +263,7 @@ public final class OptionalInt implements LibSLRuntime.Automaton {
     /**
      * [FUNCTION] OptionalIntAutomaton::orElseThrow(OptionalInt, Supplier) -> int
      */
-    public int orElseThrow(Supplier exceptionSupplier) throws X {
+    public int orElseThrow(Supplier exceptionSupplier) throws java.lang.Throwable {
         int result = 0;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {

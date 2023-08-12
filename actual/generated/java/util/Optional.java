@@ -375,7 +375,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     /**
      * [FUNCTION] OptionalAutomaton::orElseThrow(Optional, Supplier) -> T
      */
-    public Object orElseThrow(Supplier exceptionSupplier) throws X {
+    public Object orElseThrow(Supplier exceptionSupplier) throws java.lang.Throwable {
         Object result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {

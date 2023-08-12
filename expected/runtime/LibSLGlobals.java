@@ -4,12 +4,11 @@
 package runtime;
 
 import generated.java.util.OptionalDouble;
-import generated.java.util.OptionalDoubleAutomaton;
 
 public class LibSLGlobals {
     public static final OptionalDouble EMPTY_OPTIONAL_DOUBLE;
 
     static {
-        EMPTY_OPTIONAL_DOUBLE = new OptionalDouble(new OptionalDoubleAutomaton(OptionalDoubleAutomaton.__$lsl_States.Initialized, 0.0d, false));
+        EMPTY_OPTIONAL_DOUBLE = new OptionalDouble(LibSLRuntime.Token.INSTANCE, OptionalDouble.__$lsl_States.Initialized, 0.0d, false);
     }
 }
