@@ -71,6 +71,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             storage = Engine.makeSymbolicList();
+            length = 0;
         }
         this.__$lsl_state = __$lsl_States.Initialized;
     }
@@ -83,7 +84,8 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             storage = Engine.makeSymbolicList();
-            LibSLRuntime.not_implemented();
+            length = 0;
+            _addAllElements(0, c);
         }
         this.__$lsl_state = __$lsl_States.Initialized;
     }
@@ -122,8 +124,16 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     public boolean _addAllElements(int index, Collection c) {
         boolean result = false;
         /* body */ {
+            final Iterator iter = c.iterator();
+            result = iter.hasNext();
+            while (iter.hasNext()) {
+                final Object item = iter.next();
+                storage.insert(index, item);
+                index += 1;
+                length += 1;
+            }
+            ;
             modCount += 1;
-            LibSLRuntime.not_implemented();
         }
         return result;
     }
@@ -202,6 +212,26 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     }
 
     /**
+     * [SUBROUTINE] ArrayListAutomaton::_replaceAllRange(int, int, UnaryOperator) -> void
+     */
+    public void _replaceAllRange(int i, int end, UnaryOperator op) {
+        /* body */ {
+            final int expectedModCount = modCount;
+            int i = 0;
+            while ((modCount == expectedModCount) && (i < end)) {
+                final Object oldItem = storage.get(i);
+                final Object newItem = op.apply(oldItem);
+                storage.set(i, newItem);
+                i += 1;
+            }
+            ;
+            if (modCount != expectedModCount) {
+                throw new ConcurrentModificationException();
+            }
+        }
+    }
+
+    /**
      * [FUNCTION] ArrayListAutomaton::trimToSize(ArrayList) -> void
      */
     public void trimToSize() {
@@ -276,7 +306,14 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         int result = 0;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.not_implemented();
+            result = LibSLRuntime.ListActions.find(storage, o, 0, length);
+            if (result != -1) {
+                final int nextIndex = result + 1;
+                if (nextIndex < length) {
+                    final int rightIndex = LibSLRuntime.ListActions.find(storage, o, nextIndex, length);
+                    Engine.assume(rightIndex == -1);
+                }
+            }
         }
         return result;
     }
@@ -306,8 +343,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
             result = new Object[size];
             int i = 0;
             for (i = 0; i < size; i += 1) {
-                final Object item = storage.get(i);
-                result[i] = item;
+                result[i] = storage.get(i);
             }
             ;
         }
@@ -326,15 +362,13 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
             if (aLen < size) {
                 result = new Object[size];
                 for (i = 0; i < size; i += 1) {
-                    final Object item = storage.get(i);
-                    result[i] = item;
+                    result[i] = storage.get(i);
                 }
                 ;
             } else {
                 result = a;
                 for (i = 0; i < size; i += 1) {
-                    final Object item = storage.get(i);
-                    result[i] = item;
+                    result[i] = storage.get(i);
                 }
                 ;
                 if (aLen > size) {
@@ -444,7 +478,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         String result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.not_implemented();
+            result = LibSLRuntime.toString(storage);
         }
         return result;
     }
@@ -523,7 +557,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.not_implemented();
+            LibSLRuntime.not_implemented(/* no support for interface calls yet */);
         }
         return result;
     }
@@ -535,7 +569,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.not_implemented();
+            LibSLRuntime.not_implemented(/* no support for interface calls yet */);
         }
         return result;
     }
@@ -545,7 +579,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
      */
     private void writeObject(ObjectOutputStream s) throws java.io.IOException {
         /* body */ {
-            LibSLRuntime.not_implemented();
+            LibSLRuntime.not_implemented(/* no serialization support yet */);
         }
     }
 
@@ -555,7 +589,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     private void readObject(ObjectInputStream s) throws java.io.IOException,
             java.lang.ClassNotFoundException {
         /* body */ {
-            LibSLRuntime.not_implemented();
+            LibSLRuntime.not_implemented(/* no serialization support yet */);
         }
     }
 
@@ -567,7 +601,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             _rangeCheckForAdd(index);
-            LibSLRuntime.not_implemented();
+            LibSLRuntime.not_implemented(/* testing creation and usage of new types */);
         }
         return result;
     }
@@ -579,7 +613,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         ListIterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.not_implemented();
+            LibSLRuntime.not_implemented(/* testing creation and usage of new types */);
         }
         return result;
     }
@@ -659,7 +693,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
                 throw new NullPointerException();
             }
             final int expectedModCount = modCount;
-            LibSLRuntime.not_implemented();
+            LibSLRuntime.not_implemented(/* no support for interface calls */);
         }
         return result;
     }
@@ -673,11 +707,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
             if (op == null) {
                 throw new NullPointerException();
             }
-            final int expectedModCount = modCount;
-            LibSLRuntime.not_implemented();
-            if (modCount != expectedModCount) {
-                throw new ConcurrentModificationException();
-            }
+            _replaceAllRange(0, length, op);
             modCount += 1;
         }
     }
@@ -688,8 +718,11 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     public void sort(Comparator c) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
+            if (c == null) {
+                throw new NullPointerException();
+            }
             final int expectedModCount = modCount;
-            LibSLRuntime.not_implemented();
+            LibSLRuntime.not_implemented(/* too complex, no decision yet */);
             if (modCount != expectedModCount) {
                 throw new ConcurrentModificationException();
             }

@@ -41,7 +41,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
         this(LibSLRuntime.Token.INSTANCE);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
-            LibSLRuntime.not_implemented();
+            LibSLRuntime.not_implemented(/* this method can be called using reflection only */);
         }
         this.__$lsl_state = __$lsl_States.Initialized;
     }
@@ -53,7 +53,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
         this(LibSLRuntime.Token.INSTANCE);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
-            LibSLRuntime.not_implemented();
+            LibSLRuntime.not_implemented(/* this method can be called using reflection only */);
         }
         this.__$lsl_state = __$lsl_States.Initialized;
     }
@@ -287,7 +287,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
         LongStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.not_implemented();
+            LibSLRuntime.not_implemented(/* no decision */);
         }
         return result;
     }

@@ -399,7 +399,7 @@ public final class Optional implements LibSLRuntime.Automaton {
         Stream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.not_implemented();
+            LibSLRuntime.not_implemented(/* no decision */);
         }
         return result;
     }

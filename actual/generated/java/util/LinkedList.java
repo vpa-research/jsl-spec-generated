@@ -437,7 +437,14 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         int result = 0;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.not_implemented();
+            result = LibSLRuntime.ListActions.find(storage, o, 0, size);
+            if (result != -1) {
+                final int nextIndex = result + 1;
+                if (nextIndex < size) {
+                    final int rightIndex = LibSLRuntime.ListActions.find(storage, o, nextIndex, size);
+                    Engine.assume(rightIndex == -1);
+                }
+            }
         }
         return result;
     }
@@ -673,15 +680,13 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
             if (aLen < length) {
                 result = new Object[length];
                 for (i = 0; i < length; i += 1) {
-                    final Object item = storage.get(i);
-                    result[i] = item;
+                    result[i] = storage.get(i);
                 }
                 ;
             } else {
                 result = a;
                 for (i = 0; i < length; i += 1) {
-                    final Object item = storage.get(i);
-                    result[i] = item;
+                    result[i] = storage.get(i);
                 }
                 ;
                 if (aLen > length) {
@@ -788,7 +793,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         String result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.not_implemented();
+            result = LibSLRuntime.toString(storage);
         }
         return result;
     }
