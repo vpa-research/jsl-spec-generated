@@ -71,7 +71,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     /**
      * [SUBROUTINE] LinkedListAutomaton::_unlinkAny(int) -> Object
      */
-    public Object _unlinkAny() {
+    public Object _unlinkAny(int index) {
         Object result = null;
         /* body */ {
             result = storage.get(index);
@@ -85,7 +85,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     /**
      * [SUBROUTINE] LinkedListAutomaton::_linkAny(int, Object) -> void
      */
-    public void _linkAny(Object e) {
+    public void _linkAny(int index, Object e) {
         /* body */ {
             storage.insert(index, e);
             size += 1;
@@ -96,7 +96,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     /**
      * [SUBROUTINE] LinkedListAutomaton::_checkElementIndex(int) -> void
      */
-    public void _checkElementIndex() {
+    public void _checkElementIndex(int index) {
         /* body */ {
             if (!_isValidIndex(index)) {
                 final String message = "Index: ".concat(LibSLRuntime.toString(index)).concat(", Size: ").concat(LibSLRuntime.toString(size));
@@ -108,7 +108,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     /**
      * [SUBROUTINE] LinkedListAutomaton::_isValidIndex(int) -> boolean
      */
-    public boolean _isValidIndex() {
+    public boolean _isValidIndex(int index) {
         boolean result = false;
         /* body */ {
             result = (0 <= index) && (index < size);
@@ -119,7 +119,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     /**
      * [SUBROUTINE] LinkedListAutomaton::_isPositionIndex(int) -> boolean
      */
-    public boolean _isPositionIndex() {
+    public boolean _isPositionIndex(int index) {
         boolean result = false;
         /* body */ {
             result = (0 <= index) && (index <= size);
@@ -130,7 +130,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     /**
      * [SUBROUTINE] LinkedListAutomaton::_checkPositionIndex(int) -> void
      */
-    public void _checkPositionIndex() {
+    public void _checkPositionIndex(int index) {
         /* body */ {
             if (!_isPositionIndex(index)) {
                 final String message = "Index: ".concat(LibSLRuntime.toString(index)).concat(", Size: ").concat(LibSLRuntime.toString(size));
@@ -157,7 +157,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     /**
      * [SUBROUTINE] LinkedListAutomaton::_unlinkByFirstEqualsObject(Object) -> boolean
      */
-    public boolean _unlinkByFirstEqualsObject() {
+    public boolean _unlinkByFirstEqualsObject(Object o) {
         boolean result = false;
         /* body */ {
             final int index = LibSLRuntime.ListActions.find(storage, o, 0, size);
@@ -174,7 +174,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     /**
      * [SUBROUTINE] LinkedListAutomaton::_addAllElements(int, Collection) -> boolean
      */
-    public boolean _addAllElements(Collection c) {
+    public boolean _addAllElements(int index, Collection c) {
         boolean result = false;
         /* body */ {
             final Iterator iter = c.iterator();
