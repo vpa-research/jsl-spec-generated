@@ -29,9 +29,9 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
 
     public SymbolicList<Object> storage;
 
-    public int length;
+    public transient int length;
 
-    public int modCount = 0;
+    public transient int modCount = 0;
 
     @LibSLRuntime.AutomatonConstructor
     public ArrayList(final LibSLRuntime.Token __$lsl_token, final byte __$lsl_state,
