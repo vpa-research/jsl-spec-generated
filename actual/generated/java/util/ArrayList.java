@@ -48,22 +48,6 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     }
 
     /**
-     * [CONSTRUCTOR] ArrayListAutomaton::ArrayList(ArrayList, int) -> ArrayList
-     */
-    public ArrayList(int initialCapacity) {
-        this(LibSLRuntime.Token.INSTANCE);
-        Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
-        /* body */ {
-            if (initialCapacity < 0) {
-                final String message = "Illegal Capacity: ".concat(LibSLRuntime.toString(initialCapacity));
-                throw new IllegalArgumentException(message);
-            }
-            storage = Engine.makeSymbolicList();
-        }
-        this.__$lsl_state = __$lsl_States.Initialized;
-    }
-
-    /**
      * [CONSTRUCTOR] ArrayListAutomaton::ArrayList(ArrayList) -> ArrayList
      */
     public ArrayList() {
@@ -77,12 +61,32 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     }
 
     /**
+     * [CONSTRUCTOR] ArrayListAutomaton::ArrayList(ArrayList, int) -> ArrayList
+     */
+    public ArrayList(int initialCapacity) {
+        this(LibSLRuntime.Token.INSTANCE);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
+        /* body */ {
+            if (initialCapacity < 0) {
+                final String message = "Illegal Capacity: ".concat(LibSLRuntime.toString(initialCapacity));
+                throw new IllegalArgumentException(message);
+            }
+            storage = Engine.makeSymbolicList();
+            length = 0;
+        }
+        this.__$lsl_state = __$lsl_States.Initialized;
+    }
+
+    /**
      * [CONSTRUCTOR] ArrayListAutomaton::ArrayList(ArrayList, Collection) -> ArrayList
      */
     public ArrayList(Collection c) {
         this(LibSLRuntime.Token.INSTANCE);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
+            if (c == null) {
+                throw new NullPointerException();
+            }
             storage = Engine.makeSymbolicList();
             length = 0;
             _addAllElements(0, c);
@@ -217,7 +221,6 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     public void _replaceAllRange(int i, int end, UnaryOperator op) {
         /* body */ {
             final int expectedModCount = modCount;
-            int i = 0;
             while ((modCount == expectedModCount) && (i < end)) {
                 final Object oldItem = storage.get(i);
                 final Object newItem = op.apply(oldItem);

@@ -44,7 +44,8 @@ public final class ArrayList_ListIterator implements LibSLRuntime.Automaton, Ite
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = cursor != 0;
+            Engine.assume(parent != null);
+            result = cursor < parent.length;
         }
         return result;
     }
@@ -57,6 +58,7 @@ public final class ArrayList_ListIterator implements LibSLRuntime.Automaton, Ite
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = Engine.makeSymbolic(Object.class);
+            cursor += 1;
         }
         return result;
     }

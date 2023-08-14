@@ -51,6 +51,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             storage = Engine.makeSymbolicList();
+            size = 0;
         }
         this.__$lsl_state = __$lsl_States.Initialized;
     }
@@ -62,7 +63,11 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         this(LibSLRuntime.Token.INSTANCE);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
+            if (c == null) {
+                throw new NullPointerException();
+            }
             storage = Engine.makeSymbolicList();
+            size = 0;
             _addAllElements(size, c);
         }
         this.__$lsl_state = __$lsl_States.Initialized;

@@ -25,9 +25,9 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
 
     public SymbolicList<Object> storage;
 
-    public int size;
+    public transient int size;
 
-    public int modCount = 0;
+    public transient int modCount = 0;
 
     @LibSLRuntime.AutomatonConstructor
     public LinkedList(final LibSLRuntime.Token __$lsl_token, final byte __$lsl_state,
@@ -51,6 +51,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             storage = Engine.makeSymbolicList();
+            size = 0;
         }
         this.__$lsl_state = __$lsl_States.Initialized;
     }
@@ -62,7 +63,11 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         this(LibSLRuntime.Token.INSTANCE);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
+            if (c == null) {
+                throw new NullPointerException();
+            }
             storage = Engine.makeSymbolicList();
+            size = 0;
             _addAllElements(size, c);
         }
         this.__$lsl_state = __$lsl_States.Initialized;
@@ -437,7 +442,14 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         int result = 0;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.not_implemented();
+            result = LibSLRuntime.ListActions.find(storage, o, 0, size);
+            if (result != -1) {
+                final int nextIndex = result + 1;
+                if (nextIndex < size) {
+                    final int rightIndex = LibSLRuntime.ListActions.find(storage, o, nextIndex, size);
+                    Engine.assume(rightIndex == -1);
+                }
+            }
         }
         return result;
     }
@@ -673,15 +685,13 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
             if (aLen < length) {
                 result = new Object[length];
                 for (i = 0; i < length; i += 1) {
-                    final Object item = storage.get(i);
-                    result[i] = item;
+                    result[i] = storage.get(i);
                 }
                 ;
             } else {
                 result = a;
                 for (i = 0; i < length; i += 1) {
-                    final Object item = storage.get(i);
-                    result[i] = item;
+                    result[i] = storage.get(i);
                 }
                 ;
                 if (aLen > length) {
@@ -788,7 +798,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         String result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.not_implemented();
+            result = LibSLRuntime.toString(storage);
         }
         return result;
     }
