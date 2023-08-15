@@ -19,6 +19,9 @@ import org.usvm.api.Engine;
 import org.usvm.api.SymbolicList;
 import runtime.LibSLRuntime;
 
+/**
+ * LinkedListAutomaton for LinkedList ~> java.util.LinkedList
+ */
 @Approximate(java.util.LinkedList.class)
 public class LinkedList extends AbstractSequentialList implements LibSLRuntime.Automaton, List, Deque, Cloneable, Serializable {
     public byte __$lsl_state = __$lsl_States.Allocated;
@@ -807,5 +810,12 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         public static final byte Allocated = (byte) 0;
 
         public static final byte Initialized = (byte) 1;
+    }
+
+    @Approximate(LinkedList.class)
+    public static final class __hook {
+        private __hook(Void o) {
+            Engine.assume(false);
+        }
     }
 }

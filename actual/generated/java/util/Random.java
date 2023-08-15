@@ -11,6 +11,9 @@ import org.jacodb.approximation.annotation.Approximate;
 import org.usvm.api.Engine;
 import runtime.LibSLRuntime;
 
+/**
+ * RandomAutomaton for Random ~> java.util.Random
+ */
 @Approximate(java.util.Random.class)
 public class Random implements LibSLRuntime.Automaton, Serializable {
     public byte __$lsl_state = __$lsl_States.Allocated;
@@ -324,5 +327,12 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
         public static final byte Allocated = (byte) 0;
 
         public static final byte Initialized = (byte) 1;
+    }
+
+    @Approximate(Random.class)
+    public static final class __hook {
+        private __hook(Void o) {
+            Engine.assume(false);
+        }
     }
 }

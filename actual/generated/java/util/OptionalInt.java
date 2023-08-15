@@ -13,6 +13,9 @@ import org.usvm.api.Engine;
 import runtime.LibSLGlobals;
 import runtime.LibSLRuntime;
 
+/**
+ * OptionalIntAutomaton for OptionalInt ~> java.util.OptionalInt
+ */
 @Approximate(java.util.OptionalInt.class)
 public final class OptionalInt implements LibSLRuntime.Automaton {
     public byte __$lsl_state = __$lsl_States.Allocated;
@@ -313,5 +316,12 @@ public final class OptionalInt implements LibSLRuntime.Automaton {
         public static final byte Allocated = (byte) 0;
 
         public static final byte Initialized = (byte) 1;
+    }
+
+    @Approximate(OptionalInt.class)
+    public static final class __hook {
+        private __hook(Void o) {
+            Engine.assume(false);
+        }
     }
 }

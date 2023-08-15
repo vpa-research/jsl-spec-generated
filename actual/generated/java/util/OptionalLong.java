@@ -13,6 +13,9 @@ import org.usvm.api.Engine;
 import runtime.LibSLGlobals;
 import runtime.LibSLRuntime;
 
+/**
+ * OptionalLongAutomaton for OptionalLong ~> java.util.OptionalLong
+ */
 @Approximate(java.util.OptionalLong.class)
 public final class OptionalLong implements LibSLRuntime.Automaton {
     public byte __$lsl_state = __$lsl_States.Allocated;
@@ -313,5 +316,12 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
         public static final byte Allocated = (byte) 0;
 
         public static final byte Initialized = (byte) 1;
+    }
+
+    @Approximate(OptionalLong.class)
+    public static final class __hook {
+        private __hook(Void o) {
+            Engine.assume(false);
+        }
     }
 }
