@@ -23,6 +23,9 @@ import org.usvm.api.Engine;
 import org.usvm.api.SymbolicList;
 import runtime.LibSLRuntime;
 
+/**
+ * ArrayListAutomaton for ArrayList ~> java.util.ArrayList
+ */
 @Approximate(java.util.ArrayList.class)
 public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, List, RandomAccess, Cloneable, Serializable {
     public byte __$lsl_state = __$lsl_States.Allocated;
@@ -628,7 +631,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Iterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            final ArrayList_ListIterator res = new ArrayList_ListIterator(LibSLRuntime.Token.INSTANCE, ArrayList_ListIterator.__$lsl_States.Initialized, this, 0, modCount, 0);
+            final ArrayList_ListItr res = new ArrayList_ListItr(LibSLRuntime.Token.INSTANCE, ArrayList_ListItr.__$lsl_States.Initialized, this, 0, modCount, 0);
             result = res;
         }
         return result;
@@ -741,7 +744,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
 
     @Approximate(ArrayList.class)
     public static final class __hook {
-        private __hook(final Void o) {
+        private __hook(Void o) {
             Engine.assume(false);
         }
     }

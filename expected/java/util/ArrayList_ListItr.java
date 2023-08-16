@@ -7,10 +7,10 @@ import runtime.LibSLRuntime;
 
 public final class ArrayList_ListItr implements LibSLRuntime.HasAutomaton, Iterator {
     public boolean hasNext() {
-        throw new RuntimeException();
+        throw new InternalError();
     }
 
     public Object next() {
-        throw new RuntimeException();
+        throw new InternalError();
     }
 }

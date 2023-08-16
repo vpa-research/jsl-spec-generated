@@ -3,14 +3,16 @@
 //
 package generated.java.util;
 
-import java.util.ArrayList_ListItr;
 import java.util.Iterator;
 import org.jacodb.approximation.annotation.Approximate;
 import org.usvm.api.Engine;
 import runtime.LibSLRuntime;
 
-@Approximate(ArrayList_ListItr.class)
-public final class ArrayList_ListIterator implements LibSLRuntime.Automaton, Iterator {
+/**
+ * ArrayList_ListIteratorAutomaton for ArrayList_ListIterator ~> java.util.ArrayList_ListItr
+ */
+@Approximate(java.util.ArrayList_ListItr.class)
+public final class ArrayList_ListItr implements LibSLRuntime.Automaton, Iterator {
     public byte __$lsl_state = __$lsl_States.Initialized;
 
     public ArrayList parent;
@@ -22,7 +24,7 @@ public final class ArrayList_ListIterator implements LibSLRuntime.Automaton, Ite
     public int lastRet = -1;
 
     @LibSLRuntime.AutomatonConstructor
-    public ArrayList_ListIterator(final LibSLRuntime.Token __$lsl_token, final byte __$lsl_state,
+    public ArrayList_ListItr(final LibSLRuntime.Token __$lsl_token, final byte __$lsl_state,
             final ArrayList parent, final int cursor, final int expectedModCount,
             final int lastRet) {
         this.__$lsl_state = __$lsl_state;
@@ -33,7 +35,7 @@ public final class ArrayList_ListIterator implements LibSLRuntime.Automaton, Ite
     }
 
     @LibSLRuntime.AutomatonConstructor
-    public ArrayList_ListIterator(final LibSLRuntime.Token __$lsl_token) {
+    public ArrayList_ListItr(final LibSLRuntime.Token __$lsl_token) {
         this(__$lsl_token, __$lsl_States.Initialized, null, 0, 0, -1);
     }
 
@@ -67,9 +69,9 @@ public final class ArrayList_ListIterator implements LibSLRuntime.Automaton, Ite
         public static final byte Initialized = (byte) 0;
     }
 
-    @Approximate(ArrayList_ListIterator.class)
+    @Approximate(ArrayList_ListItr.class)
     public static final class __hook {
-        private __hook(final Void o) {
+        private __hook(Void o) {
             Engine.assume(false);
         }
     }
