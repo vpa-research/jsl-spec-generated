@@ -1,6 +1,6 @@
 expected/java/util/ArrayList_ListItr.java
 expected/generated/java/util/ArrayList.java
-expected/generated/java/util/ArrayList_ListIterator.java
+expected/generated/java/util/ArrayList_ListItr.java
 
 expected/generated/java/util/LinkedList.java
 

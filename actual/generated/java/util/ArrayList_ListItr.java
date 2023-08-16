@@ -3,9 +3,13 @@
 //
 package generated.java.util;
 
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.function.Consumer;
 import org.jacodb.approximation.annotation.Approximate;
 import org.usvm.api.Engine;
+import org.usvm.api.SymbolicList;
 import runtime.LibSLRuntime;
 
 /**
@@ -40,6 +44,55 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, Iterator
     }
 
     /**
+     * [SUBROUTINE] ArrayList_ListIteratorAutomaton::_checkForComodification() -> void
+     */
+    public void _checkForComodification() {
+        /* body */ {
+            Engine.assume(parent != null);
+            final int modCount = parent.modCount;
+            if (modCount != expectedModCount) {
+                throw new ConcurrentModificationException();
+            }
+        }
+    }
+
+    /**
+     * [FUNCTION] ArrayList_ListIteratorAutomaton::hasPrevious(ArrayList_ListIterator) -> boolean
+     */
+    public boolean hasPrevious() {
+        boolean result = false;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = cursor != 0;
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayList_ListIteratorAutomaton::nextIndex(ArrayList_ListIterator) -> int
+     */
+    public int nextIndex() {
+        int result = 0;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = cursor;
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayList_ListIteratorAutomaton::previousIndex(ArrayList_ListIterator) -> int
+     */
+    public int previousIndex() {
+        int result = 0;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = cursor - 1;
+        }
+        return result;
+    }
+
+    /**
      * [FUNCTION] ArrayList_ListIteratorAutomaton::hasNext(ArrayList_ListIterator) -> boolean
      */
     public boolean hasNext() {
@@ -47,7 +100,7 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, Iterator
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             Engine.assume(parent != null);
-            result = cursor < parent.length;
+            result = cursor != parent.length;
         }
         return result;
     }
@@ -59,10 +112,143 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, Iterator
         Object result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = Engine.makeSymbolic(Object.class);
-            cursor += 1;
+            Engine.assume(parent != null);
+            _checkForComodification();
+            final SymbolicList<Object> parentStorage = parent.storage;
+            final int i = cursor;
+            if (i >= parent.length) {
+                throw new NoSuchElementException();
+            }
+            if (i >= parentStorage.size()) {
+                throw new ConcurrentModificationException();
+            }
+            cursor = i + 1;
+            lastRet = i;
+            result = parentStorage.get(i);
         }
         return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayList_ListIteratorAutomaton::previous(ArrayList_ListIterator) -> Object
+     */
+    public Object previous() {
+        Object result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            Engine.assume(parent != null);
+            _checkForComodification();
+            final SymbolicList<Object> parentStorage = parent.storage;
+            final int i = cursor - 1;
+            if (i < 0) {
+                throw new NoSuchElementException();
+            }
+            if (i >= parentStorage.size()) {
+                throw new ConcurrentModificationException();
+            }
+            cursor = i;
+            lastRet = i;
+            result = parentStorage.get(i);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayList_ListIteratorAutomaton::remove(ArrayList_ListIterator) -> void
+     */
+    public void remove() {
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            Engine.assume(parent != null);
+            if (lastRet < 0) {
+                throw new IllegalStateException();
+            }
+            _checkForComodification();
+            final SymbolicList<Object> pStorage = parent.storage;
+            if (lastRet >= pStorage.size()) {
+                throw new ConcurrentModificationException();
+            } else {
+                parent.modCount += 1;
+                pStorage.remove(lastRet);
+                parent.length -= 1;
+            }
+            cursor = lastRet;
+            lastRet = -1;
+            expectedModCount = parent.modCount;
+        }
+    }
+
+    /**
+     * [FUNCTION] ArrayList_ListIteratorAutomaton::set(ArrayList_ListIterator, Object) -> void
+     */
+    public void set(Object e) {
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            Engine.assume(parent != null);
+            if (lastRet < 0) {
+                throw new IllegalStateException();
+            }
+            _checkForComodification();
+            final SymbolicList<Object> pStorage = parent.storage;
+            if (lastRet >= pStorage.size()) {
+                throw new ConcurrentModificationException();
+            } else {
+                pStorage.set(lastRet, e);
+            }
+        }
+    }
+
+    /**
+     * [FUNCTION] ArrayList_ListIteratorAutomaton::add(ArrayList_ListIterator, Object) -> void
+     */
+    public void add(Object e) {
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            Engine.assume(parent != null);
+            _checkForComodification();
+            final int i = cursor;
+            final SymbolicList<Object> pStorage = parent.storage;
+            if (lastRet > pStorage.size()) {
+                throw new ConcurrentModificationException();
+            } else {
+                parent.modCount += 1;
+                pStorage.insert(i, e);
+                parent.length += 1;
+            }
+            cursor = i + 1;
+            lastRet = -1;
+            expectedModCount = parent.modCount;
+        }
+    }
+
+    /**
+     * [FUNCTION] ArrayList_ListIteratorAutomaton::forEachRemaining(ArrayList_ListIterator, Consumer) -> void
+     */
+    public void forEachRemaining(Consumer userAction) {
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            Engine.assume(parent != null);
+            if (userAction == null) {
+                throw new NullPointerException();
+            }
+            int i = cursor;
+            final int size = parent.length;
+            if (i < size) {
+                final SymbolicList<Object> es = parent.storage;
+                if (i >= es.size()) {
+                    throw new ConcurrentModificationException();
+                }
+                while ((i < size) && (parent.modCount == expectedModCount)) {
+                    final Object item = es.get(i);
+                    userAction.accept(item);
+                    i += 1;
+                }
+                ;
+                cursor = i;
+                lastRet = i - 1;
+                _checkForComodification();
+            }
+        }
     }
 
     public static final class __$lsl_States {
