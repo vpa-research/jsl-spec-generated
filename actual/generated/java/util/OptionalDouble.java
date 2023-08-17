@@ -62,15 +62,6 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [SUBROUTINE] OptionalDoubleAutomaton::_throwNPE() -> void
-     */
-    public static void _throwNPE() {
-        /* body */ {
-            throw new NullPointerException();
-        }
-    }
-
-    /**
      * [FUNCTION] OptionalDoubleAutomaton::empty() -> OptionalDouble
      */
     public static OptionalDouble empty() {

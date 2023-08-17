@@ -62,15 +62,6 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [SUBROUTINE] OptionalLongAutomaton::_throwNPE() -> void
-     */
-    public static void _throwNPE() {
-        /* body */ {
-            throw new NullPointerException();
-        }
-    }
-
-    /**
      * [FUNCTION] OptionalLongAutomaton::empty() -> OptionalLong
      */
     public static OptionalLong empty() {

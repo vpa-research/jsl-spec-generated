@@ -155,9 +155,8 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         /* body */ {
             if (size == 0) {
                 throw new NoSuchElementException();
-            } else {
-                result = _unlinkAny(0);
             }
+            result = _unlinkAny(0);
         }
         return result;
     }
@@ -207,9 +206,8 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         /* body */ {
             if (size == 0) {
                 throw new NoSuchElementException();
-            } else {
-                result = storage.get(0);
             }
+            result = storage.get(0);
         }
         return result;
     }
@@ -235,9 +233,8 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         /* body */ {
             if (size == 0) {
                 throw new NoSuchElementException();
-            } else {
-                result = storage.get(size - 1);
             }
+            result = storage.get(size - 1);
         }
         return result;
     }
@@ -263,9 +260,8 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         /* body */ {
             if (size == 0) {
                 throw new NoSuchElementException();
-            } else {
-                result = _unlinkAny(size - 1);
             }
+            result = _unlinkAny(size - 1);
         }
         return result;
     }

@@ -62,15 +62,6 @@ public final class OptionalInt implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [SUBROUTINE] OptionalIntAutomaton::_throwNPE() -> void
-     */
-    public static void _throwNPE() {
-        /* body */ {
-            throw new NullPointerException();
-        }
-    }
-
-    /**
      * [FUNCTION] OptionalIntAutomaton::empty() -> OptionalInt
      */
     public static OptionalInt empty() {

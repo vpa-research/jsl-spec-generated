@@ -48,7 +48,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [CONSTRUCTOR] OptionalAutomaton::Optional(Optional, T) -> Optional
+     * [CONSTRUCTOR] OptionalAutomaton::Optional(Optional, Object) -> Optional
      */
     private Optional(Object obj) {
         this(LibSLRuntime.Token.INSTANCE);
@@ -71,15 +71,6 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [SUBROUTINE] OptionalAutomaton::_throwNPE() -> void
-     */
-    public static void _throwNPE() {
-        /* body */ {
-            throw new NullPointerException();
-        }
-    }
-
-    /**
      * [FUNCTION] OptionalAutomaton::empty() -> Optional
      */
     public static Optional empty() {
@@ -93,7 +84,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::of(T) -> Optional
+     * [FUNCTION] OptionalAutomaton::of(Object) -> Optional
      */
     public static Optional of(Object obj) {
         Optional result = null;
@@ -109,7 +100,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::ofNullable(T) -> Optional
+     * [FUNCTION] OptionalAutomaton::ofNullable(Object) -> Optional
      */
     public static Optional ofNullable(Object obj) {
         Optional result = null;
@@ -194,7 +185,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::get(Optional) -> T
+     * [FUNCTION] OptionalAutomaton::get(Optional) -> Object
      */
     public Object get() {
         Object result = null;
@@ -326,7 +317,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::orElse(Optional, T) -> T
+     * [FUNCTION] OptionalAutomaton::orElse(Optional, Object) -> Object
      */
     public Object orElse(Object other) {
         Object result = null;
@@ -342,7 +333,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::orElseGet(Optional, Supplier) -> T
+     * [FUNCTION] OptionalAutomaton::orElseGet(Optional, Supplier) -> Object
      */
     public Object orElseGet(Supplier supplier) {
         Object result = null;
@@ -361,7 +352,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::orElseThrow(Optional) -> T
+     * [FUNCTION] OptionalAutomaton::orElseThrow(Optional) -> Object
      */
     public Object orElseThrow() {
         Object result = null;
@@ -376,7 +367,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::orElseThrow(Optional, Supplier) -> T
+     * [FUNCTION] OptionalAutomaton::orElseThrow(Optional, Supplier) -> Object
      */
     public Object orElseThrow(Supplier exceptionSupplier) throws java.lang.Throwable {
         Object result = null;
