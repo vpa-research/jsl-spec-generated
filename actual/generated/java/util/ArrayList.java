@@ -607,7 +607,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             _rangeCheckForAdd(index);
-            LibSLRuntime.not_implemented(/* testing creation and usage of new types */);
+            result = new ArrayList_ListItr(LibSLRuntime.Token.INSTANCE, ArrayList_ListItr.__$lsl_States.Initialized, this, index, modCount, 0);
         }
         return result;
     }
@@ -619,7 +619,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         ListIterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.not_implemented(/* testing creation and usage of new types */);
+            result = new ArrayList_ListItr(LibSLRuntime.Token.INSTANCE, ArrayList_ListItr.__$lsl_States.Initialized, this, 0, modCount, 0);
         }
         return result;
     }
@@ -631,8 +631,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Iterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            final ArrayList_ListItr res = new ArrayList_ListItr(LibSLRuntime.Token.INSTANCE, ArrayList_ListItr.__$lsl_States.Initialized, this, 0, modCount, 0);
-            result = res;
+            result = new ArrayList_ListItr(LibSLRuntime.Token.INSTANCE, ArrayList_ListItr.__$lsl_States.Initialized, this, 0, modCount, 0);
         }
         return result;
     }
