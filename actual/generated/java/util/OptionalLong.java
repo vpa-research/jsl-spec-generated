@@ -108,8 +108,8 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
             } else {
                 final boolean isSameType = Engine.typeEquals(this, other);
                 if (isSameType) {
-                    final long otherValue = LibSLRuntime.getAutomatonFrom(other, OptionalLong.class).value;
-                    final boolean otherPresent = LibSLRuntime.getAutomatonFrom(other, OptionalLong.class).present;
+                    final long otherValue = ((OptionalLong) other).value;
+                    final boolean otherPresent = ((OptionalLong) other).present;
                     if (present && otherPresent) {
                         result = value == otherValue;
                     } else {

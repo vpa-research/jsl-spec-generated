@@ -49,7 +49,7 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, Iterator
     public void _checkForComodification() {
         /* body */ {
             Engine.assume(parent != null);
-            final int modCount = parent.modCount;
+            final int modCount = ((ArrayList) parent).modCount;
             if (modCount != expectedModCount) {
                 throw new ConcurrentModificationException();
             }
@@ -100,7 +100,7 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, Iterator
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             Engine.assume(parent != null);
-            result = cursor != parent.length;
+            result = cursor != ((ArrayList) parent).length;
         }
         return result;
     }
@@ -114,9 +114,9 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, Iterator
         /* body */ {
             Engine.assume(parent != null);
             _checkForComodification();
-            final SymbolicList<Object> parentStorage = parent.storage;
+            final SymbolicList<Object> parentStorage = ((ArrayList) parent).storage;
             final int i = cursor;
-            if (i >= parent.length) {
+            if (i >= ((ArrayList) parent).length) {
                 throw new NoSuchElementException();
             }
             if (i >= parentStorage.size()) {
@@ -138,7 +138,7 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, Iterator
         /* body */ {
             Engine.assume(parent != null);
             _checkForComodification();
-            final SymbolicList<Object> parentStorage = parent.storage;
+            final SymbolicList<Object> parentStorage = ((ArrayList) parent).storage;
             final int i = cursor - 1;
             if (i < 0) {
                 throw new NoSuchElementException();
@@ -164,17 +164,17 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, Iterator
                 throw new IllegalStateException();
             }
             _checkForComodification();
-            final SymbolicList<Object> pStorage = parent.storage;
+            final SymbolicList<Object> pStorage = ((ArrayList) parent).storage;
             if (lastRet >= pStorage.size()) {
                 throw new ConcurrentModificationException();
             } else {
-                parent.modCount += 1;
+                ((ArrayList) parent).modCount += 1;
                 pStorage.remove(lastRet);
-                parent.length -= 1;
+                ((ArrayList) parent).length -= 1;
             }
             cursor = lastRet;
             lastRet = -1;
-            expectedModCount = parent.modCount;
+            expectedModCount = ((ArrayList) parent).modCount;
         }
     }
 
@@ -189,7 +189,7 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, Iterator
                 throw new IllegalStateException();
             }
             _checkForComodification();
-            final SymbolicList<Object> pStorage = parent.storage;
+            final SymbolicList<Object> pStorage = ((ArrayList) parent).storage;
             if (lastRet >= pStorage.size()) {
                 throw new ConcurrentModificationException();
             } else {
@@ -207,17 +207,17 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, Iterator
             Engine.assume(parent != null);
             _checkForComodification();
             final int i = cursor;
-            final SymbolicList<Object> pStorage = parent.storage;
+            final SymbolicList<Object> pStorage = ((ArrayList) parent).storage;
             if (lastRet > pStorage.size()) {
                 throw new ConcurrentModificationException();
             } else {
-                parent.modCount += 1;
+                ((ArrayList) parent).modCount += 1;
                 pStorage.insert(i, e);
-                parent.length += 1;
+                ((ArrayList) parent).length += 1;
             }
             cursor = i + 1;
             lastRet = -1;
-            expectedModCount = parent.modCount;
+            expectedModCount = ((ArrayList) parent).modCount;
         }
     }
 
@@ -232,13 +232,13 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, Iterator
                 throw new NullPointerException();
             }
             int i = cursor;
-            final int size = parent.length;
+            final int size = ((ArrayList) parent).length;
             if (i < size) {
-                final SymbolicList<Object> es = parent.storage;
+                final SymbolicList<Object> es = ((ArrayList) parent).storage;
                 if (i >= es.size()) {
                     throw new ConcurrentModificationException();
                 }
-                while ((i < size) && (parent.modCount == expectedModCount)) {
+                while ((i < size) && (((ArrayList) parent).modCount == expectedModCount)) {
                     final Object item = es.get(i);
                     userAction.accept(item);
                     i += 1;

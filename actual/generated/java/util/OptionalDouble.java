@@ -108,8 +108,8 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
             } else {
                 final boolean isSameType = Engine.typeEquals(this, other);
                 if (isSameType) {
-                    final double otherValue = LibSLRuntime.getAutomatonFrom(other, OptionalDouble.class).value;
-                    final boolean otherPresent = LibSLRuntime.getAutomatonFrom(other, OptionalDouble.class).present;
+                    final double otherValue = ((OptionalDouble) other).value;
+                    final boolean otherPresent = ((OptionalDouble) other).present;
                     if (present && otherPresent) {
                         result = value == otherValue;
                     } else {

@@ -137,7 +137,7 @@ public final class Optional implements LibSLRuntime.Automaton {
             } else {
                 final boolean isSameType = Engine.typeEquals(this, other);
                 if (isSameType) {
-                    final Object otherValue = LibSLRuntime.getAutomatonFrom(other, Optional.class).value;
+                    final Object otherValue = ((Optional) other).value;
                     result = LibSLRuntime.equals(value, otherValue);
                 } else {
                     result = false;

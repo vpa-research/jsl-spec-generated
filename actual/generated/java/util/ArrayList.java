@@ -459,9 +459,9 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
                 final boolean isSameType = Engine.typeEquals(this, other);
                 if (isSameType) {
                     final int expectedModCount = modCount;
-                    final int otherExpectedModCount = LibSLRuntime.getAutomatonFrom(other, ArrayList.class).modCount;
-                    final SymbolicList<Object> otherStorage = LibSLRuntime.getAutomatonFrom(other, ArrayList.class).storage;
-                    final int otherLength = LibSLRuntime.getAutomatonFrom(other, ArrayList.class).length;
+                    final int otherExpectedModCount = ((ArrayList) other).modCount;
+                    final SymbolicList<Object> otherStorage = ((ArrayList) other).storage;
+                    final int otherLength = ((ArrayList) other).length;
                     if (length == otherLength) {
                         result = LibSLRuntime.equals(storage, otherStorage);
                     } else {
