@@ -4,7 +4,7 @@
 package generated.java.util;
 
 import java.util.ConcurrentModificationException;
-import java.util.Iterator;
+import java.util.ListIterator;
 import java.util.NoSuchElementException;
 import java.util.function.Consumer;
 import org.jacodb.approximation.annotation.Approximate;
@@ -16,7 +16,7 @@ import runtime.LibSLRuntime;
  * ArrayList_ListIteratorAutomaton for ArrayList_ListIterator ~> java.util.ArrayList_ListItr
  */
 @Approximate(java.util.ArrayList_ListItr.class)
-public final class ArrayList_ListItr implements LibSLRuntime.Automaton, Iterator {
+public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIterator {
     public byte __$lsl_state = __$lsl_States.Initialized;
 
     public ArrayList parent;

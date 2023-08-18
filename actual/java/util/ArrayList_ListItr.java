@@ -6,7 +6,7 @@ package java.util;
 import java.util.function.Consumer;
 import runtime.LibSLRuntime;
 
-public final class ArrayList_ListItr implements LibSLRuntime.HasAutomaton, Iterator {
+public final class ArrayList_ListItr implements LibSLRuntime.HasAutomaton, ListIterator {
     public boolean hasPrevious() {
         throw new InternalError();
     }
