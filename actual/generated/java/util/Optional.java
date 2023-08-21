@@ -62,7 +62,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     /**
      * [SUBROUTINE] OptionalAutomaton::_makeEmpty() -> Optional
      */
-    public static Optional _makeEmpty() {
+    private static Optional _makeEmpty() {
         Optional result = null;
         /* body */ {
             result = LibSLGlobals.EMPTY_OPTIONAL;

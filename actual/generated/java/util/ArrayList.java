@@ -100,7 +100,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     /**
      * [SUBROUTINE] ArrayListAutomaton::_checkValidIndex(int) -> void
      */
-    public void _checkValidIndex(int index) {
+    private void _checkValidIndex(int index) {
         /* body */ {
             if ((index < 0) || (length <= index)) {
                 final String idx = LibSLRuntime.toString(index);
@@ -114,7 +114,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     /**
      * [SUBROUTINE] ArrayListAutomaton::_rangeCheckForAdd(int) -> void
      */
-    public void _rangeCheckForAdd(int index) {
+    private void _rangeCheckForAdd(int index) {
         /* body */ {
             if ((index > length) || (index < 0)) {
                 final String idx = LibSLRuntime.toString(index);
@@ -128,7 +128,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     /**
      * [SUBROUTINE] ArrayListAutomaton::_addAllElements(int, Collection) -> boolean
      */
-    public boolean _addAllElements(int index, Collection c) {
+    private boolean _addAllElements(int index, Collection c) {
         boolean result = false;
         /* body */ {
             final Iterator iter = c.iterator();
@@ -148,7 +148,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     /**
      * [SUBROUTINE] ArrayListAutomaton::_subListRangeCheck(int, int, int) -> void
      */
-    public void _subListRangeCheck(int fromIndex, int toIndex, int size) {
+    private void _subListRangeCheck(int fromIndex, int toIndex, int size) {
         /* body */ {
             if (fromIndex < 0) {
                 final String message = "fromIndex = ".concat(LibSLRuntime.toString(fromIndex));
@@ -181,7 +181,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     /**
      * [SUBROUTINE] ArrayListAutomaton::_deleteElement(int) -> Object
      */
-    public Object _deleteElement(int index) {
+    private Object _deleteElement(int index) {
         Object result = null;
         /* body */ {
             _checkValidIndex(index);
@@ -196,7 +196,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     /**
      * [SUBROUTINE] ArrayListAutomaton::_addElement(int, Object) -> void
      */
-    public void _addElement(int index, Object element) {
+    private void _addElement(int index, Object element) {
         /* body */ {
             _rangeCheckForAdd(index);
             modCount += 1;
@@ -208,7 +208,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     /**
      * [SUBROUTINE] ArrayListAutomaton::_setElement(int, Object) -> Object
      */
-    public Object _setElement(int index, Object element) {
+    private Object _setElement(int index, Object element) {
         Object result = null;
         /* body */ {
             _checkValidIndex(index);
@@ -221,7 +221,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     /**
      * [SUBROUTINE] ArrayListAutomaton::_replaceAllRange(int, int, UnaryOperator) -> void
      */
-    public void _replaceAllRange(int i, int end, UnaryOperator op) {
+    private void _replaceAllRange(int i, int end, UnaryOperator op) {
         /* body */ {
             final int expectedModCount = modCount;
             while ((modCount == expectedModCount) && (i < end)) {
