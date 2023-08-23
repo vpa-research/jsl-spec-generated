@@ -340,12 +340,24 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = true;
-            final Iterator iter = c.iterator();
-            while (result && iter.hasNext()) {
-                final Object item = iter.next();
-                result &= LibSLRuntime.ListActions.find(storage, item, 0, length) >= 0;
+            if ((c instanceof ArrayList && ((ArrayList) c).__$lsl_token != null)) {
+                final SymbolicList<Object> otherStorage = ((ArrayList) c).storage;
+                final int otherLength = ((ArrayList) c).length;
+                int i = 0;
+                while (result && (i < otherLength)) {
+                    final Object item = otherStorage.get(i);
+                    result &= LibSLRuntime.ListActions.find(storage, item, 0, length) >= 0;
+                    i += 1;
+                }
+                ;
+            } else {
+                final Iterator iter = c.iterator();
+                while (result && iter.hasNext()) {
+                    final Object item = iter.next();
+                    result &= LibSLRuntime.ListActions.find(storage, item, 0, length) >= 0;
+                }
+                ;
             }
-            ;
         }
         return result;
     }
