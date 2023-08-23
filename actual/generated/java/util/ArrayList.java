@@ -527,7 +527,8 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Stream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            result = Engine.makeSymbolic(Stream.class);
+            Engine.assume(result != null);
         }
         return result;
     }
@@ -687,7 +688,8 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Stream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            result = Engine.makeSymbolic(Stream.class);
+            Engine.assume(result != null);
         }
         return result;
     }
@@ -731,7 +733,14 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Object[] result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            final Object a = generator.apply(0);
+            final int size = length;
+            result = new Object[size];
+            int i = 0;
+            for (i = 0; i < size; i += 1) {
+                result[i] = storage.get(i);
+            }
+            ;
         }
         return result;
     }
