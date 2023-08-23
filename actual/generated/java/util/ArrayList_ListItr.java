@@ -17,6 +17,8 @@ import runtime.LibSLRuntime;
  */
 @Approximate(java.util.ArrayList_ListItr.class)
 public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIterator {
+    public LibSLRuntime.Token __$lsl_token = null;
+
     public byte __$lsl_state = __$lsl_States.Initialized;
 
     public ArrayList parent;
@@ -31,6 +33,7 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
     public ArrayList_ListItr(final LibSLRuntime.Token __$lsl_token, final byte __$lsl_state,
             final ArrayList parent, final int cursor, final int expectedModCount,
             final int lastRet) {
+        this.__$lsl_token = __$lsl_token;
         this.__$lsl_state = __$lsl_state;
         this.parent = parent;
         this.cursor = cursor;

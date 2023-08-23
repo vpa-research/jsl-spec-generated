@@ -19,6 +19,8 @@ import runtime.LibSLRuntime;
  */
 @Approximate(java.util.Optional.class)
 public final class Optional implements LibSLRuntime.Automaton {
+    public LibSLRuntime.Token __$lsl_token = null;
+
     public byte __$lsl_state = __$lsl_States.Allocated;
 
     public Object value;
@@ -26,6 +28,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     @LibSLRuntime.AutomatonConstructor
     public Optional(final LibSLRuntime.Token __$lsl_token, final byte __$lsl_state,
             final Object value) {
+        this.__$lsl_token = __$lsl_token;
         this.__$lsl_state = __$lsl_state;
         this.value = value;
     }

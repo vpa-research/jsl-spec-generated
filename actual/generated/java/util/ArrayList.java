@@ -30,6 +30,8 @@ import runtime.LibSLRuntime;
  */
 @Approximate(java.util.ArrayList.class)
 public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, List, RandomAccess, Cloneable, Serializable {
+    public LibSLRuntime.Token __$lsl_token = null;
+
     public byte __$lsl_state = __$lsl_States.Allocated;
 
     public SymbolicList<Object> storage;
@@ -41,6 +43,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     @LibSLRuntime.AutomatonConstructor
     public ArrayList(final LibSLRuntime.Token __$lsl_token, final byte __$lsl_state,
             final SymbolicList<Object> storage, final int length, final int modCount) {
+        this.__$lsl_token = __$lsl_token;
         this.__$lsl_state = __$lsl_state;
         this.storage = storage;
         this.length = length;
@@ -724,7 +727,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     /**
      * [FUNCTION] ArrayListAutomaton::toArray(ArrayList, IntFunction) -> array<Object>
      */
-    public Object[] toArray(IntFunction arg0) {
+    public Object[] toArray(IntFunction generator) {
         Object[] result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
