@@ -16,8 +16,10 @@ import java.util.ListIterator;
 import java.util.RandomAccess;
 import java.util.Spliterator;
 import java.util.function.Consumer;
+import java.util.function.IntFunction;
 import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
+import java.util.stream.Stream;
 import org.jacodb.approximation.annotation.Approximate;
 import org.usvm.api.Engine;
 import org.usvm.api.SymbolicList;
@@ -64,23 +66,6 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     }
 
     /**
-     * [CONSTRUCTOR] ArrayListAutomaton::ArrayList(ArrayList, int) -> ArrayList
-     */
-    public ArrayList(int initialCapacity) {
-        this(LibSLRuntime.Token.INSTANCE);
-        Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
-        /* body */ {
-            if (initialCapacity < 0) {
-                final String message = "Illegal Capacity: ".concat(LibSLRuntime.toString(initialCapacity));
-                throw new IllegalArgumentException(message);
-            }
-            storage = Engine.makeSymbolicList();
-            length = 0;
-        }
-        this.__$lsl_state = __$lsl_States.Initialized;
-    }
-
-    /**
      * [CONSTRUCTOR] ArrayListAutomaton::ArrayList(ArrayList, Collection) -> ArrayList
      */
     public ArrayList(Collection c) {
@@ -93,6 +78,23 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
             storage = Engine.makeSymbolicList();
             length = 0;
             _addAllElements(0, c);
+        }
+        this.__$lsl_state = __$lsl_States.Initialized;
+    }
+
+    /**
+     * [CONSTRUCTOR] ArrayListAutomaton::ArrayList(ArrayList, int) -> ArrayList
+     */
+    public ArrayList(int initialCapacity) {
+        this(LibSLRuntime.Token.INSTANCE);
+        Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
+        /* body */ {
+            if (initialCapacity < 0) {
+                final String message = "Illegal Capacity: ".concat(LibSLRuntime.toString(initialCapacity));
+                throw new IllegalArgumentException(message);
+            }
+            storage = Engine.makeSymbolicList();
+            length = 0;
         }
         this.__$lsl_state = __$lsl_States.Initialized;
     }
@@ -131,6 +133,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     private boolean _addAllElements(int index, Collection c) {
         boolean result = false;
         /* body */ {
+            result = false;
             final Iterator iter = c.iterator();
             result = iter.hasNext();
             while (iter.hasNext()) {
@@ -138,6 +141,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
                 storage.insert(index, item);
                 index += 1;
                 length += 1;
+                result = true;
             }
             ;
             modCount += 1;
@@ -238,45 +242,77 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     }
 
     /**
-     * [FUNCTION] ArrayListAutomaton::trimToSize(ArrayList) -> void
+     * [FUNCTION] ArrayListAutomaton::add(ArrayList, Object) -> boolean
      */
-    public void trimToSize() {
+    public boolean add(Object e) {
+        boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             modCount += 1;
-        }
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::ensureCapacity(ArrayList, int) -> void
-     */
-    public void ensureCapacity(int minCapacity) {
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            modCount += 1;
-        }
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::size(ArrayList) -> int
-     */
-    public int size() {
-        int result = 0;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            result = length;
+            storage.insert(length, e);
+            length += 1;
+            result = true;
         }
         return result;
     }
 
     /**
-     * [FUNCTION] ArrayListAutomaton::isEmpty(ArrayList) -> boolean
+     * [FUNCTION] ArrayListAutomaton::add(ArrayList, int, Object) -> void
      */
-    public boolean isEmpty() {
+    public void add(int index, Object element) {
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            _addElement(index, element);
+        }
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::addAll(ArrayList, Collection) -> boolean
+     */
+    public boolean addAll(Collection c) {
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = length == 0;
+            result = _addAllElements(length, c);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::addAll(ArrayList, int, Collection) -> boolean
+     */
+    public boolean addAll(int index, Collection c) {
+        boolean result = false;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            _rangeCheckForAdd(index);
+            result = _addAllElements(index, c);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::clear(ArrayList) -> void
+     */
+    public void clear() {
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            storage = Engine.makeSymbolicList();
+            length = 0;
+            modCount += 1;
+        }
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::clone(ArrayList) -> Object
+     */
+    public Object clone() {
+        Object result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            final SymbolicList<Object> storageCopy = Engine.makeSymbolicList();
+            storage.copy(storageCopy, 0, 0, length);
+            result = new ArrayList(LibSLRuntime.Token.INSTANCE, ArrayList.__$lsl_States.Initialized, storageCopy, length, 0);
         }
         return result;
     }
@@ -312,157 +348,13 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     }
 
     /**
-     * [FUNCTION] ArrayListAutomaton::indexOf(ArrayList, Object) -> int
+     * [FUNCTION] ArrayListAutomaton::ensureCapacity(ArrayList, int) -> void
      */
-    public int indexOf(Object o) {
-        int result = 0;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            result = LibSLRuntime.ListActions.find(storage, o, 0, length);
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::lastIndexOf(ArrayList, Object) -> int
-     */
-    public int lastIndexOf(Object o) {
-        int result = 0;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            result = LibSLRuntime.ListActions.find(storage, o, 0, length);
-            if (result != -1) {
-                final int nextIndex = result + 1;
-                if (nextIndex < length) {
-                    final int rightIndex = LibSLRuntime.ListActions.find(storage, o, nextIndex, length);
-                    Engine.assume(rightIndex == -1);
-                }
-            }
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::clone(ArrayList) -> Object
-     */
-    public Object clone() {
-        Object result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            final SymbolicList<Object> storageCopy = Engine.makeSymbolicList();
-            storage.copy(storageCopy, 0, 0, length);
-            result = new ArrayList(LibSLRuntime.Token.INSTANCE, ArrayList.__$lsl_States.Initialized, storageCopy, length, 0);
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::toArray(ArrayList) -> array<Object>
-     */
-    public Object[] toArray() {
-        Object[] result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            final int size = length;
-            result = new Object[size];
-            int i = 0;
-            for (i = 0; i < size; i += 1) {
-                result[i] = storage.get(i);
-            }
-            ;
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::toArray(ArrayList, array<Object>) -> array<Object>
-     */
-    public Object[] toArray(Object[] a) {
-        Object[] result = null;
-        /* body */ {
-            final int aLen = a.length;
-            final int size = length;
-            int i = 0;
-            if (aLen < size) {
-                result = new Object[size];
-                for (i = 0; i < size; i += 1) {
-                    result[i] = storage.get(i);
-                }
-                ;
-            } else {
-                result = a;
-                for (i = 0; i < size; i += 1) {
-                    result[i] = storage.get(i);
-                }
-                ;
-                if (aLen > size) {
-                    result[size] = null;
-                }
-            }
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::get(ArrayList, int) -> Object
-     */
-    public Object get(int index) {
-        Object result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            _checkValidIndex(index);
-            result = storage.get(index);
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::set(ArrayList, int, Object) -> Object
-     */
-    public Object set(int index, Object element) {
-        Object result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            result = _setElement(index, element);
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::add(ArrayList, Object) -> boolean
-     */
-    public boolean add(Object e) {
-        boolean result = false;
+    public void ensureCapacity(int minCapacity) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             modCount += 1;
-            storage.insert(length, e);
-            length += 1;
-            result = true;
         }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::add(ArrayList, int, Object) -> void
-     */
-    public void add(int index, Object element) {
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            _addElement(index, element);
-        }
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::remove(ArrayList, int) -> Object
-     */
-    public Object remove(int index) {
-        Object result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            result = _deleteElement(index);
-        }
-        return result;
     }
 
     /**
@@ -470,6 +362,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
      */
     public boolean equals(Object other) {
         boolean result = false;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (other == this) {
                 result = true;
@@ -491,179 +384,6 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
                     result = false;
                 }
             }
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::toString(ArrayList) -> String
-     */
-    public String toString() {
-        String result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            result = LibSLRuntime.toString(storage);
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::hashCode(ArrayList) -> int
-     */
-    public int hashCode() {
-        int result = 0;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            result = LibSLRuntime.hashCode(storage);
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::remove(ArrayList, Object) -> boolean
-     */
-    public boolean remove(Object o) {
-        boolean result = false;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            final int index = LibSLRuntime.ListActions.find(storage, o, 0, length);
-            if (index == -1) {
-                result = false;
-            } else {
-                storage.remove(index);
-                result = true;
-            }
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::clear(ArrayList) -> void
-     */
-    public void clear() {
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            storage = Engine.makeSymbolicList();
-            length = 0;
-            modCount += 1;
-        }
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::addAll(ArrayList, Collection) -> boolean
-     */
-    public boolean addAll(Collection c) {
-        boolean result = false;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            result = _addAllElements(length, c);
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::addAll(ArrayList, int, Collection) -> boolean
-     */
-    public boolean addAll(int index, Collection c) {
-        boolean result = false;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            _rangeCheckForAdd(index);
-            result = _addAllElements(index, c);
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::removeAll(ArrayList, Collection) -> boolean
-     */
-    public boolean removeAll(Collection c) {
-        boolean result = false;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            LibSLRuntime.not_implemented(/* no support for interface calls yet */);
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::retainAll(ArrayList, Collection) -> boolean
-     */
-    public boolean retainAll(Collection c) {
-        boolean result = false;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            LibSLRuntime.not_implemented(/* no support for interface calls yet */);
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::writeObject(ArrayList, ObjectOutputStream) -> void
-     */
-    private void writeObject(ObjectOutputStream s) throws java.io.IOException {
-        /* body */ {
-            LibSLRuntime.not_implemented(/* no serialization support yet */);
-        }
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::readObject(ArrayList, ObjectInputStream) -> void
-     */
-    private void readObject(ObjectInputStream s) throws java.io.IOException,
-            java.lang.ClassNotFoundException {
-        /* body */ {
-            LibSLRuntime.not_implemented(/* no serialization support yet */);
-        }
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::listIterator(ArrayList, int) -> ListIterator
-     */
-    public ListIterator listIterator(int index) {
-        ListIterator result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            _rangeCheckForAdd(index);
-            result = new ArrayList_ListItr(LibSLRuntime.Token.INSTANCE, ArrayList_ListItr.__$lsl_States.Initialized, this, index, modCount, 0);
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::listIterator(ArrayList) -> ListIterator
-     */
-    public ListIterator listIterator() {
-        ListIterator result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            result = new ArrayList_ListItr(LibSLRuntime.Token.INSTANCE, ArrayList_ListItr.__$lsl_States.Initialized, this, 0, modCount, 0);
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::iterator(ArrayList) -> Iterator
-     */
-    public Iterator iterator() {
-        Iterator result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            result = new ArrayList_ListItr(LibSLRuntime.Token.INSTANCE, ArrayList_ListItr.__$lsl_States.Initialized, this, 0, modCount, 0);
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] ArrayListAutomaton::subList(ArrayList, int, int) -> List
-     */
-    public List subList(int fromIndex, int toIndex) {
-        List result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            _subListRangeCheck(fromIndex, toIndex, length);
-            result = Engine.makeSymbolic(List.class);
-            Engine.assume(result != null);
         }
         return result;
     }
@@ -693,14 +413,169 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     }
 
     /**
-     * [FUNCTION] ArrayListAutomaton::spliterator(ArrayList) -> Spliterator
+     * [FUNCTION] ArrayListAutomaton::get(ArrayList, int) -> Object
      */
-    public Spliterator spliterator() {
-        Spliterator result = null;
+    public Object get(int index) {
+        Object result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = Engine.makeSymbolic(Spliterator.class);
-            Engine.assume(result != null);
+            _checkValidIndex(index);
+            result = storage.get(index);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::hashCode(ArrayList) -> int
+     */
+    public int hashCode() {
+        int result = 0;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = LibSLRuntime.hashCode(storage);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::indexOf(ArrayList, Object) -> int
+     */
+    public int indexOf(Object o) {
+        int result = 0;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = LibSLRuntime.ListActions.find(storage, o, 0, length);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::isEmpty(ArrayList) -> boolean
+     */
+    public boolean isEmpty() {
+        boolean result = false;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = length == 0;
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::iterator(ArrayList) -> Iterator
+     */
+    public Iterator iterator() {
+        Iterator result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = new ArrayList_ListItr(LibSLRuntime.Token.INSTANCE, ArrayList_ListItr.__$lsl_States.Initialized, this, 0, modCount, 0);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::lastIndexOf(ArrayList, Object) -> int
+     */
+    public int lastIndexOf(Object o) {
+        int result = 0;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = LibSLRuntime.ListActions.find(storage, o, 0, length);
+            if (result != -1) {
+                final int nextIndex = result + 1;
+                if (nextIndex < length) {
+                    final int rightIndex = LibSLRuntime.ListActions.find(storage, o, nextIndex, length);
+                    Engine.assume(rightIndex == -1);
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::listIterator(ArrayList) -> ListIterator
+     */
+    public ListIterator listIterator() {
+        ListIterator result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = new ArrayList_ListItr(LibSLRuntime.Token.INSTANCE, ArrayList_ListItr.__$lsl_States.Initialized, this, 0, modCount, 0);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::listIterator(ArrayList, int) -> ListIterator
+     */
+    public ListIterator listIterator(int index) {
+        ListIterator result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            _rangeCheckForAdd(index);
+            result = new ArrayList_ListItr(LibSLRuntime.Token.INSTANCE, ArrayList_ListItr.__$lsl_States.Initialized, this, index, modCount, 0);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::parallelStream(ArrayList) -> Stream
+     */
+    public Stream parallelStream() {
+        Stream result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::remove(ArrayList, Object) -> boolean
+     */
+    public boolean remove(Object o) {
+        boolean result = false;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            final int index = LibSLRuntime.ListActions.find(storage, o, 0, length);
+            if (index == -1) {
+                result = false;
+            } else {
+                result = _deleteElement(index);
+            }
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::remove(ArrayList, int) -> Object
+     */
+    public Object remove(int index) {
+        Object result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = _deleteElement(index);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::removeAll(ArrayList, Collection) -> boolean
+     */
+    public boolean removeAll(Collection c) {
+        boolean result = false;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = false;
+            final Iterator iter = c.iterator();
+            while (iter.hasNext()) {
+                final Object o = iter.next();
+                final int index = LibSLRuntime.ListActions.find(storage, o, 0, length);
+                if (index >= 0) {
+                    _deleteElement(index);
+                    result = true;
+                }
+            }
+            ;
         }
         return result;
     }
@@ -736,6 +611,42 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     }
 
     /**
+     * [FUNCTION] ArrayListAutomaton::retainAll(ArrayList, Collection) -> boolean
+     */
+    public boolean retainAll(Collection c) {
+        boolean result = false;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.not_implemented(/* no support for interface calls yet */);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::set(ArrayList, int, Object) -> Object
+     */
+    public Object set(int index, Object element) {
+        Object result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = _setElement(index, element);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::size(ArrayList) -> int
+     */
+    public int size() {
+        int result = 0;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = length;
+        }
+        return result;
+    }
+
+    /**
      * [FUNCTION] ArrayListAutomaton::sort(ArrayList, Comparator) -> void
      */
     public void sort(Comparator c) {
@@ -750,6 +661,146 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
                 throw new ConcurrentModificationException();
             }
             modCount += 1;
+        }
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::spliterator(ArrayList) -> Spliterator
+     */
+    public Spliterator spliterator() {
+        Spliterator result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = Engine.makeSymbolic(Spliterator.class);
+            Engine.assume(result != null);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::stream(ArrayList) -> Stream
+     */
+    public Stream stream() {
+        Stream result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::subList(ArrayList, int, int) -> List
+     */
+    public List subList(int fromIndex, int toIndex) {
+        List result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            _subListRangeCheck(fromIndex, toIndex, length);
+            result = Engine.makeSymbolic(List.class);
+            Engine.assume(result != null);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::toArray(ArrayList) -> array<Object>
+     */
+    public Object[] toArray() {
+        Object[] result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            final int size = length;
+            result = new Object[size];
+            int i = 0;
+            for (i = 0; i < size; i += 1) {
+                result[i] = storage.get(i);
+            }
+            ;
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::toArray(ArrayList, IntFunction) -> array<Object>
+     */
+    public Object[] toArray(IntFunction arg0) {
+        Object[] result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::toArray(ArrayList, array<Object>) -> array<Object>
+     */
+    public Object[] toArray(Object[] a) {
+        Object[] result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            final int aLen = a.length;
+            final int size = length;
+            int i = 0;
+            if (aLen < size) {
+                result = new Object[size];
+                for (i = 0; i < size; i += 1) {
+                    result[i] = storage.get(i);
+                }
+                ;
+            } else {
+                result = a;
+                for (i = 0; i < size; i += 1) {
+                    result[i] = storage.get(i);
+                }
+                ;
+                if (aLen > size) {
+                    result[size] = null;
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::toString(ArrayList) -> String
+     */
+    public String toString() {
+        String result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = LibSLRuntime.toString(storage);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::trimToSize(ArrayList) -> void
+     */
+    public void trimToSize() {
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            modCount += 1;
+        }
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::writeObject(ArrayList, ObjectOutputStream) -> void
+     */
+    private void writeObject(ObjectOutputStream s) throws java.io.IOException {
+        /* body */ {
+            LibSLRuntime.not_implemented(/* no serialization support yet */);
+        }
+    }
+
+    /**
+     * [FUNCTION] ArrayListAutomaton::readObject(ArrayList, ObjectInputStream) -> void
+     */
+    private void readObject(ObjectInputStream s) throws java.io.IOException,
+            java.lang.ClassNotFoundException {
+        /* body */ {
+            LibSLRuntime.not_implemented(/* no serialization support yet */);
         }
     }
 
