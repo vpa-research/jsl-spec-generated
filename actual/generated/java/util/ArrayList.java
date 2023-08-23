@@ -294,6 +294,24 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     }
 
     /**
+     * [FUNCTION] ArrayListAutomaton::containsAll(ArrayList, Collection) -> boolean
+     */
+    public boolean containsAll(Collection c) {
+        boolean result = false;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = true;
+            final Iterator iter = c.iterator();
+            while (result && iter.hasNext()) {
+                final Object item = iter.next();
+                result &= LibSLRuntime.ListActions.find(storage, item, 0, length) >= 0;
+            }
+            ;
+        }
+        return result;
+    }
+
+    /**
      * [FUNCTION] ArrayListAutomaton::indexOf(ArrayList, Object) -> int
      */
     public int indexOf(Object o) {
