@@ -136,18 +136,34 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     private boolean _addAllElements(int index, Collection c) {
         boolean result = false;
         /* body */ {
-            result = false;
-            final Iterator iter = c.iterator();
-            result = iter.hasNext();
-            while (iter.hasNext()) {
-                final Object item = iter.next();
-                storage.insert(index, item);
-                index += 1;
-                length += 1;
-                result = true;
+            final int oldLength = length;
+            if ((c instanceof ArrayList && ((ArrayList) c).__$lsl_token != null)) {
+                final SymbolicList<Object> otherStorage = ((ArrayList) c).storage;
+                final int otherLength = ((ArrayList) c).length;
+                Engine.assume(otherStorage != null);
+                Engine.assume(otherLength >= 0);
+                int i = 0;
+                for (i = 0; i < otherLength; i += 1) {
+                    final Object item = otherStorage.get(i);
+                    storage.insert(index, item);
+                    index += 1;
+                    length += 1;
+                }
+                ;
+            } else {
+                final Iterator iter = c.iterator();
+                while (iter.hasNext()) {
+                    final Object item = iter.next();
+                    storage.insert(index, item);
+                    index += 1;
+                    length += 1;
+                }
+                ;
             }
-            ;
-            modCount += 1;
+            result = oldLength != length;
+            if (result) {
+                modCount += 1;
+            }
         }
         return result;
     }
@@ -193,9 +209,9 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         /* body */ {
             _checkValidIndex(index);
             result = storage.get(index);
-            modCount += 1;
             storage.remove(index);
             length -= 1;
+            modCount += 1;
         }
         return result;
     }
@@ -206,9 +222,9 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     private void _addElement(int index, Object element) {
         /* body */ {
             _rangeCheckForAdd(index);
-            modCount += 1;
             storage.insert(index, element);
             length += 1;
+            modCount += 1;
         }
     }
 
@@ -238,10 +254,34 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
                 i += 1;
             }
             ;
-            if (modCount != expectedModCount) {
-                throw new ConcurrentModificationException();
-            }
+            _checkForComodification(expectedModCount);
         }
+    }
+
+    /**
+     * [SUBROUTINE] ArrayListAutomaton::_removeIf(Predicate, int, int) -> boolean
+     */
+    public boolean _removeIf(Predicate filter, int start, int end) {
+        boolean result = false;
+        /* body */ {
+            if (filter == null) {
+                throw new NullPointerException();
+            }
+            final int oldLength = length;
+            final int expectedModCount = modCount;
+            int i = 0;
+            for (i = end - 1; i > start; i += -1) {
+                final Object item = storage.get(i);
+                if (filter.test(item)) {
+                    storage.remove(i);
+                    length -= 1;
+                }
+            }
+            ;
+            _checkForComodification(expectedModCount);
+            result = oldLength != length;
+        }
+        return result;
     }
 
     /**
@@ -251,9 +291,9 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            modCount += 1;
             storage.insert(length, e);
             length += 1;
+            modCount += 1;
             result = true;
         }
         return result;
@@ -343,6 +383,8 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
             if ((c instanceof ArrayList && ((ArrayList) c).__$lsl_token != null)) {
                 final SymbolicList<Object> otherStorage = ((ArrayList) c).storage;
                 final int otherLength = ((ArrayList) c).length;
+                Engine.assume(otherStorage != null);
+                Engine.assume(otherLength >= 0);
                 int i = 0;
                 while (result && (i < otherLength)) {
                     final Object item = otherStorage.get(i);
@@ -382,12 +424,13 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
             if (other == this) {
                 result = true;
             } else {
-                final boolean isSameType = Engine.typeEquals(this, other);
-                if (isSameType) {
+                if ((other instanceof ArrayList && ((ArrayList) other).__$lsl_token != null)) {
                     final int expectedModCount = modCount;
                     final int otherExpectedModCount = ((ArrayList) other).modCount;
                     final SymbolicList<Object> otherStorage = ((ArrayList) other).storage;
                     final int otherLength = ((ArrayList) other).length;
+                    Engine.assume(otherStorage != null);
+                    Engine.assume(otherLength >= 0);
                     if (length == otherLength) {
                         result = LibSLRuntime.equals(storage, otherStorage);
                     } else {
@@ -406,24 +449,21 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     /**
      * [FUNCTION] ArrayListAutomaton::forEach(ArrayList, Consumer) -> void
      */
-    public void forEach(Consumer anAction) {
+    public void forEach(Consumer _action) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            if (anAction == null) {
+            if (_action == null) {
                 throw new NullPointerException();
             }
             final int expectedModCount = modCount;
-            final int size = length;
             int i = 0;
-            while ((modCount == expectedModCount) && (i < size)) {
+            while ((modCount == expectedModCount) && (i < length)) {
                 final Object item = storage.get(i);
-                anAction.accept(item);
+                _action.accept(item);
                 i += 1;
             }
             ;
-            if (modCount != expectedModCount) {
-                throw new ConcurrentModificationException();
-            }
+            _checkForComodification(expectedModCount);
         }
     }
 
@@ -553,10 +593,9 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             final int index = LibSLRuntime.ListActions.find(storage, o, 0, length);
-            if (index == -1) {
-                result = false;
-            } else {
-                result = _deleteElement(index);
+            result = index >= 0;
+            if (result) {
+                _deleteElement(index);
             }
         }
         return result;
@@ -581,17 +620,33 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = false;
-            final Iterator iter = c.iterator();
-            while (iter.hasNext()) {
-                final Object o = iter.next();
-                final int index = LibSLRuntime.ListActions.find(storage, o, 0, length);
-                if (index >= 0) {
-                    _deleteElement(index);
-                    result = true;
+            final int oldLength = length;
+            if ((c instanceof ArrayList && ((ArrayList) c).__$lsl_token != null)) {
+                final SymbolicList<Object> otherStorage = ((ArrayList) c).storage;
+                final int otherLength = ((ArrayList) c).length;
+                Engine.assume(otherStorage != null);
+                Engine.assume(otherLength >= 0);
+                int i = 0;
+                for (i = 0; i < otherLength; i += 1) {
+                    final Object o = otherStorage.get(i);
+                    final int index = LibSLRuntime.ListActions.find(storage, o, 0, length);
+                    if (index >= 0) {
+                        _deleteElement(index);
+                    }
                 }
+                ;
+            } else {
+                final Iterator iter = c.iterator();
+                while (iter.hasNext()) {
+                    final Object o = iter.next();
+                    final int index = LibSLRuntime.ListActions.find(storage, o, 0, length);
+                    if (index >= 0) {
+                        _deleteElement(index);
+                    }
+                }
+                ;
             }
-            ;
+            result = oldLength != length;
         }
         return result;
     }
@@ -603,11 +658,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            if (filter == null) {
-                throw new NullPointerException();
-            }
-            final int expectedModCount = modCount;
-            LibSLRuntime.not_implemented(/* no support for interface calls */);
+            result = _removeIf(filter, 0, length);
         }
         return result;
     }
@@ -633,7 +684,32 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.not_implemented(/* no support for interface calls yet */);
+            final int oldLength = length;
+            int i = 0;
+            if ((c instanceof ArrayList && ((ArrayList) c).__$lsl_token != null)) {
+                final SymbolicList<Object> otherStorage = ((ArrayList) c).storage;
+                final int otherLength = ((ArrayList) c).length;
+                Engine.assume(otherStorage != null);
+                Engine.assume(otherLength >= 0);
+                for (i = length - 1; i > 0; i += -1) {
+                    final Object item = storage.get(i);
+                    final boolean otherHasItem = LibSLRuntime.ListActions.find(otherStorage, item, 0, otherLength);
+                    if (!otherHasItem) {
+                        _deleteElement(i);
+                    }
+                }
+                ;
+            } else {
+                for (i = length - 1; i > 0; i += -1) {
+                    final Object item = storage.get(i);
+                    final boolean otherHasItem = c.contains(item);
+                    if (!otherHasItem) {
+                        _deleteElement(i);
+                    }
+                }
+                ;
+            }
+            result = oldLength != length;
         }
         return result;
     }
