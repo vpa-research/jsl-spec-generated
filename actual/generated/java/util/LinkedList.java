@@ -6,6 +6,7 @@ package generated.java.util;
 import java.io.Serializable;
 import java.util.AbstractSequentialList;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.ConcurrentModificationException;
 import java.util.Deque;
 import java.util.Iterator;
@@ -14,6 +15,10 @@ import java.util.ListIterator;
 import java.util.NoSuchElementException;
 import java.util.Spliterator;
 import java.util.function.Consumer;
+import java.util.function.IntFunction;
+import java.util.function.Predicate;
+import java.util.function.UnaryOperator;
+import java.util.stream.Stream;
 import org.jacodb.approximation.annotation.Approximate;
 import org.usvm.api.Engine;
 import org.usvm.api.SymbolicList;
@@ -216,104 +221,6 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     }
 
     /**
-     * [FUNCTION] LinkedListAutomaton::getFirst(LinkedList) -> Object
-     */
-    public Object getFirst() {
-        Object result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            result = _getFirstElement();
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] LinkedListAutomaton::getLast(LinkedList) -> Object
-     */
-    public Object getLast() {
-        Object result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            if (size == 0) {
-                throw new NoSuchElementException();
-            }
-            result = storage.get(size - 1);
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] LinkedListAutomaton::removeFirst(LinkedList) -> Object
-     */
-    public Object removeFirst() {
-        Object result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            result = _unlinkFirst();
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] LinkedListAutomaton::removeLast(LinkedList) -> Object
-     */
-    public Object removeLast() {
-        Object result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            if (size == 0) {
-                throw new NoSuchElementException();
-            }
-            result = _unlinkAny(size - 1);
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] LinkedListAutomaton::addFirst(LinkedList, Object) -> void
-     */
-    public void addFirst(Object e) {
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            _linkAny(0, e);
-        }
-    }
-
-    /**
-     * [FUNCTION] LinkedListAutomaton::addLast(LinkedList, Object) -> void
-     */
-    public void addLast(Object e) {
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            _linkAny(size, e);
-        }
-    }
-
-    /**
-     * [FUNCTION] LinkedListAutomaton::contains(LinkedList, Object) -> boolean
-     */
-    public boolean contains(Object o) {
-        boolean result = false;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            result = LibSLRuntime.ListActions.find(storage, o, 0, size) >= 0;
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] LinkedListAutomaton::size(LinkedList) -> int
-     */
-    public int size() {
-        int result = 0;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            result = size;
-        }
-        return result;
-    }
-
-    /**
      * [FUNCTION] LinkedListAutomaton::add(LinkedList, Object) -> boolean
      */
     public boolean add(Object e) {
@@ -327,15 +234,14 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     }
 
     /**
-     * [FUNCTION] LinkedListAutomaton::remove(LinkedList, Object) -> boolean
+     * [FUNCTION] LinkedListAutomaton::add(LinkedList, int, Object) -> void
      */
-    public boolean remove(Object o) {
-        boolean result = false;
+    public void add(int index, Object element) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = _unlinkByFirstEqualsObject(o);
+            _checkPositionIndex(index);
+            _linkAny(index, element);
         }
-        return result;
     }
 
     /**
@@ -363,6 +269,26 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     }
 
     /**
+     * [FUNCTION] LinkedListAutomaton::addFirst(LinkedList, Object) -> void
+     */
+    public void addFirst(Object e) {
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            _linkAny(0, e);
+        }
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::addLast(LinkedList, Object) -> void
+     */
+    public void addLast(Object e) {
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            _linkAny(size, e);
+        }
+    }
+
+    /**
      * [FUNCTION] LinkedListAutomaton::clear(LinkedList) -> void
      */
     public void clear() {
@@ -371,6 +297,105 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
             storage = Engine.makeSymbolicList();
             size = 0;
             modCount += 1;
+        }
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::clone(LinkedList) -> Object
+     */
+    public Object clone() {
+        Object result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            final SymbolicList<Object> storageCopy = Engine.makeSymbolicList();
+            storage.copy(storageCopy, 0, 0, size);
+            result = new LinkedList(LibSLRuntime.Token.INSTANCE, LinkedList.__$lsl_States.Initialized, storageCopy, size, 0);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::contains(LinkedList, Object) -> boolean
+     */
+    public boolean contains(Object o) {
+        boolean result = false;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = LibSLRuntime.ListActions.find(storage, o, 0, size) >= 0;
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::containsAll(LinkedList, Collection) -> boolean
+     */
+    public boolean containsAll(Collection c) {
+        boolean result = false;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::descendingIterator(LinkedList) -> Iterator
+     */
+    public Iterator descendingIterator() {
+        Iterator result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = Engine.makeSymbolic(Iterator.class);
+            Engine.assume(result != null);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::element(LinkedList) -> Object
+     */
+    public Object element() {
+        Object result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = _getFirstElement();
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::equals(LinkedList, Object) -> boolean
+     */
+    public boolean equals(Object o) {
+        boolean result = false;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::forEach(LinkedList, Consumer) -> void
+     */
+    public void forEach(Consumer _action) {
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            if (_action == null) {
+                throw new NullPointerException();
+            }
+            final int expectedModCount = modCount;
+            final int length = size;
+            int i = 0;
+            while ((modCount == expectedModCount) && (i < length)) {
+                final Object item = storage.get(i);
+                _action.accept(item);
+                i += 1;
+            }
+            ;
+            if (modCount != expectedModCount) {
+                throw new ConcurrentModificationException();
+            }
         }
     }
 
@@ -388,39 +413,40 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     }
 
     /**
-     * [FUNCTION] LinkedListAutomaton::set(LinkedList, int, Object) -> Object
+     * [FUNCTION] LinkedListAutomaton::getFirst(LinkedList) -> Object
      */
-    public Object set(int index, Object element) {
+    public Object getFirst() {
         Object result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            _checkElementIndex(index);
-            storage.set(index, element);
-            result = storage.get(index);
+            result = _getFirstElement();
         }
         return result;
     }
 
     /**
-     * [FUNCTION] LinkedListAutomaton::add(LinkedList, int, Object) -> void
+     * [FUNCTION] LinkedListAutomaton::getLast(LinkedList) -> Object
      */
-    public void add(int index, Object element) {
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            _checkPositionIndex(index);
-            _linkAny(index, element);
-        }
-    }
-
-    /**
-     * [FUNCTION] LinkedListAutomaton::remove(LinkedList, int) -> Object
-     */
-    public Object remove(int index) {
+    public Object getLast() {
         Object result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            _checkElementIndex(index);
-            result = _unlinkAny(index);
+            if (size == 0) {
+                throw new NoSuchElementException();
+            }
+            result = storage.get(size - 1);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::hashCode(LinkedList) -> int
+     */
+    public int hashCode() {
+        int result = 0;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = LibSLRuntime.hashCode(storage);
         }
         return result;
     }
@@ -433,6 +459,30 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = LibSLRuntime.ListActions.find(storage, o, 0, size);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::isEmpty(LinkedList) -> boolean
+     */
+    public boolean isEmpty() {
+        boolean result = false;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::iterator(LinkedList) -> Iterator
+     */
+    public Iterator iterator() {
+        Iterator result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
         }
         return result;
     }
@@ -457,57 +507,28 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     }
 
     /**
-     * [FUNCTION] LinkedListAutomaton::peek(LinkedList) -> Object
+     * [FUNCTION] LinkedListAutomaton::listIterator(LinkedList) -> ListIterator
      */
-    public Object peek() {
-        Object result = null;
+    public ListIterator listIterator() {
+        ListIterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            if (size == 0) {
-                result = null;
-            } else {
-                result = storage.get(0);
-            }
+            result = Engine.makeSymbolic(ListIterator.class);
+            Engine.assume(result != null);
         }
         return result;
     }
 
     /**
-     * [FUNCTION] LinkedListAutomaton::element(LinkedList) -> Object
+     * [FUNCTION] LinkedListAutomaton::listIterator(LinkedList, int) -> ListIterator
      */
-    public Object element() {
-        Object result = null;
+    public ListIterator listIterator(int index) {
+        ListIterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = _getFirstElement();
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] LinkedListAutomaton::poll(LinkedList) -> Object
-     */
-    public Object poll() {
-        Object result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            if (size == 0) {
-                result = null;
-            } else {
-                result = _unlinkAny(0);
-            }
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] LinkedListAutomaton::remove(LinkedList) -> Object
-     */
-    public Object remove() {
-        Object result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            result = _unlinkFirst();
+            _checkPositionIndex(index);
+            result = Engine.makeSymbolic(ListIterator.class);
+            Engine.assume(result != null);
         }
         return result;
     }
@@ -552,6 +573,34 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     }
 
     /**
+     * [FUNCTION] LinkedListAutomaton::parallelStream(LinkedList) -> Stream
+     */
+    public Stream parallelStream() {
+        Stream result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::peek(LinkedList) -> Object
+     */
+    public Object peek() {
+        Object result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            if (size == 0) {
+                result = null;
+            } else {
+                result = storage.get(0);
+            }
+        }
+        return result;
+    }
+
+    /**
      * [FUNCTION] LinkedListAutomaton::peekFirst(LinkedList) -> Object
      */
     public Object peekFirst() {
@@ -578,6 +627,22 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
                 result = null;
             } else {
                 result = storage.get(size - 1);
+            }
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::poll(LinkedList) -> Object
+     */
+    public Object poll() {
+        Object result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            if (size == 0) {
+                result = null;
+            } else {
+                result = _unlinkAny(0);
             }
         }
         return result;
@@ -616,6 +681,18 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     }
 
     /**
+     * [FUNCTION] LinkedListAutomaton::pop(LinkedList) -> Object
+     */
+    public Object pop() {
+        Object result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = _unlinkFirst();
+        }
+        return result;
+    }
+
+    /**
      * [FUNCTION] LinkedListAutomaton::push(LinkedList, Object) -> void
      */
     public void push(Object e) {
@@ -626,9 +703,58 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     }
 
     /**
-     * [FUNCTION] LinkedListAutomaton::pop(LinkedList) -> Object
+     * [FUNCTION] LinkedListAutomaton::remove(LinkedList) -> Object
      */
-    public Object pop() {
+    public Object remove() {
+        Object result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = _unlinkFirst();
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::remove(LinkedList, Object) -> boolean
+     */
+    public boolean remove(Object o) {
+        boolean result = false;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = _unlinkByFirstEqualsObject(o);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::remove(LinkedList, int) -> Object
+     */
+    public Object remove(int index) {
+        Object result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            _checkElementIndex(index);
+            result = _unlinkAny(index);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::removeAll(LinkedList, Collection) -> boolean
+     */
+    public boolean removeAll(Collection c) {
+        boolean result = false;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::removeFirst(LinkedList) -> Object
+     */
+    public Object removeFirst() {
         Object result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
@@ -645,6 +771,33 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = _unlinkByFirstEqualsObject(o);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::removeIf(LinkedList, Predicate) -> boolean
+     */
+    public boolean removeIf(Predicate filter) {
+        boolean result = false;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::removeLast(LinkedList) -> Object
+     */
+    public Object removeLast() {
+        Object result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            if (size == 0) {
+                throw new NoSuchElementException();
+            }
+            result = _unlinkAny(size - 1);
         }
         return result;
     }
@@ -675,6 +828,125 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     }
 
     /**
+     * [FUNCTION] LinkedListAutomaton::replaceAll(LinkedList, UnaryOperator) -> void
+     */
+    public void replaceAll(UnaryOperator operator) {
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::retainAll(LinkedList, Collection) -> boolean
+     */
+    public boolean retainAll(Collection c) {
+        boolean result = false;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::set(LinkedList, int, Object) -> Object
+     */
+    public Object set(int index, Object element) {
+        Object result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            _checkElementIndex(index);
+            storage.set(index, element);
+            result = storage.get(index);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::size(LinkedList) -> int
+     */
+    public int size() {
+        int result = 0;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = size;
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::sort(LinkedList, Comparator) -> void
+     */
+    public void sort(Comparator c) {
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::spliterator(LinkedList) -> Spliterator
+     */
+    public Spliterator spliterator() {
+        Spliterator result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = Engine.makeSymbolic(Spliterator.class);
+            Engine.assume(result != null);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::stream(LinkedList) -> Stream
+     */
+    public Stream stream() {
+        Stream result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::subList(LinkedList, int, int) -> List
+     */
+    public List subList(int fromIndex, int toIndex) {
+        List result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::toArray(LinkedList) -> array<Object>
+     */
+    public Object[] toArray() {
+        Object[] result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] LinkedListAutomaton::toArray(LinkedList, IntFunction) -> array<Object>
+     */
+    public Object[] toArray(IntFunction generator) {
+        Object[] result = null;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            LibSLRuntime.todo();
+        }
+        return result;
+    }
+
+    /**
      * [FUNCTION] LinkedListAutomaton::toArray(LinkedList, array<Object>) -> array<Object>
      */
     public Object[] toArray(Object[] a) {
@@ -700,95 +972,6 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
                     result[length] = null;
                 }
             }
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] LinkedListAutomaton::forEach(LinkedList, Consumer) -> void
-     */
-    public void forEach(Consumer anAction) {
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            if (anAction == null) {
-                throw new NullPointerException();
-            }
-            final int expectedModCount = modCount;
-            final int length = size;
-            int i = 0;
-            while ((modCount == expectedModCount) && (i < length)) {
-                final Object item = storage.get(i);
-                anAction.accept(item);
-                i += 1;
-            }
-            ;
-            if (modCount != expectedModCount) {
-                throw new ConcurrentModificationException();
-            }
-        }
-    }
-
-    /**
-     * [FUNCTION] LinkedListAutomaton::spliterator(LinkedList) -> Spliterator
-     */
-    public Spliterator spliterator() {
-        Spliterator result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            result = Engine.makeSymbolic(Spliterator.class);
-            Engine.assume(result != null);
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] LinkedListAutomaton::listIterator(LinkedList, int) -> ListIterator
-     */
-    public ListIterator listIterator(int index) {
-        ListIterator result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            _checkPositionIndex(index);
-            result = Engine.makeSymbolic(ListIterator.class);
-            Engine.assume(result != null);
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] LinkedListAutomaton::descendingIterator(LinkedList) -> Iterator
-     */
-    public Iterator descendingIterator() {
-        Iterator result = null;
-        /* body */ {
-            result = Engine.makeSymbolic(Iterator.class);
-            Engine.assume(result != null);
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] LinkedListAutomaton::clone(LinkedList) -> Object
-     */
-    public Object clone() {
-        Object result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            final SymbolicList<Object> storageCopy = Engine.makeSymbolicList();
-            storage.copy(storageCopy, 0, 0, size);
-            result = new LinkedList(LibSLRuntime.Token.INSTANCE, LinkedList.__$lsl_States.Initialized, storageCopy, size, 0);
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] LinkedListAutomaton::hashCode(LinkedList) -> int
-     */
-    public int hashCode() {
-        int result = 0;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            result = LibSLRuntime.hashCode(storage);
         }
         return result;
     }
