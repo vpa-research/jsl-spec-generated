@@ -174,18 +174,18 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     private void _subListRangeCheck(int fromIndex, int toIndex, int size) {
         /* body */ {
             if (fromIndex < 0) {
-                final String message = "fromIndex = ".concat(LibSLRuntime.toString(fromIndex));
-                throw new IndexOutOfBoundsException(message);
+                final String message1 = "fromIndex = ".concat(LibSLRuntime.toString(fromIndex));
+                throw new IndexOutOfBoundsException(message1);
             }
             if (toIndex > size) {
-                final String message = "toIndex = ".concat(LibSLRuntime.toString(toIndex));
-                throw new IndexOutOfBoundsException(message);
+                final String message2 = "toIndex = ".concat(LibSLRuntime.toString(toIndex));
+                throw new IndexOutOfBoundsException(message2);
             }
             if (fromIndex > toIndex) {
                 final String from = LibSLRuntime.toString(fromIndex);
                 final String to = LibSLRuntime.toString(toIndex);
-                final String message = "fromIndex(".concat(from).concat(") > toIndex(").concat(to).concat(")");
-                throw new IllegalArgumentException(message);
+                final String message3 = "fromIndex(".concat(from).concat(") > toIndex(").concat(to).concat(")");
+                throw new IllegalArgumentException(message3);
             }
         }
     }

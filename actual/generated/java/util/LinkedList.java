@@ -984,10 +984,10 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         Object[] result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            final int size = size;
-            result = new Object[size];
+            final int length = size;
+            result = new Object[length];
             int i = 0;
-            for (i = 0; i < size; i += 1) {
+            for (i = 0; i < length; i += 1) {
                 result[i] = storage.get(i);
             }
             ;
@@ -1003,10 +1003,10 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             final Object a = generator.apply(0);
-            final int size = size;
-            result = new Object[size];
+            final int length = size;
+            result = new Object[length];
             int i = 0;
-            for (i = 0; i < size; i += 1) {
+            for (i = 0; i < length; i += 1) {
                 result[i] = storage.get(i);
             }
             ;
