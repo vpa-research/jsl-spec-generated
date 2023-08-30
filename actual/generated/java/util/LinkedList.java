@@ -409,8 +409,6 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
                     final int otherExpectedModCount = ((LinkedList) o).modCount;
                     final SymbolicList<Object> otherStorage = ((LinkedList) o).storage;
                     final int otherSize = ((LinkedList) o).size;
-                    Engine.assume(otherStorage != null);
-                    Engine.assume(otherSize >= 0);
                     if (size == otherSize) {
                         result = LibSLRuntime.equals(storage, otherStorage);
                     } else {
@@ -998,10 +996,10 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         Object[] result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            final int length = size;
-            result = new Object[length];
+            final int len = size;
+            result = new Object[len];
             int i = 0;
-            for (i = 0; i < length; i += 1) {
+            for (i = 0; i < len; i += 1) {
                 result[i] = storage.get(i);
             }
             ;
@@ -1016,11 +1014,12 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         Object[] result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            final Object a = generator.apply(0);
-            final int length = size;
-            result = new Object[length];
+            final Object[] a = ((Object[]) generator.apply(0));
+            final int aLen = a.length;
+            final int len = size;
+            result = new Object[len];
             int i = 0;
-            for (i = 0; i < length; i += 1) {
+            for (i = 0; i < len; i += 1) {
                 result[i] = storage.get(i);
             }
             ;
@@ -1036,22 +1035,22 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             final int aLen = a.length;
-            final int length = size;
+            final int len = size;
             int i = 0;
-            if (aLen < length) {
-                result = new Object[length];
-                for (i = 0; i < length; i += 1) {
+            if (aLen < len) {
+                result = new Object[len];
+                for (i = 0; i < len; i += 1) {
                     result[i] = storage.get(i);
                 }
                 ;
             } else {
                 result = a;
-                for (i = 0; i < length; i += 1) {
+                for (i = 0; i < len; i += 1) {
                     result[i] = storage.get(i);
                 }
                 ;
-                if (aLen > length) {
-                    result[length] = null;
+                if (aLen > len) {
+                    result[len] = null;
                 }
             }
         }
