@@ -742,9 +742,25 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     public void sort(Comparator c) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            final int expectedModCount = modCount;
-            LibSLRuntime.not_implemented(/* too complex, no decision yet */);
-            _checkForComodification(expectedModCount);
+            if (length != 0) {
+                final int expectedModCount = modCount;
+                Engine.assume(length > 0);
+                int i = 0;
+                int j = 0;
+                for (i = 0; i < length; i += 1) {
+                    for (j = 0; j < length; j += 1) {
+                        final Object a = storage.get(i);
+                        final Object b = storage.get(j);
+                        if (c.compare(a, b) > 0) {
+                            storage.set(i, b);
+                            storage.set(j, a);
+                        }
+                    }
+                    ;
+                }
+                ;
+                _checkForComodification(expectedModCount);
+            }
             modCount += 1;
         }
     }
