@@ -932,19 +932,21 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         /* body */ {
             if (size != 0) {
                 final int expectedModCount = modCount;
-                final int start_idx = 0;
-                final Object start_obj = storage.get(start_idx);
-                final int mid_idx = size >>> 1;
-                final Object mid_obj = storage.get(mid_idx);
-                final int end_idx = size;
-                final Object end_obj = storage.get(end_idx);
-                c.compare(start_obj, mid_obj);
-                c.compare(mid_obj, end_obj);
-                final int r = c.compare(start_obj, end_obj);
-                if (r > 0) {
-                    storage.set(start_idx, end_obj);
-                    storage.set(end_idx, start_obj);
+                Engine.assume(size > 0);
+                int i = 0;
+                int j = 0;
+                for (i = 0; i < size; i += 1) {
+                    for (j = 0; j < size; j += 1) {
+                        final Object a = storage.get(i);
+                        final Object b = storage.get(j);
+                        if (c.compare(a, b) > 0) {
+                            storage.set(i, b);
+                            storage.set(j, a);
+                        }
+                    }
+                    ;
                 }
+                ;
                 _checkForComodification(expectedModCount);
             }
             modCount += 1;
