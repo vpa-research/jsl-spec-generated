@@ -772,8 +772,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Spliterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = Engine.makeSymbolic(Spliterator.class);
-            Engine.assume(result != null);
+            result = new ArrayList_Spliterator(LibSLRuntime.Token.INSTANCE, ArrayList_Spliterator.__$lsl_States.Initialized, this, 0, length, modCount);
         }
         return result;
     }
