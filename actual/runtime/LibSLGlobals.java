@@ -9,6 +9,22 @@ import generated.java.util.OptionalInt;
 import generated.java.util.OptionalLong;
 
 public class LibSLGlobals {
+    public static final int SPLITERATOR_DISTINCT;
+
+    public static final int SPLITERATOR_SORTED;
+
+    public static final int SPLITERATOR_ORDERED;
+
+    public static final int SPLITERATOR_SIZED;
+
+    public static final int SPLITERATOR_NONNULL;
+
+    public static final int SPLITERATOR_IMMUTABLE;
+
+    public static final int SPLITERATOR_CONCURRENT;
+
+    public static final int SPLITERATOR_SUBSIZED;
+
     public static final OptionalInt EMPTY_OPTIONAL_INT;
 
     public static final OptionalLong EMPTY_OPTIONAL_LONG;
@@ -18,6 +34,14 @@ public class LibSLGlobals {
     public static final OptionalDouble EMPTY_OPTIONAL_DOUBLE;
 
     static {
+        SPLITERATOR_DISTINCT = 1;
+        SPLITERATOR_SORTED = 4;
+        SPLITERATOR_ORDERED = 16;
+        SPLITERATOR_SIZED = 64;
+        SPLITERATOR_NONNULL = 256;
+        SPLITERATOR_IMMUTABLE = 1024;
+        SPLITERATOR_CONCURRENT = 4096;
+        SPLITERATOR_SUBSIZED = 16384;
         EMPTY_OPTIONAL_INT = new OptionalInt(LibSLRuntime.Token.INSTANCE, OptionalInt.__$lsl_States.Initialized, 0, false);
         EMPTY_OPTIONAL_LONG = new OptionalLong(LibSLRuntime.Token.INSTANCE, OptionalLong.__$lsl_States.Initialized, 0, false);
         EMPTY_OPTIONAL = new Optional(LibSLRuntime.Token.INSTANCE, Optional.__$lsl_States.Initialized, null);
