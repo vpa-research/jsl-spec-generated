@@ -25,13 +25,13 @@ public class LibSLGlobals {
 
     public static final int SPLITERATOR_SUBSIZED;
 
-    public static final OptionalInt EMPTY_OPTIONAL_INT;
-
-    public static final OptionalLong EMPTY_OPTIONAL_LONG;
+    public static final OptionalDouble EMPTY_OPTIONAL_DOUBLE;
 
     public static final Optional EMPTY_OPTIONAL;
 
-    public static final OptionalDouble EMPTY_OPTIONAL_DOUBLE;
+    public static final OptionalInt EMPTY_OPTIONAL_INT;
+
+    public static final OptionalLong EMPTY_OPTIONAL_LONG;
 
     static {
         SPLITERATOR_DISTINCT = 1;
@@ -42,9 +42,9 @@ public class LibSLGlobals {
         SPLITERATOR_IMMUTABLE = 1024;
         SPLITERATOR_CONCURRENT = 4096;
         SPLITERATOR_SUBSIZED = 16384;
+        EMPTY_OPTIONAL_DOUBLE = new OptionalDouble(LibSLRuntime.Token.INSTANCE, OptionalDouble.__$lsl_States.Initialized, 0.0d, false);
+        EMPTY_OPTIONAL = new Optional(LibSLRuntime.Token.INSTANCE, Optional.__$lsl_States.Initialized, null);
         EMPTY_OPTIONAL_INT = new OptionalInt(LibSLRuntime.Token.INSTANCE, OptionalInt.__$lsl_States.Initialized, 0, false);
         EMPTY_OPTIONAL_LONG = new OptionalLong(LibSLRuntime.Token.INSTANCE, OptionalLong.__$lsl_States.Initialized, 0, false);
-        EMPTY_OPTIONAL = new Optional(LibSLRuntime.Token.INSTANCE, Optional.__$lsl_States.Initialized, null);
-        EMPTY_OPTIONAL_DOUBLE = new OptionalDouble(LibSLRuntime.Token.INSTANCE, OptionalDouble.__$lsl_States.Initialized, 0.0d, false);
     }
 }

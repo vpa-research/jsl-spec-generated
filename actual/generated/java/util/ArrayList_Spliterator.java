@@ -11,7 +11,7 @@ import org.usvm.api.Engine;
 import runtime.LibSLRuntime;
 
 /**
- * ArrayListSpliteratorAutomaton for ArrayListSpliterator ~> java.util.ArrayList_Spliterator
+ * ArrayList_SpliteratorAutomaton for ArrayList_Spliterator ~> java.util.ArrayList_Spliterator
  */
 @Approximate(java.util.ArrayList_Spliterator.class)
 public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spliterator {
@@ -48,19 +48,19 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     }
 
     /**
-     * [CONSTRUCTOR] ArrayListSpliteratorAutomaton::ArrayListSpliterator(ArrayListSpliterator, ArrayList, int, int, int) -> ArrayListSpliterator
+     * [CONSTRUCTOR] ArrayList_SpliteratorAutomaton::ArrayList_Spliterator(ArrayList_Spliterator, ArrayList, int, int, int) -> ArrayList_Spliterator
      */
     private ArrayList_Spliterator(ArrayList _this, int origin, int fence, int expectedModCount) {
         this(LibSLRuntime.Token.INSTANCE);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
-            LibSLRuntime.not_implemented(/* private constructor call */);
+            LibSLRuntime.not_implemented(/* inaccessible constructor */);
         }
         this.__$lsl_state = __$lsl_States.Initialized;
     }
 
     /**
-     * [FUNCTION] ArrayListSpliteratorAutomaton::characteristics(ArrayListSpliterator) -> int
+     * [FUNCTION] ArrayList_SpliteratorAutomaton::characteristics(ArrayList_Spliterator) -> int
      */
     public int characteristics() {
         int result = 0;
@@ -72,7 +72,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     }
 
     /**
-     * [FUNCTION] ArrayListSpliteratorAutomaton::equals(ArrayListSpliterator, Object) -> boolean
+     * [FUNCTION] ArrayList_SpliteratorAutomaton::equals(ArrayList_Spliterator, Object) -> boolean
      */
     public boolean equals(Object obj) {
         boolean result = false;
@@ -84,7 +84,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     }
 
     /**
-     * [FUNCTION] ArrayListSpliteratorAutomaton::estimateSize(ArrayListSpliterator) -> long
+     * [FUNCTION] ArrayList_SpliteratorAutomaton::estimateSize(ArrayList_Spliterator) -> long
      */
     public long estimateSize() {
         long result = 0L;
@@ -96,7 +96,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     }
 
     /**
-     * [FUNCTION] ArrayListSpliteratorAutomaton::forEachRemaining(ArrayListSpliterator, Consumer) -> void
+     * [FUNCTION] ArrayList_SpliteratorAutomaton::forEachRemaining(ArrayList_Spliterator, Consumer) -> void
      */
     public void forEachRemaining(Consumer _action) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -106,7 +106,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     }
 
     /**
-     * [FUNCTION] ArrayListSpliteratorAutomaton::getComparator(ArrayListSpliterator) -> Comparator
+     * [FUNCTION] ArrayList_SpliteratorAutomaton::getComparator(ArrayList_Spliterator) -> Comparator
      */
     public Comparator getComparator() {
         Comparator result = null;
@@ -118,7 +118,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     }
 
     /**
-     * [FUNCTION] ArrayListSpliteratorAutomaton::getExactSizeIfKnown(ArrayListSpliterator) -> long
+     * [FUNCTION] ArrayList_SpliteratorAutomaton::getExactSizeIfKnown(ArrayList_Spliterator) -> long
      */
     public long getExactSizeIfKnown() {
         long result = 0L;
@@ -130,7 +130,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     }
 
     /**
-     * [FUNCTION] ArrayListSpliteratorAutomaton::hasCharacteristics(ArrayListSpliterator, int) -> boolean
+     * [FUNCTION] ArrayList_SpliteratorAutomaton::hasCharacteristics(ArrayList_Spliterator, int) -> boolean
      */
     public boolean hasCharacteristics(int characteristics) {
         boolean result = false;
@@ -142,7 +142,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     }
 
     /**
-     * [FUNCTION] ArrayListSpliteratorAutomaton::hashCode(ArrayListSpliterator) -> int
+     * [FUNCTION] ArrayList_SpliteratorAutomaton::hashCode(ArrayList_Spliterator) -> int
      */
     public int hashCode() {
         int result = 0;
@@ -154,7 +154,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     }
 
     /**
-     * [FUNCTION] ArrayListSpliteratorAutomaton::toString(ArrayListSpliterator) -> String
+     * [FUNCTION] ArrayList_SpliteratorAutomaton::toString(ArrayList_Spliterator) -> String
      */
     public String toString() {
         String result = null;
@@ -166,7 +166,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     }
 
     /**
-     * [FUNCTION] ArrayListSpliteratorAutomaton::tryAdvance(ArrayListSpliterator, Consumer) -> boolean
+     * [FUNCTION] ArrayList_SpliteratorAutomaton::tryAdvance(ArrayList_Spliterator, Consumer) -> boolean
      */
     public boolean tryAdvance(Consumer _action) {
         boolean result = false;
@@ -178,7 +178,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     }
 
     /**
-     * [FUNCTION] ArrayListSpliteratorAutomaton::trySplit(ArrayListSpliterator) -> ArrayListSpliterator
+     * [FUNCTION] ArrayList_SpliteratorAutomaton::trySplit(ArrayList_Spliterator) -> ArrayList_Spliterator
      */
     public ArrayList_Spliterator trySplit() {
         ArrayList_Spliterator result = null;
