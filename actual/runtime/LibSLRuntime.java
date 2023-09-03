@@ -120,6 +120,11 @@ public final class LibSLRuntime {
         return new String(new char[]{ v });
     }
 
+    // TODO: do we need more variants for other primitive array types?
+    public static String toString(final char[] v) {
+        return new String(v);
+    }
+
     public static String toString(final float v) {
         // FIXME: use less complex approach
         return Float.toString(v);
@@ -177,7 +182,7 @@ public final class LibSLRuntime {
         return v == null ? "null" : v.toString();
     }
 
-    public static String toString(final Object... objects) {
+    public static String toString(final Object[] objects) {
         var str = "[";
 
         var counter = objects.length;
@@ -190,6 +195,11 @@ public final class LibSLRuntime {
         }
 
         return str.concat("]");
+    }
+
+    // fool-proofing
+    public static String toString(final String v) {
+        return v == null ? "null" : v;
     }
 
 
@@ -267,7 +277,7 @@ public final class LibSLRuntime {
         return v == null ? 0 : v.hashCode();
     }
 
-    public static int hashCode(final Object... objects) {
+    public static int hashCode(final Object[] objects) {
         if (objects == null)
             return 0;
 
