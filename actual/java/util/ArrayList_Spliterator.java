@@ -3,7 +3,6 @@
 //
 package java.util;
 
-import generated.java.util.ArrayList;
 import java.util.function.Consumer;
 import runtime.LibSLRuntime;
 
@@ -28,15 +27,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.HasAutomaton, S
         throw new InternalError();
     }
 
-    public Comparator getComparator() {
-        throw new InternalError();
-    }
-
     public long getExactSizeIfKnown() {
-        throw new InternalError();
-    }
-
-    public boolean hasCharacteristics(int characteristics) {
         throw new InternalError();
     }
 
