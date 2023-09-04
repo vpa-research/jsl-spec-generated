@@ -3,10 +3,12 @@
 //
 package generated.java.util;
 
+import java.util.ConcurrentModificationException;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 import org.jacodb.approximation.annotation.Approximate;
 import org.usvm.api.Engine;
+import org.usvm.api.SymbolicList;
 import runtime.LibSLGlobals;
 import runtime.LibSLRuntime;
 
@@ -117,7 +119,33 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     public void forEachRemaining(Consumer _action) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            if (_action == null) {
+                throw new NullPointerException();
+            }
+            Engine.assume(parent != null);
+            final SymbolicList<Object> a = ((ArrayList) parent).storage;
+            if (a == null) {
+                throw new ConcurrentModificationException();
+            }
+            int hi = fence;
+            int mc = expectedModCount;
+            if (hi < 0) {
+                hi = ((ArrayList) parent).length;
+                mc = ((ArrayList) parent).modCount;
+            }
+            int i = index;
+            index = hi;
+            if ((i < 0) || (hi > ((ArrayList) parent).length)) {
+                throw new ConcurrentModificationException();
+            }
+            for (i = i; i < hi; i += 1) {
+                final Object item = a.get(i);
+                _action.accept(item);
+            }
+            ;
+            if (mc != ((ArrayList) parent).modCount) {
+                throw new ConcurrentModificationException();
+            }
         }
     }
 
@@ -164,7 +192,24 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            if (_action == null) {
+                throw new NullPointerException();
+            }
+            final int hi = _getFence();
+            final int i = index;
+            if (i < hi) {
+                index = i + 1;
+                Engine.assume(parent != null);
+                final SymbolicList<Object> parentStorage = ((ArrayList) parent).storage;
+                final Object item = parentStorage.get(i);
+                _action.accept(item);
+                if (((ArrayList) parent).modCount != expectedModCount) {
+                    throw new ConcurrentModificationException();
+                }
+                result = true;
+            } else {
+                result = false;
+            }
         }
         return result;
     }
@@ -176,7 +221,15 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
         ArrayList_Spliterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            final int hi = _getFence();
+            final int lo = index;
+            final int mid = (lo + hi) >>> 1;
+            if (lo >= mid) {
+                result = null;
+            } else {
+                result = new ArrayList_Spliterator(LibSLRuntime.Token.INSTANCE, ArrayList_Spliterator.__$lsl_States.Initialized, parent, data, lo, mid, expectedModCount);
+            }
+            index = mid;
         }
         return result;
     }
