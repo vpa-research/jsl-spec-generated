@@ -772,13 +772,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Spliterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            final Object[] spliteratorDataArray = new Object[length];
-            int i = 0;
-            for (i = 0; i < length; i += 1) {
-                spliteratorDataArray[i] = storage.get(i);
-            }
-            ;
-            result = new ArrayList_Spliterator(LibSLRuntime.Token.INSTANCE, ArrayList_Spliterator.__$lsl_States.Initialized, this, spliteratorDataArray, 0, -1, 0);
+            result = new ArrayList_Spliterator(LibSLRuntime.Token.INSTANCE, ArrayList_Spliterator.__$lsl_States.Initialized, this, 0, -1, 0);
         }
         return result;
     }
