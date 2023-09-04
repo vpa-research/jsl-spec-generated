@@ -521,7 +521,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Iterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = new ArrayList_ListItr(LibSLRuntime.Token.INSTANCE, ArrayList_ListItr.__$lsl_States.Initialized, this, 0, modCount, 0);
+            result = new ArrayList_ListItr(LibSLRuntime.Token.INSTANCE, ArrayList_ListItr.__$lsl_States.Initialized, this, 0, modCount, -1);
         }
         return result;
     }
@@ -552,7 +552,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         ListIterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = new ArrayList_ListItr(LibSLRuntime.Token.INSTANCE, ArrayList_ListItr.__$lsl_States.Initialized, this, 0, modCount, 0);
+            result = new ArrayList_ListItr(LibSLRuntime.Token.INSTANCE, ArrayList_ListItr.__$lsl_States.Initialized, this, 0, modCount, -1);
         }
         return result;
     }
@@ -565,7 +565,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             _rangeCheckForAdd(index);
-            result = new ArrayList_ListItr(LibSLRuntime.Token.INSTANCE, ArrayList_ListItr.__$lsl_States.Initialized, this, index, modCount, 0);
+            result = new ArrayList_ListItr(LibSLRuntime.Token.INSTANCE, ArrayList_ListItr.__$lsl_States.Initialized, this, index, modCount, -1);
         }
         return result;
     }
@@ -778,7 +778,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
                 spliteratorDataArray[i] = storage.get(i);
             }
             ;
-            result = new ArrayList_Spliterator(LibSLRuntime.Token.INSTANCE, ArrayList_Spliterator.__$lsl_States.Initialized, this, spliteratorDataArray, 0, length, modCount);
+            result = new ArrayList_Spliterator(LibSLRuntime.Token.INSTANCE, ArrayList_Spliterator.__$lsl_States.Initialized, this, spliteratorDataArray, 0, -1, 0);
         }
         return result;
     }

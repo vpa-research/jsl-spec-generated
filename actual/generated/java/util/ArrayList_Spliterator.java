@@ -3,11 +3,11 @@
 //
 package generated.java.util;
 
-import java.util.Comparator;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 import org.jacodb.approximation.annotation.Approximate;
 import org.usvm.api.Engine;
+import runtime.LibSLGlobals;
 import runtime.LibSLRuntime;
 
 /**
@@ -23,11 +23,11 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
 
     public Object[] data;
 
-    public int index;
+    public int index = 0;
 
-    public int fence;
+    public int fence = -1;
 
-    public int expectedModCount;
+    public int expectedModCount = 0;
 
     @LibSLRuntime.AutomatonConstructor
     public ArrayList_Spliterator(final LibSLRuntime.Token __$lsl_token, final byte __$lsl_state,
@@ -44,7 +44,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
 
     @LibSLRuntime.AutomatonConstructor
     public ArrayList_Spliterator(final LibSLRuntime.Token __$lsl_token) {
-        this(__$lsl_token, __$lsl_States.Allocated, null, null, 0, 0, 0);
+        this(__$lsl_token, __$lsl_States.Allocated, null, null, 0, -1, 0);
     }
 
     /**
@@ -60,13 +60,29 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     }
 
     /**
+     * [SUBROUTINE] ArrayList_SpliteratorAutomaton::_getFence() -> int
+     */
+    private int _getFence() {
+        int result = 0;
+        /* body */ {
+            if (fence < 0) {
+                Engine.assume(parent != null);
+                expectedModCount = ((ArrayList) parent).modCount;
+                fence = ((ArrayList) parent).length;
+            }
+            result = fence;
+        }
+        return result;
+    }
+
+    /**
      * [FUNCTION] ArrayList_SpliteratorAutomaton::characteristics(ArrayList_Spliterator) -> int
      */
     public int characteristics() {
         int result = 0;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            result = LibSLGlobals.SPLITERATOR_ORDERED | LibSLGlobals.SPLITERATOR_SIZED | LibSLGlobals.SPLITERATOR_SUBSIZED;
         }
         return result;
     }
@@ -90,7 +106,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
         long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            result = _getFence() - index;
         }
         return result;
     }
@@ -106,37 +122,13 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     }
 
     /**
-     * [FUNCTION] ArrayList_SpliteratorAutomaton::getComparator(ArrayList_Spliterator) -> Comparator
-     */
-    public Comparator getComparator() {
-        Comparator result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            LibSLRuntime.todo();
-        }
-        return result;
-    }
-
-    /**
      * [FUNCTION] ArrayList_SpliteratorAutomaton::getExactSizeIfKnown(ArrayList_Spliterator) -> long
      */
     public long getExactSizeIfKnown() {
         long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] ArrayList_SpliteratorAutomaton::hasCharacteristics(ArrayList_Spliterator, int) -> boolean
-     */
-    public boolean hasCharacteristics(int characteristics) {
-        boolean result = false;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            LibSLRuntime.todo();
+            result = _getFence() - index;
         }
         return result;
     }
