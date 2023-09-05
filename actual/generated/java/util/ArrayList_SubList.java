@@ -108,7 +108,16 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
      */
     private void _updateSizeAndModCount(int sizeChange) {
         /* body */ {
-            LibSLRuntime.todo();
+            Engine.assume(root != null);
+            length += sizeChange;
+            modCount = ((ArrayList) root).modCount;
+            ArrayList_SubList aList = parentList;
+            while (aList != null) {
+                ((ArrayList_SubList) aList).length += sizeChange;
+                ((ArrayList_SubList) aList).modCount = modCount;
+                aList = ((ArrayList_SubList) aList).parentList;
+            }
+            ;
         }
     }
 
@@ -287,7 +296,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            result = length == 0;
         }
         return result;
     }
@@ -347,7 +356,8 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         Stream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            result = Engine.makeSymbolic(Stream.class);
+            Engine.assume(result != null);
         }
         return result;
     }
@@ -372,10 +382,10 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             Engine.assume(root != null);
-            ((ArrayList) root)._checkValidIndex(index);
+            final int effectiveIndex = offset + index;
+            ((ArrayList) root)._checkValidIndex(effectiveIndex);
             ((ArrayList) root)._checkForComodification(modCount);
-            final int curIndex = offset + index;
-            result = ((ArrayList) root)._deleteElement(curIndex);
+            result = ((ArrayList) root)._deleteElement(effectiveIndex);
             _updateSizeAndModCount(-1);
         }
         return result;
@@ -488,7 +498,8 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         Stream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            result = Engine.makeSymbolic(Stream.class);
+            Engine.assume(result != null);
         }
         return result;
     }
