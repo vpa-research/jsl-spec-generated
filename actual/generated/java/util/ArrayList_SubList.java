@@ -89,14 +89,15 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         boolean result = false;
         /* body */ {
             Engine.assume(root != null);
-            ((ArrayList) root)._rangeCheckForAdd(index);
+            final int effectiveIndex = offset + index;
+            ((ArrayList) root)._rangeCheckForAdd(effectiveIndex);
             final int collectionSize = c.size();
             if (collectionSize == 0) {
                 result = false;
             } else {
                 result = true;
                 ((ArrayList) root)._checkForComodification(modCount);
-                ((ArrayList) root)._addAllElements(offset + index, c);
+                ((ArrayList) root)._addAllElements(effectiveIndex, c);
                 _updateSizeAndModCount(collectionSize);
             }
         }
@@ -160,10 +161,10 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             Engine.assume(root != null);
-            ((ArrayList) root)._rangeCheckForAdd(index);
+            final int effectiveIndex = offset + index;
+            ((ArrayList) root)._rangeCheckForAdd(effectiveIndex);
             ((ArrayList) root)._checkForComodification(modCount);
-            final int curIndex = offset + index;
-            ((ArrayList) root)._addElement(curIndex, element);
+            ((ArrayList) root)._addElement(effectiveIndex, element);
             _updateSizeAndModCount(1);
         }
     }
@@ -256,11 +257,10 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             Engine.assume(root != null);
-            ((ArrayList) root)._checkValidIndex(index);
+            final int effectiveIndex = offset + index;
+            ((ArrayList) root)._checkValidIndex(effectiveIndex);
             ((ArrayList) root)._checkForComodification(modCount);
-            final int curIndex = offset + index;
-            final SymbolicList<Object> parentStorage = ((ArrayList) root).storage;
-            result = parentStorage.get(curIndex);
+            result = ((ArrayList) root).storage.get(effectiveIndex);
         }
         return result;
     }
@@ -445,12 +445,12 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             Engine.assume(root != null);
-            ((ArrayList) root)._checkValidIndex(index);
+            final int effectiveIndex = offset + index;
+            ((ArrayList) root)._checkValidIndex(effectiveIndex);
             ((ArrayList) root)._checkForComodification(modCount);
-            final int curIndex = offset + index;
             final SymbolicList<Object> parentStorage = ((ArrayList) root).storage;
-            result = parentStorage.get(curIndex);
-            parentStorage.set(curIndex, element);
+            result = parentStorage.get(effectiveIndex);
+            parentStorage.set(effectiveIndex, element);
         }
         return result;
     }
