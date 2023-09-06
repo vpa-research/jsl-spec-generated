@@ -6,44 +6,44 @@ package java.util;
 import java.util.function.Consumer;
 import runtime.LibSLRuntime;
 
-public final class ArrayList_ListItr implements LibSLRuntime.HasAutomaton, ListIterator {
-    public boolean hasPrevious() {
+public final class ArrayList_Spliterator implements LibSLRuntime.HasAutomaton, Spliterator {
+    private ArrayList_Spliterator(ArrayList _this, int origin, int fence, int expectedModCount) {
         throw new InternalError();
     }
 
-    public int nextIndex() {
+    public int characteristics() {
         throw new InternalError();
     }
 
-    public int previousIndex() {
+    public boolean equals(Object obj) {
         throw new InternalError();
     }
 
-    public boolean hasNext() {
+    public long estimateSize() {
         throw new InternalError();
     }
 
-    public Object next() {
+    public void forEachRemaining(Consumer _action) {
         throw new InternalError();
     }
 
-    public Object previous() {
+    public long getExactSizeIfKnown() {
         throw new InternalError();
     }
 
-    public void remove() {
+    public int hashCode() {
         throw new InternalError();
     }
 
-    public void set(Object e) {
+    public String toString() {
         throw new InternalError();
     }
 
-    public void add(Object e) {
+    public boolean tryAdvance(Consumer _action) {
         throw new InternalError();
     }
 
-    public void forEachRemaining(Consumer userAction) {
+    public ArrayList_Spliterator trySplit() {
         throw new InternalError();
     }
 }

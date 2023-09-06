@@ -4,31 +4,31 @@
 package generated.java.util;
 
 import java.util.NoSuchElementException;
-import java.util.function.DoubleConsumer;
-import java.util.function.DoubleSupplier;
+import java.util.function.LongConsumer;
+import java.util.function.LongSupplier;
 import java.util.function.Supplier;
-import java.util.stream.DoubleStream;
+import java.util.stream.LongStream;
 import org.jacodb.approximation.annotation.Approximate;
 import org.usvm.api.Engine;
 import runtime.LibSLGlobals;
 import runtime.LibSLRuntime;
 
 /**
- * OptionalDoubleAutomaton for OptionalDouble ~> java.util.OptionalDouble
+ * OptionalLongAutomaton for OptionalLong ~> java.util.OptionalLong
  */
-@Approximate(java.util.OptionalDouble.class)
-public final class OptionalDouble implements LibSLRuntime.Automaton {
+@Approximate(java.util.OptionalLong.class)
+public final class OptionalLong implements LibSLRuntime.Automaton {
     public LibSLRuntime.Token __$lsl_token = null;
 
     public byte __$lsl_state = __$lsl_States.Allocated;
 
-    public double value;
+    public long value;
 
     public boolean present;
 
     @LibSLRuntime.AutomatonConstructor
-    public OptionalDouble(final LibSLRuntime.Token __$lsl_token, final byte __$lsl_state,
-            final double value, final boolean present) {
+    public OptionalLong(final LibSLRuntime.Token __$lsl_token, final byte __$lsl_state,
+            final long value, final boolean present) {
         this.__$lsl_token = __$lsl_token;
         this.__$lsl_state = __$lsl_state;
         this.value = value;
@@ -36,14 +36,14 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
     }
 
     @LibSLRuntime.AutomatonConstructor
-    public OptionalDouble(final LibSLRuntime.Token __$lsl_token) {
-        this(__$lsl_token, __$lsl_States.Allocated, 0.0d, false);
+    public OptionalLong(final LibSLRuntime.Token __$lsl_token) {
+        this(__$lsl_token, __$lsl_States.Allocated, 0L, false);
     }
 
     /**
-     * [CONSTRUCTOR] OptionalDoubleAutomaton::OptionalDouble(OptionalDouble) -> OptionalDouble
+     * [CONSTRUCTOR] OptionalLongAutomaton::OptionalLong(OptionalLong) -> OptionalLong
      */
-    private OptionalDouble() {
+    private OptionalLong() {
         this(LibSLRuntime.Token.INSTANCE);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
@@ -53,9 +53,9 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [CONSTRUCTOR] OptionalDoubleAutomaton::OptionalDouble(OptionalDouble, double) -> OptionalDouble
+     * [CONSTRUCTOR] OptionalLongAutomaton::OptionalLong(OptionalLong, long) -> OptionalLong
      */
-    private OptionalDouble(double x) {
+    private OptionalLong(long x) {
         this(LibSLRuntime.Token.INSTANCE);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
@@ -65,33 +65,33 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalDoubleAutomaton::empty() -> OptionalDouble
+     * [FUNCTION] OptionalLongAutomaton::empty() -> OptionalLong
      */
-    public static OptionalDouble empty() {
-        OptionalDouble result = null;
+    public static OptionalLong empty() {
+        OptionalLong result = null;
         // WARNING: no state checks in static context
         /* body */ {
-            result = LibSLGlobals.EMPTY_OPTIONAL_DOUBLE;
+            result = LibSLGlobals.EMPTY_OPTIONAL_LONG;
         }
         // WARNING: no state transitions in static context
         return result;
     }
 
     /**
-     * [FUNCTION] OptionalDoubleAutomaton::of(double) -> OptionalDouble
+     * [FUNCTION] OptionalLongAutomaton::of(long) -> OptionalLong
      */
-    public static OptionalDouble of(double x) {
-        OptionalDouble result = null;
+    public static OptionalLong of(long x) {
+        OptionalLong result = null;
         // WARNING: no state checks in static context
         /* body */ {
-            result = new OptionalDouble(LibSLRuntime.Token.INSTANCE, OptionalDouble.__$lsl_States.Initialized, x, true);
+            result = new OptionalLong(LibSLRuntime.Token.INSTANCE, OptionalLong.__$lsl_States.Initialized, x, true);
         }
         // WARNING: no state transitions in static context
         return result;
     }
 
     /**
-     * [FUNCTION] OptionalDoubleAutomaton::equals(OptionalDouble, Object) -> boolean
+     * [FUNCTION] OptionalLongAutomaton::equals(OptionalLong, Object) -> boolean
      */
     public boolean equals(Object other) {
         boolean result = false;
@@ -102,8 +102,8 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
             } else {
                 final boolean isSameType = Engine.typeEquals(this, other);
                 if (isSameType) {
-                    final double otherValue = ((OptionalDouble) other).value;
-                    final boolean otherPresent = ((OptionalDouble) other).present;
+                    final long otherValue = ((OptionalLong) other).value;
+                    final boolean otherPresent = ((OptionalLong) other).present;
                     if (present && otherPresent) {
                         result = value == otherValue;
                     } else {
@@ -118,10 +118,10 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalDoubleAutomaton::getAsDouble(OptionalDouble) -> double
+     * [FUNCTION] OptionalLongAutomaton::getAsLong(OptionalLong) -> long
      */
-    public double getAsDouble() {
-        double result = 0.0d;
+    public long getAsLong() {
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (!present) {
@@ -133,7 +133,7 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalDoubleAutomaton::hashCode(OptionalDouble) -> int
+     * [FUNCTION] OptionalLongAutomaton::hashCode(OptionalLong) -> int
      */
     public int hashCode() {
         int result = 0;
@@ -149,9 +149,9 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalDoubleAutomaton::ifPresent(OptionalDouble, DoubleConsumer) -> void
+     * [FUNCTION] OptionalLongAutomaton::ifPresent(OptionalLong, LongConsumer) -> void
      */
-    public void ifPresent(DoubleConsumer consumer) {
+    public void ifPresent(LongConsumer consumer) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (present) {
@@ -164,9 +164,9 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalDoubleAutomaton::ifPresentOrElse(OptionalDouble, DoubleConsumer, Runnable) -> void
+     * [FUNCTION] OptionalLongAutomaton::ifPresentOrElse(OptionalLong, LongConsumer, Runnable) -> void
      */
-    public void ifPresentOrElse(DoubleConsumer consumer, Runnable emptyAction) {
+    public void ifPresentOrElse(LongConsumer consumer, Runnable emptyAction) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (present) {
@@ -184,7 +184,7 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalDoubleAutomaton::isEmpty(OptionalDouble) -> boolean
+     * [FUNCTION] OptionalLongAutomaton::isEmpty(OptionalLong) -> boolean
      */
     public boolean isEmpty() {
         boolean result = false;
@@ -196,7 +196,7 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalDoubleAutomaton::isPresent(OptionalDouble) -> boolean
+     * [FUNCTION] OptionalLongAutomaton::isPresent(OptionalLong) -> boolean
      */
     public boolean isPresent() {
         boolean result = false;
@@ -208,10 +208,10 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalDoubleAutomaton::orElse(OptionalDouble, double) -> double
+     * [FUNCTION] OptionalLongAutomaton::orElse(OptionalLong, long) -> long
      */
-    public double orElse(double other) {
-        double result = 0.0d;
+    public long orElse(long other) {
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (present) {
@@ -224,10 +224,10 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalDoubleAutomaton::orElseGet(OptionalDouble, DoubleSupplier) -> double
+     * [FUNCTION] OptionalLongAutomaton::orElseGet(OptionalLong, LongSupplier) -> long
      */
-    public double orElseGet(DoubleSupplier supplier) {
-        double result = 0.0d;
+    public long orElseGet(LongSupplier supplier) {
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (supplier == null) {
@@ -236,17 +236,17 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
             if (present) {
                 result = value;
             } else {
-                result = supplier.getAsDouble();
+                result = supplier.getAsLong();
             }
         }
         return result;
     }
 
     /**
-     * [FUNCTION] OptionalDoubleAutomaton::orElseThrow(OptionalDouble) -> double
+     * [FUNCTION] OptionalLongAutomaton::orElseThrow(OptionalLong) -> long
      */
-    public double orElseThrow() {
-        double result = 0.0d;
+    public long orElseThrow() {
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (!present) {
@@ -258,10 +258,10 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalDoubleAutomaton::orElseThrow(OptionalDouble, Supplier) -> double
+     * [FUNCTION] OptionalLongAutomaton::orElseThrow(OptionalLong, Supplier) -> long
      */
-    public double orElseThrow(Supplier exceptionSupplier) throws java.lang.Throwable {
-        double result = 0.0d;
+    public long orElseThrow(Supplier exceptionSupplier) throws java.lang.Throwable {
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (exceptionSupplier == null) {
@@ -278,10 +278,10 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalDoubleAutomaton::stream(OptionalDouble) -> DoubleStream
+     * [FUNCTION] OptionalLongAutomaton::stream(OptionalLong) -> LongStream
      */
-    public DoubleStream stream() {
-        DoubleStream result = null;
+    public LongStream stream() {
+        LongStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.not_implemented(/* no decision */);
@@ -290,7 +290,7 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalDoubleAutomaton::toString(OptionalDouble) -> String
+     * [FUNCTION] OptionalLongAutomaton::toString(OptionalLong) -> String
      */
     public String toString() {
         String result = null;
@@ -298,9 +298,9 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
         /* body */ {
             if (present) {
                 final String valueStr = LibSLRuntime.toString(value);
-                result = "OptionalDouble[".concat(valueStr).concat("]");
+                result = "OptionalLong[".concat(valueStr).concat("]");
             } else {
-                result = "OptionalDouble.empty";
+                result = "OptionalLong.empty";
             }
         }
         return result;
@@ -312,7 +312,7 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
         public static final byte Initialized = (byte) 1;
     }
 
-    @Approximate(OptionalDouble.class)
+    @Approximate(OptionalLong.class)
     public static final class __hook {
         private __hook(Void o) {
             Engine.assume(false);

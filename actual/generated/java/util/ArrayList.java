@@ -11,7 +11,6 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
-import java.util.List;
 import java.util.ListIterator;
 import java.util.RandomAccess;
 import java.util.Spliterator;

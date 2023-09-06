@@ -16,10 +16,13 @@ import runtime.LibSLRuntime;
  */
 @Approximate(java.util.Random.class)
 public class Random implements LibSLRuntime.Automaton, Serializable {
+    public LibSLRuntime.Token __$lsl_token = null;
+
     public byte __$lsl_state = __$lsl_States.Allocated;
 
     @LibSLRuntime.AutomatonConstructor
     public Random(final LibSLRuntime.Token __$lsl_token, final byte __$lsl_state) {
+        this.__$lsl_token = __$lsl_token;
         this.__$lsl_state = __$lsl_state;
     }
 

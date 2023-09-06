@@ -1,25 +1,27 @@
-actual/java/util/ArrayList_ListItr.java
-actual/java/util/ArrayList_Spliterator.java
-actual/java/util/ArrayList_Stream.java
-actual/java/util/ArrayList_SubList.java
+expected/java/util/ArrayList_ListItr.java
+expected/java/util/ArrayList_Spliterator.java
+expected/java/util/ArrayList_Stream.java
+expected/java/util/ArrayList_SubList.java
 
-actual/generated/java/util/ArrayList.java
-actual/generated/java/util/ArrayList_ListItr.java
-actual/generated/java/util/ArrayList_Spliterator.java
-actual/generated/java/util/ArrayList_Stream.java
-actual/generated/java/util/ArrayList_SubList.java
+expected/generated/java/util/ArrayList.java
+expected/generated/java/util/ArrayList_ListItr.java
+expected/generated/java/util/ArrayList_Spliterator.java
+expected/generated/java/util/ArrayList_Stream.java
+expected/generated/java/util/ArrayList_SubList.java
 
-actual/generated/java/util/LinkedList.java
+expected/generated/java/util/LinkedList.java
 
-actual/generated/java/util/Optional.java
-actual/generated/java/util/OptionalDouble.java
-actual/generated/java/util/OptionalInt.java
-actual/generated/java/util/OptionalLong.java
+expected/generated/java/util/List.java
 
-actual/generated/java/util/Random.java
+expected/generated/java/util/Optional.java
+expected/generated/java/util/OptionalDouble.java
+expected/generated/java/util/OptionalInt.java
+expected/generated/java/util/OptionalLong.java
 
-actual/runtime/LibSLGlobals.java
-actual/runtime/LibSLRuntime.java
+expected/generated/java/util/Random.java
+
+expected/runtime/LibSLGlobals.java
+expected/runtime/LibSLRuntime.java
 
 
 fixed/org.jacodb.approximation.annotation/Approximate.java
