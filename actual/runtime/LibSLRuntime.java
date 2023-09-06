@@ -7,6 +7,7 @@ import java.lang.annotation.Target;
 
 import org.usvm.api.Engine;
 import org.usvm.api.SymbolicList;
+import org.usvm.api.SymbolicMap;
 
 public final class LibSLRuntime {
 
@@ -141,7 +142,7 @@ public final class LibSLRuntime {
 
         var counter = v.size();
         Engine.assume(counter >= 0);
-        for (var i = 0, c = counter; i < c; i++) {
+        for (int i = 0, c = counter; i < c; i++) {
             res = res.concat(toString(v.get(i)));
 
             if (counter --> 1)
@@ -158,9 +159,9 @@ public final class LibSLRuntime {
         var unseen = v.size();
         Engine.assume(unseen >= 0);
 
-        final var visited = Engine.makeSymbolicMap<>();
+        final var visited = Engine.makeSymbolicMap();
         while (unseen != 0) {
-            final var key = Engine.makeSymbolic<>();
+            final var key = Engine.makeSymbolic(Object.class);
             Engine.assume(!visited.containsKey(key));
             Engine.assume(v.containsKey(key));
 
@@ -258,7 +259,7 @@ public final class LibSLRuntime {
         var unseen = v.size();
         Engine.assume(unseen >= 0);
 
-        final var visited = Engine.makeSymbolicMap<>();
+        final var visited = Engine.makeSymbolicMap();
         while (unseen != 0) {
             final var key = Engine.makeSymbolic(Object.class);
             Engine.assume(!visited.containsKey(key));

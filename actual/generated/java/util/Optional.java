@@ -15,7 +15,7 @@ import runtime.LibSLGlobals;
 import runtime.LibSLRuntime;
 
 /**
- * OptionalAutomaton for Optional ~> java.util.Optional
+ * OptionalAutomaton for LSLOptional ~> java.util.Optional
  */
 @Approximate(java.util.Optional.class)
 public final class Optional implements LibSLRuntime.Automaton {
@@ -39,7 +39,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [CONSTRUCTOR] OptionalAutomaton::Optional(Optional) -> Optional
+     * [CONSTRUCTOR] OptionalAutomaton::LSLOptional(LSLOptional) -> LSLOptional
      */
     private Optional() {
         this(LibSLRuntime.Token.INSTANCE);
@@ -51,7 +51,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [CONSTRUCTOR] OptionalAutomaton::Optional(Optional, Object) -> Optional
+     * [CONSTRUCTOR] OptionalAutomaton::LSLOptional(LSLOptional, Object) -> LSLOptional
      */
     private Optional(Object obj) {
         this(LibSLRuntime.Token.INSTANCE);
@@ -63,7 +63,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [SUBROUTINE] OptionalAutomaton::_makeEmpty() -> Optional
+     * [SUBROUTINE] OptionalAutomaton::_makeEmpty() -> LSLOptional
      */
     private static Optional _makeEmpty() {
         Optional result = null;
@@ -74,7 +74,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::empty() -> Optional
+     * [FUNCTION] OptionalAutomaton::empty() -> LSLOptional
      */
     public static Optional empty() {
         Optional result = null;
@@ -87,7 +87,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::of(Object) -> Optional
+     * [FUNCTION] OptionalAutomaton::of(Object) -> LSLOptional
      */
     public static Optional of(Object obj) {
         Optional result = null;
@@ -103,7 +103,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::ofNullable(Object) -> Optional
+     * [FUNCTION] OptionalAutomaton::ofNullable(Object) -> LSLOptional
      */
     public static Optional ofNullable(Object obj) {
         Optional result = null;
@@ -120,7 +120,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::equals(Optional, Object) -> boolean
+     * [FUNCTION] OptionalAutomaton::equals(LSLOptional, Object) -> boolean
      */
     public boolean equals(Object other) {
         boolean result = false;
@@ -142,7 +142,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::filter(Optional, Predicate) -> Optional
+     * [FUNCTION] OptionalAutomaton::filter(LSLOptional, Predicate) -> LSLOptional
      */
     public Optional filter(Predicate predicate) {
         Optional result = null;
@@ -166,7 +166,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::flatMap(Optional, Function) -> Optional
+     * [FUNCTION] OptionalAutomaton::flatMap(LSLOptional, Function) -> LSLOptional
      */
     public Optional flatMap(Function mapper) {
         Optional result = null;
@@ -178,7 +178,7 @@ public final class Optional implements LibSLRuntime.Automaton {
             if (value == null) {
                 result = _makeEmpty();
             } else {
-                result = mapper.apply(value);
+                result = ((Optional) mapper.apply(value));
                 if (result == null) {
                     throw new NullPointerException();
                 }
@@ -188,7 +188,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::get(Optional) -> Object
+     * [FUNCTION] OptionalAutomaton::get(LSLOptional) -> Object
      */
     public Object get() {
         Object result = null;
@@ -203,7 +203,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::hashCode(Optional) -> int
+     * [FUNCTION] OptionalAutomaton::hashCode(LSLOptional) -> int
      */
     public int hashCode() {
         int result = 0;
@@ -215,7 +215,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::ifPresent(Optional, Consumer) -> void
+     * [FUNCTION] OptionalAutomaton::ifPresent(LSLOptional, Consumer) -> void
      */
     public void ifPresent(Consumer consumer) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -230,7 +230,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::ifPresentOrElse(Optional, Consumer, Runnable) -> void
+     * [FUNCTION] OptionalAutomaton::ifPresentOrElse(LSLOptional, Consumer, Runnable) -> void
      */
     public void ifPresentOrElse(Consumer consumer, Runnable emptyAction) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -250,7 +250,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::isEmpty(Optional) -> boolean
+     * [FUNCTION] OptionalAutomaton::isEmpty(LSLOptional) -> boolean
      */
     public boolean isEmpty() {
         boolean result = false;
@@ -262,7 +262,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::isPresent(Optional) -> boolean
+     * [FUNCTION] OptionalAutomaton::isPresent(LSLOptional) -> boolean
      */
     public boolean isPresent() {
         boolean result = false;
@@ -274,7 +274,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::map(Optional, Function) -> Optional
+     * [FUNCTION] OptionalAutomaton::map(LSLOptional, Function) -> LSLOptional
      */
     public Optional map(Function mapper) {
         Optional result = null;
@@ -298,7 +298,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::or(Optional, Supplier) -> Optional
+     * [FUNCTION] OptionalAutomaton::or(LSLOptional, Supplier) -> LSLOptional
      */
     public Optional or(Supplier supplier) {
         Optional result = null;
@@ -308,7 +308,7 @@ public final class Optional implements LibSLRuntime.Automaton {
                 throw new NullPointerException();
             }
             if (value == null) {
-                result = supplier.get();
+                result = ((Optional) supplier.get());
                 if (result == null) {
                     throw new NullPointerException();
                 }
@@ -320,7 +320,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::orElse(Optional, Object) -> Object
+     * [FUNCTION] OptionalAutomaton::orElse(LSLOptional, Object) -> Object
      */
     public Object orElse(Object other) {
         Object result = null;
@@ -336,7 +336,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::orElseGet(Optional, Supplier) -> Object
+     * [FUNCTION] OptionalAutomaton::orElseGet(LSLOptional, Supplier) -> Object
      */
     public Object orElseGet(Supplier supplier) {
         Object result = null;
@@ -355,7 +355,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::orElseThrow(Optional) -> Object
+     * [FUNCTION] OptionalAutomaton::orElseThrow(LSLOptional) -> Object
      */
     public Object orElseThrow() {
         Object result = null;
@@ -370,7 +370,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::orElseThrow(Optional, Supplier) -> Object
+     * [FUNCTION] OptionalAutomaton::orElseThrow(LSLOptional, Supplier) -> Object
      */
     public Object orElseThrow(Supplier exceptionSupplier) throws java.lang.Throwable {
         Object result = null;
@@ -390,7 +390,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::stream(Optional) -> Stream
+     * [FUNCTION] OptionalAutomaton::stream(LSLOptional) -> Stream
      */
     public Stream stream() {
         Stream result = null;
@@ -402,7 +402,7 @@ public final class Optional implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] OptionalAutomaton::toString(Optional) -> String
+     * [FUNCTION] OptionalAutomaton::toString(LSLOptional) -> String
      */
     public String toString() {
         String result = null;

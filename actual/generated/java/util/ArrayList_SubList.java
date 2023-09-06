@@ -525,7 +525,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         Object[] result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            final int[] a = new Object[length];
+            final Object[] a = new Object[length];
             final int end = offset + length;
             LibSLRuntime.todo();
         }
@@ -539,7 +539,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         Object[] result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            final Object[] a = generator.apply(0);
+            final Object[] a = ((Object[]) generator.apply(0));
             if (a == null) {
                 throw new NullPointerException();
             }

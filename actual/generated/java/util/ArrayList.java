@@ -691,7 +691,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
                 Engine.assume(otherLength >= 0);
                 for (i = length - 1; i > 0; i += -1) {
                     final Object item = storage.get(i);
-                    final boolean otherHasItem = LibSLRuntime.ListActions.find(otherStorage, item, 0, otherLength);
+                    final boolean otherHasItem = LibSLRuntime.ListActions.find(otherStorage, item, 0, otherLength) >= 0;
                     if (!otherHasItem) {
                         _deleteElement(i);
                     }

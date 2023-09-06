@@ -5,6 +5,7 @@ package generated.java.util;
 
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.Optional;
 import java.util.Spliterator;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
@@ -432,7 +433,9 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
         Optional result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
+            Object value = null;
             LibSLRuntime.todo();
+            result = Optional.of(value);
         }
         return result;
     }
