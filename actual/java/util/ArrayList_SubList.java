@@ -10,7 +10,7 @@ import java.util.function.UnaryOperator;
 import java.util.stream.Stream;
 import runtime.LibSLRuntime;
 
-public final class ArrayList_SubList extends AbstractList implements LibSLRuntime.HasAutomaton, RandomAccess {
+public final class ArrayList_SubList extends AbstractList implements LibSLRuntime.HasAutomaton, List, RandomAccess {
     public ArrayList_SubList(ArrayList root, int fromIndex, int toIndex) {
         throw new InternalError();
     }

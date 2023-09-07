@@ -7,6 +7,7 @@ import java.util.AbstractList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.List;
 import java.util.ListIterator;
 import java.util.RandomAccess;
 import java.util.Spliterator;
@@ -25,6 +26,9 @@ import runtime.LibSLRuntime;
  */
 @Approximate(java.util.ArrayList_SubList.class)
 public final class ArrayList_SubList extends AbstractList implements LibSLRuntime.Automaton, List, RandomAccess {
+    static {
+    }
+
     public LibSLRuntime.Token __$lsl_token = null;
 
     public byte __$lsl_state = __$lsl_States.Allocated;

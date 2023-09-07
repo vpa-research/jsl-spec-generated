@@ -18,6 +18,9 @@ import runtime.LibSLRuntime;
  */
 @Approximate(java.util.OptionalDouble.class)
 public final class OptionalDouble implements LibSLRuntime.Automaton {
+    static {
+    }
+
     public LibSLRuntime.Token __$lsl_token = null;
 
     public byte __$lsl_state = __$lsl_States.Allocated;

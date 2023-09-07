@@ -29,6 +29,9 @@ import runtime.LibSLRuntime;
  */
 @Approximate(java.util.LinkedList.class)
 public class LinkedList extends AbstractSequentialList implements LibSLRuntime.Automaton, List, Deque, Cloneable, Serializable {
+    static {
+    }
+
     public LibSLRuntime.Token __$lsl_token = null;
 
     public byte __$lsl_state = __$lsl_States.Allocated;

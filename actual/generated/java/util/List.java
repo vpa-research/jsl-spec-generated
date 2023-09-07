@@ -14,12 +14,12 @@ import runtime.LibSLRuntime;
  * CustomListAutomaton for CustomList ~> java.util.List
  */
 @Approximate(java.util.List.class)
-public interface List extends java.util.List {
+public interface List extends LibSLRuntime.Automaton, java.util.List {
     /**
-     * [FUNCTION] CustomListAutomaton::copyOf(Collection) -> CustomList
+     * [FUNCTION] CustomListAutomaton::copyOf(Collection) -> List
      */
-    public static List copyOf(Collection coll) {
-        List result = null;
+    static java.util.List copyOf(Collection coll) {
+        java.util.List result = null;
         // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
@@ -38,10 +38,10 @@ public interface List extends java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of() -> CustomList
+     * [FUNCTION] CustomListAutomaton::of() -> List
      */
-    public static List of() {
-        List result = null;
+    static java.util.List of() {
+        java.util.List result = null;
         // WARNING: no state checks in static context
         /* body */ {
             result = new ArrayList(LibSLRuntime.Token.INSTANCE, ArrayList.__$lsl_States.Initialized, Engine.makeSymbolicList(), 0, 0);
@@ -51,10 +51,10 @@ public interface List extends java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of(Object) -> CustomList
+     * [FUNCTION] CustomListAutomaton::of(Object) -> List
      */
-    public static List of(Object e1) {
-        List result = null;
+    static java.util.List of(Object e1) {
+        java.util.List result = null;
         // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
@@ -66,10 +66,10 @@ public interface List extends java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of(Object, Object) -> CustomList
+     * [FUNCTION] CustomListAutomaton::of(Object, Object) -> List
      */
-    public static List of(Object e1, Object e2) {
-        List result = null;
+    static java.util.List of(Object e1, Object e2) {
+        java.util.List result = null;
         // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
@@ -82,10 +82,10 @@ public interface List extends java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object) -> CustomList
+     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object) -> List
      */
-    public static List of(Object e1, Object e2, Object e3) {
-        List result = null;
+    static java.util.List of(Object e1, Object e2, Object e3) {
+        java.util.List result = null;
         // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
@@ -99,10 +99,10 @@ public interface List extends java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object, Object) -> CustomList
+     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object, Object) -> List
      */
-    public static List of(Object e1, Object e2, Object e3, Object e4) {
-        List result = null;
+    static java.util.List of(Object e1, Object e2, Object e3, Object e4) {
+        java.util.List result = null;
         // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
@@ -117,10 +117,10 @@ public interface List extends java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object, Object, Object) -> CustomList
+     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object, Object, Object) -> List
      */
-    public static List of(Object e1, Object e2, Object e3, Object e4, Object e5) {
-        List result = null;
+    static java.util.List of(Object e1, Object e2, Object e3, Object e4, Object e5) {
+        java.util.List result = null;
         // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
@@ -136,10 +136,10 @@ public interface List extends java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object, Object, Object, Object) -> CustomList
+     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object, Object, Object, Object) -> List
      */
-    public static List of(Object e1, Object e2, Object e3, Object e4, Object e5, Object e6) {
-        List result = null;
+    static java.util.List of(Object e1, Object e2, Object e3, Object e4, Object e5, Object e6) {
+        java.util.List result = null;
         // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
@@ -156,11 +156,11 @@ public interface List extends java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object, Object, Object, Object, Object) -> CustomList
+     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object, Object, Object, Object, Object) -> List
      */
-    public static List of(Object e1, Object e2, Object e3, Object e4, Object e5, Object e6,
+    static java.util.List of(Object e1, Object e2, Object e3, Object e4, Object e5, Object e6,
             Object e7) {
-        List result = null;
+        java.util.List result = null;
         // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
@@ -178,11 +178,11 @@ public interface List extends java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object, Object, Object, Object, Object, Object) -> CustomList
+     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object, Object, Object, Object, Object, Object) -> List
      */
-    public static List of(Object e1, Object e2, Object e3, Object e4, Object e5, Object e6,
+    static java.util.List of(Object e1, Object e2, Object e3, Object e4, Object e5, Object e6,
             Object e7, Object e8) {
-        List result = null;
+        java.util.List result = null;
         // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
@@ -201,11 +201,11 @@ public interface List extends java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object, Object, Object, Object, Object, Object, Object) -> CustomList
+     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object, Object, Object, Object, Object, Object, Object) -> List
      */
-    public static List of(Object e1, Object e2, Object e3, Object e4, Object e5, Object e6,
+    static java.util.List of(Object e1, Object e2, Object e3, Object e4, Object e5, Object e6,
             Object e7, Object e8, Object e9) {
-        List result = null;
+        java.util.List result = null;
         // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
@@ -225,11 +225,11 @@ public interface List extends java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object, Object, Object, Object, Object, Object, Object, Object) -> CustomList
+     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object, Object, Object, Object, Object, Object, Object, Object) -> List
      */
-    public static List of(Object e1, Object e2, Object e3, Object e4, Object e5, Object e6,
+    static java.util.List of(Object e1, Object e2, Object e3, Object e4, Object e5, Object e6,
             Object e7, Object e8, Object e9, Object e10) {
-        List result = null;
+        java.util.List result = null;
         // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
@@ -250,10 +250,10 @@ public interface List extends java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of(array<Object>) -> CustomList
+     * [FUNCTION] CustomListAutomaton::of(array<Object>) -> List
      */
-    public static List of(Object[] elements) {
-        List result = null;
+    static java.util.List of(Object[] elements) {
+        java.util.List result = null;
         // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
@@ -272,14 +272,14 @@ public interface List extends java.util.List {
         return result;
     }
 
-    public static final class __$lsl_States {
+    final class __$lsl_States {
         public static final byte Allocated = (byte) 0;
 
         public static final byte Initialized = (byte) 1;
     }
 
     @Approximate(List.class)
-    public static final class __hook {
+    final class __hook {
         private __hook(Void o) {
             Engine.assume(false);
         }

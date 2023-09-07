@@ -33,6 +33,9 @@ import runtime.LibSLRuntime;
  */
 @Approximate(java.util.ArrayList_Stream.class)
 public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
+    static {
+    }
+
     public LibSLRuntime.Token __$lsl_token = null;
 
     public byte __$lsl_state = __$lsl_States.Initialized;

@@ -17,6 +17,9 @@ import runtime.LibSLRuntime;
  */
 @Approximate(java.util.ArrayList_ListItr.class)
 public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIterator {
+    static {
+    }
+
     public LibSLRuntime.Token __$lsl_token = null;
 
     public byte __$lsl_state = __$lsl_States.Initialized;
