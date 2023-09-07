@@ -15,6 +15,8 @@ import runtime.LibSLRuntime;
  */
 @Approximate(java.util.List.class)
 public interface List extends LibSLRuntime.Automaton, java.util.List {
+    Object __$_lsl_INTERFACE_INITIALIZER = new Object();
+
     /**
      * [FUNCTION] CustomListAutomaton::copyOf(Collection) -> List
      */

@@ -96,8 +96,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             if (initialCapacity < 0) {
-                final String message = "Illegal Capacity: ".concat(LibSLRuntime.toString(initialCapacity));
-                throw new IllegalArgumentException(message);
+                throw new IllegalArgumentException();
             }
             storage = Engine.makeSymbolicList();
             length = 0;
@@ -111,10 +110,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     public void _checkValidIndex(int index) {
         /* body */ {
             if ((index < 0) || (length <= index)) {
-                final String idx = LibSLRuntime.toString(index);
-                final String len = LibSLRuntime.toString(length);
-                final String message = "Index ".concat(idx).concat(" out of bounds for length ").concat(len);
-                throw new IndexOutOfBoundsException(message);
+                throw new IndexOutOfBoundsException();
             }
         }
     }
@@ -125,10 +121,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     public void _rangeCheckForAdd(int index) {
         /* body */ {
             if ((index > length) || (index < 0)) {
-                final String idx = LibSLRuntime.toString(index);
-                final String len = LibSLRuntime.toString(length);
-                final String message = "Index: ".concat(idx).concat(", Size: ").concat(len);
-                throw new IndexOutOfBoundsException(message);
+                throw new IndexOutOfBoundsException();
             }
         }
     }
@@ -177,18 +170,13 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     public void _subListRangeCheck(int fromIndex, int toIndex, int size) {
         /* body */ {
             if (fromIndex < 0) {
-                final String message1 = "fromIndex = ".concat(LibSLRuntime.toString(fromIndex));
-                throw new IndexOutOfBoundsException(message1);
+                throw new IndexOutOfBoundsException();
             }
             if (toIndex > size) {
-                final String message2 = "toIndex = ".concat(LibSLRuntime.toString(toIndex));
-                throw new IndexOutOfBoundsException(message2);
+                throw new IndexOutOfBoundsException();
             }
             if (fromIndex > toIndex) {
-                final String from = LibSLRuntime.toString(fromIndex);
-                final String to = LibSLRuntime.toString(toIndex);
-                final String message3 = "fromIndex(".concat(from).concat(") > toIndex(").concat(to).concat(")");
-                throw new IllegalArgumentException(message3);
+                throw new IllegalArgumentException();
             }
         }
     }

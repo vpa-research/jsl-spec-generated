@@ -129,8 +129,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     private void _checkElementIndex(int index) {
         /* body */ {
             if (!_isValidIndex(index)) {
-                final String message = "Index: ".concat(LibSLRuntime.toString(index)).concat(", Size: ").concat(LibSLRuntime.toString(size));
-                throw new IndexOutOfBoundsException(message);
+                throw new IndexOutOfBoundsException();
             }
         }
     }
@@ -163,8 +162,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     private void _checkPositionIndex(int index) {
         /* body */ {
             if (!_isPositionIndex(index)) {
-                final String message = "Index: ".concat(LibSLRuntime.toString(index)).concat(", Size: ").concat(LibSLRuntime.toString(size));
-                throw new IndexOutOfBoundsException(message);
+                throw new IndexOutOfBoundsException();
             }
         }
     }
