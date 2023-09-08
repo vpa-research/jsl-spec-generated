@@ -230,12 +230,30 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
                 Engine.assume(root != null);
                 final SymbolicList<Object> rootStorage = ((ArrayList) root).storage;
                 final int end = offset + length;
-                final Iterator iter = c.iterator();
-                while (iter.hasNext() && result) {
-                    final Object item = iter.next();
-                    result = LibSLRuntime.ListActions.find(rootStorage, item, offset, end) >= 0;
+                if ((c instanceof ArrayList_SubList && ((ArrayList_SubList) c).__$lsl_token != null)) {
+                    final ArrayList otherRoot = ((ArrayList_SubList) c).root;
+                    Engine.assume(otherRoot != null);
+                    final SymbolicList<Object> otherStorage = ((ArrayList) otherRoot).storage;
+                    final int otherOffset = ((ArrayList_SubList) c).offset;
+                    final int otherEnd = otherOffset + ((ArrayList_SubList) c).length;
+                    Engine.assume(otherStorage != null);
+                    Engine.assume(otherOffset >= 0);
+                    Engine.assume(otherEnd >= 0);
+                    int i = otherOffset;
+                    while (result && (i < otherEnd)) {
+                        final Object item = otherStorage.get(i);
+                        result = LibSLRuntime.ListActions.find(rootStorage, item, offset, end) >= 0;
+                        i += 1;
+                    }
+                    ;
+                } else {
+                    final Iterator iter = c.iterator();
+                    while (iter.hasNext() && result) {
+                        final Object item = iter.next();
+                        result = LibSLRuntime.ListActions.find(rootStorage, item, offset, end) >= 0;
+                    }
+                    ;
                 }
-                ;
             }
         }
         return result;
