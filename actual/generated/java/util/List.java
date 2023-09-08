@@ -275,9 +275,7 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
     }
 
     final class __$lsl_States {
-        public static final byte Allocated = (byte) 0;
-
-        public static final byte Initialized = (byte) 1;
+        public static final byte Initialized = (byte) 0;
     }
 
     @Approximate(List.class)

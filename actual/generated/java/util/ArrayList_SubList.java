@@ -225,7 +225,18 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            result = true;
+            if (!c.isEmpty()) {
+                Engine.assume(root != null);
+                final SymbolicList<Object> rootStorage = ((ArrayList) root).storage;
+                final int end = offset + length;
+                final Iterator iter = c.iterator();
+                while (iter.hasNext() && result) {
+                    final Object item = iter.next();
+                    result = LibSLRuntime.ListActions.find(rootStorage, item, offset, end);
+                }
+                ;
+            }
         }
         return result;
     }
