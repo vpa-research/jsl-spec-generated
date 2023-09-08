@@ -233,7 +233,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
                 final Iterator iter = c.iterator();
                 while (iter.hasNext() && result) {
                     final Object item = iter.next();
-                    result = LibSLRuntime.ListActions.find(rootStorage, item, offset, end);
+                    result = LibSLRuntime.ListActions.find(rootStorage, item, offset, end) >= 0;
                 }
                 ;
             }
