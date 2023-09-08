@@ -35,7 +35,6 @@ public class Object implements LibSLRuntime.Automaton {
      */
     public boolean equals(java.lang.Object obj) {
         boolean result = false;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = this == obj;
         }
@@ -47,7 +46,6 @@ public class Object implements LibSLRuntime.Automaton {
      */
     public int hashCode() {
         int result = 0;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = Engine.makeSymbolicInt();
         }
@@ -59,7 +57,6 @@ public class Object implements LibSLRuntime.Automaton {
      */
     public String toString() {
         String result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = Engine.makeSymbolic(String.class);
             Engine.assume(result != null);

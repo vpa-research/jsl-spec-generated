@@ -67,7 +67,6 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
      */
     public boolean hasPrevious() {
         boolean result = false;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = cursor != 0;
         }
@@ -79,7 +78,6 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
      */
     public int nextIndex() {
         int result = 0;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = cursor;
         }
@@ -91,7 +89,6 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
      */
     public int previousIndex() {
         int result = 0;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = cursor - 1;
         }
@@ -103,7 +100,6 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
      */
     public boolean hasNext() {
         boolean result = false;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             Engine.assume(parent != null);
             result = cursor != ((ArrayList) parent).length;
@@ -116,7 +112,6 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
      */
     public Object next() {
         Object result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             Engine.assume(parent != null);
             _checkForComodification();
@@ -140,7 +135,6 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
      */
     public Object previous() {
         Object result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             Engine.assume(parent != null);
             _checkForComodification();
@@ -163,7 +157,6 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
      * [FUNCTION] ArrayList_ListIteratorAutomaton::remove(ArrayList_ListIterator) -> void
      */
     public void remove() {
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             Engine.assume(parent != null);
             if (lastRet < 0) {
@@ -188,7 +181,6 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
      * [FUNCTION] ArrayList_ListIteratorAutomaton::set(ArrayList_ListIterator, Object) -> void
      */
     public void set(Object e) {
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             Engine.assume(parent != null);
             if (lastRet < 0) {
@@ -208,7 +200,6 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
      * [FUNCTION] ArrayList_ListIteratorAutomaton::add(ArrayList_ListIterator, Object) -> void
      */
     public void add(Object e) {
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             Engine.assume(parent != null);
             _checkForComodification();
@@ -231,7 +222,6 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
      * [FUNCTION] ArrayList_ListIteratorAutomaton::forEachRemaining(ArrayList_ListIterator, Consumer) -> void
      */
     public void forEachRemaining(Consumer userAction) {
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             Engine.assume(parent != null);
             if (userAction == null) {

@@ -56,7 +56,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public boolean allMatch(Predicate predicate) {
         boolean result = false;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -68,7 +67,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public boolean anyMatch(Predicate predicate) {
         boolean result = false;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -79,7 +77,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      * [FUNCTION] ArrayList_StreamAutomaton::close(ArrayList_Stream) -> void
      */
     public void close() {
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -90,7 +87,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Object collect(Collector collector) {
         Object result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -102,7 +98,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Object collect(Supplier supplier, BiConsumer accumulator, BiConsumer combiner) {
         Object result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -114,7 +109,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public long count() {
         long result = 0L;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -126,7 +120,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Stream distinct() {
         Stream result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -138,7 +131,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Stream dropWhile(Predicate predicate) {
         Stream result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -150,7 +142,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public boolean equals(Object obj) {
         boolean result = false;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -162,7 +153,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Stream filter(Predicate predicate) {
         Stream result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -174,7 +164,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Optional findAny() {
         Optional result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -186,7 +175,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Optional findFirst() {
         Optional result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -198,7 +186,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Stream flatMap(Function mapper) {
         Stream result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -210,7 +197,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public DoubleStream flatMapToDouble(Function mapper) {
         DoubleStream result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -222,7 +208,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public IntStream flatMapToInt(Function mapper) {
         IntStream result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -234,7 +219,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public LongStream flatMapToLong(Function mapper) {
         LongStream result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -245,7 +229,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      * [FUNCTION] ArrayList_StreamAutomaton::forEach(ArrayList_Stream, Consumer) -> void
      */
     public void forEach(Consumer _action) {
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -255,7 +238,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      * [FUNCTION] ArrayList_StreamAutomaton::forEachOrdered(ArrayList_Stream, Consumer) -> void
      */
     public void forEachOrdered(Consumer _action) {
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -266,7 +248,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public int hashCode() {
         int result = 0;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -278,7 +259,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public boolean isParallel() {
         boolean result = false;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -290,7 +270,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Iterator iterator() {
         Iterator result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -302,7 +281,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Stream limit(long maxSize) {
         Stream result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -314,7 +292,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Stream map(Function mapper) {
         Stream result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -326,7 +303,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public DoubleStream mapToDouble(ToDoubleFunction mapper) {
         DoubleStream result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -338,7 +314,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public IntStream mapToInt(ToIntFunction mapper) {
         IntStream result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -350,7 +325,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public LongStream mapToLong(ToLongFunction mapper) {
         LongStream result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -362,7 +336,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Optional max(Comparator comparator) {
         Optional result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -374,7 +347,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Optional min(Comparator comparator) {
         Optional result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -386,7 +358,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public boolean noneMatch(Predicate predicate) {
         boolean result = false;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -398,7 +369,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public BaseStream onClose(Runnable closeHandler) {
         BaseStream result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -410,7 +380,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public BaseStream parallel() {
         BaseStream result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -422,7 +391,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Stream peek(Consumer _action) {
         Stream result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -434,7 +402,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Optional reduce(BinaryOperator accumulator) {
         Optional result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             Object value = null;
             LibSLRuntime.todo();
@@ -448,7 +415,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Object reduce(Object identity, BiFunction accumulator, BinaryOperator combiner) {
         Object result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -460,7 +426,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Object reduce(Object identity, BinaryOperator accumulator) {
         Object result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -472,7 +437,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public BaseStream sequential() {
         BaseStream result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -484,7 +448,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Stream skip(long n) {
         Stream result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -496,7 +459,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Stream sorted() {
         Stream result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -508,7 +470,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Stream sorted(Comparator comparator) {
         Stream result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -520,7 +481,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Spliterator spliterator() {
         Spliterator result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -532,7 +492,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Stream takeWhile(Predicate predicate) {
         Stream result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -544,7 +503,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Object[] toArray() {
         Object[] result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -556,7 +514,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Object[] toArray(IntFunction generator) {
         Object[] result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -568,7 +525,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public String toString() {
         String result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }
@@ -580,7 +536,6 @@ public final class ArrayList_Stream implements LibSLRuntime.Automaton, Stream {
      */
     public Stream unordered() {
         Stream result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
         }

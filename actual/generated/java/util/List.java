@@ -22,7 +22,6 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
      */
     static java.util.List copyOf(Collection coll) {
         java.util.List result = null;
-        // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
             int size = 0;
@@ -35,7 +34,6 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
             ;
             result = new ArrayList(LibSLRuntime.Token.INSTANCE, ArrayList.__$lsl_States.Initialized, data, size, 0);
         }
-        // WARNING: no state transitions in static context
         return result;
     }
 
@@ -44,11 +42,9 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
      */
     static java.util.List of() {
         java.util.List result = null;
-        // WARNING: no state checks in static context
         /* body */ {
             result = new ArrayList(LibSLRuntime.Token.INSTANCE, ArrayList.__$lsl_States.Initialized, Engine.makeSymbolicList(), 0, 0);
         }
-        // WARNING: no state transitions in static context
         return result;
     }
 
@@ -57,13 +53,11 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
      */
     static java.util.List of(Object e1) {
         java.util.List result = null;
-        // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
             data.insert(0, e1);
             result = new ArrayList(LibSLRuntime.Token.INSTANCE, ArrayList.__$lsl_States.Initialized, data, 1, 0);
         }
-        // WARNING: no state transitions in static context
         return result;
     }
 
@@ -72,14 +66,12 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
      */
     static java.util.List of(Object e1, Object e2) {
         java.util.List result = null;
-        // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
             data.insert(0, e1);
             data.insert(1, e2);
             result = new ArrayList(LibSLRuntime.Token.INSTANCE, ArrayList.__$lsl_States.Initialized, data, 2, 0);
         }
-        // WARNING: no state transitions in static context
         return result;
     }
 
@@ -88,7 +80,6 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
      */
     static java.util.List of(Object e1, Object e2, Object e3) {
         java.util.List result = null;
-        // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
             data.insert(0, e1);
@@ -96,7 +87,6 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
             data.insert(2, e3);
             result = new ArrayList(LibSLRuntime.Token.INSTANCE, ArrayList.__$lsl_States.Initialized, data, 3, 0);
         }
-        // WARNING: no state transitions in static context
         return result;
     }
 
@@ -105,7 +95,6 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
      */
     static java.util.List of(Object e1, Object e2, Object e3, Object e4) {
         java.util.List result = null;
-        // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
             data.insert(0, e1);
@@ -114,7 +103,6 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
             data.insert(3, e4);
             result = new ArrayList(LibSLRuntime.Token.INSTANCE, ArrayList.__$lsl_States.Initialized, data, 4, 0);
         }
-        // WARNING: no state transitions in static context
         return result;
     }
 
@@ -123,7 +111,6 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
      */
     static java.util.List of(Object e1, Object e2, Object e3, Object e4, Object e5) {
         java.util.List result = null;
-        // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
             data.insert(0, e1);
@@ -133,7 +120,6 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
             data.insert(4, e5);
             result = new ArrayList(LibSLRuntime.Token.INSTANCE, ArrayList.__$lsl_States.Initialized, data, 5, 0);
         }
-        // WARNING: no state transitions in static context
         return result;
     }
 
@@ -142,7 +128,6 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
      */
     static java.util.List of(Object e1, Object e2, Object e3, Object e4, Object e5, Object e6) {
         java.util.List result = null;
-        // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
             data.insert(0, e1);
@@ -153,7 +138,6 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
             data.insert(5, e6);
             result = new ArrayList(LibSLRuntime.Token.INSTANCE, ArrayList.__$lsl_States.Initialized, data, 6, 0);
         }
-        // WARNING: no state transitions in static context
         return result;
     }
 
@@ -163,7 +147,6 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
     static java.util.List of(Object e1, Object e2, Object e3, Object e4, Object e5, Object e6,
             Object e7) {
         java.util.List result = null;
-        // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
             data.insert(0, e1);
@@ -175,7 +158,6 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
             data.insert(6, e7);
             result = new ArrayList(LibSLRuntime.Token.INSTANCE, ArrayList.__$lsl_States.Initialized, data, 7, 0);
         }
-        // WARNING: no state transitions in static context
         return result;
     }
 
@@ -185,7 +167,6 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
     static java.util.List of(Object e1, Object e2, Object e3, Object e4, Object e5, Object e6,
             Object e7, Object e8) {
         java.util.List result = null;
-        // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
             data.insert(0, e1);
@@ -198,7 +179,6 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
             data.insert(7, e8);
             result = new ArrayList(LibSLRuntime.Token.INSTANCE, ArrayList.__$lsl_States.Initialized, data, 8, 0);
         }
-        // WARNING: no state transitions in static context
         return result;
     }
 
@@ -208,7 +188,6 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
     static java.util.List of(Object e1, Object e2, Object e3, Object e4, Object e5, Object e6,
             Object e7, Object e8, Object e9) {
         java.util.List result = null;
-        // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
             data.insert(0, e1);
@@ -222,7 +201,6 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
             data.insert(8, e9);
             result = new ArrayList(LibSLRuntime.Token.INSTANCE, ArrayList.__$lsl_States.Initialized, data, 9, 0);
         }
-        // WARNING: no state transitions in static context
         return result;
     }
 
@@ -232,7 +210,6 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
     static java.util.List of(Object e1, Object e2, Object e3, Object e4, Object e5, Object e6,
             Object e7, Object e8, Object e9, Object e10) {
         java.util.List result = null;
-        // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
             data.insert(0, e1);
@@ -247,7 +224,6 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
             data.insert(9, e10);
             result = new ArrayList(LibSLRuntime.Token.INSTANCE, ArrayList.__$lsl_States.Initialized, data, 10, 0);
         }
-        // WARNING: no state transitions in static context
         return result;
     }
 
@@ -256,7 +232,6 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
      */
     static java.util.List of(Object[] elements) {
         java.util.List result = null;
-        // WARNING: no state checks in static context
         /* body */ {
             final SymbolicList<Object> data = Engine.makeSymbolicList();
             final int size = elements.length;
@@ -270,7 +245,6 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
             }
             result = new ArrayList(LibSLRuntime.Token.INSTANCE, ArrayList.__$lsl_States.Initialized, data, size, 0);
         }
-        // WARNING: no state transitions in static context
         return result;
     }
 
