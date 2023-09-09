@@ -24,7 +24,7 @@ actual/runtime/LibSLGlobals.java
 actual/runtime/LibSLRuntime.java
 
 
-fixed/org.jacodb.approximation.annotation/Approximate.java
-fixed/org.usvm.api/Engine.java
-fixed/org.usvm.api/SymbolicList.java
-fixed/org.usvm.api/SymbolicMap.java
+stubs/org.jacodb.approximation.annotation/Approximate.java
+stubs/org.usvm.api/Engine.java
+stubs/org.usvm.api/SymbolicList.java
+stubs/org.usvm.api/SymbolicMap.java

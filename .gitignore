@@ -1,6 +1,4 @@
 *.class
 /*.jar
-/fixed/org.jacodb.approximation.annotation
-/fixed/org.usvm.api
 /*.zip
 /*.7z
