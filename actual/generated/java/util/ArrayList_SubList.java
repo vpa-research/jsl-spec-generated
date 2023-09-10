@@ -152,7 +152,11 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            Engine.assume(root != null);
+            final int effectiveIndex = offset + length;
+            ((ArrayList) root)._checkForComodification(modCount);
+            ((ArrayList) root)._addElement(effectiveIndex, e);
+            _updateSizeAndModCount(1);
         }
         return result;
     }
@@ -248,7 +252,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
                     ;
                 } else {
                     final Iterator iter = c.iterator();
-                    while (iter.hasNext() && result) {
+                    while (result && iter.hasNext()) {
                         final Object item = iter.next();
                         result = LibSLRuntime.ListActions.find(rootStorage, item, offset, end) >= 0;
                     }
@@ -277,7 +281,21 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
     public void forEach(Consumer _action) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            if (length != 0) {
+                Engine.assume(root != null);
+                final int end = offset + length;
+                final SymbolicList<Object> rootStorage = ((ArrayList) root).storage;
+                final int expectedModCount = ((ArrayList) root).modCount;
+                modCount = expectedModCount;
+                int i = offset;
+                while ((i < end) && (((ArrayList) root).modCount == expectedModCount)) {
+                    final Object item = rootStorage.get(i);
+                    _action.accept(item);
+                    i += 1;
+                }
+                ;
+                ((ArrayList) root)._checkForComodification(expectedModCount);
+            }
         }
     }
 
@@ -304,7 +322,18 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         int result = 0;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            result = 1;
+            if (length != 0) {
+                Engine.assume(root != null);
+                final int end = offset + length;
+                final SymbolicList<Object> rootStorage = ((ArrayList) root).storage;
+                int i = offset;
+                for (i = i; i < end; i += 1) {
+                    final Object item = rootStorage.get(i);
+                    result = (31 * result) + LibSLRuntime.hashCode(item);
+                }
+                ;
+            }
         }
         return result;
     }
@@ -401,7 +430,16 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            Engine.assume(root != null);
+            final int end = offset + length;
+            final SymbolicList<Object> rootStorage = ((ArrayList) root).storage;
+            final int index = LibSLRuntime.ListActions.find(rootStorage, o, offset, end);
+            result = index >= 0;
+            if (result) {
+                ((ArrayList) root)._checkForComodification(modCount);
+                ((ArrayList) root)._deleteElement(index);
+                _updateSizeAndModCount(-1);
+            }
         }
         return result;
     }
@@ -430,7 +468,10 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            result = true;
+            if (length != 0) {
+                LibSLRuntime.todo();
+            }
         }
         return result;
     }
@@ -600,7 +641,11 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         String result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            if (length == 0) {
+                result = "[]";
+            } else {
+                LibSLRuntime.todo();
+            }
         }
         return result;
     }
