@@ -283,11 +283,11 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         /* body */ {
             if (length != 0) {
                 Engine.assume(root != null);
-                final int end = offset + length;
                 final SymbolicList<Object> rootStorage = ((ArrayList) root).storage;
                 final int expectedModCount = ((ArrayList) root).modCount;
                 modCount = expectedModCount;
                 int i = offset;
+                final int end = offset + length;
                 while ((i < end) && (((ArrayList) root).modCount == expectedModCount)) {
                     final Object item = rootStorage.get(i);
                     _action.accept(item);
@@ -325,9 +325,9 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
             result = 1;
             if (length != 0) {
                 Engine.assume(root != null);
-                final int end = offset + length;
                 final SymbolicList<Object> rootStorage = ((ArrayList) root).storage;
                 int i = offset;
+                final int end = offset + length;
                 for (i = i; i < end; i += 1) {
                     final Object item = rootStorage.get(i);
                     result = (31 * result) + LibSLRuntime.hashCode(item);
@@ -644,7 +644,17 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
             if (length == 0) {
                 result = "[]";
             } else {
-                LibSLRuntime.todo();
+                result = "[";
+                Engine.assume(root != null);
+                final SymbolicList<Object> rootStorage = ((ArrayList) root).storage;
+                int i = offset;
+                final int end = offset + length;
+                for (i = i; i < end; i += 1) {
+                    final Object item = rootStorage.get(i);
+                    result = result.concat(LibSLRuntime.toString(item));
+                }
+                ;
+                result = result.concat("]");
             }
         }
         return result;
