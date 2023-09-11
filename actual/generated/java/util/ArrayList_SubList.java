@@ -649,9 +649,14 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
                 final SymbolicList<Object> rootStorage = ((ArrayList) root).storage;
                 int i = offset;
                 final int end = offset + length;
+                int counter = length;
                 for (i = i; i < end; i += 1) {
                     final Object item = rootStorage.get(i);
                     result = result.concat(LibSLRuntime.toString(item));
+                    counter -= 1;
+                    if (counter != 0) {
+                        result = result.concat(", ");
+                    }
                 }
                 ;
                 result = result.concat("]");
