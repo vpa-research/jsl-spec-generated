@@ -137,11 +137,14 @@ public final class LibSLRuntime {
     }
 
     public static String toString(final SymbolicList v) {
+        var counter = v.size();
+        Engine.assume(counter >= 0);
+        if (counter == 0)
+            return "[]";
+
         // FIXME: use less complex approach
         var res = "[";
 
-        var counter = v.size();
-        Engine.assume(counter >= 0);
         for (int i = 0, c = counter; i < c; i++) {
             res = res.concat(toString(v.get(i)));
 
@@ -153,11 +156,13 @@ public final class LibSLRuntime {
     }
 
     public static String toString(final SymbolicMap v) {
-        // FIXME: use less complex approach
-        var res = "[";
-
         var unseen = v.size();
         Engine.assume(unseen >= 0);
+        if (unseen == 0)
+            return "[]";
+
+        // FIXME: use less complex approach
+        var res = "[";
 
         final var visited = Engine.makeSymbolicMap();
         while (unseen != 0) {
@@ -184,10 +189,13 @@ public final class LibSLRuntime {
     }
 
     public static String toString(final Object[] objects) {
-        var str = "[";
-
         var counter = objects.length;
         Engine.assume(counter >= 0);
+        if (counter == 0)
+            return "[]";
+    
+        var str = "[";
+
         for (int i = 0, c = counter; i < c; i++) {
             str = str.concat(toString(objects[i]));
 
@@ -241,11 +249,17 @@ public final class LibSLRuntime {
     }
 
     public static int hashCode(final SymbolicList v) {
-        // FIXME: use less complex approach
-        int res = 1;
+        if (v == null)
+            return 0;
 
         final var count = v.size();
         Engine.assume(count >= 0);
+        if (count == 0)
+            return 1;
+
+        // FIXME: use less complex approach
+        int res = 1;
+
         for (var i = 0; i < count; i++)
             res = 31 * res + hashCode(v.get(i));
 
@@ -253,11 +267,16 @@ public final class LibSLRuntime {
     }
 
     public static int hashCode(final SymbolicMap v) {
-        // FIXME: use less complex approach
-        int res = 1;
+        if (v == null)
+            return 0;
 
         var unseen = v.size();
         Engine.assume(unseen >= 0);
+        if (unseen == 0)
+            return 1;
+
+        // FIXME: use less complex approach
+        int res = 1;
 
         final var visited = Engine.makeSymbolicMap();
         while (unseen != 0) {
@@ -278,16 +297,19 @@ public final class LibSLRuntime {
         return v == null ? 0 : v.hashCode();
     }
 
-    public static int hashCode(final Object[] objects) {
-        if (objects == null)
+    public static int hashCode(final Object[] v) {
+        if (v == null)
             return 0;
 
-        int res = 1;
-        
-        final var count = objects.length;
+        final var count = v.length;
         Engine.assume(count >= 0);
+        if (count == 0)
+            return 1;
+
+        int res = 1;
+
         for (var i = 0; i < count; i++)
-            res = 31 * res + hashCode(objects[i]);
+            res = 31 * res + hashCode(v[i]);
 
         return res;
     }
