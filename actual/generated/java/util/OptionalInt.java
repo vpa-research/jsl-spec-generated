@@ -287,7 +287,8 @@ public final class OptionalInt implements LibSLRuntime.Automaton {
         IntStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.not_implemented(/* no decision */);
+            result = Engine.makeSymbolic(IntStream.class);
+            Engine.assume(result != null);
         }
         return result;
     }

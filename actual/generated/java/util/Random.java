@@ -3,6 +3,8 @@
 //
 package generated.java.util;
 
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
@@ -41,6 +43,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
         this(LibSLRuntime.Token.INSTANCE);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
+            ;
         }
         this.__$lsl_state = __$lsl_States.Initialized;
     }
@@ -52,6 +55,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
         this(LibSLRuntime.Token.INSTANCE);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
+            ;
         }
         this.__$lsl_state = __$lsl_States.Initialized;
     }
@@ -72,7 +76,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
     /**
      * [FUNCTION] RandomAutomaton::doubles(Random, double, double) -> DoubleStream
      */
-    public DoubleStream doubles(double arg0, double arg1) {
+    public DoubleStream doubles(double randomNumberOrigin, double randomNumberBound) {
         DoubleStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
@@ -85,7 +89,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
     /**
      * [FUNCTION] RandomAutomaton::doubles(Random, long) -> DoubleStream
      */
-    public DoubleStream doubles(long arg0) {
+    public DoubleStream doubles(long streamSize) {
         DoubleStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
@@ -98,7 +102,8 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
     /**
      * [FUNCTION] RandomAutomaton::doubles(Random, long, double, double) -> DoubleStream
      */
-    public DoubleStream doubles(long arg0, double arg1, double arg2) {
+    public DoubleStream doubles(long streamSize, double randomNumberOrigin,
+            double randomNumberBound) {
         DoubleStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
@@ -124,7 +129,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
     /**
      * [FUNCTION] RandomAutomaton::ints(Random, int, int) -> IntStream
      */
-    public IntStream ints(int arg0, int arg1) {
+    public IntStream ints(int randomNumberOrigin, int randomNumberBound) {
         IntStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
@@ -137,7 +142,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
     /**
      * [FUNCTION] RandomAutomaton::ints(Random, long) -> IntStream
      */
-    public IntStream ints(long arg0) {
+    public IntStream ints(long streamSize) {
         IntStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
@@ -150,7 +155,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
     /**
      * [FUNCTION] RandomAutomaton::ints(Random, long, int, int) -> IntStream
      */
-    public IntStream ints(long arg0, int arg1, int arg2) {
+    public IntStream ints(long streamSize, int randomNumberOrigin, int randomNumberBound) {
         IntStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
@@ -176,7 +181,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
     /**
      * [FUNCTION] RandomAutomaton::longs(Random, long) -> LongStream
      */
-    public LongStream longs(long arg0) {
+    public LongStream longs(long streamSize) {
         LongStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
@@ -189,7 +194,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
     /**
      * [FUNCTION] RandomAutomaton::longs(Random, long, long) -> LongStream
      */
-    public LongStream longs(long arg0, long arg1) {
+    public LongStream longs(long randomNumberOrigin, long randomNumberBound) {
         LongStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
@@ -202,7 +207,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
     /**
      * [FUNCTION] RandomAutomaton::longs(Random, long, long, long) -> LongStream
      */
-    public LongStream longs(long arg0, long arg1, long arg2) {
+    public LongStream longs(long streamSize, long randomNumberOrigin, long randomNumberBound) {
         LongStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
@@ -275,6 +280,8 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = Engine.makeSymbolicDouble();
+            final boolean isNaN = Double.isNaN(result);
+            Engine.assume(!isNaN);
         }
         return result;
     }
@@ -326,6 +333,26 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
     public synchronized void setSeed(long seed) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
+            ;
+        }
+    }
+
+    /**
+     * [FUNCTION] RandomAutomaton::readObject(ObjectInputStream) -> void
+     */
+    private void readObject(ObjectInputStream s) throws java.io.IOException,
+            java.lang.ClassNotFoundException {
+        /* body */ {
+            LibSLRuntime.not_implemented(/* no serialization support */);
+        }
+    }
+
+    /**
+     * [FUNCTION] RandomAutomaton::writeObject(ObjectOutputStream) -> void
+     */
+    private synchronized void writeObject(ObjectOutputStream s) throws java.io.IOException {
+        /* body */ {
+            LibSLRuntime.not_implemented(/* no serialization support */);
         }
     }
 
