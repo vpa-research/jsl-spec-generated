@@ -11,14 +11,14 @@ import org.usvm.api.SymbolicList;
 import runtime.LibSLRuntime;
 
 /**
- * CustomListAutomaton for CustomList ~> java.util.List
+ * ListAutomaton for CustomList ~> java.util.List
  */
 @Approximate(java.util.List.class)
 public interface List extends LibSLRuntime.Automaton, java.util.List {
     Object __$_lsl_INTERFACE_INITIALIZER = new Object();
 
     /**
-     * [FUNCTION] CustomListAutomaton::copyOf(Collection) -> List
+     * [FUNCTION] ListAutomaton::copyOf(Collection) -> List
      */
     static java.util.List copyOf(Collection coll) {
         java.util.List result = null;
@@ -38,7 +38,7 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of() -> List
+     * [FUNCTION] ListAutomaton::of() -> List
      */
     static java.util.List of() {
         java.util.List result = null;
@@ -49,7 +49,7 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of(Object) -> List
+     * [FUNCTION] ListAutomaton::of(Object) -> List
      */
     static java.util.List of(Object e1) {
         java.util.List result = null;
@@ -62,7 +62,7 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of(Object, Object) -> List
+     * [FUNCTION] ListAutomaton::of(Object, Object) -> List
      */
     static java.util.List of(Object e1, Object e2) {
         java.util.List result = null;
@@ -76,7 +76,7 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object) -> List
+     * [FUNCTION] ListAutomaton::of(Object, Object, Object) -> List
      */
     static java.util.List of(Object e1, Object e2, Object e3) {
         java.util.List result = null;
@@ -91,7 +91,7 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object, Object) -> List
+     * [FUNCTION] ListAutomaton::of(Object, Object, Object, Object) -> List
      */
     static java.util.List of(Object e1, Object e2, Object e3, Object e4) {
         java.util.List result = null;
@@ -107,7 +107,7 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object, Object, Object) -> List
+     * [FUNCTION] ListAutomaton::of(Object, Object, Object, Object, Object) -> List
      */
     static java.util.List of(Object e1, Object e2, Object e3, Object e4, Object e5) {
         java.util.List result = null;
@@ -124,7 +124,7 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object, Object, Object, Object) -> List
+     * [FUNCTION] ListAutomaton::of(Object, Object, Object, Object, Object, Object) -> List
      */
     static java.util.List of(Object e1, Object e2, Object e3, Object e4, Object e5, Object e6) {
         java.util.List result = null;
@@ -142,7 +142,7 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object, Object, Object, Object, Object) -> List
+     * [FUNCTION] ListAutomaton::of(Object, Object, Object, Object, Object, Object, Object) -> List
      */
     static java.util.List of(Object e1, Object e2, Object e3, Object e4, Object e5, Object e6,
             Object e7) {
@@ -162,7 +162,7 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object, Object, Object, Object, Object, Object) -> List
+     * [FUNCTION] ListAutomaton::of(Object, Object, Object, Object, Object, Object, Object, Object) -> List
      */
     static java.util.List of(Object e1, Object e2, Object e3, Object e4, Object e5, Object e6,
             Object e7, Object e8) {
@@ -183,7 +183,7 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object, Object, Object, Object, Object, Object, Object) -> List
+     * [FUNCTION] ListAutomaton::of(Object, Object, Object, Object, Object, Object, Object, Object, Object) -> List
      */
     static java.util.List of(Object e1, Object e2, Object e3, Object e4, Object e5, Object e6,
             Object e7, Object e8, Object e9) {
@@ -205,7 +205,7 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of(Object, Object, Object, Object, Object, Object, Object, Object, Object, Object) -> List
+     * [FUNCTION] ListAutomaton::of(Object, Object, Object, Object, Object, Object, Object, Object, Object, Object) -> List
      */
     static java.util.List of(Object e1, Object e2, Object e3, Object e4, Object e5, Object e6,
             Object e7, Object e8, Object e9, Object e10) {
@@ -228,7 +228,7 @@ public interface List extends LibSLRuntime.Automaton, java.util.List {
     }
 
     /**
-     * [FUNCTION] CustomListAutomaton::of(array<Object>) -> List
+     * [FUNCTION] ListAutomaton::of(array<Object>) -> List
      */
     static java.util.List of(Object[] elements) {
         java.util.List result = null;

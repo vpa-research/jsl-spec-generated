@@ -54,7 +54,6 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
      */
     private void _checkForComodification() {
         /* body */ {
-            Engine.assume(parent != null);
             final int modCount = ((ArrayList) parent).modCount;
             if (modCount != expectedModCount) {
                 throw new ConcurrentModificationException();

@@ -197,8 +197,8 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
             final int hi = _getFence();
             final int i = index;
             if (i < hi) {
-                index = i + 1;
                 Engine.assume(parent != null);
+                index = i + 1;
                 final SymbolicList<Object> parentStorage = ((ArrayList) parent).storage;
                 final Object item = parentStorage.get(i);
                 _action.accept(item);

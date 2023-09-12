@@ -169,7 +169,6 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         /* body */ {
             Engine.assume(root != null);
             final int effectiveIndex = offset + index;
-            ((ArrayList) root)._rangeCheckForAdd(effectiveIndex);
             ((ArrayList) root)._checkForComodification(modCount);
             ((ArrayList) root)._addElement(effectiveIndex, element);
             _updateSizeAndModCount(1);
@@ -333,6 +332,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
                     result = (31 * result) + LibSLRuntime.hashCode(item);
                 }
                 ;
+                ((ArrayList) root)._checkForComodification(modCount);
             }
         }
         return result;

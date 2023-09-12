@@ -736,15 +736,20 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
             if (length != 0) {
                 final int expectedModCount = modCount;
                 Engine.assume(length > 0);
+                final int outerLimit = length - 1;
+                int innerLimit = 0;
                 int i = 0;
                 int j = 0;
-                for (i = 0; i < length; i += 1) {
-                    for (j = 0; j < length; j += 1) {
-                        final Object a = storage.get(i);
-                        final Object b = storage.get(j);
+                for (i = 0; i < outerLimit; i += 1) {
+                    innerLimit = (length - i) - 1;
+                    for (j = 0; j < innerLimit; j += 1) {
+                        final int idxA = j;
+                        final int idxB = j + 1;
+                        final Object a = storage.get(idxA);
+                        final Object b = storage.get(idxB);
                         if (c.compare(a, b) > 0) {
-                            storage.set(i, b);
-                            storage.set(j, a);
+                            storage.set(idxA, b);
+                            storage.set(idxB, a);
                         }
                     }
                     ;
