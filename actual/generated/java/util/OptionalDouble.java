@@ -108,7 +108,7 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
                     final double otherValue = ((OptionalDouble) other).value;
                     final boolean otherPresent = ((OptionalDouble) other).present;
                     if (present && otherPresent) {
-                        result = value == otherValue;
+                        result = LibSLRuntime.equals(value, otherValue);
                     } else {
                         result = present == otherPresent;
                     }

@@ -431,7 +431,7 @@ public final class LibSLRuntime {
 
 
 
-    // a helper class for complex "array-type"-related actions
+    // a helper class for complex "array<T>"-related actions
     public static final class ArrayActions {
 
         public static <T> void copy(final T[] src, final int srcPos,
@@ -459,7 +459,7 @@ public final class LibSLRuntime {
 
 
 
-    // a helper class for complex "list-type"-related actions
+    // a helper class for complex "list<T>"-related actions
     public static final class ListActions {
 
         public static int find(final SymbolicList<?> list, final Object value,
@@ -474,15 +474,20 @@ public final class LibSLRuntime {
             Engine.assume(idx < to);
 
             final var something = list.get(idx);
-            return value == something
-                    ? idx : -1;
+            if (value == something)
+                return idx;
+
+            if (value != null && value.equals(something))
+                return idx;
+
+            return -1;
         }
 
     }
 
 
 
-    // a helper class for complex "map-type"-related actions
+    // a helper class for complex "map<K,V>"-related actions
     public static final class MapActions {
 
         ;
