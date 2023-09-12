@@ -2,10 +2,8 @@
 
 cd ./out
 
-del .\org\usvm\api\* /Q
-del .\org\jacodb\approximation\annotation\* /Q
-rmdir /S /Q .\org
+jar -cf ../std-library.jar ./generated/* ./java/* ./runtime/*
 
-jar -cf ../std-library.jar ./*
+cd ..
 
 pause
