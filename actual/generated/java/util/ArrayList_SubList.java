@@ -548,7 +548,51 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
     public void sort(Comparator c) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            if (length != 0) {
+                Engine.assume(length > 0);
+                Engine.assume(root != null);
+                ((ArrayList) root)._checkForComodification(modCount);
+                final SymbolicList<Object> rootStorage = ((ArrayList) root).storage;
+                final int baseLimit = offset + length;
+                final int outerLimit = baseLimit - 1;
+                int innerLimit = 0;
+                int i = 0;
+                int j = 0;
+                if (c == null) {
+                    for (i = offset; i < outerLimit; i += 1) {
+                        innerLimit = (baseLimit - i) - 1;
+                        for (j = offset; j < innerLimit; j += 1) {
+                            final int idxA = j;
+                            final int idxB = j + 1;
+                            final Object a = rootStorage.get(idxA);
+                            final Object b = rootStorage.get(idxB);
+                            if (((Comparable) a).compareTo(b) > 0) {
+                                rootStorage.set(idxA, b);
+                                rootStorage.set(idxB, a);
+                            }
+                        }
+                        ;
+                    }
+                    ;
+                } else {
+                    for (i = offset; i < outerLimit; i += 1) {
+                        innerLimit = (baseLimit - i) - 1;
+                        for (j = offset; j < innerLimit; j += 1) {
+                            final int idxA = j;
+                            final int idxB = j + 1;
+                            final Object a = rootStorage.get(idxA);
+                            final Object b = rootStorage.get(idxB);
+                            if (c.compare(a, b) > 0) {
+                                rootStorage.set(idxA, b);
+                                rootStorage.set(idxB, a);
+                            }
+                        }
+                        ;
+                    }
+                    ;
+                }
+                modCount = ((ArrayList) root).modCount;
+            }
         }
     }
 
@@ -598,9 +642,18 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         Object[] result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            final Object[] a = new Object[length];
+            Engine.assume(root != null);
+            ((ArrayList) root)._checkForComodification(modCount);
+            result = new Object[length];
+            final SymbolicList<Object> rootStorage = ((ArrayList) root).storage;
             final int end = offset + length;
-            LibSLRuntime.todo();
+            int i = 0;
+            int j = 0;
+            for (i = offset; i < end; i += 1) {
+                result[j] = rootStorage.get(i);
+                j += 1;
+            }
+            ;
         }
         return result;
     }
@@ -613,10 +666,19 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             final Object[] a = ((Object[]) generator.apply(0));
-            if (a == null) {
-                throw new NullPointerException();
+            final int aSize = a.length;
+            Engine.assume(root != null);
+            ((ArrayList) root)._checkForComodification(modCount);
+            result = new Object[length];
+            final SymbolicList<Object> rootStorage = ((ArrayList) root).storage;
+            final int end = offset + length;
+            int i = 0;
+            int j = 0;
+            for (i = offset; i < end; i += 1) {
+                result[j] = rootStorage.get(i);
+                j += 1;
             }
-            LibSLRuntime.todo();
+            ;
         }
         return result;
     }
@@ -628,8 +690,25 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         Object[] result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
+            Engine.assume(root != null);
+            ((ArrayList) root)._checkForComodification(modCount);
+            final int aSize = a.length;
+            if (aSize < length) {
+                a = new Object[length];
+            }
+            result = a;
+            final SymbolicList<Object> rootStorage = ((ArrayList) root).storage;
             final int end = offset + length;
-            LibSLRuntime.todo();
+            int i = 0;
+            int j = 0;
+            for (i = offset; i < end; i += 1) {
+                result[j] = rootStorage.get(i);
+                j += 1;
+            }
+            ;
+            if (aSize > length) {
+                result[aSize] = null;
+            }
         }
         return result;
     }

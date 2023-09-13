@@ -938,21 +938,39 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
                 int innerLimit = 0;
                 int i = 0;
                 int j = 0;
-                for (i = 0; i < size; i += 1) {
-                    innerLimit = (size - i) - 1;
-                    for (j = 0; j < innerLimit; j += 1) {
-                        final int idxA = j;
-                        final int idxB = j + 1;
-                        final Object a = storage.get(idxA);
-                        final Object b = storage.get(idxB);
-                        if (c.compare(a, b) > 0) {
-                            storage.set(idxA, b);
-                            storage.set(idxB, a);
+                if (c == null) {
+                    for (i = 0; i < outerLimit; i += 1) {
+                        innerLimit = (size - i) - 1;
+                        for (j = 0; j < innerLimit; j += 1) {
+                            final int idxA = j;
+                            final int idxB = j + 1;
+                            final Object a = storage.get(idxA);
+                            final Object b = storage.get(idxB);
+                            if (((Comparable) a).compareTo(b) > 0) {
+                                storage.set(idxA, b);
+                                storage.set(idxB, a);
+                            }
                         }
+                        ;
+                    }
+                    ;
+                } else {
+                    for (i = 0; i < outerLimit; i += 1) {
+                        innerLimit = (size - i) - 1;
+                        for (j = 0; j < innerLimit; j += 1) {
+                            final int idxA = j;
+                            final int idxB = j + 1;
+                            final Object a = storage.get(idxA);
+                            final Object b = storage.get(idxB);
+                            if (c.compare(a, b) > 0) {
+                                storage.set(idxA, b);
+                                storage.set(idxB, a);
+                            }
+                        }
+                        ;
                     }
                     ;
                 }
-                ;
                 _checkForComodification(expectedModCount);
             }
             modCount += 1;
