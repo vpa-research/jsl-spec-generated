@@ -307,7 +307,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         /* body */ {
             Engine.assume(root != null);
             final int effectiveIndex = offset + index;
-            ((ArrayList) root)._checkValidIndex(effectiveIndex);
+            ((ArrayList) root)._checkValidIndex(index, length);
             ((ArrayList) root)._checkForComodification(modCount);
             result = ((ArrayList) root).storage.get(effectiveIndex);
         }
@@ -453,7 +453,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         /* body */ {
             Engine.assume(root != null);
             final int effectiveIndex = offset + index;
-            ((ArrayList) root)._checkValidIndex(effectiveIndex);
+            ((ArrayList) root)._checkValidIndex(index, length);
             ((ArrayList) root)._checkForComodification(modCount);
             result = ((ArrayList) root)._deleteElement(effectiveIndex);
             _updateSizeAndModCount(-1);
@@ -519,7 +519,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         /* body */ {
             Engine.assume(root != null);
             final int effectiveIndex = offset + index;
-            ((ArrayList) root)._checkValidIndex(effectiveIndex);
+            ((ArrayList) root)._checkValidIndex(index, length);
             ((ArrayList) root)._checkForComodification(modCount);
             final SymbolicList<Object> parentStorage = ((ArrayList) root).storage;
             result = parentStorage.get(effectiveIndex);

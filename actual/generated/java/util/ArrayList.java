@@ -105,9 +105,9 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     }
 
     /**
-     * [SUBROUTINE] ArrayListAutomaton::_checkValidIndex(int) -> void
+     * [SUBROUTINE] ArrayListAutomaton::_checkValidIndex(int, int) -> void
      */
-    public void _checkValidIndex(int index) {
+    public void _checkValidIndex(int index, int length) {
         /* body */ {
             if ((index < 0) || (length <= index)) {
                 throw new IndexOutOfBoundsException();
@@ -198,7 +198,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     public Object _deleteElement(int index) {
         Object result = null;
         /* body */ {
-            _checkValidIndex(index);
+            _checkValidIndex(index, length);
             result = storage.get(index);
             storage.remove(index);
             length -= 1;
@@ -225,7 +225,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     private Object _setElement(int index, Object element) {
         Object result = null;
         /* body */ {
-            _checkValidIndex(index);
+            _checkValidIndex(index, length);
             result = storage.get(index);
             storage.set(index, element);
         }
@@ -463,7 +463,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Object result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            _checkValidIndex(index);
+            _checkValidIndex(index, length);
             result = storage.get(index);
         }
         return result;
