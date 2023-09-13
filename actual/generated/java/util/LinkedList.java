@@ -29,6 +29,8 @@ import runtime.LibSLRuntime;
  */
 @Approximate(java.util.LinkedList.class)
 public class LinkedList extends AbstractSequentialList implements LibSLRuntime.Automaton, List, Deque, Cloneable, Serializable {
+    private static long serialVersionUID = 876323262645176354L;
+
     static {
     }
 
