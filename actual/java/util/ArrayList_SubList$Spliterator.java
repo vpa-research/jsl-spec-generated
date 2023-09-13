@@ -6,11 +6,7 @@ package java.util;
 import java.util.function.Consumer;
 import runtime.LibSLRuntime;
 
-public final class ArrayList_Spliterator implements LibSLRuntime.HasAutomaton, Spliterator {
-    private ArrayList_Spliterator(ArrayList _this, int origin, int fence, int expectedModCount) {
-        throw new InternalError();
-    }
-
+public final class ArrayList_SubList$Spliterator implements LibSLRuntime.HasAutomaton, Spliterator {
     public int characteristics() {
         throw new InternalError();
     }
@@ -31,7 +27,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.HasAutomaton, S
         throw new InternalError();
     }
 
-    public ArrayList_Spliterator trySplit() {
+    public ArrayList_SubList$Spliterator trySplit() {
         throw new InternalError();
     }
 }

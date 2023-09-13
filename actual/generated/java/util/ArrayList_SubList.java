@@ -559,7 +559,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         Spliterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            result = new ArrayList_SubList$Spliterator(LibSLRuntime.Token.INSTANCE, ArrayList_SubList$Spliterator.__$lsl_States.Initialized, root, this, 0, -1, 0);
         }
         return result;
     }

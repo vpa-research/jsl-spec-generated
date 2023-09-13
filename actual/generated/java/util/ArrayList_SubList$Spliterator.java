@@ -13,18 +13,20 @@ import runtime.LibSLGlobals;
 import runtime.LibSLRuntime;
 
 /**
- * ArrayList_SpliteratorAutomaton for ArrayList_Spliterator ~> java.util.ArrayList_Spliterator
+ * ArrayList_SubList_SpliteratorAutomaton for ArrayList_SubList_Spliterator ~> java.util.ArrayList_SubList$Spliterator
  */
-@Approximate(java.util.ArrayList_Spliterator.class)
-public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spliterator {
+@Approximate(java.util.ArrayList_SubList$Spliterator.class)
+public final class ArrayList_SubList$Spliterator implements LibSLRuntime.Automaton, Spliterator {
     static {
     }
 
     public LibSLRuntime.Token __$lsl_token = null;
 
-    public byte __$lsl_state = __$lsl_States.Allocated;
+    public byte __$lsl_state = __$lsl_States.Initialized;
 
-    public ArrayList parent;
+    public ArrayList root;
+
+    public ArrayList_SubList parent;
 
     public int index = 0;
 
@@ -33,10 +35,12 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     public int expectedModCount = 0;
 
     @LibSLRuntime.AutomatonConstructor
-    public ArrayList_Spliterator(final LibSLRuntime.Token __$lsl_token, final byte __$lsl_state,
-            final ArrayList parent, final int index, final int fence, final int expectedModCount) {
+    public ArrayList_SubList$Spliterator(final LibSLRuntime.Token __$lsl_token,
+            final byte __$lsl_state, final ArrayList root, final ArrayList_SubList parent,
+            final int index, final int fence, final int expectedModCount) {
         this.__$lsl_token = __$lsl_token;
         this.__$lsl_state = __$lsl_state;
+        this.root = root;
         this.parent = parent;
         this.index = index;
         this.fence = fence;
@@ -44,32 +48,20 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     }
 
     @LibSLRuntime.AutomatonConstructor
-    public ArrayList_Spliterator(final LibSLRuntime.Token __$lsl_token) {
-        this(__$lsl_token, __$lsl_States.Allocated, null, 0, -1, 0);
+    public ArrayList_SubList$Spliterator(final LibSLRuntime.Token __$lsl_token) {
+        this(__$lsl_token, __$lsl_States.Initialized, null, null, 0, -1, 0);
     }
 
     /**
-     * [CONSTRUCTOR] ArrayList_SpliteratorAutomaton::ArrayList_Spliterator(ArrayList_Spliterator, ArrayList, int, int, int) -> ArrayList_Spliterator
-     */
-    private ArrayList_Spliterator(ArrayList _this, int origin, int fence, int expectedModCount) {
-        this(LibSLRuntime.Token.INSTANCE);
-        Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
-        /* body */ {
-            LibSLRuntime.not_implemented(/* inaccessible constructor */);
-        }
-        this.__$lsl_state = __$lsl_States.Initialized;
-    }
-
-    /**
-     * [SUBROUTINE] ArrayList_SpliteratorAutomaton::_getFence() -> int
+     * [SUBROUTINE] ArrayList_SubList_SpliteratorAutomaton::_getFence() -> int
      */
     private int _getFence() {
         int result = 0;
         /* body */ {
             if (fence < 0) {
                 Engine.assume(parent != null);
-                expectedModCount = ((ArrayList) parent).modCount;
-                fence = ((ArrayList) parent).length;
+                expectedModCount = ((ArrayList_SubList) parent).modCount;
+                fence = ((ArrayList_SubList) parent).length;
             }
             result = fence;
         }
@@ -77,11 +69,10 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     }
 
     /**
-     * [FUNCTION] ArrayList_SpliteratorAutomaton::characteristics(ArrayList_Spliterator) -> int
+     * [FUNCTION] ArrayList_SubList_SpliteratorAutomaton::characteristics(ArrayList_SubList_Spliterator) -> int
      */
     public int characteristics() {
         int result = 0;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = LibSLGlobals.SPLITERATOR_ORDERED | LibSLGlobals.SPLITERATOR_SIZED | LibSLGlobals.SPLITERATOR_SUBSIZED;
         }
@@ -89,11 +80,10 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     }
 
     /**
-     * [FUNCTION] ArrayList_SpliteratorAutomaton::estimateSize(ArrayList_Spliterator) -> long
+     * [FUNCTION] ArrayList_SubList_SpliteratorAutomaton::estimateSize(ArrayList_SubList_Spliterator) -> long
      */
     public long estimateSize() {
         long result = 0L;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = _getFence() - index;
         }
@@ -101,28 +91,28 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     }
 
     /**
-     * [FUNCTION] ArrayList_SpliteratorAutomaton::forEachRemaining(ArrayList_Spliterator, Consumer) -> void
+     * [FUNCTION] ArrayList_SubList_SpliteratorAutomaton::forEachRemaining(ArrayList_SubList_Spliterator, Consumer) -> void
      */
     public void forEachRemaining(Consumer _action) {
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (_action == null) {
                 throw new NullPointerException();
             }
+            Engine.assume(root != null);
             Engine.assume(parent != null);
-            final SymbolicList<Object> a = ((ArrayList) parent).storage;
+            final SymbolicList<Object> a = ((ArrayList) root).storage;
             if (a == null) {
                 throw new ConcurrentModificationException();
             }
             int hi = fence;
             int mc = expectedModCount;
             if (hi < 0) {
-                hi = ((ArrayList) parent).length;
-                mc = ((ArrayList) parent).modCount;
+                hi = ((ArrayList_SubList) parent).length;
+                mc = ((ArrayList_SubList) parent).modCount;
             }
             int i = index;
             index = hi;
-            if ((i < 0) || (hi > ((ArrayList) parent).length)) {
+            if ((i < 0) || (hi > ((ArrayList_SubList) parent).length)) {
                 throw new ConcurrentModificationException();
             }
             for (i = i; i < hi; i += 1) {
@@ -130,18 +120,17 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
                 _action.accept(item);
             }
             ;
-            if (mc != ((ArrayList) parent).modCount) {
+            if (mc != ((ArrayList_SubList) parent).modCount) {
                 throw new ConcurrentModificationException();
             }
         }
     }
 
     /**
-     * [FUNCTION] ArrayList_SpliteratorAutomaton::getExactSizeIfKnown(ArrayList_Spliterator) -> long
+     * [FUNCTION] ArrayList_SubList_SpliteratorAutomaton::getExactSizeIfKnown(ArrayList_SubList_Spliterator) -> long
      */
     public long getExactSizeIfKnown() {
         long result = 0L;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = _getFence() - index;
         }
@@ -149,11 +138,10 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     }
 
     /**
-     * [FUNCTION] ArrayList_SpliteratorAutomaton::tryAdvance(ArrayList_Spliterator, Consumer) -> boolean
+     * [FUNCTION] ArrayList_SubList_SpliteratorAutomaton::tryAdvance(ArrayList_SubList_Spliterator, Consumer) -> boolean
      */
     public boolean tryAdvance(Consumer _action) {
         boolean result = false;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (_action == null) {
                 throw new NullPointerException();
@@ -161,12 +149,12 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
             final int hi = _getFence();
             final int i = index;
             if (i < hi) {
-                Engine.assume(parent != null);
+                Engine.assume(root != null);
                 index = i + 1;
-                final SymbolicList<Object> parentStorage = ((ArrayList) parent).storage;
-                final Object item = parentStorage.get(i);
+                final SymbolicList<Object> rootStorage = ((ArrayList) root).storage;
+                final Object item = rootStorage.get(i);
                 _action.accept(item);
-                if (((ArrayList) parent).modCount != expectedModCount) {
+                if (((ArrayList) root).modCount != expectedModCount) {
                     throw new ConcurrentModificationException();
                 }
                 result = true;
@@ -178,11 +166,10 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     }
 
     /**
-     * [FUNCTION] ArrayList_SpliteratorAutomaton::trySplit(ArrayList_Spliterator) -> ArrayList_Spliterator
+     * [FUNCTION] ArrayList_SubList_SpliteratorAutomaton::trySplit(ArrayList_SubList_Spliterator) -> ArrayList_SubList_Spliterator
      */
-    public ArrayList_Spliterator trySplit() {
-        ArrayList_Spliterator result = null;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+    public ArrayList_SubList$Spliterator trySplit() {
+        ArrayList_SubList$Spliterator result = null;
         /* body */ {
             final int hi = _getFence();
             final int lo = index;
@@ -190,7 +177,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
             if (lo >= mid) {
                 result = null;
             } else {
-                result = new ArrayList_Spliterator(LibSLRuntime.Token.INSTANCE, ArrayList_Spliterator.__$lsl_States.Initialized, parent, lo, mid, expectedModCount);
+                result = new ArrayList_SubList$Spliterator(LibSLRuntime.Token.INSTANCE, ArrayList_SubList$Spliterator.__$lsl_States.Initialized, root, parent, lo, mid, expectedModCount);
             }
             index = mid;
         }
@@ -198,12 +185,10 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     }
 
     public static final class __$lsl_States {
-        public static final byte Allocated = (byte) 0;
-
-        public static final byte Initialized = (byte) 1;
+        public static final byte Initialized = (byte) 0;
     }
 
-    @Approximate(ArrayList_Spliterator.class)
+    @Approximate(ArrayList_SubList$Spliterator.class)
     public static final class __hook {
         private __hook(Void o) {
             Engine.assume(false);
