@@ -337,6 +337,19 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     }
 
     /**
+     * [SUBROUTINE] ArrayListAutomaton::_makeStream(boolean) -> Stream
+     */
+    private Stream _makeStream(boolean parallel) {
+        Stream result = null;
+        /* body */ {
+            result = Engine.makeSymbolic(Stream.class);
+            Engine.assume(result != null);
+            Engine.assume(result.isParallel() == parallel);
+        }
+        return result;
+    }
+
+    /**
      * [FUNCTION] ArrayListAutomaton::add(ArrayList, Object) -> boolean
      */
     public boolean add(Object e) {
@@ -629,8 +642,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Stream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = Engine.makeSymbolic(Stream.class);
-            Engine.assume(result != null);
+            result = _makeStream(true);
         }
         return result;
     }
@@ -859,8 +871,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Stream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = Engine.makeSymbolic(Stream.class);
-            Engine.assume(result != null);
+            result = _makeStream(false);
         }
         return result;
     }

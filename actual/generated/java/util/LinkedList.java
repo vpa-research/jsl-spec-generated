@@ -235,6 +235,19 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     }
 
     /**
+     * [SUBROUTINE] LinkedListAutomaton::_makeStream(boolean) -> Stream
+     */
+    private Stream _makeStream(boolean parallel) {
+        Stream result = null;
+        /* body */ {
+            result = Engine.makeSymbolic(Stream.class);
+            Engine.assume(result != null);
+            Engine.assume(result.isParallel() == parallel);
+        }
+        return result;
+    }
+
+    /**
      * [FUNCTION] LinkedListAutomaton::add(LinkedList, Object) -> boolean
      */
     public boolean add(Object e) {
@@ -630,8 +643,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         Stream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = Engine.makeSymbolic(Stream.class);
-            Engine.assume(result != null);
+            result = _makeStream(true);
         }
         return result;
     }
@@ -999,8 +1011,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         Stream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = Engine.makeSymbolic(Stream.class);
-            Engine.assume(result != null);
+            result = _makeStream(false);
         }
         return result;
     }
