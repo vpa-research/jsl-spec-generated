@@ -278,6 +278,65 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     }
 
     /**
+     * [SUBROUTINE] ArrayListAutomaton::_equalsRange(List, int, int) -> boolean
+     */
+    public boolean _equalsRange(List other, int from, int to) {
+        boolean result = false;
+        /* body */ {
+            result = true;
+            int i = from;
+            int otherLength = 0;
+            SymbolicList<Object> otherStorage = null;
+            if ((other instanceof ArrayList && ((ArrayList) other).__$lsl_token != null)) {
+                otherLength = ((ArrayList) other).length;
+                Engine.assume(otherLength >= 0);
+                result = to == otherLength;
+                if (result) {
+                    otherStorage = ((ArrayList) other).storage;
+                    Engine.assume(otherStorage != null);
+                    while (result && (i < to)) {
+                        final Object a = otherStorage.get(i);
+                        final Object b = storage.get(i);
+                        result = LibSLRuntime.equals(a, b);
+                        i += 1;
+                    }
+                    ;
+                }
+            } else {
+                if ((other instanceof ArrayList_SubList && ((ArrayList_SubList) other).__$lsl_token != null)) {
+                    otherLength = ((ArrayList_SubList) other).length;
+                    Engine.assume(otherLength >= 0);
+                    result = to == otherLength;
+                    if (result) {
+                        final ArrayList otherRoot = ((ArrayList_SubList) other).root;
+                        Engine.assume(otherRoot != null);
+                        otherStorage = ((ArrayList) otherRoot).storage;
+                        Engine.assume(otherStorage != null);
+                        while (result && (i < to)) {
+                            final Object a = otherStorage.get(i);
+                            final Object b = storage.get(i);
+                            result = LibSLRuntime.equals(a, b);
+                            i += 1;
+                        }
+                        ;
+                    }
+                } else {
+                    final Iterator iter = other.iterator();
+                    while (result && (i < to) && iter.hasNext()) {
+                        final Object a = iter.next();
+                        final Object b = storage.get(i);
+                        result = LibSLRuntime.equals(a, b);
+                        i += 1;
+                    }
+                    ;
+                    result &= !iter.hasNext();
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
      * [FUNCTION] ArrayListAutomaton::add(ArrayList, Object) -> boolean
      */
     public boolean add(Object e) {

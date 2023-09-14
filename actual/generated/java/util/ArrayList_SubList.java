@@ -269,7 +269,21 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            if (o == this) {
+                result = true;
+            } else {
+                result = (o instanceof ArrayList_SubList && ((ArrayList_SubList) o).__$lsl_token != null);
+                if (result) {
+                    Engine.assume(root != null);
+                    final int otherLength = ((ArrayList_SubList) o).length;
+                    Engine.assume(otherLength >= 0);
+                    result = length == otherLength;
+                    if (result) {
+                        result = ((ArrayList) root)._equalsRange(((List) o), offset, offset + length);
+                        ((ArrayList) root)._checkForComodification(modCount);
+                    }
+                }
+            }
         }
         return result;
     }
