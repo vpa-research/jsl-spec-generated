@@ -3,13 +3,13 @@
 //
 package generated.java.util;
 
+import generated.runtime.LibSLGlobals;
 import java.util.ConcurrentModificationException;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 import org.jacodb.approximation.annotation.Approximate;
 import org.usvm.api.Engine;
 import org.usvm.api.SymbolicList;
-import runtime.LibSLGlobals;
 import runtime.LibSLRuntime;
 
 /**
@@ -22,8 +22,6 @@ public final class ArrayList_SubList$Spliterator implements LibSLRuntime.Automat
 
     public LibSLRuntime.Token __$lsl_token = null;
 
-    public byte __$lsl_state = __$lsl_States.Initialized;
-
     public ArrayList root;
 
     public ArrayList_SubList parent;
@@ -35,16 +33,15 @@ public final class ArrayList_SubList$Spliterator implements LibSLRuntime.Automat
     public int expectedModCount = 0;
 
     @LibSLRuntime.AutomatonConstructor
-    public ArrayList_SubList$Spliterator(final LibSLRuntime.Token __$lsl_token,
-            final byte __$lsl_state, final ArrayList root, final ArrayList_SubList parent,
-            final int index, final int fence, final int expectedModCount) {
-        this.__$lsl_token = __$lsl_token;
-        this.__$lsl_state = __$lsl_state;
-        this.root = root;
-        this.parent = parent;
-        this.index = index;
-        this.fence = fence;
-        this.expectedModCount = expectedModCount;
+    public ArrayList_SubList$Spliterator(final LibSLRuntime.Token p0, final byte p1,
+            final ArrayList p2, final ArrayList_SubList p3, final int p4, final int p5,
+            final int p6) {
+        this.__$lsl_token = p0;
+        this.root = p2;
+        this.parent = p3;
+        this.index = p4;
+        this.fence = p5;
+        this.expectedModCount = p6;
     }
 
     @LibSLRuntime.AutomatonConstructor

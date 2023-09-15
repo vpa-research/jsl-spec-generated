@@ -22,8 +22,6 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
 
     public LibSLRuntime.Token __$lsl_token = null;
 
-    public byte __$lsl_state = __$lsl_States.Initialized;
-
     public ArrayList parent;
 
     public int cursor;
@@ -33,15 +31,13 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
     public int lastRet = -1;
 
     @LibSLRuntime.AutomatonConstructor
-    public ArrayList_ListItr(final LibSLRuntime.Token __$lsl_token, final byte __$lsl_state,
-            final ArrayList parent, final int cursor, final int expectedModCount,
-            final int lastRet) {
-        this.__$lsl_token = __$lsl_token;
-        this.__$lsl_state = __$lsl_state;
-        this.parent = parent;
-        this.cursor = cursor;
-        this.expectedModCount = expectedModCount;
-        this.lastRet = lastRet;
+    public ArrayList_ListItr(final LibSLRuntime.Token p0, final byte p1, final ArrayList p2,
+            final int p3, final int p4, final int p5) {
+        this.__$lsl_token = p0;
+        this.parent = p2;
+        this.cursor = p3;
+        this.expectedModCount = p4;
+        this.lastRet = p5;
     }
 
     @LibSLRuntime.AutomatonConstructor

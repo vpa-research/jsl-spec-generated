@@ -3,6 +3,7 @@
 //
 package generated.java.util;
 
+import generated.runtime.LibSLGlobals;
 import java.util.NoSuchElementException;
 import java.util.function.DoubleConsumer;
 import java.util.function.DoubleSupplier;
@@ -10,7 +11,6 @@ import java.util.function.Supplier;
 import java.util.stream.DoubleStream;
 import org.jacodb.approximation.annotation.Approximate;
 import org.usvm.api.Engine;
-import runtime.LibSLGlobals;
 import runtime.LibSLRuntime;
 
 /**
@@ -23,19 +23,19 @@ public final class OptionalDouble implements LibSLRuntime.Automaton {
 
     public LibSLRuntime.Token __$lsl_token = null;
 
-    public byte __$lsl_state = __$lsl_States.Allocated;
+    private byte __$lsl_state = __$lsl_States.Allocated;
 
     public double value;
 
     public boolean present;
 
     @LibSLRuntime.AutomatonConstructor
-    public OptionalDouble(final LibSLRuntime.Token __$lsl_token, final byte __$lsl_state,
-            final double value, final boolean present) {
-        this.__$lsl_token = __$lsl_token;
-        this.__$lsl_state = __$lsl_state;
-        this.value = value;
-        this.present = present;
+    public OptionalDouble(final LibSLRuntime.Token p0, final byte p1, final double p2,
+            final boolean p3) {
+        this.__$lsl_token = p0;
+        this.__$lsl_state = p1;
+        this.value = p2;
+        this.present = p3;
     }
 
     @LibSLRuntime.AutomatonConstructor

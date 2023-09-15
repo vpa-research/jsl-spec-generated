@@ -23,12 +23,12 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     public LibSLRuntime.Token __$lsl_token = null;
 
-    public byte __$lsl_state = __$lsl_States.Allocated;
+    private byte __$lsl_state = __$lsl_States.Allocated;
 
     @LibSLRuntime.AutomatonConstructor
-    public Random(final LibSLRuntime.Token __$lsl_token, final byte __$lsl_state) {
-        this.__$lsl_token = __$lsl_token;
-        this.__$lsl_state = __$lsl_state;
+    public Random(final LibSLRuntime.Token p0, final byte p1) {
+        this.__$lsl_token = p0;
+        this.__$lsl_state = p1;
     }
 
     @LibSLRuntime.AutomatonConstructor

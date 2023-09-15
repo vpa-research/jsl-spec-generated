@@ -31,7 +31,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
 
     public LibSLRuntime.Token __$lsl_token = null;
 
-    public byte __$lsl_state = __$lsl_States.Allocated;
+    private byte __$lsl_state = __$lsl_States.Allocated;
 
     public ArrayList root;
 
@@ -44,16 +44,15 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
     public int modCount;
 
     @LibSLRuntime.AutomatonConstructor
-    public ArrayList_SubList(final LibSLRuntime.Token __$lsl_token, final byte __$lsl_state,
-            final ArrayList root, final ArrayList_SubList parentList, final int offset,
-            final int length, final int modCount) {
-        this.__$lsl_token = __$lsl_token;
-        this.__$lsl_state = __$lsl_state;
-        this.root = root;
-        this.parentList = parentList;
-        this.offset = offset;
-        this.length = length;
-        this.modCount = modCount;
+    public ArrayList_SubList(final LibSLRuntime.Token p0, final byte p1, final ArrayList p2,
+            final ArrayList_SubList p3, final int p4, final int p5, final int p6) {
+        this.__$lsl_token = p0;
+        this.__$lsl_state = p1;
+        this.root = p2;
+        this.parentList = p3;
+        this.offset = p4;
+        this.length = p5;
+        this.modCount = p6;
     }
 
     @LibSLRuntime.AutomatonConstructor

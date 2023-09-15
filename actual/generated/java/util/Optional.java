@@ -3,6 +3,7 @@
 //
 package generated.java.util;
 
+import generated.runtime.LibSLGlobals;
 import java.util.NoSuchElementException;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -11,7 +12,6 @@ import java.util.function.Supplier;
 import java.util.stream.Stream;
 import org.jacodb.approximation.annotation.Approximate;
 import org.usvm.api.Engine;
-import runtime.LibSLGlobals;
 import runtime.LibSLRuntime;
 
 /**
@@ -24,16 +24,15 @@ public final class Optional implements LibSLRuntime.Automaton {
 
     public LibSLRuntime.Token __$lsl_token = null;
 
-    public byte __$lsl_state = __$lsl_States.Allocated;
+    private byte __$lsl_state = __$lsl_States.Allocated;
 
     public Object value;
 
     @LibSLRuntime.AutomatonConstructor
-    public Optional(final LibSLRuntime.Token __$lsl_token, final byte __$lsl_state,
-            final Object value) {
-        this.__$lsl_token = __$lsl_token;
-        this.__$lsl_state = __$lsl_state;
-        this.value = value;
+    public Optional(final LibSLRuntime.Token p0, final byte p1, final Object p2) {
+        this.__$lsl_token = p0;
+        this.__$lsl_state = p1;
+        this.value = p2;
     }
 
     @LibSLRuntime.AutomatonConstructor

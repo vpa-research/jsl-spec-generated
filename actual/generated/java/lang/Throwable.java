@@ -13,27 +13,24 @@ import runtime.LibSLRuntime;
  */
 @Approximate(java.lang.Throwable.class)
 public class Throwable implements LibSLRuntime.Automaton, Serializable {
-    private static String CAUSE_CAPTION = "Caused by: ";
-
-    private static String SUPPRESSED_CAPTION = "Suppressed: ";
-
     private static String NULL_CAUSE_MESSAGE = "Cannot suppress a null exception.";
 
     private static long serialVersionUID = -3042686055658047285L;
 
     private static String SELF_SUPPRESSION_MESSAGE = "Self-suppression not permitted";
 
+    private static String CAUSE_CAPTION = "Caused by: ";
+
+    private static String SUPPRESSED_CAPTION = "Suppressed: ";
+
     static {
     }
 
     public LibSLRuntime.Token __$lsl_token = null;
 
-    public byte __$lsl_state = __$lsl_States.Initialized;
-
     @LibSLRuntime.AutomatonConstructor
-    public Throwable(final LibSLRuntime.Token __$lsl_token, final byte __$lsl_state) {
-        this.__$lsl_token = __$lsl_token;
-        this.__$lsl_state = __$lsl_state;
+    public Throwable(final LibSLRuntime.Token p0, final byte p1) {
+        this.__$lsl_token = p0;
     }
 
     @LibSLRuntime.AutomatonConstructor

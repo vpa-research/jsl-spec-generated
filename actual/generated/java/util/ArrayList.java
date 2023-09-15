@@ -37,7 +37,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
 
     public LibSLRuntime.Token __$lsl_token = null;
 
-    public byte __$lsl_state = __$lsl_States.Allocated;
+    private byte __$lsl_state = __$lsl_States.Allocated;
 
     public SymbolicList<Object> storage;
 
@@ -46,13 +46,13 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     public transient int modCount = 0;
 
     @LibSLRuntime.AutomatonConstructor
-    public ArrayList(final LibSLRuntime.Token __$lsl_token, final byte __$lsl_state,
-            final SymbolicList<Object> storage, final int length, final int modCount) {
-        this.__$lsl_token = __$lsl_token;
-        this.__$lsl_state = __$lsl_state;
-        this.storage = storage;
-        this.length = length;
-        this.modCount = modCount;
+    public ArrayList(final LibSLRuntime.Token p0, final byte p1, final SymbolicList<Object> p2,
+            final int p3, final int p4) {
+        this.__$lsl_token = p0;
+        this.__$lsl_state = p1;
+        this.storage = p2;
+        this.length = p3;
+        this.modCount = p4;
     }
 
     @LibSLRuntime.AutomatonConstructor

@@ -13,16 +13,16 @@ import runtime.LibSLRuntime;
 @Approximate(java.lang.Object.class)
 public class Object implements LibSLRuntime.Automaton {
     static {
+        /* ObjectAutomaton::__clinit__() */ {
+            ;
+        }
     }
 
     public LibSLRuntime.Token __$lsl_token = null;
 
-    public byte __$lsl_state = __$lsl_States.Initialized;
-
     @LibSLRuntime.AutomatonConstructor
-    public Object(final LibSLRuntime.Token __$lsl_token, final byte __$lsl_state) {
-        this.__$lsl_token = __$lsl_token;
-        this.__$lsl_state = __$lsl_state;
+    public Object(final LibSLRuntime.Token p0, final byte p1) {
+        this.__$lsl_token = p0;
     }
 
     @LibSLRuntime.AutomatonConstructor

@@ -24,9 +24,10 @@ def collect_java_file_dirs_from(root: str) -> list[str]:
 
     return res
 
-def collect_source_files(src_root: str, stub_root: str) -> set[str]:
+def collect_source_files(src_root: str, stub_root: str, runtime_root: str) -> set[str]:
     res = set()
     res.update(collect_java_file_dirs_from(stub_root))
+    res.update(collect_java_file_dirs_from(runtime_root))
     res.update(collect_java_file_dirs_from(src_root))
     return res
 
@@ -49,6 +50,9 @@ parser.add_argument(
     '--stub-dir', metavar='DIR', default='stubs',
     help='a directory containing stub source files for JacoDB annotation and USVM engine')
 parser.add_argument(
+    '--runtime-dir', metavar='DIR', default='runtime',
+    help='a directory containing source files for LibSL runtime environment')
+parser.add_argument(
     '--non-interactive', action=argparse._StoreTrueAction, default=False,
     help='disable script interactivity features')
 
@@ -56,6 +60,7 @@ args = parser.parse_args()
 java_compiler = args.compiler_path
 input_dir     = args.input_dir
 stub_dir      = args.stub_dir
+runtime_dir   = args.runtime_dir
 output_dir    = args.output_dir
 interactive   = not args.non_interactive
 
@@ -72,7 +77,7 @@ command = [
     '--patch-module', 'java.base=actual',
 
 ]
-command.extend(collect_source_files(input_dir, stub_dir))
+command.extend(collect_source_files(input_dir, stub_dir, runtime_dir))
 
 print('[~] Command:', ' '.join(command))
 
