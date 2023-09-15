@@ -11,11 +11,11 @@ import org.usvm.api.SymbolicList;
 import runtime.LibSLRuntime;
 
 /**
- * ListAutomaton for CustomList ~> java.util.List
+ * ListAutomaton for LSLList ~> java.util.List
  */
 @Approximate(java.util.List.class)
 public interface List extends LibSLRuntime.Automaton, java.util.List {
-    Object __$_lsl_INTERFACE_INITIALIZER = new Object();
+    LibSLRuntime.Token __$_lsl_INIT_INTERFACE_ListAutomaton_796e4601 = LibSLRuntime.Token.INSTANCE;
 
     /**
      * [FUNCTION] ListAutomaton::copyOf(Collection) -> List
