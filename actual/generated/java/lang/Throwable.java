@@ -13,9 +13,9 @@ import runtime.LibSLRuntime;
  */
 @Approximate(java.lang.Throwable.class)
 public class Throwable implements LibSLRuntime.Automaton, Serializable {
-    private static String NULL_CAUSE_MESSAGE = "Cannot suppress a null exception.";
-
     private static long serialVersionUID = -3042686055658047285L;
+
+    private static String NULL_CAUSE_MESSAGE = "Cannot suppress a null exception.";
 
     private static String SELF_SUPPRESSION_MESSAGE = "Self-suppression not permitted";
 
@@ -26,15 +26,12 @@ public class Throwable implements LibSLRuntime.Automaton, Serializable {
     static {
     }
 
-    public LibSLRuntime.Token __$lsl_token = null;
-
     @LibSLRuntime.AutomatonConstructor
-    public Throwable(final LibSLRuntime.Token p0, final byte p1) {
-        this.__$lsl_token = p0;
+    public Throwable(Void __$lsl_token, final byte p0) {
     }
 
     @LibSLRuntime.AutomatonConstructor
-    public Throwable(final LibSLRuntime.Token __$lsl_token) {
+    public Throwable(final Void __$lsl_token) {
         this(__$lsl_token, __$lsl_States.Initialized);
     }
 
@@ -107,7 +104,7 @@ public class Throwable implements LibSLRuntime.Automaton, Serializable {
 
     @Approximate(Throwable.class)
     public static final class __hook {
-        private __hook(Void o) {
+        private __hook(Void o1, Void o2) {
             Engine.assume(false);
         }
     }

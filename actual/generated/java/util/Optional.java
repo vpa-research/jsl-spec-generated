@@ -22,21 +22,18 @@ public final class Optional implements LibSLRuntime.Automaton {
     static {
     }
 
-    public LibSLRuntime.Token __$lsl_token = null;
-
     private byte __$lsl_state = __$lsl_States.Allocated;
 
     public Object value;
 
     @LibSLRuntime.AutomatonConstructor
-    public Optional(final LibSLRuntime.Token p0, final byte p1, final Object p2) {
-        this.__$lsl_token = p0;
-        this.__$lsl_state = p1;
-        this.value = p2;
+    public Optional(Void __$lsl_token, final byte p0, final Object p1) {
+        this.__$lsl_state = p0;
+        this.value = p1;
     }
 
     @LibSLRuntime.AutomatonConstructor
-    public Optional(final LibSLRuntime.Token __$lsl_token) {
+    public Optional(final Void __$lsl_token) {
         this(__$lsl_token, __$lsl_States.Allocated, null);
     }
 
@@ -44,7 +41,7 @@ public final class Optional implements LibSLRuntime.Automaton {
      * [CONSTRUCTOR] OptionalAutomaton::LSLOptional(LSLOptional) -> LSLOptional
      */
     private Optional() {
-        this(LibSLRuntime.Token.INSTANCE);
+        this((Void) null);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             LibSLRuntime.error("Private constructor call");
@@ -56,7 +53,7 @@ public final class Optional implements LibSLRuntime.Automaton {
      * [CONSTRUCTOR] OptionalAutomaton::LSLOptional(LSLOptional, Object) -> LSLOptional
      */
     private Optional(Object obj) {
-        this(LibSLRuntime.Token.INSTANCE);
+        this((Void) null);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             LibSLRuntime.error("Private constructor call");
@@ -98,7 +95,7 @@ public final class Optional implements LibSLRuntime.Automaton {
             if (obj == null) {
                 throw new NullPointerException();
             }
-            result = new Optional(LibSLRuntime.Token.INSTANCE, Optional.__$lsl_States.Initialized, obj);
+            result = new Optional((Void) null, Optional.__$lsl_States.Initialized, obj);
         }
         // WARNING: no state transitions in static context
         return result;
@@ -114,7 +111,7 @@ public final class Optional implements LibSLRuntime.Automaton {
             if (obj == null) {
                 result = _makeEmpty();
             } else {
-                result = new Optional(LibSLRuntime.Token.INSTANCE, Optional.__$lsl_States.Initialized, obj);
+                result = new Optional((Void) null, Optional.__$lsl_States.Initialized, obj);
             }
         }
         // WARNING: no state transitions in static context
@@ -292,7 +289,7 @@ public final class Optional implements LibSLRuntime.Automaton {
                 if (mappedValue == null) {
                     result = _makeEmpty();
                 } else {
-                    result = new Optional(LibSLRuntime.Token.INSTANCE, Optional.__$lsl_States.Initialized, mappedValue);
+                    result = new Optional((Void) null, Optional.__$lsl_States.Initialized, mappedValue);
                 }
             }
         }
@@ -429,7 +426,7 @@ public final class Optional implements LibSLRuntime.Automaton {
 
     @Approximate(Optional.class)
     public static final class __hook {
-        private __hook(Void o) {
+        private __hook(Void o1, Void o2) {
             Engine.assume(false);
         }
     }

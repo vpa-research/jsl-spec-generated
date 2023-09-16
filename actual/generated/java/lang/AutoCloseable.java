@@ -12,7 +12,7 @@ import runtime.LibSLRuntime;
  */
 @Approximate(java.lang.AutoCloseable.class)
 public interface AutoCloseable extends LibSLRuntime.Automaton {
-    LibSLRuntime.Token __$_lsl_INIT_INTERFACE_AutoCloseableAutomaton_cb378391 = LibSLRuntime.Token.INSTANCE;
+    Class __$_lsl_INIT_INTERFACE_AutoCloseableAutomaton_d61c3b46 = Void.class;
 
     /**
      * [FUNCTION] AutoCloseableAutomaton::close(LSLAutoCloseable) -> void
@@ -28,7 +28,7 @@ public interface AutoCloseable extends LibSLRuntime.Automaton {
 
     @Approximate(AutoCloseable.class)
     final class __hook {
-        private __hook(Void o) {
+        private __hook(Void o1, Void o2) {
             Engine.assume(false);
         }
     }

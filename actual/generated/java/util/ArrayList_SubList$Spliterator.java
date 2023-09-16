@@ -20,8 +20,6 @@ public final class ArrayList_SubList$Spliterator implements LibSLRuntime.Automat
     static {
     }
 
-    public LibSLRuntime.Token __$lsl_token = null;
-
     public ArrayList root;
 
     public ArrayList_SubList parent;
@@ -33,19 +31,17 @@ public final class ArrayList_SubList$Spliterator implements LibSLRuntime.Automat
     public int expectedModCount = 0;
 
     @LibSLRuntime.AutomatonConstructor
-    public ArrayList_SubList$Spliterator(final LibSLRuntime.Token p0, final byte p1,
-            final ArrayList p2, final ArrayList_SubList p3, final int p4, final int p5,
-            final int p6) {
-        this.__$lsl_token = p0;
-        this.root = p2;
-        this.parent = p3;
-        this.index = p4;
-        this.fence = p5;
-        this.expectedModCount = p6;
+    public ArrayList_SubList$Spliterator(Void __$lsl_token, final byte p0, final ArrayList p1,
+            final ArrayList_SubList p2, final int p3, final int p4, final int p5) {
+        this.root = p1;
+        this.parent = p2;
+        this.index = p3;
+        this.fence = p4;
+        this.expectedModCount = p5;
     }
 
     @LibSLRuntime.AutomatonConstructor
-    public ArrayList_SubList$Spliterator(final LibSLRuntime.Token __$lsl_token) {
+    public ArrayList_SubList$Spliterator(final Void __$lsl_token) {
         this(__$lsl_token, __$lsl_States.Initialized, null, null, 0, -1, 0);
     }
 
@@ -174,7 +170,7 @@ public final class ArrayList_SubList$Spliterator implements LibSLRuntime.Automat
             if (lo >= mid) {
                 result = null;
             } else {
-                result = new ArrayList_SubList$Spliterator(LibSLRuntime.Token.INSTANCE, ArrayList_SubList$Spliterator.__$lsl_States.Initialized, root, parent, lo, mid, expectedModCount);
+                result = new ArrayList_SubList$Spliterator((Void) null, ArrayList_SubList$Spliterator.__$lsl_States.Initialized, root, parent, lo, mid, expectedModCount);
             }
             index = mid;
         }
@@ -187,7 +183,7 @@ public final class ArrayList_SubList$Spliterator implements LibSLRuntime.Automat
 
     @Approximate(ArrayList_SubList$Spliterator.class)
     public static final class __hook {
-        private __hook(Void o) {
+        private __hook(Void o1, Void o2) {
             Engine.assume(false);
         }
     }

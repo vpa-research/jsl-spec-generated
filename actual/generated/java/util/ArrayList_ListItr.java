@@ -20,8 +20,6 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
     static {
     }
 
-    public LibSLRuntime.Token __$lsl_token = null;
-
     public ArrayList parent;
 
     public int cursor;
@@ -31,17 +29,16 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
     public int lastRet = -1;
 
     @LibSLRuntime.AutomatonConstructor
-    public ArrayList_ListItr(final LibSLRuntime.Token p0, final byte p1, final ArrayList p2,
-            final int p3, final int p4, final int p5) {
-        this.__$lsl_token = p0;
-        this.parent = p2;
-        this.cursor = p3;
-        this.expectedModCount = p4;
-        this.lastRet = p5;
+    public ArrayList_ListItr(Void __$lsl_token, final byte p0, final ArrayList p1, final int p2,
+            final int p3, final int p4) {
+        this.parent = p1;
+        this.cursor = p2;
+        this.expectedModCount = p3;
+        this.lastRet = p4;
     }
 
     @LibSLRuntime.AutomatonConstructor
-    public ArrayList_ListItr(final LibSLRuntime.Token __$lsl_token) {
+    public ArrayList_ListItr(final Void __$lsl_token) {
         this(__$lsl_token, __$lsl_States.Initialized, null, 0, 0, -1);
     }
 
@@ -248,7 +245,7 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
 
     @Approximate(ArrayList_ListItr.class)
     public static final class __hook {
-        private __hook(Void o) {
+        private __hook(Void o1, Void o2) {
             Engine.assume(false);
         }
     }

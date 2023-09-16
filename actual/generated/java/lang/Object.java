@@ -18,15 +18,12 @@ public class Object implements LibSLRuntime.Automaton {
         }
     }
 
-    public LibSLRuntime.Token __$lsl_token = null;
-
     @LibSLRuntime.AutomatonConstructor
-    public Object(final LibSLRuntime.Token p0, final byte p1) {
-        this.__$lsl_token = p0;
+    public Object(Void __$lsl_token, final byte p0) {
     }
 
     @LibSLRuntime.AutomatonConstructor
-    public Object(final LibSLRuntime.Token __$lsl_token) {
+    public Object(final Void __$lsl_token) {
         this(__$lsl_token, __$lsl_States.Initialized);
     }
 
@@ -70,7 +67,7 @@ public class Object implements LibSLRuntime.Automaton {
 
     @Approximate(Object.class)
     public static final class __hook {
-        private __hook(Void o) {
+        private __hook(Void o1, Void o2) {
             Engine.assume(false);
         }
     }

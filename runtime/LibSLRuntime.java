@@ -11,11 +11,14 @@ import org.usvm.api.SymbolicMap;
 
 public final class LibSLRuntime {
 
+    /*
     public static final class Token {
         public static final Token INSTANCE = new Token();
 
         private Token() {}
     }
+    */
+    private static final Object SOMETHING = LibSLRuntime.class;
 
     public interface HasAutomaton {
     }
@@ -170,7 +173,7 @@ public final class LibSLRuntime {
             Engine.assume(!visited.containsKey(key));
             Engine.assume(v.containsKey(key));
 
-            visited.set(key, Token.INSTANCE);
+            visited.set(key, SOMETHING);
 
             res = res
                     .concat(toString(key))
@@ -286,7 +289,7 @@ public final class LibSLRuntime {
 
             res += hashCode(key) ^ hashCode(v.get(key));
 
-            visited.set(key, Token.INSTANCE);
+            visited.set(key, SOMETHING);
             unseen -= 1;
         }
 
@@ -388,7 +391,7 @@ public final class LibSLRuntime {
             if (!equals(a.get(key), b.get(key)))
                 return false;
 
-            visited.set(key, Token.INSTANCE);
+            visited.set(key, SOMETHING);
             length -= 1;
         }
 

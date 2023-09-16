@@ -34,8 +34,6 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     static {
     }
 
-    public LibSLRuntime.Token __$lsl_token = null;
-
     private byte __$lsl_state = __$lsl_States.Allocated;
 
     public SymbolicList<Object> storage;
@@ -45,17 +43,16 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     public transient int modCount = 0;
 
     @LibSLRuntime.AutomatonConstructor
-    public LinkedList(final LibSLRuntime.Token p0, final byte p1, final SymbolicList<Object> p2,
-            final int p3, final int p4) {
-        this.__$lsl_token = p0;
-        this.__$lsl_state = p1;
-        this.storage = p2;
-        this.size = p3;
-        this.modCount = p4;
+    public LinkedList(Void __$lsl_token, final byte p0, final SymbolicList<Object> p1, final int p2,
+            final int p3) {
+        this.__$lsl_state = p0;
+        this.storage = p1;
+        this.size = p2;
+        this.modCount = p3;
     }
 
     @LibSLRuntime.AutomatonConstructor
-    public LinkedList(final LibSLRuntime.Token __$lsl_token) {
+    public LinkedList(final Void __$lsl_token) {
         this(__$lsl_token, __$lsl_States.Allocated, null, 0, 0);
     }
 
@@ -63,7 +60,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
      * [CONSTRUCTOR] LinkedListAutomaton::LinkedList(LinkedList) -> LinkedList
      */
     public LinkedList() {
-        this(LibSLRuntime.Token.INSTANCE);
+        this((Void) null);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             storage = Engine.makeSymbolicList();
@@ -76,7 +73,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
      * [CONSTRUCTOR] LinkedListAutomaton::LinkedList(LinkedList, Collection) -> LinkedList
      */
     public LinkedList(Collection c) {
-        this(LibSLRuntime.Token.INSTANCE);
+        this((Void) null);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             if (c == null) {
@@ -336,7 +333,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         /* body */ {
             final SymbolicList<Object> storageCopy = Engine.makeSymbolicList();
             storage.copy(storageCopy, 0, 0, size);
-            result = new LinkedList(LibSLRuntime.Token.INSTANCE, LinkedList.__$lsl_States.Initialized, storageCopy, size, 0);
+            result = new LinkedList((Void) null, LinkedList.__$lsl_States.Initialized, storageCopy, size, 0);
         }
         return result;
     }
@@ -361,7 +358,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = true;
-            if ((c instanceof LinkedList && ((LinkedList) c).__$lsl_token != null)) {
+            if ((c != null && c.getClass() == LinkedList.class)) {
                 final SymbolicList<Object> otherStorage = ((LinkedList) c).storage;
                 final int otherSize = ((LinkedList) c).size;
                 Engine.assume(otherStorage != null);
@@ -420,7 +417,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
             if (this == o) {
                 result = true;
             } else {
-                if ((o instanceof LinkedList && ((LinkedList) o).__$lsl_token != null)) {
+                if ((o != null && o.getClass() == LinkedList.class)) {
                     final int expectedModCount = modCount;
                     final int otherExpectedModCount = ((LinkedList) o).modCount;
                     final SymbolicList<Object> otherStorage = ((LinkedList) o).storage;
@@ -1116,7 +1113,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
 
     @Approximate(LinkedList.class)
     public static final class __hook {
-        private __hook(Void o) {
+        private __hook(Void o1, Void o2) {
             Engine.assume(false);
         }
     }

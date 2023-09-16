@@ -21,18 +21,15 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
     static {
     }
 
-    public LibSLRuntime.Token __$lsl_token = null;
-
     private byte __$lsl_state = __$lsl_States.Allocated;
 
     @LibSLRuntime.AutomatonConstructor
-    public Random(final LibSLRuntime.Token p0, final byte p1) {
-        this.__$lsl_token = p0;
-        this.__$lsl_state = p1;
+    public Random(Void __$lsl_token, final byte p0) {
+        this.__$lsl_state = p0;
     }
 
     @LibSLRuntime.AutomatonConstructor
-    public Random(final LibSLRuntime.Token __$lsl_token) {
+    public Random(final Void __$lsl_token) {
         this(__$lsl_token, __$lsl_States.Allocated);
     }
 
@@ -40,7 +37,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
      * [CONSTRUCTOR] RandomAutomaton::Random(Random) -> Random
      */
     public Random() {
-        this(LibSLRuntime.Token.INSTANCE);
+        this((Void) null);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             ;
@@ -52,7 +49,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
      * [CONSTRUCTOR] RandomAutomaton::Random(Random, long) -> Random
      */
     public Random(long seed) {
-        this(LibSLRuntime.Token.INSTANCE);
+        this((Void) null);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             ;
@@ -364,7 +361,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     @Approximate(Random.class)
     public static final class __hook {
-        private __hook(Void o) {
+        private __hook(Void o1, Void o2) {
             Engine.assume(false);
         }
     }

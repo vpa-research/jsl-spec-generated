@@ -35,8 +35,6 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     static {
     }
 
-    public LibSLRuntime.Token __$lsl_token = null;
-
     private byte __$lsl_state = __$lsl_States.Allocated;
 
     public SymbolicList<Object> storage;
@@ -46,17 +44,16 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
     public transient int modCount = 0;
 
     @LibSLRuntime.AutomatonConstructor
-    public ArrayList(final LibSLRuntime.Token p0, final byte p1, final SymbolicList<Object> p2,
-            final int p3, final int p4) {
-        this.__$lsl_token = p0;
-        this.__$lsl_state = p1;
-        this.storage = p2;
-        this.length = p3;
-        this.modCount = p4;
+    public ArrayList(Void __$lsl_token, final byte p0, final SymbolicList<Object> p1, final int p2,
+            final int p3) {
+        this.__$lsl_state = p0;
+        this.storage = p1;
+        this.length = p2;
+        this.modCount = p3;
     }
 
     @LibSLRuntime.AutomatonConstructor
-    public ArrayList(final LibSLRuntime.Token __$lsl_token) {
+    public ArrayList(final Void __$lsl_token) {
         this(__$lsl_token, __$lsl_States.Allocated, null, 0, 0);
     }
 
@@ -64,7 +61,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
      * [CONSTRUCTOR] ArrayListAutomaton::ArrayList(ArrayList) -> ArrayList
      */
     public ArrayList() {
-        this(LibSLRuntime.Token.INSTANCE);
+        this((Void) null);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             storage = Engine.makeSymbolicList();
@@ -77,7 +74,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
      * [CONSTRUCTOR] ArrayListAutomaton::ArrayList(ArrayList, Collection) -> ArrayList
      */
     public ArrayList(Collection c) {
-        this(LibSLRuntime.Token.INSTANCE);
+        this((Void) null);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             if (c == null) {
@@ -94,7 +91,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
      * [CONSTRUCTOR] ArrayListAutomaton::ArrayList(ArrayList, int) -> ArrayList
      */
     public ArrayList(int initialCapacity) {
-        this(LibSLRuntime.Token.INSTANCE);
+        this((Void) null);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             if (initialCapacity < 0) {
@@ -135,7 +132,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         boolean result = false;
         /* body */ {
             final int oldLength = length;
-            if ((c instanceof ArrayList && ((ArrayList) c).__$lsl_token != null)) {
+            if ((c != null && c.getClass() == ArrayList.class)) {
                 final SymbolicList<Object> otherStorage = ((ArrayList) c).storage;
                 final int otherLength = ((ArrayList) c).length;
                 Engine.assume(otherStorage != null);
@@ -287,7 +284,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
             int i = from;
             int otherLength = 0;
             SymbolicList<Object> otherStorage = null;
-            if ((other instanceof ArrayList && ((ArrayList) other).__$lsl_token != null)) {
+            if ((other != null && other.getClass() == ArrayList.class)) {
                 otherLength = ((ArrayList) other).length;
                 Engine.assume(otherLength >= 0);
                 result = to == otherLength;
@@ -303,7 +300,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
                     ;
                 }
             } else {
-                if ((other instanceof ArrayList_SubList && ((ArrayList_SubList) other).__$lsl_token != null)) {
+                if ((other != null && other.getClass() == ArrayList_SubList.class)) {
                     otherLength = ((ArrayList_SubList) other).length;
                     Engine.assume(otherLength >= 0);
                     result = to == otherLength;
@@ -420,7 +417,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         /* body */ {
             final SymbolicList<Object> storageCopy = Engine.makeSymbolicList();
             storage.copy(storageCopy, 0, 0, length);
-            result = new ArrayList(LibSLRuntime.Token.INSTANCE, ArrayList.__$lsl_States.Initialized, storageCopy, length, 0);
+            result = new ArrayList((Void) null, ArrayList.__$lsl_States.Initialized, storageCopy, length, 0);
         }
         return result;
     }
@@ -445,7 +442,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = true;
-            if ((c instanceof ArrayList && ((ArrayList) c).__$lsl_token != null)) {
+            if ((c != null && c.getClass() == ArrayList.class)) {
                 final SymbolicList<Object> otherStorage = ((ArrayList) c).storage;
                 final int otherLength = ((ArrayList) c).length;
                 Engine.assume(otherStorage != null);
@@ -489,7 +486,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
             if (other == this) {
                 result = true;
             } else {
-                if ((other instanceof ArrayList && ((ArrayList) other).__$lsl_token != null)) {
+                if ((other != null && other.getClass() == ArrayList.class)) {
                     final int expectedModCount = modCount;
                     final int otherExpectedModCount = ((ArrayList) other).modCount;
                     final SymbolicList<Object> otherStorage = ((ArrayList) other).storage;
@@ -586,7 +583,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Iterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = new ArrayList_ListItr(LibSLRuntime.Token.INSTANCE, ArrayList_ListItr.__$lsl_States.Initialized, this, 0, modCount, -1);
+            result = new ArrayList_ListItr((Void) null, ArrayList_ListItr.__$lsl_States.Initialized, this, 0, modCount, -1);
         }
         return result;
     }
@@ -617,7 +614,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         ListIterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = new ArrayList_ListItr(LibSLRuntime.Token.INSTANCE, ArrayList_ListItr.__$lsl_States.Initialized, this, 0, modCount, -1);
+            result = new ArrayList_ListItr((Void) null, ArrayList_ListItr.__$lsl_States.Initialized, this, 0, modCount, -1);
         }
         return result;
     }
@@ -630,7 +627,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             _rangeCheckForAdd(index);
-            result = new ArrayList_ListItr(LibSLRuntime.Token.INSTANCE, ArrayList_ListItr.__$lsl_States.Initialized, this, index, modCount, -1);
+            result = new ArrayList_ListItr((Void) null, ArrayList_ListItr.__$lsl_States.Initialized, this, index, modCount, -1);
         }
         return result;
     }
@@ -683,7 +680,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             final int oldLength = length;
-            if ((c instanceof ArrayList && ((ArrayList) c).__$lsl_token != null)) {
+            if ((c != null && c.getClass() == ArrayList.class)) {
                 final SymbolicList<Object> otherStorage = ((ArrayList) c).storage;
                 final int otherLength = ((ArrayList) c).length;
                 Engine.assume(otherStorage != null);
@@ -748,7 +745,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         /* body */ {
             final int oldLength = length;
             int i = 0;
-            if ((c instanceof ArrayList && ((ArrayList) c).__$lsl_token != null)) {
+            if ((c != null && c.getClass() == ArrayList.class)) {
                 final SymbolicList<Object> otherStorage = ((ArrayList) c).storage;
                 final int otherLength = ((ArrayList) c).length;
                 Engine.assume(otherStorage != null);
@@ -859,7 +856,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Spliterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = new ArrayList_Spliterator(LibSLRuntime.Token.INSTANCE, ArrayList_Spliterator.__$lsl_States.Initialized, this, 0, -1, 0);
+            result = new ArrayList_Spliterator((Void) null, ArrayList_Spliterator.__$lsl_States.Initialized, this, 0, -1, 0);
         }
         return result;
     }
@@ -884,7 +881,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             _subListRangeCheck(fromIndex, toIndex, length);
-            result = new ArrayList_SubList(LibSLRuntime.Token.INSTANCE, ArrayList_SubList.__$lsl_States.Initialized, this, null, fromIndex, toIndex - fromIndex, modCount);
+            result = new ArrayList_SubList((Void) null, ArrayList_SubList.__$lsl_States.Initialized, this, null, fromIndex, toIndex - fromIndex, modCount);
         }
         return result;
     }
@@ -1001,7 +998,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
 
     @Approximate(ArrayList.class)
     public static final class __hook {
-        private __hook(Void o) {
+        private __hook(Void o1, Void o2) {
             Engine.assume(false);
         }
     }

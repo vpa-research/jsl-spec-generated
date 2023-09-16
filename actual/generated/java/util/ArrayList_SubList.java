@@ -29,8 +29,6 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
     static {
     }
 
-    public LibSLRuntime.Token __$lsl_token = null;
-
     private byte __$lsl_state = __$lsl_States.Allocated;
 
     public ArrayList root;
@@ -44,19 +42,18 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
     public int modCount;
 
     @LibSLRuntime.AutomatonConstructor
-    public ArrayList_SubList(final LibSLRuntime.Token p0, final byte p1, final ArrayList p2,
-            final ArrayList_SubList p3, final int p4, final int p5, final int p6) {
-        this.__$lsl_token = p0;
-        this.__$lsl_state = p1;
-        this.root = p2;
-        this.parentList = p3;
-        this.offset = p4;
-        this.length = p5;
-        this.modCount = p6;
+    public ArrayList_SubList(Void __$lsl_token, final byte p0, final ArrayList p1,
+            final ArrayList_SubList p2, final int p3, final int p4, final int p5) {
+        this.__$lsl_state = p0;
+        this.root = p1;
+        this.parentList = p2;
+        this.offset = p3;
+        this.length = p4;
+        this.modCount = p5;
     }
 
     @LibSLRuntime.AutomatonConstructor
-    public ArrayList_SubList(final LibSLRuntime.Token __$lsl_token) {
+    public ArrayList_SubList(final Void __$lsl_token) {
         this(__$lsl_token, __$lsl_States.Allocated, null, null, 0, 0, 0);
     }
 
@@ -64,7 +61,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
      * [CONSTRUCTOR] ArrayList_SubListAutomaton::SubList(ArrayList_SubList, ArrayList, int, int) -> ArrayList_SubList
      */
     public ArrayList_SubList(ArrayList root, int fromIndex, int toIndex) {
-        this(LibSLRuntime.Token.INSTANCE);
+        this((Void) null);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             LibSLRuntime.not_implemented(/* inaccessible constructor */);
@@ -76,7 +73,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
      * [CONSTRUCTOR] ArrayList_SubListAutomaton::SubList(ArrayList_SubList, ArrayList_SubList, int, int) -> ArrayList_SubList
      */
     private ArrayList_SubList(ArrayList_SubList parent, int fromIndex, int toIndex) {
-        this(LibSLRuntime.Token.INSTANCE);
+        this((Void) null);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             LibSLRuntime.not_implemented(/* inaccessible constructor */);
@@ -245,7 +242,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
                 Engine.assume(root != null);
                 final SymbolicList<Object> rootStorage = ((ArrayList) root).storage;
                 final int end = offset + length;
-                if ((c instanceof ArrayList_SubList && ((ArrayList_SubList) c).__$lsl_token != null)) {
+                if ((c != null && c.getClass() == ArrayList_SubList.class)) {
                     final ArrayList otherRoot = ((ArrayList_SubList) c).root;
                     Engine.assume(otherRoot != null);
                     final SymbolicList<Object> otherStorage = ((ArrayList) otherRoot).storage;
@@ -284,7 +281,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
             if (o == this) {
                 result = true;
             } else {
-                result = (o instanceof ArrayList_SubList && ((ArrayList_SubList) o).__$lsl_token != null);
+                result = (o != null && o.getClass() == ArrayList_SubList.class);
                 if (result) {
                     Engine.assume(root != null);
                     final int otherLength = ((ArrayList_SubList) o).length;
@@ -628,7 +625,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         Spliterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = new ArrayList_SubList$Spliterator(LibSLRuntime.Token.INSTANCE, ArrayList_SubList$Spliterator.__$lsl_States.Initialized, root, this, 0, -1, 0);
+            result = new ArrayList_SubList$Spliterator((Void) null, ArrayList_SubList$Spliterator.__$lsl_States.Initialized, root, this, 0, -1, 0);
         }
         return result;
     }
@@ -654,7 +651,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         /* body */ {
             Engine.assume(root != null);
             ((ArrayList) root)._subListRangeCheck(fromIndex, toIndex, length);
-            result = new ArrayList_SubList(LibSLRuntime.Token.INSTANCE, ArrayList_SubList.__$lsl_States.Initialized, root, this, offset + fromIndex, toIndex - fromIndex, modCount);
+            result = new ArrayList_SubList((Void) null, ArrayList_SubList.__$lsl_States.Initialized, root, this, offset + fromIndex, toIndex - fromIndex, modCount);
         }
         return result;
     }
@@ -776,7 +773,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
 
     @Approximate(ArrayList_SubList.class)
     public static final class __hook {
-        private __hook(Void o) {
+        private __hook(Void o1, Void o2) {
             Engine.assume(false);
         }
     }

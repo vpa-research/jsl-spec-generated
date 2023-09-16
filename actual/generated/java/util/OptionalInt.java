@@ -21,8 +21,6 @@ public final class OptionalInt implements LibSLRuntime.Automaton {
     static {
     }
 
-    public LibSLRuntime.Token __$lsl_token = null;
-
     private byte __$lsl_state = __$lsl_States.Allocated;
 
     public int value;
@@ -30,15 +28,14 @@ public final class OptionalInt implements LibSLRuntime.Automaton {
     public boolean present;
 
     @LibSLRuntime.AutomatonConstructor
-    public OptionalInt(final LibSLRuntime.Token p0, final byte p1, final int p2, final boolean p3) {
-        this.__$lsl_token = p0;
-        this.__$lsl_state = p1;
-        this.value = p2;
-        this.present = p3;
+    public OptionalInt(Void __$lsl_token, final byte p0, final int p1, final boolean p2) {
+        this.__$lsl_state = p0;
+        this.value = p1;
+        this.present = p2;
     }
 
     @LibSLRuntime.AutomatonConstructor
-    public OptionalInt(final LibSLRuntime.Token __$lsl_token) {
+    public OptionalInt(final Void __$lsl_token) {
         this(__$lsl_token, __$lsl_States.Allocated, 0, false);
     }
 
@@ -46,7 +43,7 @@ public final class OptionalInt implements LibSLRuntime.Automaton {
      * [CONSTRUCTOR] OptionalIntAutomaton::OptionalInt(OptionalInt) -> OptionalInt
      */
     private OptionalInt() {
-        this(LibSLRuntime.Token.INSTANCE);
+        this((Void) null);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             LibSLRuntime.not_implemented(/* this method can be called using reflection only */);
@@ -58,7 +55,7 @@ public final class OptionalInt implements LibSLRuntime.Automaton {
      * [CONSTRUCTOR] OptionalIntAutomaton::OptionalInt(OptionalInt, int) -> OptionalInt
      */
     private OptionalInt(int x) {
-        this(LibSLRuntime.Token.INSTANCE);
+        this((Void) null);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             LibSLRuntime.not_implemented(/* this method can be called using reflection only */);
@@ -86,7 +83,7 @@ public final class OptionalInt implements LibSLRuntime.Automaton {
         OptionalInt result = null;
         // WARNING: no state checks in static context
         /* body */ {
-            result = new OptionalInt(LibSLRuntime.Token.INSTANCE, OptionalInt.__$lsl_States.Initialized, x, true);
+            result = new OptionalInt((Void) null, OptionalInt.__$lsl_States.Initialized, x, true);
         }
         // WARNING: no state transitions in static context
         return result;
@@ -317,7 +314,7 @@ public final class OptionalInt implements LibSLRuntime.Automaton {
 
     @Approximate(OptionalInt.class)
     public static final class __hook {
-        private __hook(Void o) {
+        private __hook(Void o1, Void o2) {
             Engine.assume(false);
         }
     }

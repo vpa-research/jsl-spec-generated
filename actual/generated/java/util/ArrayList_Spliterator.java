@@ -20,8 +20,6 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     static {
     }
 
-    public LibSLRuntime.Token __$lsl_token = null;
-
     private byte __$lsl_state = __$lsl_States.Allocated;
 
     public ArrayList parent;
@@ -33,18 +31,17 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     public int expectedModCount = 0;
 
     @LibSLRuntime.AutomatonConstructor
-    public ArrayList_Spliterator(final LibSLRuntime.Token p0, final byte p1, final ArrayList p2,
-            final int p3, final int p4, final int p5) {
-        this.__$lsl_token = p0;
-        this.__$lsl_state = p1;
-        this.parent = p2;
-        this.index = p3;
-        this.fence = p4;
-        this.expectedModCount = p5;
+    public ArrayList_Spliterator(Void __$lsl_token, final byte p0, final ArrayList p1, final int p2,
+            final int p3, final int p4) {
+        this.__$lsl_state = p0;
+        this.parent = p1;
+        this.index = p2;
+        this.fence = p3;
+        this.expectedModCount = p4;
     }
 
     @LibSLRuntime.AutomatonConstructor
-    public ArrayList_Spliterator(final LibSLRuntime.Token __$lsl_token) {
+    public ArrayList_Spliterator(final Void __$lsl_token) {
         this(__$lsl_token, __$lsl_States.Allocated, null, 0, -1, 0);
     }
 
@@ -52,7 +49,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
      * [CONSTRUCTOR] ArrayList_SpliteratorAutomaton::ArrayList_Spliterator(ArrayList_Spliterator, ArrayList, int, int, int) -> ArrayList_Spliterator
      */
     private ArrayList_Spliterator(ArrayList _this, int origin, int fence, int expectedModCount) {
-        this(LibSLRuntime.Token.INSTANCE);
+        this((Void) null);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             LibSLRuntime.not_implemented(/* inaccessible constructor */);
@@ -190,7 +187,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
             if (lo >= mid) {
                 result = null;
             } else {
-                result = new ArrayList_Spliterator(LibSLRuntime.Token.INSTANCE, ArrayList_Spliterator.__$lsl_States.Initialized, parent, lo, mid, expectedModCount);
+                result = new ArrayList_Spliterator((Void) null, ArrayList_Spliterator.__$lsl_States.Initialized, parent, lo, mid, expectedModCount);
             }
             index = mid;
         }
@@ -205,7 +202,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
 
     @Approximate(ArrayList_Spliterator.class)
     public static final class __hook {
-        private __hook(Void o) {
+        private __hook(Void o1, Void o2) {
             Engine.assume(false);
         }
     }

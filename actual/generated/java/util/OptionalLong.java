@@ -21,8 +21,6 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
     static {
     }
 
-    public LibSLRuntime.Token __$lsl_token = null;
-
     private byte __$lsl_state = __$lsl_States.Allocated;
 
     public long value;
@@ -30,16 +28,14 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
     public boolean present;
 
     @LibSLRuntime.AutomatonConstructor
-    public OptionalLong(final LibSLRuntime.Token p0, final byte p1, final long p2,
-            final boolean p3) {
-        this.__$lsl_token = p0;
-        this.__$lsl_state = p1;
-        this.value = p2;
-        this.present = p3;
+    public OptionalLong(Void __$lsl_token, final byte p0, final long p1, final boolean p2) {
+        this.__$lsl_state = p0;
+        this.value = p1;
+        this.present = p2;
     }
 
     @LibSLRuntime.AutomatonConstructor
-    public OptionalLong(final LibSLRuntime.Token __$lsl_token) {
+    public OptionalLong(final Void __$lsl_token) {
         this(__$lsl_token, __$lsl_States.Allocated, 0L, false);
     }
 
@@ -47,7 +43,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
      * [CONSTRUCTOR] OptionalLongAutomaton::OptionalLong(OptionalLong) -> OptionalLong
      */
     private OptionalLong() {
-        this(LibSLRuntime.Token.INSTANCE);
+        this((Void) null);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             LibSLRuntime.not_implemented(/* this method can be called using reflection only */);
@@ -59,7 +55,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
      * [CONSTRUCTOR] OptionalLongAutomaton::OptionalLong(OptionalLong, long) -> OptionalLong
      */
     private OptionalLong(long x) {
-        this(LibSLRuntime.Token.INSTANCE);
+        this((Void) null);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
             LibSLRuntime.not_implemented(/* this method can be called using reflection only */);
@@ -87,7 +83,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
         OptionalLong result = null;
         // WARNING: no state checks in static context
         /* body */ {
-            result = new OptionalLong(LibSLRuntime.Token.INSTANCE, OptionalLong.__$lsl_States.Initialized, x, true);
+            result = new OptionalLong((Void) null, OptionalLong.__$lsl_States.Initialized, x, true);
         }
         // WARNING: no state transitions in static context
         return result;
@@ -318,7 +314,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
 
     @Approximate(OptionalLong.class)
     public static final class __hook {
-        private __hook(Void o) {
+        private __hook(Void o1, Void o2) {
             Engine.assume(false);
         }
     }
