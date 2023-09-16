@@ -187,7 +187,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         boolean result = false;
         /* body */ {
             final int index = LibSLRuntime.ListActions.find(storage, o, 0, size);
-            result = index >= 0;
+            result = index != -1;
             if (result) {
                 storage.remove(index);
                 size -= 1;
@@ -345,7 +345,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = LibSLRuntime.ListActions.find(storage, o, 0, size) >= 0;
+            result = LibSLRuntime.ListActions.find(storage, o, 0, size) != -1;
         }
         return result;
     }
@@ -366,7 +366,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
                 int i = 0;
                 while (result && (i < otherSize)) {
                     final Object item = otherStorage.get(i);
-                    result = LibSLRuntime.ListActions.find(storage, item, 0, size) >= 0;
+                    result = LibSLRuntime.ListActions.find(storage, item, 0, size) != -1;
                     i += 1;
                 }
                 ;
@@ -374,7 +374,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
                 final Iterator iter = c.iterator();
                 while (result && iter.hasNext()) {
                     final Object item = iter.next();
-                    result = LibSLRuntime.ListActions.find(storage, item, 0, size) >= 0;
+                    result = LibSLRuntime.ListActions.find(storage, item, 0, size) != -1;
                 }
                 ;
             }

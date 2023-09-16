@@ -429,7 +429,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = LibSLRuntime.ListActions.find(storage, o, 0, length) >= 0;
+            result = LibSLRuntime.ListActions.find(storage, o, 0, length) != -1;
         }
         return result;
     }
@@ -450,7 +450,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
                 int i = 0;
                 while (result && (i < otherLength)) {
                     final Object item = otherStorage.get(i);
-                    result = LibSLRuntime.ListActions.find(storage, item, 0, length) >= 0;
+                    result = LibSLRuntime.ListActions.find(storage, item, 0, length) != -1;
                     i += 1;
                 }
                 ;
@@ -458,7 +458,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
                 final Iterator iter = c.iterator();
                 while (result && iter.hasNext()) {
                     final Object item = iter.next();
-                    result = LibSLRuntime.ListActions.find(storage, item, 0, length) >= 0;
+                    result = LibSLRuntime.ListActions.find(storage, item, 0, length) != -1;
                 }
                 ;
             }
@@ -595,12 +595,17 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         int result = 0;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = LibSLRuntime.ListActions.find(storage, o, 0, length);
-            if (result != -1) {
-                final int nextIndex = result + 1;
-                if (nextIndex < length) {
-                    final int rightIndex = LibSLRuntime.ListActions.find(storage, o, nextIndex, length);
-                    Engine.assume(rightIndex == -1);
+            if (length == 0) {
+                result = -1;
+            } else {
+                Engine.assume(length > 0);
+                result = LibSLRuntime.ListActions.find(storage, o, 0, length);
+                if (result != -1) {
+                    final int nextIndex = result + 1;
+                    if (nextIndex < length) {
+                        final int rightIndex = LibSLRuntime.ListActions.find(storage, o, nextIndex, length);
+                        Engine.assume(rightIndex == -1);
+                    }
                 }
             }
         }
@@ -652,7 +657,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             final int index = LibSLRuntime.ListActions.find(storage, o, 0, length);
-            result = index >= 0;
+            result = index != -1;
             if (result) {
                 _deleteElement(index);
             }
@@ -689,7 +694,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
                 for (i = 0; i < otherLength; i += 1) {
                     final Object o = otherStorage.get(i);
                     final int index = LibSLRuntime.ListActions.find(storage, o, 0, length);
-                    if (index >= 0) {
+                    if (index != -1) {
                         _deleteElement(index);
                     }
                 }
@@ -699,7 +704,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
                 while (iter.hasNext()) {
                     final Object o = iter.next();
                     final int index = LibSLRuntime.ListActions.find(storage, o, 0, length);
-                    if (index >= 0) {
+                    if (index != -1) {
                         _deleteElement(index);
                     }
                 }
@@ -752,7 +757,7 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
                 Engine.assume(otherLength >= 0);
                 for (i = length - 1; i > 0; i += -1) {
                     final Object item = storage.get(i);
-                    final boolean otherHasItem = LibSLRuntime.ListActions.find(otherStorage, item, 0, otherLength) >= 0;
+                    final boolean otherHasItem = LibSLRuntime.ListActions.find(otherStorage, item, 0, otherLength) != -1;
                     if (!otherHasItem) {
                         _deleteElement(i);
                     }

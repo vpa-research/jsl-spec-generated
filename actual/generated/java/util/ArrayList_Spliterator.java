@@ -63,7 +63,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
     private int _getFence() {
         int result = 0;
         /* body */ {
-            if (fence < 0) {
+            if (fence == -1) {
                 Engine.assume(parent != null);
                 expectedModCount = ((ArrayList) parent).modCount;
                 fence = ((ArrayList) parent).length;
@@ -113,7 +113,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
             }
             int hi = fence;
             int mc = expectedModCount;
-            if (hi < 0) {
+            if (hi == -1) {
                 hi = ((ArrayList) parent).length;
                 mc = ((ArrayList) parent).modCount;
             }

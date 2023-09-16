@@ -130,9 +130,8 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
             Engine.assume(root != null);
             ((ArrayList) root)._checkForComodification(modCount);
             final SymbolicList<Object> parentStorage = ((ArrayList) root).storage;
-            final int parentLength = ((ArrayList) root).length;
-            final int index = LibSLRuntime.ListActions.find(parentStorage, o, 0, parentLength);
-            if (index >= 0) {
+            final int index = LibSLRuntime.ListActions.find(parentStorage, o, offset, offset + length);
+            if (index != -1) {
                 result = index - offset;
             } else {
                 result = -1;
@@ -225,7 +224,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = _indexOfElement(o) >= 0;
+            result = _indexOfElement(o) != -1;
         }
         return result;
     }
@@ -254,7 +253,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
                     int i = otherOffset;
                     while (result && (i < otherEnd)) {
                         final Object item = otherStorage.get(i);
-                        result = LibSLRuntime.ListActions.find(rootStorage, item, offset, end) >= 0;
+                        result = LibSLRuntime.ListActions.find(rootStorage, item, offset, end) != -1;
                         i += 1;
                     }
                     ;
@@ -262,7 +261,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
                     final Iterator iter = c.iterator();
                     while (result && iter.hasNext()) {
                         final Object item = iter.next();
-                        result = LibSLRuntime.ListActions.find(rootStorage, item, offset, end) >= 0;
+                        result = LibSLRuntime.ListActions.find(rootStorage, item, offset, end) != -1;
                     }
                     ;
                 }
@@ -404,7 +403,24 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         int result = 0;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            Engine.assume(root != null);
+            ((ArrayList) root)._checkForComodification(modCount);
+            if (length == 0) {
+                result = -1;
+            } else {
+                Engine.assume(length > 0);
+                final int end = offset + length;
+                final SymbolicList<Object> rootStorage = ((ArrayList) root).storage;
+                result = LibSLRuntime.ListActions.find(rootStorage, o, offset, end);
+                if (result != -1) {
+                    final int nextIndex = result + 1;
+                    if (nextIndex < end) {
+                        final int rightIndex = LibSLRuntime.ListActions.find(rootStorage, o, nextIndex, end);
+                        Engine.assume(rightIndex == -1);
+                    }
+                    result -= offset;
+                }
+            }
         }
         return result;
     }
@@ -456,7 +472,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
             final int end = offset + length;
             final SymbolicList<Object> rootStorage = ((ArrayList) root).storage;
             final int index = LibSLRuntime.ListActions.find(rootStorage, o, offset, end);
-            result = index >= 0;
+            result = index != -1;
             if (result) {
                 ((ArrayList) root)._checkForComodification(modCount);
                 ((ArrayList) root)._deleteElement(index);

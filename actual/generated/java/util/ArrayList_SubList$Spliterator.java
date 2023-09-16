@@ -51,7 +51,7 @@ public final class ArrayList_SubList$Spliterator implements LibSLRuntime.Automat
     private int _getFence() {
         int result = 0;
         /* body */ {
-            if (fence < 0) {
+            if (fence == -1) {
                 Engine.assume(parent != null);
                 expectedModCount = ((ArrayList_SubList) parent).modCount;
                 fence = ((ArrayList_SubList) parent).length;
@@ -99,7 +99,7 @@ public final class ArrayList_SubList$Spliterator implements LibSLRuntime.Automat
             }
             int hi = fence;
             int mc = expectedModCount;
-            if (hi < 0) {
+            if (hi == -1) {
                 hi = ((ArrayList_SubList) parent).length;
                 mc = ((ArrayList_SubList) parent).modCount;
             }
