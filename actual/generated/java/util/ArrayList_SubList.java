@@ -24,7 +24,7 @@ import runtime.LibSLRuntime;
 /**
  * ArrayList_SubListAutomaton for ArrayList_SubList ~> java.util.ArrayList_SubList
  */
-@Approximate(java.util.ArrayList_SubList.class)
+@Approximate(stub.java.util.ArrayList_SubList.class)
 public final class ArrayList_SubList extends AbstractList implements LibSLRuntime.Automaton, List, RandomAccess {
     static {
     }
@@ -106,7 +106,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
     /**
      * [SUBROUTINE] ArrayList_SubListAutomaton::_updateSizeAndModCount(int) -> void
      */
-    private void _updateSizeAndModCount(int sizeChange) {
+    public void _updateSizeAndModCount(int sizeChange) {
         /* body */ {
             Engine.assume(root != null);
             length += sizeChange;
@@ -391,7 +391,15 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         Iterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            result = new ArrayList_SubList$ListIterator((Void) null, 
+            /* state = */ ArrayList_SubList$ListIterator.__$lsl_States.Initialized, 
+            /* root = */ root, 
+            /* sublist = */ this, 
+            /* cursor = */ 0, 
+            /* expectedModCount = */ modCount, 
+            /* offset = */ offset, 
+            /* size = */ length, 
+            /* lastRet = */ -1);
         }
         return result;
     }
@@ -432,7 +440,15 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         ListIterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            result = new ArrayList_SubList$ListIterator((Void) null, 
+            /* state = */ ArrayList_SubList$ListIterator.__$lsl_States.Initialized, 
+            /* root = */ root, 
+            /* sublist = */ this, 
+            /* cursor = */ 0, 
+            /* expectedModCount = */ modCount, 
+            /* offset = */ offset, 
+            /* size = */ length, 
+            /* lastRet = */ -1);
         }
         return result;
     }
@@ -445,6 +461,15 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             LibSLRuntime.todo();
+            result = new ArrayList_SubList$ListIterator((Void) null, 
+            /* state = */ ArrayList_SubList$ListIterator.__$lsl_States.Initialized, 
+            /* root = */ root, 
+            /* sublist = */ this, 
+            /* cursor = */ index, 
+            /* expectedModCount = */ modCount, 
+            /* offset = */ offset, 
+            /* size = */ length, 
+            /* lastRet = */ -1);
         }
         return result;
     }
@@ -641,7 +666,13 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         Spliterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = new ArrayList_SubList$Spliterator((Void) null, ArrayList_SubList$Spliterator.__$lsl_States.Initialized, root, this, 0, -1, 0);
+            result = new ArrayList_SubList$Spliterator((Void) null, 
+            /* state = */ ArrayList_SubList$Spliterator.__$lsl_States.Initialized, 
+            /* root = */ root, 
+            /* parent = */ this, 
+            /* index = */ 0, 
+            /* fence = */ -1, 
+            /* expectedModCount = */ 0);
         }
         return result;
     }
@@ -667,7 +698,13 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         /* body */ {
             Engine.assume(root != null);
             ((ArrayList) root)._subListRangeCheck(fromIndex, toIndex, length);
-            result = new ArrayList_SubList((Void) null, ArrayList_SubList.__$lsl_States.Initialized, root, this, offset + fromIndex, toIndex - fromIndex, modCount);
+            result = new ArrayList_SubList((Void) null, 
+            /* state = */ ArrayList_SubList.__$lsl_States.Initialized, 
+            /* root = */ root, 
+            /* parentList = */ this, 
+            /* offset = */ offset + fromIndex, 
+            /* length = */ toIndex - fromIndex, 
+            /* modCount = */ modCount);
         }
         return result;
     }

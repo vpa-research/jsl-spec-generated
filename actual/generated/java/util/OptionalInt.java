@@ -83,7 +83,10 @@ public final class OptionalInt implements LibSLRuntime.Automaton {
         OptionalInt result = null;
         // WARNING: no state checks in static context
         /* body */ {
-            result = new OptionalInt((Void) null, OptionalInt.__$lsl_States.Initialized, x, true);
+            result = new OptionalInt((Void) null, 
+            /* state = */ OptionalInt.__$lsl_States.Initialized, 
+            /* value = */ x, 
+            /* present = */ true);
         }
         // WARNING: no state transitions in static context
         return result;

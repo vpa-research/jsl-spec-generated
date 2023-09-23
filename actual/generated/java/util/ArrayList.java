@@ -417,7 +417,11 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         /* body */ {
             final SymbolicList<Object> storageCopy = Engine.makeSymbolicList();
             storage.copy(storageCopy, 0, 0, length);
-            result = new ArrayList((Void) null, ArrayList.__$lsl_States.Initialized, storageCopy, length, 0);
+            result = new ArrayList((Void) null, 
+            /* state = */ ArrayList.__$lsl_States.Initialized, 
+            /* storage = */ storageCopy, 
+            /* length = */ length, 
+            /* modCount = */ 0);
         }
         return result;
     }
@@ -583,7 +587,12 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Iterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = new ArrayList_ListItr((Void) null, ArrayList_ListItr.__$lsl_States.Initialized, this, 0, modCount, -1);
+            result = new ArrayList_ListItr((Void) null, 
+            /* state = */ ArrayList_ListItr.__$lsl_States.Initialized, 
+            /* parent = */ this, 
+            /* cursor = */ 0, 
+            /* expectedModCount = */ modCount, 
+            /* lastRet = */ -1);
         }
         return result;
     }
@@ -619,7 +628,12 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         ListIterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = new ArrayList_ListItr((Void) null, ArrayList_ListItr.__$lsl_States.Initialized, this, 0, modCount, -1);
+            result = new ArrayList_ListItr((Void) null, 
+            /* state = */ ArrayList_ListItr.__$lsl_States.Initialized, 
+            /* parent = */ this, 
+            /* cursor = */ 0, 
+            /* expectedModCount = */ modCount, 
+            /* lastRet = */ -1);
         }
         return result;
     }
@@ -632,7 +646,12 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             _rangeCheckForAdd(index);
-            result = new ArrayList_ListItr((Void) null, ArrayList_ListItr.__$lsl_States.Initialized, this, index, modCount, -1);
+            result = new ArrayList_ListItr((Void) null, 
+            /* state = */ ArrayList_ListItr.__$lsl_States.Initialized, 
+            /* parent = */ this, 
+            /* cursor = */ index, 
+            /* expectedModCount = */ modCount, 
+            /* lastRet = */ -1);
         }
         return result;
     }
@@ -861,7 +880,12 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Spliterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = new ArrayList_Spliterator((Void) null, ArrayList_Spliterator.__$lsl_States.Initialized, this, 0, -1, 0);
+            result = new ArrayList_Spliterator((Void) null, 
+            /* state = */ ArrayList_Spliterator.__$lsl_States.Initialized, 
+            /* parent = */ this, 
+            /* index = */ 0, 
+            /* fence = */ -1, 
+            /* expectedModCount = */ 0);
         }
         return result;
     }
@@ -886,7 +910,13 @@ public class ArrayList extends AbstractList implements LibSLRuntime.Automaton, L
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             _subListRangeCheck(fromIndex, toIndex, length);
-            result = new ArrayList_SubList((Void) null, ArrayList_SubList.__$lsl_States.Initialized, this, null, fromIndex, toIndex - fromIndex, modCount);
+            result = new ArrayList_SubList((Void) null, 
+            /* state = */ ArrayList_SubList.__$lsl_States.Initialized, 
+            /* root = */ this, 
+            /* parentList = */ null, 
+            /* offset = */ fromIndex, 
+            /* length = */ toIndex - fromIndex, 
+            /* modCount = */ modCount);
         }
         return result;
     }

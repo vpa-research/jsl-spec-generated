@@ -15,7 +15,7 @@ import runtime.LibSLRuntime;
 /**
  * ArrayList_SubList_SpliteratorAutomaton for ArrayList_SubList_Spliterator ~> java.util.ArrayList_SubList$Spliterator
  */
-@Approximate(java.util.ArrayList_SubList$Spliterator.class)
+@Approximate(stub.java.util.ArrayList_SubList$Spliterator.class)
 public final class ArrayList_SubList$Spliterator implements LibSLRuntime.Automaton, Spliterator {
     static {
     }
@@ -170,7 +170,13 @@ public final class ArrayList_SubList$Spliterator implements LibSLRuntime.Automat
             if (lo >= mid) {
                 result = null;
             } else {
-                result = new ArrayList_SubList$Spliterator((Void) null, ArrayList_SubList$Spliterator.__$lsl_States.Initialized, root, parent, lo, mid, expectedModCount);
+                result = new ArrayList_SubList$Spliterator((Void) null, 
+                /* state = */ ArrayList_SubList$Spliterator.__$lsl_States.Initialized, 
+                /* root = */ root, 
+                /* parent = */ parent, 
+                /* index = */ lo, 
+                /* fence = */ mid, 
+                /* expectedModCount = */ expectedModCount);
             }
             index = mid;
         }

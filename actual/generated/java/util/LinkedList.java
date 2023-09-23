@@ -333,7 +333,11 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         /* body */ {
             final SymbolicList<Object> storageCopy = Engine.makeSymbolicList();
             storage.copy(storageCopy, 0, 0, size);
-            result = new LinkedList((Void) null, LinkedList.__$lsl_States.Initialized, storageCopy, size, 0);
+            result = new LinkedList((Void) null, 
+            /* state = */ LinkedList.__$lsl_States.Initialized, 
+            /* storage = */ storageCopy, 
+            /* size = */ size, 
+            /* modCount = */ 0);
         }
         return result;
     }
