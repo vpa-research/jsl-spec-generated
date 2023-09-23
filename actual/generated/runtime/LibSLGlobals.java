@@ -20,6 +20,8 @@ public final class LibSLGlobals {
 
     public static final OptionalLong EMPTY_OPTIONAL_LONG;
 
+    public static final Object HASHSET_VALUE;
+
     public static final int SPLITERATOR_CONCURRENT;
 
     public static final int SPLITERATOR_DISTINCT;
@@ -52,6 +54,7 @@ public final class LibSLGlobals {
                 /* state = */ OptionalLong.__$lsl_States.Initialized, 
                 /* value = */ 0L, 
                 /* present = */ false);
+        HASHSET_VALUE = 0;
         SPLITERATOR_CONCURRENT = 4096;
         SPLITERATOR_DISTINCT = 1;
         SPLITERATOR_IMMUTABLE = 1024;
