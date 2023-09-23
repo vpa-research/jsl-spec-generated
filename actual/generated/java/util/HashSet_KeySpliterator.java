@@ -60,7 +60,7 @@ public final class HashSet_KeySpliterator implements LibSLRuntime.Automaton, Spl
         this((Void) null);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
-            index = origin;
+            this.index = origin;
             fence = fence;
             est = est;
             expectedModCount = expectedModCount;
@@ -74,14 +74,14 @@ public final class HashSet_KeySpliterator implements LibSLRuntime.Automaton, Spl
     private int _getFence() {
         int result = 0;
         /* body */ {
-            Engine.assume(parent != null);
-            int hi = fence;
+            Engine.assume(this.parent != null);
+            int hi = this.fence;
             if (hi < 0) {
-                final SymbolicMap<Object, Object> parentStorage = ((HashSet) parent).storage;
-                est = ((HashSet) parent).length;
-                expectedModCount = ((HashSet) parent).modCount;
-                fence = est;
-                hi = fence;
+                final SymbolicMap<Object, Object> parentStorage = ((HashSet) this.parent).storage;
+                this.est = ((HashSet) this.parent).length;
+                this.expectedModCount = ((HashSet) this.parent).modCount;
+                this.fence = this.est;
+                hi = this.fence;
             }
             result = hi;
         }
@@ -93,8 +93,8 @@ public final class HashSet_KeySpliterator implements LibSLRuntime.Automaton, Spl
      */
     private void _checkForComodification() {
         /* body */ {
-            final int modCount = ((HashSet) parent).modCount;
-            if (expectedModCount != modCount) {
+            final int modCount = ((HashSet) this.parent).modCount;
+            if (this.expectedModCount != modCount) {
                 throw new ConcurrentModificationException();
             }
         }
@@ -108,7 +108,7 @@ public final class HashSet_KeySpliterator implements LibSLRuntime.Automaton, Spl
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             _getFence();
-            result = ((long) est);
+            result = ((long) this.est);
         }
         return result;
     }
@@ -120,10 +120,10 @@ public final class HashSet_KeySpliterator implements LibSLRuntime.Automaton, Spl
         int result = 0;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            Engine.assume(parent != null);
+            Engine.assume(this.parent != null);
             int mask = 0;
-            final int length = ((HashSet) parent).length;
-            if ((fence < 0) || (est == length)) {
+            final int length = ((HashSet) this.parent).length;
+            if ((this.fence < 0) || (this.est == length)) {
                 mask = LibSLGlobals.SPLITERATOR_SIZED;
             }
             result = mask | LibSLGlobals.SPLITERATOR_DISTINCT;
@@ -137,29 +137,29 @@ public final class HashSet_KeySpliterator implements LibSLRuntime.Automaton, Spl
     public void forEachRemaining(Consumer userAction) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            Engine.assume(parent != null);
+            Engine.assume(this.parent != null);
             if (userAction == null) {
                 throw new NullPointerException();
             }
-            int hi = fence;
-            int mc = expectedModCount;
-            int i = index;
-            final int length = ((HashSet) parent).length;
+            int hi = this.fence;
+            int mc = this.expectedModCount;
+            int i = this.index;
+            final int length = ((HashSet) this.parent).length;
             if (hi < 0) {
-                expectedModCount = ((HashSet) parent).modCount;
-                mc = expectedModCount;
-                fence = length;
-                hi = fence;
+                this.expectedModCount = ((HashSet) this.parent).modCount;
+                mc = this.expectedModCount;
+                this.fence = length;
+                hi = this.fence;
             }
-            index = hi;
-            if ((length > 0) && (length >= hi) && (i >= 0) && (i < index)) {
+            this.index = hi;
+            if ((length > 0) && (length >= hi) && (i >= 0) && (i < this.index)) {
                 while (i < hi) {
                     final Object key = keysStorage[i];
                     userAction.accept(key);
                     i += 1;
                 }
                 ;
-                final int modCount = ((HashSet) parent).modCount;
+                final int modCount = ((HashSet) this.parent).modCount;
                 if (modCount != mc) {
                     throw new ConcurrentModificationException();
                 }
@@ -174,16 +174,16 @@ public final class HashSet_KeySpliterator implements LibSLRuntime.Automaton, Spl
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            Engine.assume(parent != null);
+            Engine.assume(this.parent != null);
             if (userAction == null) {
                 throw new NullPointerException();
             }
             int hi = _getFence();
-            int i = index;
+            int i = this.index;
             if (i < hi) {
                 final Object key = keysStorage[i];
                 userAction.accept(key);
-                index += 1;
+                this.index += 1;
                 _checkForComodification();
                 result = true;
             }
@@ -199,23 +199,23 @@ public final class HashSet_KeySpliterator implements LibSLRuntime.Automaton, Spl
         HashSet_KeySpliterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            Engine.assume(parent != null);
+            Engine.assume(this.parent != null);
             final int hi = _getFence();
-            final int lo = index;
+            final int lo = this.index;
             int mid = (hi + lo) >>> 1;
             if (lo >= mid) {
                 result = null;
             } else {
-                est = est >>> 1;
-                index = mid;
+                this.est = this.est >>> 1;
+                this.index = mid;
                 result = new HashSet_KeySpliterator((Void) null, 
                 /* state = */ HashSet_KeySpliterator.__$lsl_States.Initialized, 
-                /* keysStorage = */ keysStorage, 
+                /* keysStorage = */ this.keysStorage, 
                 /* index = */ lo, 
                 /* fence = */ mid, 
-                /* est = */ est, 
-                /* expectedModCount = */ expectedModCount, 
-                /* parent = */ parent);
+                /* est = */ this.est, 
+                /* expectedModCount = */ this.expectedModCount, 
+                /* parent = */ this.parent);
             }
         }
         return result;

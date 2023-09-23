@@ -51,12 +51,12 @@ public final class ArrayList_SubList$Spliterator implements LibSLRuntime.Automat
     private int _getFence() {
         int result = 0;
         /* body */ {
-            if (fence == -1) {
-                Engine.assume(parent != null);
-                expectedModCount = ((ArrayList_SubList) parent).modCount;
-                fence = ((ArrayList_SubList) parent).length;
+            if (this.fence == -1) {
+                Engine.assume(this.parent != null);
+                this.expectedModCount = ((ArrayList_SubList) this.parent).modCount;
+                this.fence = ((ArrayList_SubList) this.parent).length;
             }
-            result = fence;
+            result = this.fence;
         }
         return result;
     }
@@ -78,7 +78,7 @@ public final class ArrayList_SubList$Spliterator implements LibSLRuntime.Automat
     public long estimateSize() {
         long result = 0L;
         /* body */ {
-            result = _getFence() - index;
+            result = _getFence() - this.index;
         }
         return result;
     }
@@ -91,21 +91,21 @@ public final class ArrayList_SubList$Spliterator implements LibSLRuntime.Automat
             if (_action == null) {
                 throw new NullPointerException();
             }
-            Engine.assume(root != null);
-            Engine.assume(parent != null);
-            final SymbolicList<Object> a = ((ArrayList) root).storage;
+            Engine.assume(this.root != null);
+            Engine.assume(this.parent != null);
+            final SymbolicList<Object> a = ((ArrayList) this.root).storage;
             if (a == null) {
                 throw new ConcurrentModificationException();
             }
-            int hi = fence;
-            int mc = expectedModCount;
+            int hi = this.fence;
+            int mc = this.expectedModCount;
             if (hi == -1) {
-                hi = ((ArrayList_SubList) parent).length;
-                mc = ((ArrayList_SubList) parent).modCount;
+                hi = ((ArrayList_SubList) this.parent).length;
+                mc = ((ArrayList_SubList) this.parent).modCount;
             }
-            int i = index;
-            index = hi;
-            if ((i < 0) || (hi > ((ArrayList_SubList) parent).length)) {
+            int i = this.index;
+            this.index = hi;
+            if ((i < 0) || (hi > ((ArrayList_SubList) this.parent).length)) {
                 throw new ConcurrentModificationException();
             }
             for (i = i; i < hi; i += 1) {
@@ -113,7 +113,7 @@ public final class ArrayList_SubList$Spliterator implements LibSLRuntime.Automat
                 _action.accept(item);
             }
             ;
-            if (mc != ((ArrayList_SubList) parent).modCount) {
+            if (mc != ((ArrayList_SubList) this.parent).modCount) {
                 throw new ConcurrentModificationException();
             }
         }
@@ -125,7 +125,7 @@ public final class ArrayList_SubList$Spliterator implements LibSLRuntime.Automat
     public long getExactSizeIfKnown() {
         long result = 0L;
         /* body */ {
-            result = _getFence() - index;
+            result = _getFence() - this.index;
         }
         return result;
     }
@@ -140,14 +140,14 @@ public final class ArrayList_SubList$Spliterator implements LibSLRuntime.Automat
                 throw new NullPointerException();
             }
             final int hi = _getFence();
-            final int i = index;
+            final int i = this.index;
             if (i < hi) {
-                Engine.assume(root != null);
-                index = i + 1;
-                final SymbolicList<Object> rootStorage = ((ArrayList) root).storage;
+                Engine.assume(this.root != null);
+                this.index = i + 1;
+                final SymbolicList<Object> rootStorage = ((ArrayList) this.root).storage;
                 final Object item = rootStorage.get(i);
                 _action.accept(item);
-                if (((ArrayList) root).modCount != expectedModCount) {
+                if (((ArrayList) this.root).modCount != this.expectedModCount) {
                     throw new ConcurrentModificationException();
                 }
                 result = true;
@@ -165,20 +165,20 @@ public final class ArrayList_SubList$Spliterator implements LibSLRuntime.Automat
         ArrayList_SubList$Spliterator result = null;
         /* body */ {
             final int hi = _getFence();
-            final int lo = index;
+            final int lo = this.index;
             final int mid = (lo + hi) >>> 1;
             if (lo >= mid) {
                 result = null;
             } else {
                 result = new ArrayList_SubList$Spliterator((Void) null, 
                 /* state = */ ArrayList_SubList$Spliterator.__$lsl_States.Initialized, 
-                /* root = */ root, 
-                /* parent = */ parent, 
+                /* root = */ this.root, 
+                /* parent = */ this.parent, 
                 /* index = */ lo, 
                 /* fence = */ mid, 
-                /* expectedModCount = */ expectedModCount);
+                /* expectedModCount = */ this.expectedModCount);
             }
-            index = mid;
+            this.index = mid;
         }
         return result;
     }

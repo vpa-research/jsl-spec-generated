@@ -106,10 +106,10 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
                 if (isSameType) {
                     final long otherValue = ((OptionalLong) other).value;
                     final boolean otherPresent = ((OptionalLong) other).present;
-                    if (present && otherPresent) {
-                        result = value == otherValue;
+                    if (this.present && otherPresent) {
+                        result = this.value == otherValue;
                     } else {
-                        result = present == otherPresent;
+                        result = this.present == otherPresent;
                     }
                 } else {
                     result = false;
@@ -126,10 +126,10 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
         long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            if (!present) {
+            if (!this.present) {
                 throw new NoSuchElementException("No value present");
             }
-            result = value;
+            result = this.value;
         }
         return result;
     }
@@ -141,8 +141,8 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
         int result = 0;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            if (present) {
-                result = LibSLRuntime.hashCode(value);
+            if (this.present) {
+                result = LibSLRuntime.hashCode(this.value);
             } else {
                 result = 0;
             }
@@ -156,11 +156,11 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
     public void ifPresent(LongConsumer consumer) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            if (present) {
+            if (this.present) {
                 if (consumer == null) {
                     throw new NullPointerException();
                 }
-                consumer.accept(value);
+                consumer.accept(this.value);
             }
         }
     }
@@ -171,11 +171,11 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
     public void ifPresentOrElse(LongConsumer consumer, Runnable emptyAction) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            if (present) {
+            if (this.present) {
                 if (consumer == null) {
                     throw new NullPointerException();
                 }
-                consumer.accept(value);
+                consumer.accept(this.value);
             } else {
                 if (emptyAction == null) {
                     throw new NullPointerException();
@@ -192,7 +192,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = !present;
+            result = !this.present;
         }
         return result;
     }
@@ -204,7 +204,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = present;
+            result = this.present;
         }
         return result;
     }
@@ -216,8 +216,8 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
         long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            if (present) {
-                result = value;
+            if (this.present) {
+                result = this.value;
             } else {
                 result = other;
             }
@@ -235,8 +235,8 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
             if (supplier == null) {
                 throw new NullPointerException();
             }
-            if (present) {
-                result = value;
+            if (this.present) {
+                result = this.value;
             } else {
                 result = supplier.getAsLong();
             }
@@ -251,10 +251,10 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
         long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            if (!present) {
+            if (!this.present) {
                 throw new NoSuchElementException("No value present");
             }
-            result = value;
+            result = this.value;
         }
         return result;
     }
@@ -269,11 +269,11 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
             if (exceptionSupplier == null) {
                 throw new NullPointerException();
             }
-            if (!present) {
+            if (!this.present) {
                 final Object exception = exceptionSupplier.get();
                 throw ((Throwable) exception);
             } else {
-                result = value;
+                result = this.value;
             }
         }
         return result;
@@ -299,8 +299,8 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
         String result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            if (present) {
-                final String valueStr = LibSLRuntime.toString(value);
+            if (this.present) {
+                final String valueStr = LibSLRuntime.toString(this.value);
                 result = "OptionalLong[".concat(valueStr).concat("]");
             } else {
                 result = "OptionalLong.empty";

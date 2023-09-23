@@ -58,7 +58,7 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
         this((Void) null);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
-            storage = Engine.makeSymbolicMap();
+            this.storage = Engine.makeSymbolicMap();
         }
         this.__$lsl_state = __$lsl_States.Initialized;
     }
@@ -70,7 +70,7 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
         this((Void) null);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
-            storage = Engine.makeSymbolicMap();
+            this.storage = Engine.makeSymbolicMap();
             _addAllElements(c);
         }
         this.__$lsl_state = __$lsl_States.Initialized;
@@ -85,7 +85,7 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
             if (initialCapacity < 0) {
                 throw new IllegalArgumentException();
             }
-            storage = Engine.makeSymbolicMap();
+            this.storage = Engine.makeSymbolicMap();
         }
     }
 
@@ -102,7 +102,7 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
             if ((loadFactor <= 0) || Float.isNaN(loadFactor)) {
                 throw new IllegalArgumentException();
             }
-            storage = Engine.makeSymbolicMap();
+            this.storage = Engine.makeSymbolicMap();
         }
         this.__$lsl_state = __$lsl_States.Initialized;
     }
@@ -124,7 +124,7 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
      */
     public void _checkForComodification(int expectedModCount) {
         /* body */ {
-            if (modCount != expectedModCount) {
+            if (this.modCount != expectedModCount) {
                 throw new ConcurrentModificationException();
             }
         }
@@ -136,19 +136,19 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
     private boolean _addAllElements(Collection c) {
         boolean result = false;
         /* body */ {
-            final int lengthBeforeAdd = length;
+            final int lengthBeforeAdd = this.length;
             final Iterator iter = c.iterator();
             while (iter.hasNext()) {
                 final Object key = iter.next();
-                final boolean hasKey = storage.containsKey(key);
+                final boolean hasKey = this.storage.containsKey(key);
                 if (!hasKey) {
-                    storage.set(key, LibSLGlobals.HASHSET_VALUE);
-                    length += 1;
+                    this.storage.set(key, LibSLGlobals.HASHSET_VALUE);
+                    this.length += 1;
                 }
             }
             ;
-            if (lengthBeforeAdd != length) {
-                modCount += 1;
+            if (lengthBeforeAdd != this.length) {
+                this.modCount += 1;
                 result = true;
             } else {
                 result = false;
@@ -165,7 +165,7 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
         /* body */ {
             result = Engine.makeSymbolic(Object.class);
             Engine.assume(result != null);
-            final boolean isKeyExist = storage.containsKey(result);
+            final boolean isKeyExist = this.storage.containsKey(result);
             Engine.assume(isKeyExist);
             final boolean isKeyWasVisited = visitedKeys.containsKey(result);
             Engine.assume(!isKeyWasVisited);
@@ -180,15 +180,15 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            final boolean hasKey = storage.containsKey(obj);
+            final boolean hasKey = this.storage.containsKey(obj);
             if (hasKey) {
                 result = false;
             } else {
-                length += 1;
-                storage.set(obj, LibSLGlobals.HASHSET_VALUE);
+                this.length += 1;
+                this.storage.set(obj, LibSLGlobals.HASHSET_VALUE);
                 result = true;
             }
-            modCount += 1;
+            this.modCount += 1;
         }
         return result;
     }
@@ -199,9 +199,9 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
     public void clear() {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            length = 0;
-            storage = Engine.makeSymbolicMap();
-            modCount += 1;
+            this.length = 0;
+            this.storage = Engine.makeSymbolicMap();
+            this.modCount += 1;
         }
     }
 
@@ -213,11 +213,11 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             final SymbolicMap<Object, Object> storageCopy = Engine.makeSymbolicMap();
-            storageCopy.union(storage);
+            storageCopy.union(this.storage);
             result = new HashSet((Void) null, 
             /* state = */ HashSet.__$lsl_States.Initialized, 
             /* storage = */ storageCopy, 
-            /* length = */ length, 
+            /* length = */ this.length, 
             /* modCount = */ 0);
         }
         return result;
@@ -230,10 +230,10 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            if (length == 0) {
+            if (this.length == 0) {
                 result = false;
             } else {
-                result = storage.containsKey(obj);
+                result = this.storage.containsKey(obj);
             }
         }
         return result;
@@ -246,7 +246,7 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = length == 0;
+            result = this.length == 0;
         }
         return result;
     }
@@ -261,7 +261,7 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
             final SymbolicMap<Object, Object> visitedKeysMap = Engine.makeSymbolicMap();
             result = new HashSet_KeyIterator((Void) null, 
             /* state = */ HashSet_KeyIterator.__$lsl_States.Initialized, 
-            /* expectedModCount = */ modCount, 
+            /* expectedModCount = */ this.modCount, 
             /* visitedKeys = */ visitedKeysMap, 
             /* parent = */ this, 
             /* index = */ 0, 
@@ -278,11 +278,11 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            final boolean hasKey = storage.containsKey(obj);
+            final boolean hasKey = this.storage.containsKey(obj);
             if (hasKey) {
-                storage.remove(obj);
-                length -= 1;
-                modCount += 1;
+                this.storage.remove(obj);
+                this.length -= 1;
+                this.modCount += 1;
                 result = true;
             } else {
                 result = false;
@@ -298,7 +298,7 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
         int result = 0;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = length;
+            result = this.length;
         }
         return result;
     }
@@ -310,10 +310,10 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
         Spliterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            final Object[] keysStorageArray = new Object[length];
+            final Object[] keysStorageArray = new Object[this.length];
             final SymbolicMap<Object, Object> visitedKeys = Engine.makeSymbolicMap();
             int i = 0;
-            for (i = 0; i < length; i += 1) {
+            for (i = 0; i < this.length; i += 1) {
                 final Object key = _generateKey(visitedKeys);
                 keysStorageArray[i] = key;
                 visitedKeys.set(key, LibSLGlobals.HASHSET_VALUE);
@@ -325,7 +325,7 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
             /* index = */ 0, 
             /* fence = */ -1, 
             /* est = */ 0, 
-            /* expectedModCount = */ modCount, 
+            /* expectedModCount = */ this.modCount, 
             /* parent = */ this);
         }
         return result;
@@ -343,12 +343,12 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
             } else {
                 final boolean isSameType = Engine.typeEquals(this, other);
                 if (isSameType) {
-                    final int expectedModCount = modCount;
+                    final int expectedModCount = this.modCount;
                     final int otherExpectedModCount = ((HashSet) other).modCount;
                     final SymbolicMap<Object, Object> otherStorage = ((HashSet) other).storage;
                     final int otherLength = ((HashSet) other).length;
-                    if (length == otherLength) {
-                        result = LibSLRuntime.equals(storage, otherStorage);
+                    if (this.length == otherLength) {
+                        result = LibSLRuntime.equals(this.storage, otherStorage);
                     } else {
                         result = false;
                     }
@@ -369,7 +369,7 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
         int result = 0;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = LibSLRuntime.hashCode(storage);
+            result = LibSLRuntime.hashCode(this.storage);
         }
         return result;
     }
@@ -384,29 +384,29 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
             if (c == null) {
                 throw new NullPointerException();
             }
-            final int expectedModCount = modCount;
+            final int expectedModCount = this.modCount;
             final int otherSize = c.size();
             final Iterator iter = c.iterator();
-            final int lengthBeforeRemoving = length;
+            final int lengthBeforeRemoving = this.length;
             int i = 0;
-            if (length > otherSize) {
+            if (this.length > otherSize) {
                 while (iter.hasNext()) {
                     final Object key = iter.next();
-                    final boolean isKeyExist = storage.containsKey(key);
+                    final boolean isKeyExist = this.storage.containsKey(key);
                     if (isKeyExist) {
-                        storage.remove(key);
-                        length -= 1;
+                        this.storage.remove(key);
+                        this.length -= 1;
                     }
                 }
                 ;
             } else {
                 final SymbolicMap<Object, Object> visitedKeys = Engine.makeSymbolicMap();
-                while (i < length) {
+                while (i < this.length) {
                     final Object key = _generateKey(visitedKeys);
                     final boolean isCollectionContainsKey = c.contains(key);
                     if (isCollectionContainsKey) {
-                        storage.remove(key);
-                        length -= 1;
+                        this.storage.remove(key);
+                        this.length -= 1;
                     }
                     visitedKeys.set(key, LibSLGlobals.HASHSET_VALUE);
                     i += 1;
@@ -414,8 +414,8 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
                 ;
             }
             _checkForComodification(expectedModCount);
-            modCount += 1;
-            result = lengthBeforeRemoving != length;
+            this.modCount += 1;
+            result = lengthBeforeRemoving != this.length;
         }
         return result;
     }
@@ -427,9 +427,9 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
         Object[] result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            final int len = length;
+            final int len = this.length;
             result = new Object[len];
-            final int expectedModCount = modCount;
+            final int expectedModCount = this.modCount;
             final SymbolicMap<Object, Object> visitedKeys = Engine.makeSymbolicMap();
             int i = 0;
             for (i = 0; i < len; i += 1) {
@@ -450,9 +450,9 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
         Object[] result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            final int expectedModCount = modCount;
+            final int expectedModCount = this.modCount;
             final int aLen = a.length;
-            final int len = length;
+            final int len = this.length;
             final SymbolicMap<Object, Object> visitedKeys = Engine.makeSymbolicMap();
             int i = 0;
             if (aLen < len) {
@@ -465,8 +465,8 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
                 visitedKeys.set(key, LibSLGlobals.HASHSET_VALUE);
             }
             ;
-            if (aLen > length) {
-                result[length] = null;
+            if (aLen > this.length) {
+                result[this.length] = null;
             }
             _checkForComodification(expectedModCount);
         }
@@ -485,7 +485,7 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
             boolean isContainsAll = true;
             while (iter.hasNext()) {
                 final Object key = iter.next();
-                final boolean isKeyExist = storage.containsKey(key);
+                final boolean isKeyExist = this.storage.containsKey(key);
                 if (!isKeyExist) {
                     isContainsAll = false;
                     break;
@@ -519,19 +519,19 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
             if (c == null) {
                 throw new NullPointerException();
             }
-            final int lengthBeforeAdd = length;
+            final int lengthBeforeAdd = this.length;
             final Iterator iter = c.iterator();
             while (iter.hasNext()) {
                 final Object key = iter.next();
-                final boolean hasKey = storage.containsKey(key);
+                final boolean hasKey = this.storage.containsKey(key);
                 if (!hasKey) {
-                    storage.remove(key);
-                    length -= 1;
+                    this.storage.remove(key);
+                    this.length -= 1;
                 }
             }
             ;
-            if (lengthBeforeAdd != length) {
-                modCount += 1;
+            if (lengthBeforeAdd != this.length) {
+                this.modCount += 1;
                 result = true;
             } else {
                 result = false;
@@ -550,24 +550,24 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
             if (filter == null) {
                 throw new NullPointerException();
             }
-            final int lengthBeforeAdd = length;
-            final int expectedModCount = modCount;
+            final int lengthBeforeAdd = this.length;
+            final int expectedModCount = this.modCount;
             int i = 0;
             final SymbolicMap<Object, Object> visitedKeys = Engine.makeSymbolicMap();
             while (i < lengthBeforeAdd) {
                 final Object key = _generateKey(visitedKeys);
                 boolean isDelete = filter.test(key);
                 if (isDelete) {
-                    storage.remove(key);
-                    length -= 1;
+                    this.storage.remove(key);
+                    this.length -= 1;
                 }
                 i += 1;
                 visitedKeys.set(key, LibSLGlobals.HASHSET_VALUE);
             }
             ;
             _checkForComodification(expectedModCount);
-            if (lengthBeforeAdd != length) {
-                modCount += 1;
+            if (lengthBeforeAdd != this.length) {
+                this.modCount += 1;
                 result = true;
             } else {
                 result = false;
@@ -586,9 +586,9 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
                 throw new NullPointerException();
             }
             int i = 0;
-            final int expectedModCount = modCount;
+            final int expectedModCount = this.modCount;
             final SymbolicMap<Object, Object> visitedKeys = Engine.makeSymbolicMap();
-            while (i < length) {
+            while (i < this.length) {
                 final Object key = _generateKey(visitedKeys);
                 userAction.accept(key);
                 i += 1;

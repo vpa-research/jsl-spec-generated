@@ -71,8 +71,8 @@ public final class HashSet_KeyIterator implements LibSLRuntime.Automaton, Iterat
      */
     private void _checkForComodification() {
         /* body */ {
-            final int modCount = ((HashSet) parent).modCount;
-            if (expectedModCount != modCount) {
+            final int modCount = ((HashSet) this.parent).modCount;
+            if (this.expectedModCount != modCount) {
                 throw new ConcurrentModificationException();
             }
         }
@@ -85,9 +85,9 @@ public final class HashSet_KeyIterator implements LibSLRuntime.Automaton, Iterat
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            Engine.assume(parent != null);
-            final int length = ((HashSet) parent).length;
-            result = index < length;
+            Engine.assume(this.parent != null);
+            final int length = ((HashSet) this.parent).length;
+            result = this.index < length;
         }
         return result;
     }
@@ -99,26 +99,26 @@ public final class HashSet_KeyIterator implements LibSLRuntime.Automaton, Iterat
         Object result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            Engine.assume(parent != null);
+            Engine.assume(this.parent != null);
             _checkForComodification();
-            final int length = ((HashSet) parent).length;
-            final boolean atValidPosition = index < length;
+            final int length = ((HashSet) this.parent).length;
+            final boolean atValidPosition = this.index < length;
             if (!atValidPosition) {
                 throw new NoSuchElementException();
             }
             final Object key = Engine.makeSymbolic(Object.class);
             Engine.assume(key != null);
-            Engine.assume(key != currentKey);
-            final SymbolicMap<Object, Object> parentStorage = ((HashSet) parent).storage;
+            Engine.assume(key != this.currentKey);
+            final SymbolicMap<Object, Object> parentStorage = ((HashSet) this.parent).storage;
             final boolean sourceStorageHasKey = parentStorage.containsKey(key);
             Engine.assume(sourceStorageHasKey);
-            final boolean dstStorageHasKey = visitedKeys.containsKey(key);
+            final boolean dstStorageHasKey = this.visitedKeys.containsKey(key);
             Engine.assume(!dstStorageHasKey);
-            currentKey = key;
+            this.currentKey = key;
             result = key;
-            visitedKeys.set(currentKey, LibSLGlobals.HASHSET_VALUE);
-            index += 1;
-            nextWasCalled = true;
+            this.visitedKeys.set(this.currentKey, LibSLGlobals.HASHSET_VALUE);
+            this.index += 1;
+            this.nextWasCalled = true;
         }
         return result;
     }
@@ -129,17 +129,17 @@ public final class HashSet_KeyIterator implements LibSLRuntime.Automaton, Iterat
     public void remove() {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            Engine.assume(parent != null);
-            final int length = ((HashSet) parent).length;
-            final boolean atValidPosition = index < length;
-            if (!(atValidPosition || !nextWasCalled)) {
+            Engine.assume(this.parent != null);
+            final int length = ((HashSet) this.parent).length;
+            final boolean atValidPosition = this.index < length;
+            if (!(atValidPosition || !this.nextWasCalled)) {
                 throw new IllegalStateException();
             }
-            nextWasCalled = false;
+            this.nextWasCalled = false;
             _checkForComodification();
-            final SymbolicMap<Object, Object> parentStorage = ((HashSet) parent).storage;
-            parentStorage.remove(currentKey);
-            expectedModCount = ((HashSet) parent).modCount;
+            final SymbolicMap<Object, Object> parentStorage = ((HashSet) this.parent).storage;
+            parentStorage.remove(this.currentKey);
+            this.expectedModCount = ((HashSet) this.parent).modCount;
         }
     }
 
@@ -148,30 +148,30 @@ public final class HashSet_KeyIterator implements LibSLRuntime.Automaton, Iterat
      */
     public void forEachRemaining(Consumer userAction) {
         /* body */ {
-            Engine.assume(parent != null);
+            Engine.assume(this.parent != null);
             if (userAction == null) {
                 throw new NullPointerException();
             }
-            final int length = ((HashSet) parent).length;
-            int i = index;
+            final int length = ((HashSet) this.parent).length;
+            int i = this.index;
             while (i < length) {
                 _checkForComodification();
                 final Object key = Engine.makeSymbolic(Object.class);
                 Engine.assume(key != null);
-                Engine.assume(key != currentKey);
-                final SymbolicMap<Object, Object> parentStorage = ((HashSet) parent).storage;
+                Engine.assume(key != this.currentKey);
+                final SymbolicMap<Object, Object> parentStorage = ((HashSet) this.parent).storage;
                 final boolean sourceStorageHasKey = parentStorage.containsKey(key);
                 Engine.assume(sourceStorageHasKey);
-                final boolean destStorageHasKey = visitedKeys.containsKey(key);
+                final boolean destStorageHasKey = this.visitedKeys.containsKey(key);
                 Engine.assume(!destStorageHasKey);
-                currentKey = key;
-                visitedKeys.set(currentKey, LibSLGlobals.HASHSET_VALUE);
+                this.currentKey = key;
+                this.visitedKeys.set(this.currentKey, LibSLGlobals.HASHSET_VALUE);
                 userAction.accept(key);
                 i += 1;
             }
             ;
-            index = i;
-            nextWasCalled = true;
+            this.index = i;
+            this.nextWasCalled = true;
         }
     }
 
