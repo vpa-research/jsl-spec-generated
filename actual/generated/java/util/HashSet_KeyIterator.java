@@ -30,11 +30,11 @@ public final class HashSet_KeyIterator implements LibSLRuntime.Automaton, Iterat
 
     public HashSet parent;
 
-    public int index = 0;
+    public int index;
 
-    public Object currentKey = 0;
+    public Object currentKey;
 
-    public boolean nextWasCalled = false;
+    public boolean nextWasCalled;
 
     @LibSLRuntime.AutomatonConstructor
     public HashSet_KeyIterator(Void __$lsl_token, final byte p0, final int p1,

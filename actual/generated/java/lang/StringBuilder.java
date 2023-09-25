@@ -31,9 +31,9 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     private byte __$lsl_state = __$lsl_States.Allocated;
 
-    public String storage = "";
+    public String storage;
 
-    public int length = 0;
+    public int length;
 
     @LibSLRuntime.AutomatonConstructor
     public StringBuilder(Void __$lsl_token, final byte p0, final String p1, final int p2) {

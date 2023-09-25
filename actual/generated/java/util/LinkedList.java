@@ -40,7 +40,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
 
     public transient int size;
 
-    public transient int modCount = 0;
+    public transient int modCount;
 
     @LibSLRuntime.AutomatonConstructor
     public LinkedList(Void __$lsl_token, final byte p0, final SymbolicList<Object> p1, final int p2,

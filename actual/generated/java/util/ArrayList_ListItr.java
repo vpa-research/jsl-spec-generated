@@ -26,7 +26,7 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
 
     public int expectedModCount;
 
-    public int lastRet = -1;
+    public int lastRet;
 
     @LibSLRuntime.AutomatonConstructor
     public ArrayList_ListItr(Void __$lsl_token, final byte p0, final ArrayList p1, final int p2,

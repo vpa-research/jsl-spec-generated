@@ -32,7 +32,7 @@ public final class ArrayList_SubList$ListIterator implements LibSLRuntime.Automa
 
     public int size;
 
-    public int lastRet = -1;
+    public int lastRet;
 
     @LibSLRuntime.AutomatonConstructor
     public ArrayList_SubList$ListIterator(Void __$lsl_token, final byte p0, final ArrayList p1,
@@ -62,6 +62,20 @@ public final class ArrayList_SubList$ListIterator implements LibSLRuntime.Automa
                 throw new ConcurrentModificationException();
             }
         }
+    }
+
+    /**
+     * [SUBROUTINE] ArrayList_SubList_ListIteratorAutomaton::qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq(boolean, boolean) -> boolean
+     */
+    private boolean qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq(boolean a,
+            boolean b) {
+        boolean result = false;
+        /* body */ {
+            result = !(a || !b);
+            result = !(a && !b);
+            result = !(a ^ !b);
+        }
+        return result;
     }
 
     /**

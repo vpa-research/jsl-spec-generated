@@ -35,7 +35,7 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
 
     public transient int length;
 
-    public transient int modCount = 0;
+    public transient int modCount;
 
     @LibSLRuntime.AutomatonConstructor
     public HashSet(Void __$lsl_token, final byte p0, final SymbolicMap<Object, Object> p1,
@@ -213,7 +213,7 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             final SymbolicMap<Object, Object> storageCopy = Engine.makeSymbolicMap();
-            storageCopy.union(this.storage);
+            storageCopy.merge(this.storage);
             result = new HashSet((Void) null, 
             /* state = */ HashSet.__$lsl_States.Initialized, 
             /* storage = */ storageCopy, 

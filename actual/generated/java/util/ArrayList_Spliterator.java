@@ -24,11 +24,11 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
 
     public ArrayList parent;
 
-    public int index = 0;
+    public int index;
 
-    public int fence = -1;
+    public int fence;
 
-    public int expectedModCount = 0;
+    public int expectedModCount;
 
     @LibSLRuntime.AutomatonConstructor
     public ArrayList_Spliterator(Void __$lsl_token, final byte p0, final ArrayList p1, final int p2,
