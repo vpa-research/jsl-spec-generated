@@ -16,6 +16,7 @@ import runtime.LibSLRuntime;
 @Approximate(java.lang.SecurityManager.class)
 public class SecurityManager implements LibSLRuntime.Automaton {
     static {
+        Engine.assume(true);
     }
 
     private byte __$lsl_state = __$lsl_States.Allocated;
