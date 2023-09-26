@@ -73,8 +73,8 @@ command = [
     '-g:lines',
     '-nowarn',
     '-Xlint:none',
-    '-target', '11',
-    '--patch-module', 'java.base=actual',
+    '--release', '8',
+    #'--patch-module', 'java.base=actual',
 
 ]
 command.extend(collect_source_files(input_dir, stub_dir, runtime_dir))

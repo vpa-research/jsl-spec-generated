@@ -17,12 +17,6 @@ public interface SymbolicMap<Key, Value> {
 
     int size();
 
-    void union(SymbolicMap<Key, Value> other);
-
-    void intersect(SymbolicMap<Key, Value> other);
-
-    boolean equals(Object obj);
-
-    String toString();
+    void merge(SymbolicMap<Key, Value> other);
 
 }
