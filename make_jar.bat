@@ -2,7 +2,7 @@
 
 cd ./out
 
-jar -cf ../std-library.jar ./generated/* ./java/* ./runtime/*
+jar -cf ../std-library.jar ./generated/* ./stub/* ./runtime/*
 
 cd ..
 
