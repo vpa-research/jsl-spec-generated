@@ -4,6 +4,7 @@
 package generated.java.util;
 
 import java.lang.Comparable;
+import java.lang.NullPointerException;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.Void;
@@ -551,9 +552,15 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = true;
-            if (this.length != 0) {
+            final int size = this.length;
+            if (size != 0) {
+                Engine.assume(size > 0);
+                Engine.assume(this.root != null);
+                final SymbolicList<Object> rootStorage = ((ArrayList) this.root).storage;
                 LibSLRuntime.todo();
+                result = this.length != size;
+            } else {
+                result = false;
             }
         }
         return result;
@@ -566,7 +573,36 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            Engine.assume(this.root != null);
+            ((ArrayList) this.root)._checkForComodification(this.modCount);
+            if (filter == null) {
+                throw new NullPointerException();
+            }
+            final int size = this.length;
+            if (size != 0) {
+                Engine.assume(size > 0);
+                final int expectedModCount = this.modCount;
+                final SymbolicList<Object> rootStorage = ((ArrayList) this.root).storage;
+                final int end = this.offset - 1;
+                final int start = end + size;
+                int delta = 0;
+                int i = 0;
+                for (i = start; i > end; i += -1) {
+                    final Object item = rootStorage.get(i);
+                    if (filter.test(item)) {
+                        rootStorage.remove(i);
+                        delta -= 1;
+                    }
+                }
+                ;
+                ((ArrayList) this.root)._checkForComodification(expectedModCount);
+                ((ArrayList) this.root).length += delta;
+                ((ArrayList) this.root).modCount += 1;
+                _updateSizeAndModCount(delta);
+                result = delta != 0;
+            } else {
+                result = false;
+            }
         }
         return result;
     }
@@ -577,7 +613,26 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
     public void replaceAll(UnaryOperator operator) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            Engine.assume(this.root != null);
+            ((ArrayList) this.root)._checkForComodification(this.modCount);
+            if (operator == null) {
+                throw new NullPointerException();
+            }
+            final int size = this.length;
+            if (size != 0) {
+                Engine.assume(size > 0);
+                final int expectedModCount = this.modCount;
+                final SymbolicList<Object> rootStorage = ((ArrayList) this.root).storage;
+                final int end = this.offset + size;
+                int i = 0;
+                for (i = this.offset; i < end; i += 1) {
+                    Object item = rootStorage.get(i);
+                    item = operator.apply(item);
+                    rootStorage.set(i, item);
+                }
+                ;
+                ((ArrayList) this.root)._checkForComodification(expectedModCount);
+            }
         }
     }
 
