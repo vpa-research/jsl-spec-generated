@@ -142,6 +142,13 @@ public final class Engine {
     /**
      * @return value CANNOT be null!
      */
+    public static <K, V> SymbolicMap<K, V> makeSymbolicIdentityMap() {
+        return null;
+    }
+
+    /**
+     * @return value CANNOT be null!
+     */
     public static <V> SymbolicList<V> makeSymbolicList() {
         return null;
     }

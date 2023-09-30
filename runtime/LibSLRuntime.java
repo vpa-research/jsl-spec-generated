@@ -184,7 +184,7 @@ public final class LibSLRuntime {
         // FIXME: use less complex approach
         String res = "[";
 
-        final SymbolicMap<Object, Object> visited = Engine.makeSymbolicMap();
+        final SymbolicMap<Object, Object> visited = Engine.makeSymbolicIdentityMap();
         while (unseen != 0) {
             final Object key = Engine.makeSymbolic(Object.class);
             Engine.assume(!visited.containsKey(key));
@@ -298,7 +298,7 @@ public final class LibSLRuntime {
         // FIXME: use less complex approach
         int res = 1;
 
-        final SymbolicMap<Object, Object> visited = Engine.makeSymbolicMap();
+        final SymbolicMap<Object, Object> visited = Engine.makeSymbolicIdentityMap();
         while (unseen != 0) {
             final Object key = Engine.makeSymbolic(Object.class);
             Engine.assume(!visited.containsKey(key));
@@ -399,7 +399,7 @@ public final class LibSLRuntime {
             return false;
 
         Engine.assume(length >= 0);
-        final SymbolicMap<Object, Object> visited = Engine.makeSymbolicMap();
+        final SymbolicMap<Object, Object> visited = Engine.makeSymbolicIdentityMap();
         while (length != 0) {
             final Object key = Engine.makeSymbolic(Object.class);
             Engine.assume(a.containsKey(key));
@@ -509,10 +509,83 @@ public final class LibSLRuntime {
 
     // a helper class for complex "map<K,V>"-related actions
     public static final class MapActions {
+        private static final Object DUMMY_IDENTITY_MAP = Engine.makeSymbolicIdentityMap();
 
-        public static <K, V> void intersect_1(final SymbolicMap<K, V> receiver,
-                                              final SymbolicMap<K, V> otherSource) {
-            throw new InternalError(/* TODO */);
+        public static <K, V> SymbolicMap<K, V> union(final SymbolicMap<K, V> a,
+                                                     final SymbolicMap<K, V> b) {
+            final SymbolicMap<K, V> r = Engine.typeEquals(a, DUMMY_IDENTITY_MAP)
+                        ? Engine.makeSymbolicIdentityMap()
+                        : Engine.makeSymbolicMap();
+
+            r.merge(a);
+            r.merge(b);
+
+            return r;
+        }
+
+
+        public static <K, V> SymbolicMap<K, V> intersection(final SymbolicMap<K, V> a,
+                                                            final SymbolicMap<K, V> b) {
+            final SymbolicMap<K, V> r = Engine.typeEquals(a, DUMMY_IDENTITY_MAP)
+                        ? Engine.makeSymbolicIdentityMap()
+                        : Engine.makeSymbolicMap();
+
+            final int aSize = a.size();
+            final int bSize = b.size();
+            int count = aSize > bSize ? bSize : aSize;
+
+            if (count == 0)
+                return r;
+            Engine.assume(count > 0);
+
+            while (count != 0) {
+                final K key = (K) Engine.makeSymbolic(Object.class);
+                Engine.assume(r.containsKey(key) == false);
+                Engine.assume(a.containsKey(key) == true);
+
+                if (b.containsKey(key))
+                    r.set(key, b.get(key));
+
+                count -= 1;
+            }
+
+            return r;
+        }
+
+
+        public static <K, V> void intersect(final SymbolicMap<K, V> receiver,
+                                            final SymbolicMap<K, V> otherSource) {
+            int count = receiver.size();
+
+            if (count == 0)
+                return;
+            Engine.assume(count > 0);
+
+            final SymbolicMap<Object, Object> visited = Engine.makeSymbolicIdentityMap();
+            if (otherSource.size() == 0) {
+                while (count != 0) {
+                    final K key = (K) Engine.makeSymbolic(Object.class);
+                    Engine.assume(visited.containsKey(key) == false);
+                    Engine.assume(receiver.containsKey(key) == true);
+
+                    receiver.remove(key);
+
+                    visited.set(key, SOMETHING);
+                    count -= 1;
+                }
+            } else {
+                while (count != 0) {
+                    final K key = (K) Engine.makeSymbolic(Object.class);
+                    Engine.assume(visited.containsKey(key) == false);
+                    Engine.assume(receiver.containsKey(key) == true);
+
+                    if (!otherSource.containsKey(key))
+                        receiver.remove(key);
+
+                    visited.set(key, SOMETHING);
+                    count -= 1;
+                }
+            }
         }
 
     }

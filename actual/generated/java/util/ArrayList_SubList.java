@@ -166,8 +166,8 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             Engine.assume(this.root != null);
-            final int effectiveIndex = this.offset + this.length;
             ((ArrayList) this.root)._checkForComodification(this.modCount);
+            final int effectiveIndex = this.offset + this.length;
             ((ArrayList) this.root)._addElement(effectiveIndex, e);
             _updateSizeAndModCount(1);
         }
@@ -181,8 +181,8 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             Engine.assume(this.root != null);
-            final int effectiveIndex = this.offset + index;
             ((ArrayList) this.root)._checkForComodification(this.modCount);
+            final int effectiveIndex = this.offset + index;
             ((ArrayList) this.root)._addElement(effectiveIndex, element);
             _updateSizeAndModCount(1);
         }
@@ -218,7 +218,23 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
     public void clear() {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            Engine.assume(this.root != null);
+            ((ArrayList) this.root)._checkForComodification(this.modCount);
+            final int size = this.length;
+            if (size != 0) {
+                Engine.assume(size > 0);
+                final int end = this.offset - 1;
+                final int start = end + size;
+                final SymbolicList<Object> rootStorage = ((ArrayList) this.root).storage;
+                int i = 0;
+                for (i = start; i > end; i += -1) {
+                    rootStorage.remove(i);
+                }
+                ;
+                ((ArrayList) this.root).length -= size;
+                ((ArrayList) this.root).modCount += 1;
+                _updateSizeAndModCount(-size);
+            }
         }
     }
 
@@ -333,9 +349,9 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             Engine.assume(this.root != null);
-            final int effectiveIndex = this.offset + index;
             ((ArrayList) this.root)._checkValidIndex(index, this.length);
             ((ArrayList) this.root)._checkForComodification(this.modCount);
+            final int effectiveIndex = this.offset + index;
             result = ((ArrayList) this.root).storage.get(effectiveIndex);
         }
         return result;
@@ -465,7 +481,6 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         ListIterator result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
             result = new ArrayList_SubList$ListIterator((Void) null, 
             /* state = */ ArrayList_SubList$ListIterator.__$lsl_States.Initialized, 
             /* root = */ this.root, 
@@ -520,9 +535,9 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             Engine.assume(this.root != null);
-            final int effectiveIndex = this.offset + index;
             ((ArrayList) this.root)._checkValidIndex(index, this.length);
             ((ArrayList) this.root)._checkForComodification(this.modCount);
+            final int effectiveIndex = this.offset + index;
             result = ((ArrayList) this.root)._deleteElement(effectiveIndex);
             _updateSizeAndModCount(-1);
         }
@@ -586,10 +601,10 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             Engine.assume(this.root != null);
-            final int effectiveIndex = this.offset + index;
             ((ArrayList) this.root)._checkValidIndex(index, this.length);
             ((ArrayList) this.root)._checkForComodification(this.modCount);
             final SymbolicList<Object> parentStorage = ((ArrayList) this.root).storage;
+            final int effectiveIndex = this.offset + index;
             result = parentStorage.get(effectiveIndex);
             parentStorage.set(effectiveIndex, element);
         }
