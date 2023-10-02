@@ -325,6 +325,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             if (this.length != 0) {
+                Engine.assume(this.length > 0);
                 Engine.assume(this.root != null);
                 final SymbolicList<Object> rootStorage = ((ArrayList) this.root).storage;
                 final int expectedModCount = ((ArrayList) this.root).modCount;
@@ -367,6 +368,7 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         /* body */ {
             result = 1;
             if (this.length != 0) {
+                Engine.assume(this.length > 0);
                 Engine.assume(this.root != null);
                 final SymbolicList<Object> rootStorage = ((ArrayList) this.root).storage;
                 int i = this.offset;
@@ -552,13 +554,30 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
+            Engine.assume(this.root != null);
+            ((ArrayList) this.root)._checkForComodification(this.modCount);
             final int size = this.length;
             if (size != 0) {
                 Engine.assume(size > 0);
-                Engine.assume(this.root != null);
                 final SymbolicList<Object> rootStorage = ((ArrayList) this.root).storage;
-                LibSLRuntime.todo();
-                result = this.length != size;
+                int end = this.offset + size;
+                int delta = 0;
+                final Iterator iter = c.iterator();
+                while (iter.hasNext()) {
+                    final Object item = iter.next();
+                    final int idx = LibSLRuntime.ListActions.find(rootStorage, item, this.offset, end);
+                    if (idx != -1) {
+                        rootStorage.remove(idx);
+                        end -= 1;
+                        delta -= 1;
+                        ((ArrayList) rootStorage).length -= 1;
+                    }
+                }
+                ;
+                result = delta != 0;
+                if (result) {
+                    _updateSizeAndModCount(delta);
+                }
             } else {
                 result = false;
             }
@@ -598,8 +617,10 @@ public final class ArrayList_SubList extends AbstractList implements LibSLRuntim
                 ((ArrayList) this.root)._checkForComodification(expectedModCount);
                 ((ArrayList) this.root).length += delta;
                 ((ArrayList) this.root).modCount += 1;
-                _updateSizeAndModCount(delta);
                 result = delta != 0;
+                if (result) {
+                    _updateSizeAndModCount(delta);
+                }
             } else {
                 result = false;
             }
