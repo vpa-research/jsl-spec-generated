@@ -22,8 +22,6 @@ public final class LibSLGlobals {
 
     public static final OptionalLong EMPTY_OPTIONAL_LONG;
 
-    public static final Object HASHSET_VALUE;
-
     public static final int MAX_CODE_POINT;
 
     public static final int MIN_CODE_POINT;
@@ -33,6 +31,8 @@ public final class LibSLGlobals {
     public static final int MIN_LOW_SURROGATE;
 
     public static final int MIN_SUPPLEMENTARY_CODE_POINT;
+
+    public static final Object SOMETHING;
 
     public static final int SPLITERATOR_CONCURRENT;
 
@@ -66,13 +66,12 @@ public final class LibSLGlobals {
                 /* state = */ OptionalLong.__$lsl_States.Initialized, 
                 /* value = */ 0L, 
                 /* present = */ false);
-        HASHSET_VALUE = new generated.java.lang.Object((Void) null, 
-                /* state = */ generated.java.lang.Object.__$lsl_States.Initialized);
         MAX_CODE_POINT = 1114111;
         MIN_CODE_POINT = 0;
         MIN_HIGH_SURROGATE = 55296;
         MIN_LOW_SURROGATE = 56320;
         MIN_SUPPLEMENTARY_CODE_POINT = 65536;
+        SOMETHING = new java.lang.Object();
         SPLITERATOR_CONCURRENT = 4096;
         SPLITERATOR_DISTINCT = 1;
         SPLITERATOR_IMMUTABLE = 1024;

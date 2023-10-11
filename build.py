@@ -3,8 +3,11 @@ import os
 import subprocess
 import sys
 from time import sleep
+import tempfile
 
 # === subroutines ===
+
+TEMP_SOURCES_FILE = os.path.join(tempfile.gettempdir(), 'jsl-spec-build-paths.txt')
 
 def has_java_sources(file_names: list[str]) -> bool:
     for name in file_names:
@@ -19,8 +22,11 @@ def collect_java_file_dirs_from(root: str) -> list[str]:
     res = list()
 
     for (dir_path, dirs, files) in os.walk(root):
-        if has_java_sources(files):
-            res.append(os.path.join(dir_path, '*'))
+        for name in files:
+            if name.endswith('.java'):
+                res.append(os.path.join(dir_path, name))
+        #if has_java_sources(files):
+            # res.append(os.path.join(dir_path, '*'))
 
     return res
 
@@ -29,7 +35,12 @@ def collect_source_files(src_root: str, stub_root: str, runtime_root: str) -> se
     res.update(collect_java_file_dirs_from(stub_root))
     res.update(collect_java_file_dirs_from(runtime_root))
     res.update(collect_java_file_dirs_from(src_root))
-    return res
+    return list(res)
+
+def update_paths(paths: list[str]) -> None:
+    with open(TEMP_SOURCES_FILE, 'wt') as f:
+        for name in paths:
+            f.write(f"{name}\n")
 
 
 # === CLI and Environment ===
@@ -75,9 +86,9 @@ command = [
     '-Xlint:none',
     '--release', '8',
     #'--patch-module', 'java.base=actual',
-
+    f"@{TEMP_SOURCES_FILE}",
 ]
-command.extend(collect_source_files(input_dir, stub_dir, runtime_dir))
+update_paths(collect_source_files(input_dir, stub_dir, runtime_dir))
 
 print('[~] Command:', ' '.join(command))
 

@@ -15,10 +15,10 @@ import org.usvm.api.Engine;
 import runtime.LibSLRuntime;
 
 /**
- * VoidInputStreamAutomaton for VoidInputStream ~> java.io.InputStream$1
+ * VoidInputStreamAutomaton for VoidInputStream ~> java.io.InputStream$Void
  */
-@Approximate(stub.java.io.InputStream$1.class)
-public final class InputStream$1 extends InputStream implements LibSLRuntime.Automaton {
+@Approximate(stub.java.io.InputStream$Void.class)
+public final class InputStream$Void extends InputStream implements LibSLRuntime.Automaton {
     static {
         Engine.assume(true);
     }
@@ -26,12 +26,12 @@ public final class InputStream$1 extends InputStream implements LibSLRuntime.Aut
     public volatile boolean closed;
 
     @LibSLRuntime.AutomatonConstructor
-    public InputStream$1(Void __$lsl_token, final byte p0, final boolean p1) {
+    public InputStream$Void(Void __$lsl_token, final byte p0, final boolean p1) {
         this.closed = p1;
     }
 
     @LibSLRuntime.AutomatonConstructor
-    public InputStream$1(final Void __$lsl_token) {
+    public InputStream$Void(final Void __$lsl_token) {
         this(__$lsl_token, __$lsl_States.Initialized, false);
     }
 
@@ -230,7 +230,7 @@ public final class InputStream$1 extends InputStream implements LibSLRuntime.Aut
         public static final byte Initialized = (byte) 0;
     }
 
-    @Approximate(InputStream$1.class)
+    @Approximate(InputStream$Void.class)
     public static final class __hook {
         private __hook(Void o1, Void o2) {
             Engine.assume(false);

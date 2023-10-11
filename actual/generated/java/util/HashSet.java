@@ -150,7 +150,7 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
                 final Object key = iter.next();
                 final boolean hasKey = this.storage.containsKey(key);
                 if (!hasKey) {
-                    this.storage.set(key, LibSLGlobals.HASHSET_VALUE);
+                    this.storage.set(key, LibSLGlobals.SOMETHING);
                     this.length += 1;
                 }
             }
@@ -193,7 +193,7 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
                 result = false;
             } else {
                 this.length += 1;
-                this.storage.set(obj, LibSLGlobals.HASHSET_VALUE);
+                this.storage.set(obj, LibSLGlobals.SOMETHING);
                 result = true;
             }
             this.modCount += 1;
@@ -324,7 +324,7 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
             for (i = 0; i < this.length; i += 1) {
                 final Object key = _generateKey(visitedKeys);
                 keysStorageArray[i] = key;
-                visitedKeys.set(key, LibSLGlobals.HASHSET_VALUE);
+                visitedKeys.set(key, LibSLGlobals.SOMETHING);
             }
             ;
             result = new HashSet_KeySpliterator((Void) null, 
@@ -416,7 +416,7 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
                         this.storage.remove(key);
                         this.length -= 1;
                     }
-                    visitedKeys.set(key, LibSLGlobals.HASHSET_VALUE);
+                    visitedKeys.set(key, LibSLGlobals.SOMETHING);
                     i += 1;
                 }
                 ;
@@ -443,7 +443,7 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
             for (i = 0; i < len; i += 1) {
                 final Object key = _generateKey(visitedKeys);
                 result[i] = key;
-                visitedKeys.set(key, LibSLGlobals.HASHSET_VALUE);
+                visitedKeys.set(key, LibSLGlobals.SOMETHING);
             }
             ;
             _checkForComodification(expectedModCount);
@@ -470,7 +470,7 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
             for (i = 0; i < len; i += 1) {
                 final Object key = _generateKey(visitedKeys);
                 result[i] = key;
-                visitedKeys.set(key, LibSLGlobals.HASHSET_VALUE);
+                visitedKeys.set(key, LibSLGlobals.SOMETHING);
             }
             ;
             if (aLen > this.length) {
@@ -570,7 +570,7 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
                     this.length -= 1;
                 }
                 i += 1;
-                visitedKeys.set(key, LibSLGlobals.HASHSET_VALUE);
+                visitedKeys.set(key, LibSLGlobals.SOMETHING);
             }
             ;
             _checkForComodification(expectedModCount);
@@ -600,7 +600,7 @@ public class HashSet extends AbstractSet implements LibSLRuntime.Automaton, Set,
                 final Object key = _generateKey(visitedKeys);
                 userAction.accept(key);
                 i += 1;
-                visitedKeys.set(key, LibSLGlobals.HASHSET_VALUE);
+                visitedKeys.set(key, LibSLGlobals.SOMETHING);
             }
             ;
             _checkForComodification(expectedModCount);

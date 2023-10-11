@@ -121,7 +121,7 @@ public final class HashSet_KeyIterator implements LibSLRuntime.Automaton, Iterat
             Engine.assume(!dstStorageHasKey);
             this.currentKey = key;
             result = key;
-            this.visitedKeys.set(this.currentKey, LibSLGlobals.HASHSET_VALUE);
+            this.visitedKeys.set(this.currentKey, LibSLGlobals.SOMETHING);
             this.index += 1;
             this.nextWasCalled = true;
         }
@@ -170,7 +170,7 @@ public final class HashSet_KeyIterator implements LibSLRuntime.Automaton, Iterat
                 final boolean destStorageHasKey = this.visitedKeys.containsKey(key);
                 Engine.assume(!destStorageHasKey);
                 this.currentKey = key;
-                this.visitedKeys.set(this.currentKey, LibSLGlobals.HASHSET_VALUE);
+                this.visitedKeys.set(this.currentKey, LibSLGlobals.SOMETHING);
                 userAction.accept(key);
                 i += 1;
             }
