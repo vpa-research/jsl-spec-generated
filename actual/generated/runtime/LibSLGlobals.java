@@ -50,6 +50,8 @@ public final class LibSLGlobals {
 
     public static final int SPLITERATOR_SUBSIZED;
 
+    public static final boolean SYSTEM_IS_WINDOWS;
+
     static {
         EMPTY_OPTIONAL = new Optional((Void) null, 
                 /* state = */ Optional.__$lsl_States.Initialized, 
@@ -80,6 +82,7 @@ public final class LibSLGlobals {
         SPLITERATOR_SIZED = 64;
         SPLITERATOR_SORTED = 4;
         SPLITERATOR_SUBSIZED = 16384;
+        SYSTEM_IS_WINDOWS = Engine.makeSymbolicBoolean();
     }
 
     @Approximate(LibSLGlobals.class)
