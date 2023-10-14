@@ -119,9 +119,9 @@ public final class System implements LibSLRuntime.Automaton {
         String result = null;
         /* body */ {
             if (LibSLGlobals.SYSTEM_IS_WINDOWS) {
-                result = "\\r\\n";
+                result = "\r\n";
             } else {
-                result = "\\n";
+                result = "\n";
             }
         }
         return result;

@@ -24,9 +24,9 @@ public final class System_InputStream implements LibSLRuntime.Automaton {
 
     public final int maxSize;
 
-    public int dataSize;
+    public volatile int dataSize;
 
-    public byte[] data;
+    public volatile byte[] data;
 
     public volatile boolean closed;
 
