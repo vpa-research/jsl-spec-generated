@@ -62,7 +62,6 @@ public final class LibSLRuntime {
     }
 
 
-
     public static void error(final String msg) {
         Engine.assume(msg != null);
         throw new SemanticViolationException(msg);
@@ -83,10 +82,9 @@ public final class LibSLRuntime {
     public static int getUniqueId() {
         // TODO: enable synchronization when parallel execution is allowed
         //synchronized (guidLock) {
-            return ++guid;
+        return ++guid;
         //}
     }
-
 
 
     public static String toString(final boolean v) {
@@ -94,9 +92,9 @@ public final class LibSLRuntime {
     }
 
     public static String toString(final byte v) {
-        if (v == 0)               return "0";
-        if (v == Byte.MIN_VALUE)  return "-128";
-        if (v == Byte.MAX_VALUE)  return "127";
+        if (v == 0) return "0";
+        if (v == Byte.MIN_VALUE) return "-128";
+        if (v == Byte.MAX_VALUE) return "127";
         // FIXME: add more common cases
 
         final int value = (int) v;
@@ -106,9 +104,9 @@ public final class LibSLRuntime {
     }
 
     public static String toString(final short v) {
-        if (v == 0)                return "0";
-        if (v == Short.MIN_VALUE)  return "-32768";
-        if (v == Short.MAX_VALUE)  return "32767";
+        if (v == 0) return "0";
+        if (v == Short.MIN_VALUE) return "-32768";
+        if (v == Short.MAX_VALUE) return "32767";
         // FIXME: add more common cases
 
         final int value = (int) v;
@@ -118,18 +116,18 @@ public final class LibSLRuntime {
     }
 
     public static String toString(final int v) {
-        if (v == 0)                  return "0";
-        if (v == Integer.MIN_VALUE)  return "-2147483648";
-        if (v == Integer.MAX_VALUE)  return "2147483647";
+        if (v == 0) return "0";
+        if (v == Integer.MIN_VALUE) return "-2147483648";
+        if (v == Integer.MAX_VALUE) return "2147483647";
         // FIXME: add more common cases
 
         return Integer.toString(v);
     }
 
     public static String toString(final long v) {
-        if (v == 0L)              return "0";
-        if (v == Long.MIN_VALUE)  return "-9223372036854775808";
-        if (v == Long.MAX_VALUE)  return "9223372036854775807";
+        if (v == 0L) return "0";
+        if (v == Long.MIN_VALUE) return "-9223372036854775808";
+        if (v == Long.MAX_VALUE) return "9223372036854775807";
         // FIXME: add more common cases
 
         return Long.toString(v);
@@ -166,7 +164,7 @@ public final class LibSLRuntime {
         for (int i = 0, c = counter; i < c; i++) {
             res = res.concat(toString(v.get(i)));
 
-            if (counter --> 1)
+            if (counter-- > 1)
                 res = res.concat(", ");
         }
 
@@ -182,7 +180,8 @@ public final class LibSLRuntime {
         // FIXME: use less complex approach
         String res = "[";
 
-        final SymbolicMap<Object, Object> visited = Engine.makeSymbolicIdentityMap();
+        // TODO: replace for makeSymbolicIdentityMap
+        final SymbolicMap<Object, Object> visited = Engine.makeSymbolicMap();
         while (unseen != 0) {
             final Object key = Engine.makeSymbolic(Object.class);
             Engine.assume(!visited.containsKey(key));
@@ -195,7 +194,7 @@ public final class LibSLRuntime {
                     .concat(": ")
                     .concat(toString(v.get(key)));
 
-            if (unseen --> 1)
+            if (unseen-- > 1)
                 res = res.concat(", ");
         }
 
@@ -211,13 +210,13 @@ public final class LibSLRuntime {
         Engine.assume(counter >= 0);
         if (counter == 0)
             return "[]";
-    
+
         String str = "[";
 
         for (int i = 0, c = counter; i < c; i++) {
             str = str.concat(toString(objects[i]));
 
-            if (counter --> 1)
+            if (counter-- > 1)
                 str = str.concat(", ");
         }
 
@@ -228,7 +227,6 @@ public final class LibSLRuntime {
     public static String toString(final String v) {
         return v == null ? "null" : v;
     }
-
 
 
     public static int hashCode(final boolean v) {
@@ -296,7 +294,8 @@ public final class LibSLRuntime {
         // FIXME: use less complex approach
         int res = 1;
 
-        final SymbolicMap<Object, Object> visited = Engine.makeSymbolicIdentityMap();
+        // TODO: replace for makeSymbolicIdentityMap
+        final SymbolicMap<Object, Object> visited = Engine.makeSymbolicMap();
         while (unseen != 0) {
             final Object key = Engine.makeSymbolic(Object.class);
             Engine.assume(!visited.containsKey(key));
@@ -331,7 +330,6 @@ public final class LibSLRuntime {
 
         return res;
     }
-
 
 
     public static boolean equals(final boolean a, final boolean b) {
@@ -386,7 +384,7 @@ public final class LibSLRuntime {
         return true;
     }
 
-    public static boolean equals(final SymbolicMap a, final SymbolicMap b) {
+    public static boolean equals(final Map a, final Map b) {
         if (a == b)
             return true;
         if (a == null || b == null)
@@ -397,10 +395,11 @@ public final class LibSLRuntime {
             return false;
 
         Engine.assume(length >= 0);
-        final SymbolicMap<Object, Object> visited = Engine.makeSymbolicIdentityMap();
+        // TODO: replace for makeSymbolicIdentityMap
+        final SymbolicMap<Object, Object> visited = Engine.makeSymbolicMap();
         while (length != 0) {
             final Object key = Engine.makeSymbolic(Object.class);
-            Engine.assume(a.containsKey(key));
+            Engine.assume(a.hasKey(key));
             Engine.assume(!visited.containsKey(key));
 
             if (!equals(a.get(key), b.get(key)))
@@ -442,11 +441,9 @@ public final class LibSLRuntime {
     }
 
 
-
     // A marker class to attach unknown actions to. Makes it easier to do manual code inspections.
     public static final class UnknownAction {
     }
-
 
 
     // a helper class for complex "array<T>"-related actions
@@ -476,7 +473,6 @@ public final class LibSLRuntime {
     }
 
 
-
     // a helper class for complex "list<T>"-related actions
     public static final class ListActions {
 
@@ -504,88 +500,168 @@ public final class LibSLRuntime {
     }
 
 
+    public static final class Map<K, V> {
+        private Container<K, V> map;
 
-    // a helper class for complex "map<K,V>"-related actions
-    public static final class MapActions {
-        private static final Object DUMMY_IDENTITY_MAP = Engine.makeSymbolicIdentityMap();
+        public interface Container<K, V> {
+            byte TYPE_HASHMAP = 1;
+            byte TYPE_IDENTITY_MAP = 2;
 
-        public static <K, V> SymbolicMap<K, V> union(final SymbolicMap<K, V> a,
-                                                     final SymbolicMap<K, V> b) {
-            final SymbolicMap<K, V> r = Engine.typeEquals(a, DUMMY_IDENTITY_MAP)
-                        ? Engine.makeSymbolicIdentityMap()
-                        : Engine.makeSymbolicMap();
+            byte getType();
 
-            r.merge(a);
-            r.merge(b);
+            default boolean isCompatibleWith(final Container<?, ?> other) {
+                return this.getType() == other.getType();
+            }
 
-            return r;
+            void merge(Container<K, V> container);
+
+            Container<K, V> getCleanInstance();
+
+            // other methods are proxies for USVM objects
+
+            boolean containsKey(K key);
+
+            V get(K key);
+
+            void set(K key, V value);
+
+            void remove(K key);
+
+            int size();
         }
 
+        public Map(final Container<K, V> container) {
+            this.map = container;
+        }
 
-        public static <K, V> SymbolicMap<K, V> intersection(final SymbolicMap<K, V> a,
-                                                            final SymbolicMap<K, V> b) {
-            final SymbolicMap<K, V> r = Engine.typeEquals(a, DUMMY_IDENTITY_MAP)
-                        ? Engine.makeSymbolicIdentityMap()
-                        : Engine.makeSymbolicMap();
+        public boolean hasKey(final K key) {
+            Engine.assume(map != null);
+            return map.containsKey(key);
+        }
 
-            final int aSize = a.size();
-            final int bSize = b.size();
-            int count = aSize > bSize ? bSize : aSize;
+        public V get(final K key) {
+            Engine.assume(map != null);
+            return map.get(key);
+        }
 
-            if (count == 0)
-                return r;
-            Engine.assume(count > 0);
+        public void set(final K key, final V value) {
+            Engine.assume(map != null);
+            map.set(key, value);
+        }
 
+        public void remove(final K key) {
+            Engine.assume(map != null);
+            map.remove(key);
+        }
+
+        public int size() {
+            Engine.assume(map != null);
+            return map.size();
+        }
+
+        public void union(final Map<K, V> other) {
+            Engine.assume(map != null);
+
+            final Container<K, V> otherMap = other.map;
+            Engine.assume(otherMap != null);
+
+            if (map.isCompatibleWith(otherMap)) {
+                map.merge(otherMap);
+            } else {
+                // TODO: replace with makeIdentityMap
+                final SymbolicMap<Object, Object> visited = Engine.makeSymbolicMap();
+                int count = otherMap.size();
+                Engine.assume(count >= 0);
+                while (count != 0) {
+                    @SuppressWarnings("unchecked") final K k = (K) Engine.makeSymbolic(Object.class);
+                    Engine.assume(otherMap.containsKey(k));
+                    Engine.assume(!visited.containsKey(k));
+
+                    visited.set(k, SOMETHING);
+
+                    // behaving exactly as compatible versions
+                    map.set(k, otherMap.get(k));
+
+                    count -= 1;
+                }
+            }
+        }
+
+        public void intersection(final Map<K, V> other) {
+            Engine.assume(map != null);
+
+            final Container<K, V> otherMap = other.map;
+            Engine.assume(otherMap != null);
+
+            final Container<K, V> thisMap = map;
+            map = thisMap.getCleanInstance();
+            Engine.assume(map != null);
+
+            // TODO: replace with makeIdentityMap
+            final SymbolicMap<Object, Object> visited = Engine.makeSymbolicMap();
+            int count = otherMap.size();
+            Engine.assume(count >= 0);
             while (count != 0) {
-                final K key = (K) Engine.makeSymbolic(Object.class);
-                Engine.assume(r.containsKey(key) == false);
-                Engine.assume(a.containsKey(key) == true);
+                @SuppressWarnings("unchecked") final K k = (K) Engine.makeSymbolic(Object.class);
+                Engine.assume(otherMap.containsKey(k));
+                Engine.assume(!visited.containsKey(k));
 
-                if (b.containsKey(key))
-                    r.set(key, b.get(key));
+                visited.set(k, SOMETHING);
+
+                if (thisMap.containsKey(k))
+                    // preferring items from the other container (similar to "union")
+                    map.set(k, otherMap.get(k));
 
                 count -= 1;
             }
+        }
+    }
 
-            return r;
+
+    public static final class HashMapContainer<K, V> implements Map.Container<K, V> {
+        private final SymbolicMap<K, V> map = Engine.makeSymbolicMap();
+
+        @Override
+        public byte getType() {
+            return TYPE_HASHMAP;
         }
 
-
-        public static <K, V> void intersect(final SymbolicMap<K, V> receiver,
-                                            final SymbolicMap<K, V> otherSource) {
-            int count = receiver.size();
-
-            if (count == 0)
-                return;
-            Engine.assume(count > 0);
-
-            final SymbolicMap<Object, Object> visited = Engine.makeSymbolicIdentityMap();
-            if (otherSource.size() == 0) {
-                while (count != 0) {
-                    final K key = (K) Engine.makeSymbolic(Object.class);
-                    Engine.assume(visited.containsKey(key) == false);
-                    Engine.assume(receiver.containsKey(key) == true);
-
-                    receiver.remove(key);
-
-                    visited.set(key, SOMETHING);
-                    count -= 1;
-                }
-            } else {
-                while (count != 0) {
-                    final K key = (K) Engine.makeSymbolic(Object.class);
-                    Engine.assume(visited.containsKey(key) == false);
-                    Engine.assume(receiver.containsKey(key) == true);
-
-                    if (!otherSource.containsKey(key))
-                        receiver.remove(key);
-
-                    visited.set(key, SOMETHING);
-                    count -= 1;
-                }
-            }
+        @Override
+        public void merge(Map.Container<K, V> container) {
+            Engine.assume(container instanceof HashMapContainer);
+            HashMapContainer<K, V> other = (HashMapContainer<K, V>) container;
+            map.merge(other.map);
         }
 
+        @Override
+        public Map.Container<K, V> getCleanInstance() {
+            return new HashMapContainer<>();
+        }
+
+        @Override
+        public boolean containsKey(K key) {
+            return map.containsKey(key);
+        }
+
+        @Override
+        public V get(K key) {
+            return map.get(key);
+        }
+
+        @Override
+        public void set(K key, V value) {
+            map.set(key, value);
+        }
+
+        @Override
+        public void remove(K key) {
+            map.remove(key);
+        }
+
+        @Override
+        public int size() {
+            return map.size();
+        }
     }
 
 }
