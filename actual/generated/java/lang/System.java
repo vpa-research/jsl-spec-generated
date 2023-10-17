@@ -4,6 +4,7 @@
 package generated.java.lang;
 
 import generated.runtime.LibSLGlobals;
+import generated.runtime.utils.SymbolicInputStream;
 import java.io.Console;
 import java.io.InputStream;
 import java.io.PrintStream;
@@ -31,12 +32,16 @@ public final class System implements LibSLRuntime.Automaton {
 
     static {
         /* SystemAutomaton::__clinit__() */ {
-            final InputStream newInput = new System_InputStream((Void) null, 
-            /* state = */ System_InputStream.__$lsl_States.Initialized, 
+            final InputStream newInput = new SymbolicInputStream((Void) null, 
+            /* state = */ SymbolicInputStream.__$lsl_States.Initialized, 
             /* maxSize = */ 1000, 
+            /* supportMarks = */ false, 
             /* dataSize = */ -1, 
             /* data = */ null, 
-            /* closed = */ false);
+            /* closed = */ false, 
+            /* pos = */ 0, 
+            /* markPos = */ -1, 
+            /* markLimit = */ 0);
             in = new java.io.BufferedInputStream(newInput);
             LibSLRuntime.todo();
             LibSLRuntime.todo();
