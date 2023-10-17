@@ -171,7 +171,7 @@ public final class LibSLRuntime {
         return res.concat("]");
     }
 
-    public static String toString(final SymbolicMap v) {
+    public static String toString(final Map v) {
         int unseen = v.size();
         Engine.assume(unseen >= 0);
         if (unseen == 0)
@@ -185,7 +185,7 @@ public final class LibSLRuntime {
         while (unseen != 0) {
             final Object key = Engine.makeSymbolic(Object.class);
             Engine.assume(!visited.containsKey(key));
-            Engine.assume(v.containsKey(key));
+            Engine.assume(v.hasKey(key));
 
             visited.set(key, SOMETHING);
 
@@ -282,7 +282,7 @@ public final class LibSLRuntime {
         return res;
     }
 
-    public static int hashCode(final SymbolicMap v) {
+    public static int hashCode(final Map v) {
         if (v == null)
             return 0;
 
@@ -299,7 +299,7 @@ public final class LibSLRuntime {
         while (unseen != 0) {
             final Object key = Engine.makeSymbolic(Object.class);
             Engine.assume(!visited.containsKey(key));
-            Engine.assume(v.containsKey(key));
+            Engine.assume(v.hasKey(key));
 
             res += hashCode(key) ^ hashCode(v.get(key));
 
@@ -504,13 +504,13 @@ public final class LibSLRuntime {
         private Container<K, V> map;
 
         public interface Container<K, V> {
-            byte TYPE_HASHMAP = 1;
-            byte TYPE_IDENTITY_MAP = 2;
+            byte KIND_HASHMAP = 1;
+            byte KIND_IDENTITY_MAP = 2;
 
-            byte getType();
+            byte getKind();
 
             default boolean isCompatibleWith(final Container<?, ?> other) {
-                return this.getType() == other.getType();
+                return this.getKind() == other.getKind();
             }
 
             void merge(Container<K, V> container);
@@ -568,21 +568,24 @@ public final class LibSLRuntime {
             if (map.isCompatibleWith(otherMap)) {
                 map.merge(otherMap);
             } else {
-                // TODO: replace with makeIdentityMap
-                final SymbolicMap<Object, Object> visited = Engine.makeSymbolicMap();
                 int count = otherMap.size();
-                Engine.assume(count >= 0);
-                while (count != 0) {
-                    @SuppressWarnings("unchecked") final K k = (K) Engine.makeSymbolic(Object.class);
-                    Engine.assume(otherMap.containsKey(k));
-                    Engine.assume(!visited.containsKey(k));
+                if (count != 0) {
+                    Engine.assume(count > 0);
+                    // TODO: replace with makeIdentityMap
+                    final SymbolicMap<Object, Object> visited = Engine.makeSymbolicMap();
 
-                    visited.set(k, SOMETHING);
+                    while (count != 0) {
+                        @SuppressWarnings("unchecked") final K k = (K) Engine.makeSymbolic(Object.class);
+                        Engine.assume(otherMap.containsKey(k));
+                        Engine.assume(!visited.containsKey(k));
 
-                    // behaving exactly as compatible versions
-                    map.set(k, otherMap.get(k));
+                        visited.set(k, SOMETHING);
 
-                    count -= 1;
+                        // behaving exactly as compatible versions
+                        map.set(k, otherMap.get(k));
+
+                        count -= 1;
+                    }
                 }
             }
         }
@@ -597,23 +600,41 @@ public final class LibSLRuntime {
             map = thisMap.getCleanInstance();
             Engine.assume(map != null);
 
-            // TODO: replace with makeIdentityMap
-            final SymbolicMap<Object, Object> visited = Engine.makeSymbolicMap();
             int count = otherMap.size();
-            Engine.assume(count >= 0);
-            while (count != 0) {
-                @SuppressWarnings("unchecked") final K k = (K) Engine.makeSymbolic(Object.class);
-                Engine.assume(otherMap.containsKey(k));
-                Engine.assume(!visited.containsKey(k));
+            if (count != 0) {
+                Engine.assume(count > 0);
+                // TODO: replace with makeIdentityMap
+                final SymbolicMap<Object, Object> visited = Engine.makeSymbolicMap();
 
-                visited.set(k, SOMETHING);
+                while (count != 0) {
+                    @SuppressWarnings("unchecked") final K k = (K) Engine.makeSymbolic(Object.class);
+                    Engine.assume(otherMap.containsKey(k));
+                    Engine.assume(!visited.containsKey(k));
 
-                if (thisMap.containsKey(k))
-                    // preferring items from the other container (similar to "union")
-                    map.set(k, otherMap.get(k));
+                    visited.set(k, SOMETHING);
 
-                count -= 1;
+                    if (thisMap.containsKey(k))
+                        // preferring items from the other container (similar to "union")
+                        map.set(k, otherMap.get(k));
+
+                    count -= 1;
+                }
             }
+        }
+
+        @Override
+        public String toString() {
+            return LibSLRuntime.toString(this);
+        }
+
+        @Override
+        public int hashCode() {
+            return LibSLRuntime.hashCode(this);
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            return LibSLRuntime.equals(this, obj);
         }
     }
 
@@ -622,8 +643,8 @@ public final class LibSLRuntime {
         private final SymbolicMap<K, V> map = Engine.makeSymbolicMap();
 
         @Override
-        public byte getType() {
-            return TYPE_HASHMAP;
+        public byte getKind() {
+            return KIND_HASHMAP;
         }
 
         @Override
