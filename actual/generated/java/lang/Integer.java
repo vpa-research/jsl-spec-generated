@@ -3,8 +3,6 @@
 //
 package generated.java.lang;
 
-import java.lang.Comparable;
-import java.lang.Number;
 import java.lang.Void;
 import org.jacodb.approximation.annotation.Approximate;
 import org.usvm.api.Engine;
@@ -14,7 +12,7 @@ import runtime.LibSLRuntime;
  * IntegerAutomaton for LSLInteger ~> java.lang.Integer
  */
 @Approximate(java.lang.Integer.class)
-public final class Integer extends Number implements LibSLRuntime.Automaton, Comparable<Integer> {
+public final class Integer implements LibSLRuntime.Automaton {
     private final int value;
 
     @LibSLRuntime.AutomatonConstructor
