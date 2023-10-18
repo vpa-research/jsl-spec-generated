@@ -449,8 +449,8 @@ public final class LibSLRuntime {
     // a helper class for complex "array<T>"-related actions
     public static final class ArrayActions {
 
-        public static <T> void copy(final T[] src, final int srcPos,
-                                    final T[] dst, final int dstPos,
+        public static <T> void copy(final Object src, final int srcPos,
+                                    final Object dst, final int dstPos,
                                     final int count) {
             if (count <= 0)
                 return;
