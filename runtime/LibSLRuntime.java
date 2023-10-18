@@ -452,13 +452,14 @@ public final class LibSLRuntime {
         public static <T> void copy(final T[] src, final int srcPos,
                                     final T[] dst, final int dstPos,
                                     final int count) {
+            if (count <= 0)
+                return;
+
             Engine.assume(src != null);
             Engine.assume(dst != null);
 
             // TODO: use Engine.memcpy instead (but check bounds!)
-
-            for (int i = 0; i < count; i++)
-                dst[dstPos + i] = src[srcPos + i];
+            System.arraycopy(src, srcPos, dst, dstPos, count);
         }
 
         public static <T> void fill(final T[] arr, final T value) {
