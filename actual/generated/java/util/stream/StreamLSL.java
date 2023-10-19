@@ -130,9 +130,12 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
                 }
             }
             ;
+            Engine.assume(filteredLength <= this.length);
+            Object[] resultStorage = new Object[filteredLength];
+            LibSLRuntime.ArrayActions.copy(filteredStorage, 0, resultStorage, 0, filteredLength);
             result = new StreamLSL((Void) null, 
             /* state = */ StreamLSL.__$lsl_States.Initialized, 
-            /* storage = */ filteredStorage, 
+            /* storage = */ resultStorage, 
             /* length = */ filteredLength, 
             /* closeHandlers = */ this.closeHandlers, 
             /* isParallel = */ false, 
@@ -401,6 +404,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
                 /* isParallel = */ false, 
                 /* linkedOrConsumed = */ false);
             } else {
+                Engine.assume(this.length > 0);
                 final int outerLimit = this.length - 1;
                 int innerLimit = 0;
                 int i = 0;
@@ -566,13 +570,14 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
         Stream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
+            final int offset = ((int) n);
             if (this.linkedOrConsumed) {
                 throw new IllegalStateException();
             }
-            if (n < 0) {
+            if (offset < 0) {
                 throw new IllegalArgumentException();
             }
-            if (n == 0) {
+            if (offset == 0) {
                 result = new StreamLSL((Void) null, 
                 /* state = */ StreamLSL.__$lsl_States.Initialized, 
                 /* storage = */ this.storage, 
@@ -581,8 +586,8 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
                 /* isParallel = */ false, 
                 /* linkedOrConsumed = */ false);
             } else {
-                if (n >= this.length) {
-                    Object[] newArray = new Object[0];
+                if (offset >= this.length) {
+                    Object[] newArray = {};
                     result = new StreamLSL((Void) null, 
                     /* state = */ StreamLSL.__$lsl_States.Initialized, 
                     /* storage = */ newArray, 
@@ -591,7 +596,6 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
                     /* isParallel = */ false, 
                     /* linkedOrConsumed = */ false);
                 } else {
-                    final int offset = ((int) n);
                     final int newLength = this.length - offset;
                     final Object[] skipStorage = new Object[newLength];
                     int i = 0;
@@ -1097,7 +1101,17 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
         BaseStream result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = this;
+            if (this.linkedOrConsumed) {
+                throw new IllegalStateException();
+            }
+            result = new StreamLSL((Void) null, 
+            /* state = */ StreamLSL.__$lsl_States.Initialized, 
+            /* storage = */ this.storage, 
+            /* length = */ this.length, 
+            /* closeHandlers = */ this.closeHandlers, 
+            /* isParallel = */ false, 
+            /* linkedOrConsumed = */ false);
+            this.linkedOrConsumed = true;
         }
         return result;
     }
