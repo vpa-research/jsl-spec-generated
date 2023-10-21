@@ -8,6 +8,7 @@ import generated.runtime.utils.SymbolicInputStream;
 import java.io.Console;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.lang.NullPointerException;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.Void;
@@ -20,6 +21,8 @@ import runtime.LibSLRuntime;
  */
 @Approximate(java.lang.System.class)
 public final class System implements LibSLRuntime.Automaton {
+    private static Console ioConsole = null;
+
     public static InputStream in = null;
 
     public static PrintStream out = null;
@@ -72,7 +75,7 @@ public final class System implements LibSLRuntime.Automaton {
     public static Console console() {
         Console result = null;
         /* body */ {
-            LibSLRuntime.todo();
+            result = ioConsole;
         }
         return result;
     }
@@ -135,27 +138,36 @@ public final class System implements LibSLRuntime.Automaton {
     /**
      * [FUNCTION] SystemAutomaton::setErr(PrintStream) -> void
      */
-    public static void setErr(PrintStream newErr) {
+    public static void setErr(PrintStream stream) {
         /* body */ {
-            err = newErr;
+            if (stream == null) {
+                throw new NullPointerException();
+            }
+            err = stream;
         }
     }
 
     /**
      * [FUNCTION] SystemAutomaton::setIn(InputStream) -> void
      */
-    public static void setIn(InputStream newIn) {
+    public static void setIn(InputStream stream) {
         /* body */ {
-            in = newIn;
+            if (stream == null) {
+                throw new NullPointerException();
+            }
+            in = stream;
         }
     }
 
     /**
      * [FUNCTION] SystemAutomaton::setOut(PrintStream) -> void
      */
-    public static void setOut(PrintStream newOut) {
+    public static void setOut(PrintStream stream) {
         /* body */ {
-            out = newOut;
+            if (stream == null) {
+                throw new NullPointerException();
+            }
+            out = stream;
         }
     }
 
