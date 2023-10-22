@@ -33,7 +33,6 @@ import java.util.stream.Stream;
 import org.jacodb.approximation.annotation.Approximate;
 import org.usvm.api.Engine;
 import org.usvm.api.SymbolicList;
-import org.usvm.api.SymbolicMap;
 import runtime.LibSLRuntime;
 
 /**
@@ -367,10 +366,10 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
                 int i = 0;
                 int j = 0;
                 final SymbolicList<Integer> uniqueItems = Engine.makeSymbolicList();
-                final SymbolicMap<Integer, Object> visited = Engine.makeSymbolicMap();
+                final LibSLRuntime.Map<Integer, Object> visited = new LibSLRuntime.Map<>(new LibSLRuntime.HashMapContainer<>());
                 for (i = 0; i < size; i += 1) {
                     final int item = items[i];
-                    if (!visited.containsKey(item)) {
+                    if (!visited.hasKey(item)) {
                         visited.set(item, LibSLGlobals.SOMETHING);
                         uniqueItems.insert(j, item);
                         j += 1;

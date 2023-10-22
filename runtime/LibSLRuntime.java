@@ -508,31 +508,31 @@ public final class LibSLRuntime {
     public static final class Map<K, V> {
         private Container<K, V> map;
 
-        public interface Container<K, V> {
-            byte KIND_HASHMAP = 1;
-            byte KIND_IDENTITY_MAP = 2;
+        public static abstract class Container<Kc, Vc> {
+            protected static final byte KIND_HASHMAP = 1;
+            protected static final byte KIND_IDENTITY_MAP = 2;
 
-            byte getKind();
+            protected final byte kind;
 
-            default boolean isCompatibleWith(final Container<?, ?> other) {
-                return this.getKind() == other.getKind();
+            protected Container(final byte kind) {
+                this.kind = kind;
             }
 
-            void merge(Container<K, V> container);
+            abstract void merge(Container<Kc, Vc> container);
 
-            Container<K, V> getCleanInstance();
+            abstract Container<Kc, Vc> getCleanInstance();
 
             // other methods are proxies for USVM objects
 
-            boolean containsKey(K key);
+            abstract boolean containsKey(Kc key);
 
-            V get(K key);
+            abstract Vc get(Kc key);
 
-            void set(K key, V value);
+            abstract void set(Kc key, Vc value);
 
-            void remove(K key);
+            abstract void remove(Kc key);
 
-            int size();
+            abstract int size();
         }
 
         public Map(final Container<K, V> container) {
@@ -570,7 +570,7 @@ public final class LibSLRuntime {
             final Container<K, V> otherMap = other.map;
             Engine.assume(otherMap != null);
 
-            if (map.isCompatibleWith(otherMap)) {
+            if (map.kind == otherMap.kind) {
                 map.merge(otherMap);
             } else {
                 int count = otherMap.size();
@@ -644,12 +644,11 @@ public final class LibSLRuntime {
     }
 
 
-    public static final class HashMapContainer<K, V> implements Map.Container<K, V> {
+    public static final class HashMapContainer<K, V> extends Map.Container<K, V> {
         private final SymbolicMap<K, V> map = Engine.makeSymbolicMap();
 
-        @Override
-        public byte getKind() {
-            return KIND_HASHMAP;
+        public HashMapContainer() {
+            super(KIND_HASHMAP);
         }
 
         @Override
