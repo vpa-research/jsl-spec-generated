@@ -84,8 +84,10 @@ command = [
     '-g:lines',
     '-nowarn',
     '-Xlint:none',
-    '--release', '8',
-    #'--patch-module', 'java.base=actual',
+    '-source', '1.8',
+    '-target', '1.8',
+    #'--release', '8',
+    #'--add-exports=java.base/sun.nio.ch=ALL-UNNAMED',
     f"@{TEMP_SOURCES_FILE}",
 ]
 update_paths(collect_source_files(input_dir, stub_dir, runtime_dir))
