@@ -951,8 +951,8 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             _checkElementIndex(index);
-            this.storage.set(index, element);
             result = this.storage.get(index);
+            this.storage.set(index, element);
         }
         return result;
     }

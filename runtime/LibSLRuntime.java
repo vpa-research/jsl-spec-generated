@@ -8,6 +8,7 @@ import java.lang.annotation.Target;
 import org.usvm.api.Engine;
 import org.usvm.api.SymbolicList;
 import org.usvm.api.SymbolicMap;
+import org.usvm.api.SymbolicIdentityMap;
 
 public final class LibSLRuntime {
 
@@ -180,8 +181,7 @@ public final class LibSLRuntime {
         // FIXME: use less complex approach
         String res = "[";
 
-        // TODO: replace for makeSymbolicIdentityMap
-        final SymbolicMap<Object, Object> visited = Engine.makeSymbolicMap();
+        final SymbolicIdentityMap<Object, Object> visited = Engine.makeSymbolicIdentityMap();
         while (unseen != 0) {
             final Object key = Engine.makeSymbolic(Object.class);
             Engine.assume(!visited.containsKey(key));
@@ -294,8 +294,7 @@ public final class LibSLRuntime {
         // FIXME: use less complex approach
         int res = 1;
 
-        // TODO: replace for makeSymbolicIdentityMap
-        final SymbolicMap<Object, Object> visited = Engine.makeSymbolicMap();
+        final SymbolicIdentityMap<Object, Object> visited = Engine.makeSymbolicIdentityMap();
         while (unseen != 0) {
             final Object key = Engine.makeSymbolic(Object.class);
             Engine.assume(!visited.containsKey(key));
@@ -395,8 +394,7 @@ public final class LibSLRuntime {
             return false;
 
         Engine.assume(length >= 0);
-        // TODO: replace for makeSymbolicIdentityMap
-        final SymbolicMap<Object, Object> visited = Engine.makeSymbolicMap();
+        final SymbolicIdentityMap<Object, Object> visited = Engine.makeSymbolicIdentityMap();
         while (length != 0) {
             final Object key = Engine.makeSymbolic(Object.class);
             Engine.assume(a.hasKey(key));
@@ -576,8 +574,7 @@ public final class LibSLRuntime {
                 int count = otherMap.size();
                 if (count != 0) {
                     Engine.assume(count > 0);
-                    // TODO: replace with makeIdentityMap
-                    final SymbolicMap<Object, Object> visited = Engine.makeSymbolicMap();
+                    final SymbolicIdentityMap<Object, Object> visited = Engine.makeSymbolicIdentityMap();
 
                     while (count != 0) {
                         @SuppressWarnings("unchecked") final K k = (K) Engine.makeSymbolic(Object.class);
@@ -608,8 +605,7 @@ public final class LibSLRuntime {
             int count = otherMap.size();
             if (count != 0) {
                 Engine.assume(count > 0);
-                // TODO: replace with makeIdentityMap
-                final SymbolicMap<Object, Object> visited = Engine.makeSymbolicMap();
+                final SymbolicIdentityMap<Object, Object> visited = Engine.makeSymbolicIdentityMap();
 
                 while (count != 0) {
                     @SuppressWarnings("unchecked") final K k = (K) Engine.makeSymbolic(Object.class);
@@ -661,6 +657,52 @@ public final class LibSLRuntime {
         @Override
         public Map.Container<K, V> getCleanInstance() {
             return new HashMapContainer<>();
+        }
+
+        @Override
+        public boolean containsKey(K key) {
+            return map.containsKey(key);
+        }
+
+        @Override
+        public V get(K key) {
+            return map.get(key);
+        }
+
+        @Override
+        public void set(K key, V value) {
+            map.set(key, value);
+        }
+
+        @Override
+        public void remove(K key) {
+            map.remove(key);
+        }
+
+        @Override
+        public int size() {
+            return map.size();
+        }
+    }
+
+
+    public static final class IdentityMapContainer<K, V> extends Map.Container<K, V> {
+        private final SymbolicIdentityMap<K, V> map = Engine.makeSymbolicIdentityMap();
+
+        public IdentityMapContainer() {
+            super(KIND_HASHMAP);
+        }
+
+        @Override
+        public void merge(Map.Container<K, V> container) {
+            Engine.assume(container instanceof IdentityMapContainer);
+            IdentityMapContainer<K, V> other = (IdentityMapContainer<K, V>) container;
+            map.merge(other.map);
+        }
+
+        @Override
+        public Map.Container<K, V> getCleanInstance() {
+            return new IdentityMapContainer<>();
         }
 
         @Override
