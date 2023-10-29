@@ -270,6 +270,58 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     }
 
     /**
+     * [SUBROUTINE] LinkedListAutomaton::_do_sort(int, int, Comparator) -> void
+     */
+    public void _do_sort(int start, int end, Comparator c) {
+        /* body */ {
+            if (start < end) {
+                final int expectedModCount = this.modCount;
+                Engine.assume(start >= 0);
+                Engine.assume(end > 0);
+                final int outerLimit = end - 1;
+                int innerLimit = 0;
+                int i = 0;
+                int j = 0;
+                if (c == null) {
+                    for (i = start; i < outerLimit; i += 1) {
+                        innerLimit = (end - i) - 1;
+                        for (j = start; j < innerLimit; j += 1) {
+                            final int idxA = j;
+                            final int idxB = j + 1;
+                            final Object a = this.storage.get(idxA);
+                            final Object b = this.storage.get(idxB);
+                            if (((Comparable) a).compareTo(b) > 0) {
+                                this.storage.set(idxA, b);
+                                this.storage.set(idxB, a);
+                            }
+                        }
+                        ;
+                    }
+                    ;
+                } else {
+                    for (i = start; i < outerLimit; i += 1) {
+                        innerLimit = (end - i) - 1;
+                        for (j = start; j < innerLimit; j += 1) {
+                            final int idxA = j;
+                            final int idxB = j + 1;
+                            final Object a = this.storage.get(idxA);
+                            final Object b = this.storage.get(idxB);
+                            if (c.compare(a, b) > 0) {
+                                this.storage.set(idxA, b);
+                                this.storage.set(idxB, a);
+                            }
+                        }
+                        ;
+                    }
+                    ;
+                }
+                _checkForComodification(expectedModCount);
+            }
+            this.modCount += 1;
+        }
+    }
+
+    /**
      * [FUNCTION] LinkedListAutomaton::add(LinkedList, Object) -> boolean
      */
     public boolean add(Object e) {
@@ -975,49 +1027,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     public void sort(Comparator c) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            if (this.size != 0) {
-                final int expectedModCount = this.modCount;
-                Engine.assume(this.size > 0);
-                final int outerLimit = this.size - 1;
-                int innerLimit = 0;
-                int i = 0;
-                int j = 0;
-                if (c == null) {
-                    for (i = 0; i < outerLimit; i += 1) {
-                        innerLimit = (this.size - i) - 1;
-                        for (j = 0; j < innerLimit; j += 1) {
-                            final int idxA = j;
-                            final int idxB = j + 1;
-                            final Object a = this.storage.get(idxA);
-                            final Object b = this.storage.get(idxB);
-                            if (((Comparable) a).compareTo(b) > 0) {
-                                this.storage.set(idxA, b);
-                                this.storage.set(idxB, a);
-                            }
-                        }
-                        ;
-                    }
-                    ;
-                } else {
-                    for (i = 0; i < outerLimit; i += 1) {
-                        innerLimit = (this.size - i) - 1;
-                        for (j = 0; j < innerLimit; j += 1) {
-                            final int idxA = j;
-                            final int idxB = j + 1;
-                            final Object a = this.storage.get(idxA);
-                            final Object b = this.storage.get(idxB);
-                            if (c.compare(a, b) > 0) {
-                                this.storage.set(idxA, b);
-                                this.storage.set(idxB, a);
-                            }
-                        }
-                        ;
-                    }
-                    ;
-                }
-                _checkForComodification(expectedModCount);
-            }
-            this.modCount += 1;
+            _do_sort(0, this.size, c);
         }
     }
 
