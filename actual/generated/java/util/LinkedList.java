@@ -257,6 +257,73 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
     }
 
     /**
+     * [SUBROUTINE] LinkedListAutomaton::_removeIf(Predicate, int, int) -> boolean
+     */
+    public boolean _removeIf(Predicate filter, int start, int end) {
+        boolean result = false;
+        /* body */ {
+            if (filter == null) {
+                throw new NullPointerException();
+            }
+            final int oldSize = this.size;
+            final int expectedModCount = this.modCount;
+            Engine.assume(start <= end);
+            int i = 0;
+            for (i = end - 1; i > start; i += -1) {
+                final Object item = this.storage.get(i);
+                if (filter.test(item)) {
+                    this.storage.remove(i);
+                    this.size -= 1;
+                }
+            }
+            ;
+            _checkForComodification(expectedModCount);
+            result = oldSize != this.size;
+        }
+        return result;
+    }
+
+    /**
+     * [SUBROUTINE] LinkedListAutomaton::_equalsRange(List, int, int) -> boolean
+     */
+    public boolean _equalsRange(List other, int from, int to) {
+        boolean result = false;
+        /* body */ {
+            result = true;
+            int i = from;
+            int otherLength = 0;
+            SymbolicList<Object> otherStorage = null;
+            if ((other != null && other.getClass() == LinkedList.class)) {
+                otherLength = ((LinkedList) other).size;
+                Engine.assume(otherLength >= 0);
+                result = to == otherLength;
+                if (result) {
+                    otherStorage = ((LinkedList) other).storage;
+                    Engine.assume(otherStorage != null);
+                    while (result && (i < to)) {
+                        final Object a = otherStorage.get(i);
+                        final Object b = this.storage.get(i);
+                        result = LibSLRuntime.equals(a, b);
+                        i += 1;
+                    }
+                    ;
+                }
+            } else {
+                final Iterator iter = other.iterator();
+                while (result && (i < to) && iter.hasNext()) {
+                    final Object a = iter.next();
+                    final Object b = this.storage.get(i);
+                    result = LibSLRuntime.equals(a, b);
+                    i += 1;
+                }
+                ;
+                result &= !iter.hasNext();
+            }
+        }
+        return result;
+    }
+
+    /**
      * [SUBROUTINE] LinkedListAutomaton::_makeStream(boolean) -> Stream
      */
     private Stream _makeStream(boolean parallel) {
@@ -265,6 +332,50 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
             result = Engine.makeSymbolic(Stream.class);
             Engine.assume(result != null);
             Engine.assume(result.isParallel() == parallel);
+        }
+        return result;
+    }
+
+    /**
+     * [SUBROUTINE] LinkedListAutomaton::_batchRemove(Collection, boolean, int, int) -> boolean
+     */
+    public boolean _batchRemove(Collection c, boolean complement, int start, int end) {
+        boolean result = false;
+        /* body */ {
+            final int oldSize = this.size;
+            if ((oldSize == 0) || (start >= end)) {
+                result = false;
+            } else {
+                final int otherLength = c.size();
+                if (otherLength == 0) {
+                    result = false;
+                } else {
+                    Engine.assume(otherLength > 0);
+                    int i = 0;
+                    start -= 1;
+                    end -= 1;
+                    if ((c != null && c.getClass() == LinkedList.class)) {
+                        final SymbolicList<Object> otherStorage = ((LinkedList) c).storage;
+                        Engine.assume(otherStorage != null);
+                        for (i = end; i > start; i += -1) {
+                            final Object item = this.storage.get(i);
+                            if ((LibSLRuntime.ListActions.find(otherStorage, item, 0, this.size) == -1) == complement) {
+                                _unlinkAny(i);
+                            }
+                        }
+                        ;
+                    } else {
+                        for (i = end; i > start; i += -1) {
+                            final Object item = this.storage.get(i);
+                            if (c.contains(item) != complement) {
+                                _unlinkAny(i);
+                            }
+                        }
+                        ;
+                    }
+                    result = oldSize != this.size;
+                }
+            }
         }
         return result;
     }
@@ -528,9 +639,8 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
                 throw new NullPointerException();
             }
             final int expectedModCount = this.modCount;
-            final int length = this.size;
             int i = 0;
-            while ((this.modCount == expectedModCount) && (i < length)) {
+            while ((this.modCount == expectedModCount) && (i < this.size)) {
                 final Object item = this.storage.get(i);
                 _action.accept(item);
                 i += 1;
@@ -888,7 +998,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            result = _batchRemove(c, false, 0, this.size);
         }
         return result;
     }
@@ -924,7 +1034,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            result = _removeIf(filter, 0, this.size);
         }
         return result;
     }
@@ -990,7 +1100,7 @@ public class LinkedList extends AbstractSequentialList implements LibSLRuntime.A
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            result = _batchRemove(c, true, 0, this.size);
         }
         return result;
     }

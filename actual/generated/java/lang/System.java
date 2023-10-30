@@ -21,7 +21,7 @@ import runtime.LibSLRuntime;
  */
 @Approximate(java.lang.System.class)
 public final class System implements LibSLRuntime.Automaton {
-    private static Console ioConsole = null;
+    private static Console console = null;
 
     public static InputStream in = null;
 
@@ -46,8 +46,11 @@ public final class System implements LibSLRuntime.Automaton {
             /* markPos = */ -1, 
             /* markLimit = */ 0);
             in = new java.io.BufferedInputStream(newInput);
-            LibSLRuntime.todo();
-            LibSLRuntime.todo();
+            final System_PrintStream o1 = new System_PrintStream((Void) null, 
+            /* state = */ System_PrintStream.__$lsl_States.Initialized, 
+            /* closed = */ false, 
+            /* error = */ false);
+            out = ((PrintStream) o1);
         }
     }
 
@@ -75,7 +78,7 @@ public final class System implements LibSLRuntime.Automaton {
     public static Console console() {
         Console result = null;
         /* body */ {
-            result = ioConsole;
+            result = console;
         }
         return result;
     }

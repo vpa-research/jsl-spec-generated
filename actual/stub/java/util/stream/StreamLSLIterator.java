@@ -5,11 +5,16 @@ package stub.java.util.stream;
 
 import java.lang.InternalError;
 import java.lang.Object;
+import java.lang.Void;
 import java.util.Iterator;
 import java.util.function.Consumer;
 import runtime.LibSLRuntime;
 
 public class StreamLSLIterator implements LibSLRuntime.HasAutomaton, Iterator {
+    private StreamLSLIterator(Void a, Void b) {
+        super();
+    }
+
     public boolean hasNext() {
         throw new InternalError();
     }

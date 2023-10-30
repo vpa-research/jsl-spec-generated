@@ -4,12 +4,17 @@
 package stub.java.util;
 
 import java.lang.InternalError;
+import java.lang.Void;
 import java.util.HashMap;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 import runtime.LibSLRuntime;
 
 public final class LinkedHashSet_KeySpliterator implements LibSLRuntime.HasAutomaton, Spliterator {
+    private LinkedHashSet_KeySpliterator(Void a, Void b) {
+        super();
+    }
+
     private LinkedHashSet_KeySpliterator(HashMap source, int origin, int fence, int est,
             int expectedModCount) {
         throw new InternalError();
