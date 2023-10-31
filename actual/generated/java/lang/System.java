@@ -45,12 +45,15 @@ public final class System implements LibSLRuntime.Automaton {
             /* pos = */ 0, 
             /* markPos = */ -1, 
             /* markLimit = */ 0);
-            in = new java.io.BufferedInputStream(newInput);
-            final System_PrintStream o1 = new System_PrintStream((Void) null, 
+            in = newInput;
+            out = new System_PrintStream((Void) null, 
             /* state = */ System_PrintStream.__$lsl_States.Initialized, 
             /* closed = */ false, 
             /* error = */ false);
-            out = ((PrintStream) o1);
+            err = new System_PrintStream((Void) null, 
+            /* state = */ System_PrintStream.__$lsl_States.Initialized, 
+            /* closed = */ false, 
+            /* error = */ false);
         }
     }
 
