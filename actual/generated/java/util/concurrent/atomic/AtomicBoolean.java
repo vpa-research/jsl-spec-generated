@@ -75,9 +75,8 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            final boolean currentValue = this.value != FALSE;
-            result = currentValue;
-            if (currentValue == expectedValue) {
+            result = this.value != FALSE;
+            if (result == expectedValue) {
                 if (newValue) {
                     this.value = TRUE;
                 } else {
@@ -95,9 +94,8 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            final boolean currentValue = this.value != FALSE;
-            result = currentValue;
-            if (currentValue == expectedValue) {
+            result = this.value != FALSE;
+            if (result == expectedValue) {
                 if (newValue) {
                     this.value = TRUE;
                 } else {
@@ -115,9 +113,8 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            final boolean currentValue = this.value != FALSE;
-            result = currentValue;
-            if (currentValue == expectedValue) {
+            result = this.value != FALSE;
+            if (result == expectedValue) {
                 if (newValue) {
                     this.value = TRUE;
                 } else {

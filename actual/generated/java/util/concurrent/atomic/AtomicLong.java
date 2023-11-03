@@ -7,18 +7,18 @@ import java.io.Serializable;
 import java.lang.Number;
 import java.lang.String;
 import java.lang.Void;
-import java.util.function.IntBinaryOperator;
-import java.util.function.IntUnaryOperator;
+import java.util.function.LongBinaryOperator;
+import java.util.function.LongUnaryOperator;
 import org.jacodb.approximation.annotation.Approximate;
 import org.usvm.api.Engine;
 import runtime.LibSLRuntime;
 
 /**
- * AtomicIntegerAutomaton for LSLAtomicInteger ~> java.util.concurrent.atomic.AtomicInteger
+ * AtomicLongAutomaton for LSLAtomicLong ~> java.util.concurrent.atomic.AtomicLong
  */
-@Approximate(java.util.concurrent.atomic.AtomicInteger.class)
-public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Serializable {
-    private static final long serialVersionUID = 6214790243416807050L;
+@Approximate(java.util.concurrent.atomic.AtomicLong.class)
+public class AtomicLong extends Number implements LibSLRuntime.Automaton, Serializable {
+    private static final long serialVersionUID = 1927816293512124184L;
 
     static {
         Engine.assume(true);
@@ -26,35 +26,35 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
 
     private byte __$lsl_state = __$lsl_States.Allocated;
 
-    private volatile int value;
+    private volatile long value;
 
     @LibSLRuntime.AutomatonConstructor
-    public AtomicInteger(Void __$lsl_token, final byte p0, final int p1) {
+    public AtomicLong(Void __$lsl_token, final byte p0, final long p1) {
         this.__$lsl_state = p0;
         this.value = p1;
     }
 
     @LibSLRuntime.AutomatonConstructor
-    public AtomicInteger(final Void __$lsl_token) {
-        this(__$lsl_token, __$lsl_States.Allocated, 0);
+    public AtomicLong(final Void __$lsl_token) {
+        this(__$lsl_token, __$lsl_States.Allocated, 0L);
     }
 
     /**
-     * [CONSTRUCTOR] AtomicIntegerAutomaton::LSLAtomicInteger(LSLAtomicInteger) -> LSLAtomicInteger
+     * [CONSTRUCTOR] AtomicLongAutomaton::LSLAtomicLong(LSLAtomicLong) -> LSLAtomicLong
      */
-    public AtomicInteger() {
+    public AtomicLong() {
         this((Void) null);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
-            this.value = 0;
+            this.value = 0L;
         }
         this.__$lsl_state = __$lsl_States.Initialized;
     }
 
     /**
-     * [CONSTRUCTOR] AtomicIntegerAutomaton::LSLAtomicInteger(LSLAtomicInteger, int) -> LSLAtomicInteger
+     * [CONSTRUCTOR] AtomicLongAutomaton::LSLAtomicLong(LSLAtomicLong, long) -> LSLAtomicLong
      */
-    public AtomicInteger(int initialValue) {
+    public AtomicLong(long initialValue) {
         this((Void) null);
         Engine.assume(this.__$lsl_state == __$lsl_States.Allocated);
         /* body */ {
@@ -64,23 +64,23 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::accumulateAndGet(LSLAtomicInteger, int, IntBinaryOperator) -> int
+     * [FUNCTION] AtomicLongAutomaton::accumulateAndGet(LSLAtomicLong, long, LongBinaryOperator) -> long
      */
-    public final int accumulateAndGet(int x, IntBinaryOperator accumulatorFunction) {
-        int result = 0;
+    public final long accumulateAndGet(long x, LongBinaryOperator accumulatorFunction) {
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = accumulatorFunction.applyAsInt(this.value, x);
+            result = accumulatorFunction.applyAsLong(this.value, x);
             this.value = result;
         }
         return result;
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::addAndGet(LSLAtomicInteger, int) -> int
+     * [FUNCTION] AtomicLongAutomaton::addAndGet(LSLAtomicLong, long) -> long
      */
-    public final int addAndGet(int delta) {
-        int result = 0;
+    public final long addAndGet(long delta) {
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = this.value + delta;
@@ -90,7 +90,7 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::byteValue(LSLAtomicInteger) -> byte
+     * [FUNCTION] AtomicLongAutomaton::byteValue(LSLAtomicLong) -> byte
      */
     public byte byteValue() {
         byte result = ((byte) 0);
@@ -102,10 +102,10 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::compareAndExchange(LSLAtomicInteger, int, int) -> int
+     * [FUNCTION] AtomicLongAutomaton::compareAndExchange(LSLAtomicLong, long, long) -> long
      */
-    public final int compareAndExchange(int expectedValue, int newValue) {
-        int result = 0;
+    public final long compareAndExchange(long expectedValue, long newValue) {
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = this.value;
@@ -117,10 +117,10 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::compareAndExchangeAcquire(LSLAtomicInteger, int, int) -> int
+     * [FUNCTION] AtomicLongAutomaton::compareAndExchangeAcquire(LSLAtomicLong, long, long) -> long
      */
-    public final int compareAndExchangeAcquire(int expectedValue, int newValue) {
-        int result = 0;
+    public final long compareAndExchangeAcquire(long expectedValue, long newValue) {
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = this.value;
@@ -132,10 +132,10 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::compareAndExchangeRelease(LSLAtomicInteger, int, int) -> int
+     * [FUNCTION] AtomicLongAutomaton::compareAndExchangeRelease(LSLAtomicLong, long, long) -> long
      */
-    public final int compareAndExchangeRelease(int expectedValue, int newValue) {
-        int result = 0;
+    public final long compareAndExchangeRelease(long expectedValue, long newValue) {
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = this.value;
@@ -147,9 +147,9 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::compareAndSet(LSLAtomicInteger, int, int) -> boolean
+     * [FUNCTION] AtomicLongAutomaton::compareAndSet(LSLAtomicLong, long, long) -> boolean
      */
-    public final boolean compareAndSet(int expectedValue, int newValue) {
+    public final boolean compareAndSet(long expectedValue, long newValue) {
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
@@ -162,20 +162,20 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::decrementAndGet(LSLAtomicInteger) -> int
+     * [FUNCTION] AtomicLongAutomaton::decrementAndGet(LSLAtomicLong) -> long
      */
-    public final int decrementAndGet() {
-        int result = 0;
+    public final long decrementAndGet() {
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = this.value - 1;
+            result = this.value - 1L;
             this.value = result;
         }
         return result;
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::doubleValue(LSLAtomicInteger) -> double
+     * [FUNCTION] AtomicLongAutomaton::doubleValue(LSLAtomicLong) -> double
      */
     public double doubleValue() {
         double result = 0.0d;
@@ -187,7 +187,7 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::floatValue(LSLAtomicInteger) -> float
+     * [FUNCTION] AtomicLongAutomaton::floatValue(LSLAtomicLong) -> float
      */
     public float floatValue() {
         float result = 0.0f;
@@ -199,10 +199,10 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::get(LSLAtomicInteger) -> int
+     * [FUNCTION] AtomicLongAutomaton::get(LSLAtomicLong) -> long
      */
-    public final int get() {
-        int result = 0;
+    public final long get() {
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = this.value;
@@ -211,10 +211,10 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::getAcquire(LSLAtomicInteger) -> int
+     * [FUNCTION] AtomicLongAutomaton::getAcquire(LSLAtomicLong) -> long
      */
-    public final int getAcquire() {
-        int result = 0;
+    public final long getAcquire() {
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = this.value;
@@ -223,23 +223,23 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::getAndAccumulate(LSLAtomicInteger, int, IntBinaryOperator) -> int
+     * [FUNCTION] AtomicLongAutomaton::getAndAccumulate(LSLAtomicLong, long, LongBinaryOperator) -> long
      */
-    public final int getAndAccumulate(int x, IntBinaryOperator accumulatorFunction) {
-        int result = 0;
+    public final long getAndAccumulate(long x, LongBinaryOperator accumulatorFunction) {
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = this.value;
-            this.value = accumulatorFunction.applyAsInt(result, x);
+            this.value = accumulatorFunction.applyAsLong(result, x);
         }
         return result;
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::getAndAdd(LSLAtomicInteger, int) -> int
+     * [FUNCTION] AtomicLongAutomaton::getAndAdd(LSLAtomicLong, long) -> long
      */
-    public final int getAndAdd(int delta) {
-        int result = 0;
+    public final long getAndAdd(long delta) {
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = this.value;
@@ -249,36 +249,36 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::getAndDecrement(LSLAtomicInteger) -> int
+     * [FUNCTION] AtomicLongAutomaton::getAndDecrement(LSLAtomicLong) -> long
      */
-    public final int getAndDecrement() {
-        int result = 0;
+    public final long getAndDecrement() {
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = this.value;
-            this.value = result - 1;
+            this.value = result - 1L;
         }
         return result;
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::getAndIncrement(LSLAtomicInteger) -> int
+     * [FUNCTION] AtomicLongAutomaton::getAndIncrement(LSLAtomicLong) -> long
      */
-    public final int getAndIncrement() {
-        int result = 0;
+    public final long getAndIncrement() {
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = this.value;
-            this.value = result + 1;
+            this.value = result + 1L;
         }
         return result;
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::getAndSet(LSLAtomicInteger, int) -> int
+     * [FUNCTION] AtomicLongAutomaton::getAndSet(LSLAtomicLong, long) -> long
      */
-    public final int getAndSet(int newValue) {
-        int result = 0;
+    public final long getAndSet(long newValue) {
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = this.value;
@@ -288,35 +288,23 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::getAndUpdate(LSLAtomicInteger, IntUnaryOperator) -> int
+     * [FUNCTION] AtomicLongAutomaton::getAndUpdate(LSLAtomicLong, LongUnaryOperator) -> long
      */
-    public final int getAndUpdate(IntUnaryOperator updateFunction) {
-        int result = 0;
+    public final long getAndUpdate(LongUnaryOperator updateFunction) {
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = this.value;
-            this.value = updateFunction.applyAsInt(result);
+            this.value = updateFunction.applyAsLong(result);
         }
         return result;
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::getOpaque(LSLAtomicInteger) -> int
+     * [FUNCTION] AtomicLongAutomaton::getOpaque(LSLAtomicLong) -> long
      */
-    public final int getOpaque() {
-        int result = 0;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            result = this.value;
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] AtomicIntegerAutomaton::getPlain(LSLAtomicInteger) -> int
-     */
-    public final int getPlain() {
-        int result = 0;
+    public final long getOpaque() {
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = this.value;
@@ -325,23 +313,57 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::incrementAndGet(LSLAtomicInteger) -> int
+     * [FUNCTION] AtomicLongAutomaton::getPlain(LSLAtomicLong) -> long
      */
-    public final int incrementAndGet() {
-        int result = 0;
+    public final long getPlain() {
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = this.value + 1;
+            result = this.value;
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] AtomicLongAutomaton::incrementAndGet(LSLAtomicLong) -> long
+     */
+    public final long incrementAndGet() {
+        long result = 0L;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = this.value + 1L;
             this.value = result;
         }
         return result;
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::intValue(LSLAtomicInteger) -> int
+     * [FUNCTION] AtomicLongAutomaton::intValue(LSLAtomicLong) -> int
      */
     public int intValue() {
         int result = 0;
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            result = ((int) this.value);
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] AtomicLongAutomaton::lazySet(LSLAtomicLong, long) -> void
+     */
+    public final void lazySet(long newValue) {
+        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
+        /* body */ {
+            this.value = newValue;
+        }
+    }
+
+    /**
+     * [FUNCTION] AtomicLongAutomaton::longValue(LSLAtomicLong) -> long
+     */
+    public long longValue() {
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             result = this.value;
@@ -350,9 +372,9 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::lazySet(LSLAtomicInteger, int) -> void
+     * [FUNCTION] AtomicLongAutomaton::set(LSLAtomicLong, long) -> void
      */
-    public final void lazySet(int newValue) {
+    public final void set(long newValue) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             this.value = newValue;
@@ -360,21 +382,9 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::longValue(LSLAtomicInteger) -> long
+     * [FUNCTION] AtomicLongAutomaton::setOpaque(LSLAtomicLong, long) -> void
      */
-    public long longValue() {
-        long result = 0L;
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            result = ((long) this.value);
-        }
-        return result;
-    }
-
-    /**
-     * [FUNCTION] AtomicIntegerAutomaton::set(LSLAtomicInteger, int) -> void
-     */
-    public final void set(int newValue) {
+    public final void setOpaque(long newValue) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             this.value = newValue;
@@ -382,9 +392,9 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::setOpaque(LSLAtomicInteger, int) -> void
+     * [FUNCTION] AtomicLongAutomaton::setPlain(LSLAtomicLong, long) -> void
      */
-    public final void setOpaque(int newValue) {
+    public final void setPlain(long newValue) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             this.value = newValue;
@@ -392,9 +402,9 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::setPlain(LSLAtomicInteger, int) -> void
+     * [FUNCTION] AtomicLongAutomaton::setRelease(LSLAtomicLong, long) -> void
      */
-    public final void setPlain(int newValue) {
+    public final void setRelease(long newValue) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
             this.value = newValue;
@@ -402,17 +412,7 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::setRelease(LSLAtomicInteger, int) -> void
-     */
-    public final void setRelease(int newValue) {
-        Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
-        /* body */ {
-            this.value = newValue;
-        }
-    }
-
-    /**
-     * [FUNCTION] AtomicIntegerAutomaton::shortValue(LSLAtomicInteger) -> short
+     * [FUNCTION] AtomicLongAutomaton::shortValue(LSLAtomicLong) -> short
      */
     public short shortValue() {
         short result = ((short) 0);
@@ -424,7 +424,7 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::toString(LSLAtomicInteger) -> String
+     * [FUNCTION] AtomicLongAutomaton::toString(LSLAtomicLong) -> String
      */
     public String toString() {
         String result = null;
@@ -436,22 +436,22 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::updateAndGet(LSLAtomicInteger, IntUnaryOperator) -> int
+     * [FUNCTION] AtomicLongAutomaton::updateAndGet(LSLAtomicLong, LongUnaryOperator) -> long
      */
-    public final int updateAndGet(IntUnaryOperator updateFunction) {
-        int result = 0;
+    public final long updateAndGet(LongUnaryOperator updateFunction) {
+        long result = 0L;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = updateFunction.applyAsInt(this.value);
+            result = updateFunction.applyAsLong(this.value);
             this.value = result;
         }
         return result;
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::weakCompareAndSet(LSLAtomicInteger, int, int) -> boolean
+     * [FUNCTION] AtomicLongAutomaton::weakCompareAndSet(LSLAtomicLong, long, long) -> boolean
      */
-    public final boolean weakCompareAndSet(int expectedValue, int newValue) {
+    public final boolean weakCompareAndSet(long expectedValue, long newValue) {
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
@@ -464,9 +464,9 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::weakCompareAndSetAcquire(LSLAtomicInteger, int, int) -> boolean
+     * [FUNCTION] AtomicLongAutomaton::weakCompareAndSetAcquire(LSLAtomicLong, long, long) -> boolean
      */
-    public final boolean weakCompareAndSetAcquire(int expectedValue, int newValue) {
+    public final boolean weakCompareAndSetAcquire(long expectedValue, long newValue) {
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
@@ -479,9 +479,9 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::weakCompareAndSetPlain(LSLAtomicInteger, int, int) -> boolean
+     * [FUNCTION] AtomicLongAutomaton::weakCompareAndSetPlain(LSLAtomicLong, long, long) -> boolean
      */
-    public final boolean weakCompareAndSetPlain(int expectedValue, int newValue) {
+    public final boolean weakCompareAndSetPlain(long expectedValue, long newValue) {
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
@@ -494,9 +494,9 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::weakCompareAndSetRelease(LSLAtomicInteger, int, int) -> boolean
+     * [FUNCTION] AtomicLongAutomaton::weakCompareAndSetRelease(LSLAtomicLong, long, long) -> boolean
      */
-    public final boolean weakCompareAndSetRelease(int expectedValue, int newValue) {
+    public final boolean weakCompareAndSetRelease(long expectedValue, long newValue) {
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
@@ -509,9 +509,9 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
     }
 
     /**
-     * [FUNCTION] AtomicIntegerAutomaton::weakCompareAndSetVolatile(LSLAtomicInteger, int, int) -> boolean
+     * [FUNCTION] AtomicLongAutomaton::weakCompareAndSetVolatile(LSLAtomicLong, long, long) -> boolean
      */
-    public final boolean weakCompareAndSetVolatile(int expectedValue, int newValue) {
+    public final boolean weakCompareAndSetVolatile(long expectedValue, long newValue) {
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
@@ -529,7 +529,7 @@ public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Ser
         public static final byte Initialized = (byte) 1;
     }
 
-    @Approximate(AtomicInteger.class)
+    @Approximate(AtomicLong.class)
     public static final class __hook {
         private __hook(Void o1, Void o2) {
             Engine.assume(false);
