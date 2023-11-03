@@ -3,6 +3,7 @@
 //
 package generated.java.util.stream;
 
+import generated.java.util.DoubleStreamLSLSpliterator;
 import generated.runtime.LibSLGlobals;
 import java.lang.Double;
 import java.lang.IllegalArgumentException;
@@ -902,8 +903,14 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
             if (this.linkedOrConsumed) {
                 throw new IllegalStateException();
             }
-            result = Engine.makeSymbolic(Spliterator.OfDouble.class);
-            Engine.assume(result != null);
+            final int default_characteristics = LibSLGlobals.SPLITERATOR_ORDERED | LibSLGlobals.SPLITERATOR_IMMUTABLE | LibSLGlobals.SPLITERATOR_SIZED | LibSLGlobals.SPLITERATOR_SUBSIZED;
+            result = new DoubleStreamLSLSpliterator((Void) null, 
+                /* state = */ DoubleStreamLSLSpliterator.__$lsl_States.Initialized, 
+                /* parent = */ this, 
+                /* characteristics = */ default_characteristics, 
+                /* fence = */ this.length, 
+                /* index = */ 0
+            );
             this.linkedOrConsumed = true;
         }
         return result;

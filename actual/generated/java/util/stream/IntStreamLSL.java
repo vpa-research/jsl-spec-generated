@@ -3,6 +3,7 @@
 //
 package generated.java.util.stream;
 
+import generated.java.util.IntStreamLSLSpliterator;
 import generated.runtime.LibSLGlobals;
 import java.lang.IllegalArgumentException;
 import java.lang.IllegalStateException;
@@ -875,8 +876,14 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
             if (this.linkedOrConsumed) {
                 throw new IllegalStateException();
             }
-            result = Engine.makeSymbolic(Spliterator.OfInt.class);
-            Engine.assume(result != null);
+            final int default_characteristics = LibSLGlobals.SPLITERATOR_ORDERED | LibSLGlobals.SPLITERATOR_IMMUTABLE | LibSLGlobals.SPLITERATOR_SIZED | LibSLGlobals.SPLITERATOR_SUBSIZED;
+            result = new IntStreamLSLSpliterator((Void) null, 
+                /* state = */ IntStreamLSLSpliterator.__$lsl_States.Initialized, 
+                /* parent = */ this, 
+                /* characteristics = */ default_characteristics, 
+                /* fence = */ this.length, 
+                /* index = */ 0
+            );
             this.linkedOrConsumed = true;
         }
         return result;

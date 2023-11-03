@@ -3,6 +3,7 @@
 //
 package generated.java.util.stream;
 
+import generated.java.util.LongStreamLSLSpliterator;
 import generated.runtime.LibSLGlobals;
 import java.lang.IllegalArgumentException;
 import java.lang.IllegalStateException;
@@ -875,8 +876,14 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
             if (this.linkedOrConsumed) {
                 throw new IllegalStateException();
             }
-            result = Engine.makeSymbolic(Spliterator.OfLong.class);
-            Engine.assume(result != null);
+            final int default_characteristics = LibSLGlobals.SPLITERATOR_ORDERED | LibSLGlobals.SPLITERATOR_IMMUTABLE | LibSLGlobals.SPLITERATOR_SIZED | LibSLGlobals.SPLITERATOR_SUBSIZED;
+            result = new LongStreamLSLSpliterator((Void) null, 
+                /* state = */ LongStreamLSLSpliterator.__$lsl_States.Initialized, 
+                /* parent = */ this, 
+                /* characteristics = */ default_characteristics, 
+                /* fence = */ this.length, 
+                /* index = */ 0
+            );
             this.linkedOrConsumed = true;
         }
         return result;

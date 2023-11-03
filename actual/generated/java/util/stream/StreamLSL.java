@@ -3,6 +3,7 @@
 //
 package generated.java.util.stream;
 
+import generated.java.util.StreamLSLSpliterator;
 import generated.runtime.LibSLGlobals;
 import java.lang.Comparable;
 import java.lang.IllegalArgumentException;
@@ -196,7 +197,14 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
                 mappedStorage[i] = mapper.applyAsInt(storage[i]);
             }
             ;
-            result = java.util.Arrays.stream(mappedStorage);
+            result = new IntStreamLSL((Void) null, 
+                /* state = */ IntStreamLSL.__$lsl_States.Initialized, 
+                /* storage = */ mappedStorage, 
+                /* length = */ this.length, 
+                /* closeHandlers = */ this.closeHandlers, 
+                /* isParallel = */ false, 
+                /* linkedOrConsumed = */ false
+            );
             this.linkedOrConsumed = true;
         }
         return result;
@@ -221,7 +229,14 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
                 mappedStorage[i] = mapper.applyAsLong(storage[i]);
             }
             ;
-            result = java.util.Arrays.stream(mappedStorage);
+            result = new LongStreamLSL((Void) null, 
+                /* state = */ LongStreamLSL.__$lsl_States.Initialized, 
+                /* storage = */ mappedStorage, 
+                /* length = */ this.length, 
+                /* closeHandlers = */ this.closeHandlers, 
+                /* isParallel = */ false, 
+                /* linkedOrConsumed = */ false
+            );
             this.linkedOrConsumed = true;
         }
         return result;
@@ -246,7 +261,14 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
                 mappedStorage[i] = mapper.applyAsDouble(storage[i]);
             }
             ;
-            result = java.util.Arrays.stream(mappedStorage);
+            result = new DoubleStreamLSL((Void) null, 
+                /* state = */ DoubleStreamLSL.__$lsl_States.Initialized, 
+                /* storage = */ mappedStorage, 
+                /* length = */ this.length, 
+                /* closeHandlers = */ this.closeHandlers, 
+                /* isParallel = */ false, 
+                /* linkedOrConsumed = */ false
+            );
             this.linkedOrConsumed = true;
         }
         return result;
@@ -1064,7 +1086,14 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
             if (this.linkedOrConsumed) {
                 throw new IllegalStateException();
             }
-            result = java.util.Spliterators.spliterator(this.storage, Spliterator.ORDERED);
+            final int default_characteristics = LibSLGlobals.SPLITERATOR_ORDERED | LibSLGlobals.SPLITERATOR_SIZED | LibSLGlobals.SPLITERATOR_SUBSIZED;
+            result = new StreamLSLSpliterator((Void) null, 
+                /* state = */ StreamLSLSpliterator.__$lsl_States.Initialized, 
+                /* parent = */ this, 
+                /* characteristics = */ default_characteristics, 
+                /* fence = */ this.length, 
+                /* index = */ 0
+            );
             this.linkedOrConsumed = true;
         }
         return result;
