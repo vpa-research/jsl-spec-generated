@@ -12,6 +12,8 @@ import java.lang.NullPointerException;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.Void;
+import java.util.Properties;
+import jdk.internal.misc.VM;
 import org.jacodb.approximation.annotation.Approximate;
 import org.usvm.api.Engine;
 import runtime.LibSLRuntime;
@@ -21,6 +23,8 @@ import runtime.LibSLRuntime;
  */
 @Approximate(java.lang.System.class)
 public final class System implements LibSLRuntime.Automaton {
+    private static Properties props = null;
+
     private static Console console = null;
 
     public static InputStream in = null;
@@ -35,6 +39,45 @@ public final class System implements LibSLRuntime.Automaton {
 
     static {
         /* SystemAutomaton::__clinit__() */ {
+            initPhase1();
+            initPhase2();
+            initPhase3();
+        }
+    }
+
+    @LibSLRuntime.AutomatonConstructor
+    public System(Void __$lsl_token, final byte p0) {
+    }
+
+    @LibSLRuntime.AutomatonConstructor
+    public System(final Void __$lsl_token) {
+        this(__$lsl_token, __$lsl_States.Initialized);
+    }
+
+    /**
+     * [CONSTRUCTOR] SystemAutomaton::LSLSystem(LSLSystem) -> LSLSystem
+     */
+    private System() {
+        this((Void) null);
+        /* body */ {
+        }
+    }
+
+    /**
+     * [SUBROUTINE] SystemAutomaton::_initProperties() -> void
+     */
+    private static void _initProperties() {
+        /* body */ {
+            props = null;
+        }
+    }
+
+    /**
+     * [SUBROUTINE] SystemAutomaton::initPhase1() -> void
+     */
+    private static void initPhase1() {
+        /* body */ {
+            _initProperties();
             final InputStream newInput = new SymbolicInputStream((Void) null, 
                 /* state = */ SymbolicInputStream.__$lsl_States.Initialized, 
                 /* maxSize = */ 1000, 
@@ -57,24 +100,30 @@ public final class System implements LibSLRuntime.Automaton {
                 /* closed = */ false, 
                 /* error = */ false
             );
+            VM.initializeOSEnvironment();
+            VM.initLevel(1);
         }
     }
 
-    @LibSLRuntime.AutomatonConstructor
-    public System(Void __$lsl_token, final byte p0) {
-    }
-
-    @LibSLRuntime.AutomatonConstructor
-    public System(final Void __$lsl_token) {
-        this(__$lsl_token, __$lsl_States.Initialized);
+    /**
+     * [SUBROUTINE] SystemAutomaton::initPhase2() -> int
+     */
+    private static int initPhase2() {
+        int result = 0;
+        /* body */ {
+            VM.initLevel(2);
+            result = 0;
+        }
+        return result;
     }
 
     /**
-     * [CONSTRUCTOR] SystemAutomaton::LSLSystem(LSLSystem) -> LSLSystem
+     * [SUBROUTINE] SystemAutomaton::initPhase3() -> void
      */
-    private System() {
-        this((Void) null);
+    private static void initPhase3() {
         /* body */ {
+            VM.initLevel(3);
+            VM.initLevel(4);
         }
     }
 

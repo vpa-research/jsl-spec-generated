@@ -60,6 +60,16 @@ public final class LibSLGlobals {
 
     public static final boolean SYSTEM_IS_WINDOWS;
 
+    public static final int VM_JAVA_LANG_SYSTEM_INITED;
+
+    public static final int VM_MODULE_SYSTEM_INITED;
+
+    public static final int VM_SYSTEM_BOOTED;
+
+    public static final int VM_SYSTEM_LOADER_INITIALIZING;
+
+    public static final int VM_SYSTEM_SHUTDOWN;
+
     static {
         CONSOLE_IS_TTY = Engine.makeSymbolicBoolean();
         DOUBLE_NAN = 0.0d / 0.0d;
@@ -99,6 +109,11 @@ public final class LibSLGlobals {
         SPLITERATOR_SORTED = 4;
         SPLITERATOR_SUBSIZED = 16384;
         SYSTEM_IS_WINDOWS = Engine.makeSymbolicBoolean();
+        VM_JAVA_LANG_SYSTEM_INITED = 1;
+        VM_MODULE_SYSTEM_INITED = 2;
+        VM_SYSTEM_BOOTED = 4;
+        VM_SYSTEM_LOADER_INITIALIZING = 3;
+        VM_SYSTEM_SHUTDOWN = 5;
     }
 
     @Approximate(LibSLGlobals.class)
