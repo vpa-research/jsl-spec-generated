@@ -4,7 +4,6 @@
 package generated.java.lang;
 
 import generated.runtime.LibSLGlobals;
-import generated.runtime.utils.SymbolicInputStream;
 import java.io.Console;
 import java.io.InputStream;
 import java.io.PrintStream;
@@ -17,6 +16,7 @@ import jdk.internal.misc.VM;
 import org.jacodb.approximation.annotation.Approximate;
 import org.usvm.api.Engine;
 import runtime.LibSLRuntime;
+import stub.runtime.utils.SymbolicInputStream;
 
 /**
  * SystemAutomaton for LSLSystem ~> java.lang.System
@@ -78,8 +78,8 @@ public final class System implements LibSLRuntime.Automaton {
     private static void initPhase1() {
         /* body */ {
             _initProperties();
-            final InputStream newInput = new SymbolicInputStream((Void) null, 
-                /* state = */ SymbolicInputStream.__$lsl_States.Initialized, 
+            final InputStream newInput = (SymbolicInputStream) ((Object) new generated.runtime.utils.SymbolicInputStream((Void) null, 
+                /* state = */ generated.runtime.utils.SymbolicInputStream.__$lsl_States.Initialized, 
                 /* maxSize = */ 1000, 
                 /* supportMarks = */ false, 
                 /* dataSize = */ -1, 
@@ -88,18 +88,18 @@ public final class System implements LibSLRuntime.Automaton {
                 /* pos = */ 0, 
                 /* markPos = */ -1, 
                 /* markLimit = */ 0
-            );
+            ));
             in = newInput;
-            out = new System_PrintStream((Void) null, 
+            out = (stub.java.lang.System_PrintStream) ((Object) new System_PrintStream((Void) null, 
                 /* state = */ System_PrintStream.__$lsl_States.Initialized, 
                 /* closed = */ false, 
                 /* error = */ false
-            );
-            err = new System_PrintStream((Void) null, 
+            ));
+            err = (stub.java.lang.System_PrintStream) ((Object) new System_PrintStream((Void) null, 
                 /* state = */ System_PrintStream.__$lsl_States.Initialized, 
                 /* closed = */ false, 
                 /* error = */ false
-            );
+            ));
             VM.initializeOSEnvironment();
             VM.initLevel(1);
         }

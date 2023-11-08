@@ -34,7 +34,7 @@ public final class ArrayList_SubList$Spliterator implements LibSLRuntime.HasAuto
         throw new InternalError();
     }
 
-    public ArrayList_SubList$Spliterator trySplit() {
+    public Spliterator trySplit() {
         throw new InternalError();
     }
 }

@@ -7,6 +7,7 @@ import generated.java.util.stream.IntStreamLSL;
 import generated.runtime.LibSLGlobals;
 import java.lang.IllegalStateException;
 import java.lang.NullPointerException;
+import java.lang.Object;
 import java.lang.Void;
 import java.util.Comparator;
 import java.util.Spliterator;
@@ -55,7 +56,7 @@ public class IntStreamLSLSpliterator implements LibSLRuntime.Automaton, Splitera
         /* body */ {
             if (this.fence < 0) {
                 Engine.assume(this.parent != null);
-                this.fence = ((IntStreamLSL) this.parent).length;
+                this.fence = ((IntStreamLSL) ((Object) this.parent)).length;
             }
             result = this.fence;
         }
@@ -96,13 +97,13 @@ public class IntStreamLSLSpliterator implements LibSLRuntime.Automaton, Splitera
             if (lo >= mid) {
                 result = null;
             } else {
-                result = new IntStreamLSLSpliterator((Void) null, 
+                result = (stub.java.util.IntStreamLSLSpliterator) ((Object) new IntStreamLSLSpliterator((Void) null, 
                     /* state = */ IntStreamLSLSpliterator.__$lsl_States.Initialized, 
                     /* parent = */ this.parent, 
                     /* characteristics = */ this.characteristics, 
                     /* fence = */ mid, 
                     /* index = */ lo
-                );
+                ));
             }
             this.index = mid;
         }
@@ -118,7 +119,7 @@ public class IntStreamLSLSpliterator implements LibSLRuntime.Automaton, Splitera
                 throw new NullPointerException();
             }
             Engine.assume(this.parent != null);
-            final int[] a = ((IntStreamLSL) this.parent).storage;
+            final int[] a = ((IntStreamLSL) ((Object) this.parent)).storage;
             int hi = this.fence;
             int i = this.index;
             this.index = hi;
@@ -139,7 +140,7 @@ public class IntStreamLSLSpliterator implements LibSLRuntime.Automaton, Splitera
                 throw new NullPointerException();
             }
             Engine.assume(this.parent != null);
-            final int[] a = ((IntStreamLSL) this.parent).storage;
+            final int[] a = ((IntStreamLSL) ((Object) this.parent)).storage;
             int hi = this.fence;
             int i = this.index;
             this.index = hi;
@@ -165,7 +166,7 @@ public class IntStreamLSLSpliterator implements LibSLRuntime.Automaton, Splitera
             if (i < hi) {
                 Engine.assume(this.parent != null);
                 this.index = i + 1;
-                final int[] parentStorage = ((IntStreamLSL) this.parent).storage;
+                final int[] parentStorage = ((IntStreamLSL) ((Object) this.parent)).storage;
                 final int item = parentStorage[i];
                 _action.accept(item);
                 result = true;
@@ -190,7 +191,7 @@ public class IntStreamLSLSpliterator implements LibSLRuntime.Automaton, Splitera
             if (i < hi) {
                 Engine.assume(this.parent != null);
                 this.index = i + 1;
-                final int[] parentStorage = ((IntStreamLSL) this.parent).storage;
+                final int[] parentStorage = ((IntStreamLSL) ((Object) this.parent)).storage;
                 final int item = parentStorage[i];
                 _action.accept(item);
                 result = true;

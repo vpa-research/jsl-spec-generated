@@ -55,7 +55,7 @@ public class StreamLSLSpliterator implements LibSLRuntime.Automaton, Spliterator
         /* body */ {
             if (this.fence < 0) {
                 Engine.assume(this.parent != null);
-                this.fence = ((StreamLSL) this.parent).length;
+                this.fence = ((StreamLSL) ((Object) this.parent)).length;
             }
             result = this.fence;
         }
@@ -96,13 +96,13 @@ public class StreamLSLSpliterator implements LibSLRuntime.Automaton, Spliterator
             if (lo >= mid) {
                 result = null;
             } else {
-                result = new StreamLSLSpliterator((Void) null, 
+                result = (stub.java.util.StreamLSLSpliterator) ((Object) new StreamLSLSpliterator((Void) null, 
                     /* state = */ StreamLSLSpliterator.__$lsl_States.Initialized, 
                     /* parent = */ this.parent, 
                     /* characteristics = */ this.characteristics, 
                     /* fence = */ mid, 
                     /* index = */ lo
-                );
+                ));
             }
             this.index = mid;
         }
@@ -118,7 +118,7 @@ public class StreamLSLSpliterator implements LibSLRuntime.Automaton, Spliterator
                 throw new NullPointerException();
             }
             Engine.assume(this.parent != null);
-            final Object[] a = ((StreamLSL) this.parent).storage;
+            final Object[] a = ((StreamLSL) ((Object) this.parent)).storage;
             int hi = this.fence;
             int i = this.index;
             this.index = hi;
@@ -144,7 +144,7 @@ public class StreamLSLSpliterator implements LibSLRuntime.Automaton, Spliterator
             if (i < hi) {
                 Engine.assume(this.parent != null);
                 this.index = i + 1;
-                final Object[] parentStorage = ((StreamLSL) this.parent).storage;
+                final Object[] parentStorage = ((StreamLSL) ((Object) this.parent)).storage;
                 final Object item = parentStorage[i];
                 _action.accept(item);
                 result = true;

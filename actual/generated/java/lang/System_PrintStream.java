@@ -3,7 +3,6 @@
 //
 package generated.java.lang;
 
-import generated.java.io.OutputStream$Void;
 import java.io.PrintStream;
 import java.lang.CharSequence;
 import java.lang.IndexOutOfBoundsException;
@@ -20,7 +19,7 @@ import runtime.LibSLRuntime;
  * System_PrintStreamAutomaton for System_PrintStream ~> java.lang.System_PrintStream
  */
 @Approximate(stub.java.lang.System_PrintStream.class)
-public final class System_PrintStream extends PrintStream implements LibSLRuntime.Automaton {
+public final class System_PrintStream implements LibSLRuntime.Automaton {
     static {
         Engine.assume(true);
     }
@@ -32,11 +31,6 @@ public final class System_PrintStream extends PrintStream implements LibSLRuntim
     @LibSLRuntime.AutomatonConstructor
     public System_PrintStream(Void __$lsl_token, final byte p0, final boolean p1,
             final boolean p2) {
-        // System_PrintStreamAutomaton::__super__()
-        super(new OutputStream$Void((Void) null, 
-                    /* state = */ OutputStream$Void.__$lsl_States.Initialized, 
-                    /* closed = */ false
-                ));
         this.closed = p1;
         this.error = p2;
     }
@@ -58,7 +52,7 @@ public final class System_PrintStream extends PrintStream implements LibSLRuntim
             if (this.closed) {
                 this.error = true;
             }
-            result = this;
+            result = ((PrintStream) ((Object) this));
         }
         return result;
     }
@@ -79,7 +73,7 @@ public final class System_PrintStream extends PrintStream implements LibSLRuntim
             if (this.closed) {
                 this.error = true;
             }
-            result = this;
+            result = ((PrintStream) ((Object) this));
         }
         return result;
     }
@@ -93,7 +87,7 @@ public final class System_PrintStream extends PrintStream implements LibSLRuntim
             if (this.closed) {
                 this.error = true;
             }
-            result = this;
+            result = ((PrintStream) ((Object) this));
         }
         return result;
     }
@@ -141,7 +135,7 @@ public final class System_PrintStream extends PrintStream implements LibSLRuntim
             if (this.closed) {
                 this.error = true;
             }
-            result = this;
+            result = ((PrintStream) ((Object) this));
         }
         return result;
     }
@@ -158,7 +152,7 @@ public final class System_PrintStream extends PrintStream implements LibSLRuntim
             if (this.closed) {
                 this.error = true;
             }
-            result = this;
+            result = ((PrintStream) ((Object) this));
         }
         return result;
     }
@@ -277,7 +271,7 @@ public final class System_PrintStream extends PrintStream implements LibSLRuntim
             if (this.closed) {
                 this.error = true;
             }
-            result = this;
+            result = ((PrintStream) ((Object) this));
         }
         return result;
     }
@@ -294,7 +288,7 @@ public final class System_PrintStream extends PrintStream implements LibSLRuntim
             if (this.closed) {
                 this.error = true;
             }
-            result = this;
+            result = ((PrintStream) ((Object) this));
         }
         return result;
     }

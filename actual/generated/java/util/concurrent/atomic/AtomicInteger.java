@@ -4,7 +4,6 @@
 package generated.java.util.concurrent.atomic;
 
 import java.io.Serializable;
-import java.lang.Number;
 import java.lang.String;
 import java.lang.Void;
 import java.util.function.IntBinaryOperator;
@@ -17,7 +16,7 @@ import runtime.LibSLRuntime;
  * AtomicIntegerAutomaton for LSLAtomicInteger ~> java.util.concurrent.atomic.AtomicInteger
  */
 @Approximate(java.util.concurrent.atomic.AtomicInteger.class)
-public class AtomicInteger extends Number implements LibSLRuntime.Automaton, Serializable {
+public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
     private static final long serialVersionUID = 6214790243416807050L;
 
     static {

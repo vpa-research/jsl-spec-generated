@@ -63,10 +63,10 @@ public abstract class Charset implements LibSLRuntime.Automaton, Comparable<Char
     }
 
     /**
-     * [FUNCTION] CharsetAutomaton::defaultCharset() -> Charset
+     * [FUNCTION] CharsetAutomaton::defaultCharset() -> LSLCharset
      */
-    public static java.nio.charset.Charset defaultCharset() {
-        java.nio.charset.Charset result = null;
+    public static Charset defaultCharset() {
+        Charset result = null;
         // WARNING: no state checks in static context
         /* body */ {
             LibSLRuntime.todo();
@@ -76,10 +76,10 @@ public abstract class Charset implements LibSLRuntime.Automaton, Comparable<Char
     }
 
     /**
-     * [FUNCTION] CharsetAutomaton::forName(String) -> Charset
+     * [FUNCTION] CharsetAutomaton::forName(String) -> LSLCharset
      */
-    public static java.nio.charset.Charset forName(String charsetName) {
-        java.nio.charset.Charset result = null;
+    public static Charset forName(String charsetName) {
+        Charset result = null;
         // WARNING: no state checks in static context
         /* body */ {
             LibSLRuntime.todo();
