@@ -215,7 +215,7 @@ public final class System implements LibSLRuntime.Automaton {
                 throw new IllegalArgumentException("name too long");
             }
             if (LibSLGlobals.SYSTEM_IS_WINDOWS) {
-                result = libname + ".dll";
+                result = libname.concat(".dll");
             } else {
                 if (LibSLGlobals.SYSTEM_IS_MAC) {
                     result = "lib".concat(libname).concat(".dylib");
