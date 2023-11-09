@@ -7,8 +7,10 @@ import generated.runtime.LibSLGlobals;
 import java.io.Console;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.lang.IllegalArgumentException;
 import java.lang.NullPointerException;
 import java.lang.Object;
+import java.lang.SecurityManager;
 import java.lang.String;
 import java.lang.Void;
 import java.util.Properties;
@@ -23,6 +25,8 @@ import stub.runtime.utils.SymbolicInputStream;
  */
 @Approximate(java.lang.System.class)
 public final class System implements LibSLRuntime.Automaton {
+    private static volatile SecurityManager security = null;
+
     private static Properties props = null;
 
     private static Console console = null;
@@ -121,6 +125,7 @@ public final class System implements LibSLRuntime.Automaton {
      */
     private static void initPhase3() {
         /* body */ {
+            security = null;
             VM.initLevel(3);
             VM.initLevel(4);
         }
@@ -160,8 +165,12 @@ public final class System implements LibSLRuntime.Automaton {
     public static String getenv(String name) {
         String result = null;
         /* body */ {
-            result = Engine.makeSymbolic(String.class);
-            Engine.assume(result != null);
+            final int symbolCount = Engine.makeSymbolicInt();
+            Engine.assume(symbolCount >= 0);
+            Engine.assume(symbolCount < 256);
+            final char[] symbols = Engine.makeSymbolicCharArray(symbolCount);
+            Engine.assume(symbols != null);
+            result = LibSLRuntime.toString(symbols);
         }
         return result;
     }
@@ -190,6 +199,40 @@ public final class System implements LibSLRuntime.Automaton {
             }
         }
         return result;
+    }
+
+    /**
+     * [FUNCTION] SystemAutomaton::mapLibraryName(String) -> String
+     */
+    public static String mapLibraryName(String libname) {
+        String result = null;
+        /* body */ {
+            if (libname == null) {
+                throw new NullPointerException();
+            }
+            final int len = libname.length();
+            if (len > 240) {
+                throw new IllegalArgumentException("name too long");
+            }
+            if (LibSLGlobals.SYSTEM_IS_WINDOWS) {
+                result = libname + ".dll";
+            } else {
+                if (LibSLGlobals.SYSTEM_IS_MAC) {
+                    result = "lib".concat(libname).concat(".dylib");
+                } else {
+                    result = "lib".concat(libname).concat(".so");
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] SystemAutomaton::runFinalization() -> void
+     */
+    public static void runFinalization() {
+        /* body */ {
+        }
     }
 
     /**
@@ -226,6 +269,28 @@ public final class System implements LibSLRuntime.Automaton {
             }
             out = stream;
         }
+    }
+
+    /**
+     * [FUNCTION] SystemAutomaton::setProperties(Properties) -> void
+     */
+    public static void setProperties(Properties p) {
+        /* body */ {
+            props = p;
+        }
+    }
+
+    /**
+     * [FUNCTION] SystemAutomaton::setProperty(String, String) -> String
+     */
+    public static String setProperty(String key, String value) {
+        String result = null;
+        /* body */ {
+            if (key == null) {
+                throw new NullPointerException();
+            }
+        }
+        return result;
     }
 
     public static final class __$lsl_States {
