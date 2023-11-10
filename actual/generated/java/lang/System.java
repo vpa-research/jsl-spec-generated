@@ -244,6 +244,26 @@ public final class System implements LibSLRuntime.Automaton {
     }
 
     /**
+     * [FUNCTION] SystemAutomaton::clearProperty(String) -> String
+     */
+    public static String clearProperty(String key) {
+        String result = null;
+        /* body */ {
+            if (key == null) {
+                throw new NullPointerException("key can't be null");
+            }
+            if (key.length() == 0) {
+                throw new NullPointerException("key can't be empty");
+            }
+            if (propsMap.hasKey(key)) {
+                result = propsMap.get(key);
+                propsMap.remove(key);
+            }
+        }
+        return result;
+    }
+
+    /**
      * [FUNCTION] SystemAutomaton::console() -> Console
      */
     public static Console console() {
@@ -289,12 +309,36 @@ public final class System implements LibSLRuntime.Automaton {
         String result = null;
         /* body */ {
             if (key == null) {
-                throw new NullPointerException();
+                throw new NullPointerException("key can't be null");
+            }
+            if (key.length() == 0) {
+                throw new NullPointerException("key can't be empty");
             }
             if (propsMap.hasKey(key)) {
                 result = propsMap.get(key);
             } else {
                 result = null;
+            }
+        }
+        return result;
+    }
+
+    /**
+     * [FUNCTION] SystemAutomaton::getProperty(String, String) -> String
+     */
+    public static String getProperty(String key, String def) {
+        String result = null;
+        /* body */ {
+            if (key == null) {
+                throw new NullPointerException("key can't be null");
+            }
+            if (key.length() == 0) {
+                throw new NullPointerException("key can't be empty");
+            }
+            if (propsMap.hasKey(key)) {
+                result = propsMap.get(key);
+            } else {
+                result = def;
             }
         }
         return result;
@@ -424,7 +468,10 @@ public final class System implements LibSLRuntime.Automaton {
         String result = null;
         /* body */ {
             if (key == null) {
-                throw new NullPointerException();
+                throw new NullPointerException("key can't be null");
+            }
+            if (key.length() == 0) {
+                throw new NullPointerException("key can't be empty");
             }
             if (propsMap.hasKey(key)) {
                 result = propsMap.get(key);
