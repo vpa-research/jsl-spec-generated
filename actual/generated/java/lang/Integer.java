@@ -4,6 +4,7 @@
 package generated.java.lang;
 
 import java.lang.Class;
+import java.lang.NullPointerException;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.Void;
@@ -60,6 +61,20 @@ public final class Integer implements LibSLRuntime.Automaton {
         /* body */ {
             this.value = v;
         }
+    }
+
+    /**
+     * [SUBROUTINE] IntegerAutomaton::_parse(String) -> int
+     */
+    private static int _parse(String str) throws java.lang.NumberFormatException {
+        int result = 0;
+        /* body */ {
+            if (str == null) {
+                throw new NullPointerException();
+            }
+            LibSLRuntime.todo();
+        }
+        return result;
     }
 
     /**

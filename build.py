@@ -83,6 +83,7 @@ command = [
     '-d', output_dir,
     '-g:lines',
     '-nowarn',
+    '-XDignore.symbol.file',
     '-Xlint:none',
     '-source', '1.8',
     '-target', '1.8',

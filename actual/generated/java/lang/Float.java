@@ -4,6 +4,7 @@
 package generated.java.lang;
 
 import java.lang.Class;
+import java.lang.NullPointerException;
 import java.lang.Object;
 import java.lang.String;
 import java.lang.Void;
@@ -120,13 +121,27 @@ public final class Float implements LibSLRuntime.Automaton {
     }
 
     /**
+     * [SUBROUTINE] FloatAutomaton::_parse(String) -> float
+     */
+    private static float _parse(String str) throws java.lang.NumberFormatException {
+        float result = 0.0f;
+        /* body */ {
+            if (str == null) {
+                throw new NullPointerException();
+            }
+            LibSLRuntime.todo();
+        }
+        return result;
+    }
+
+    /**
      * [FUNCTION] FloatAutomaton::compare(float, float) -> int
      */
     public static int compare(float a, float b) {
         int result = 0;
         // WARNING: no state checks in static context
         /* body */ {
-            if (a == b) {
+            if ((a == b) || (a != a) || (b != b)) {
                 result = 0;
             } else {
                 if (a < b) {
@@ -187,7 +202,7 @@ public final class Float implements LibSLRuntime.Automaton {
         // WARNING: no state checks in static context
         /* body */ {
             if (value == 2143289344) {
-                result = 0.0f / 0.0f;
+                result = NaN;
             } else {
                 if (value == -2147483648) {
                     result = -0.0f;
@@ -361,10 +376,10 @@ public final class Float implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] FloatAutomaton::valueOf(float) -> LSLFloat
+     * [FUNCTION] FloatAutomaton::valueOf(float) -> Float
      */
-    public static Float valueOf(float f) {
-        Float result = null;
+    public static java.lang.Float valueOf(float f) {
+        java.lang.Float result = null;
         // WARNING: no state checks in static context
         /* body */ {
             result = (java.lang.Float) ((Object) new Float((Void) null, 
@@ -389,13 +404,23 @@ public final class Float implements LibSLRuntime.Automaton {
     }
 
     /**
-     * [FUNCTION] FloatAutomaton::compareTo(LSLFloat, LSLFloat) -> int
+     * [FUNCTION] FloatAutomaton::compareTo(LSLFloat, Float) -> int
      */
-    public int compareTo(Float anotherFloat) {
+    public int compareTo(java.lang.Float anotherFloat) {
         int result = 0;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            final float a = this.value;
+            final float b = anotherFloat.floatValue();
+            if ((a == b) || (a != a) || (b != b)) {
+                result = 0;
+            } else {
+                if (a < b) {
+                    result = -1;
+                } else {
+                    result = 1;
+                }
+            }
         }
         return result;
     }
@@ -419,7 +444,11 @@ public final class Float implements LibSLRuntime.Automaton {
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            LibSLRuntime.todo();
+            if (obj instanceof java.lang.Float) {
+                result = this.value == ((Float) ((Object) obj)).value;
+            } else {
+                result = false;
+            }
         }
         return result;
     }
