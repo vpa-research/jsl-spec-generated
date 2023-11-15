@@ -121,7 +121,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
                 for (i = 0; i < this.length; i += 1) {
                     final double element = storage[i];
                     result += element;
-                    if (Double.isNaN(element)) {
+                    if (element != element) {
                         anyNaN = true;
                     }
                     if (element == DOUBLE_POSITIVE_INFINITY) {
