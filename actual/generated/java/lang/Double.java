@@ -99,6 +99,11 @@ public final class Double implements LibSLRuntime.Automaton {
                                 Engine.assume(result != 0L);
                                 Engine.assume(result != 9218868437227405312L);
                                 Engine.assume(result != -4503599627370496L);
+                                if (v < 0.0d) {
+                                    Engine.assume(result < 0L);
+                                } else {
+                                    Engine.assume(result > 0L);
+                                }
                             }
                         }
                     }
@@ -248,6 +253,11 @@ public final class Double implements LibSLRuntime.Automaton {
                                 Engine.assume(result == result);
                                 Engine.assume(result != POSITIVE_INFINITY);
                                 Engine.assume(result != NEGATIVE_INFINITY);
+                                if (value < 0L) {
+                                    Engine.assume(result < 0.0d);
+                                } else {
+                                    Engine.assume(result > 0.0d);
+                                }
                             }
                         }
                     }

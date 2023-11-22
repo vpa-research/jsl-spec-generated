@@ -111,6 +111,11 @@ public final class Float implements LibSLRuntime.Automaton {
                                 Engine.assume(result != 0);
                                 Engine.assume(result != 2139095040);
                                 Engine.assume(result != -8388608);
+                                if (v < 0.0f) {
+                                    Engine.assume(result < 0);
+                                } else {
+                                    Engine.assume(result > 0);
+                                }
                             }
                         }
                     }
@@ -221,6 +226,11 @@ public final class Float implements LibSLRuntime.Automaton {
                                 Engine.assume(result == result);
                                 Engine.assume(result != POSITIVE_INFINITY);
                                 Engine.assume(result != NEGATIVE_INFINITY);
+                                if (value < 0) {
+                                    Engine.assume(result < 0.0f);
+                                } else {
+                                    Engine.assume(result > 0.0f);
+                                }
                             }
                         }
                     }
