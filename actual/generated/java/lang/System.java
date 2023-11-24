@@ -303,6 +303,17 @@ public final class System implements LibSLRuntime.Automaton {
     }
 
     /**
+     * [FUNCTION] SystemAutomaton::getSecurityManager() -> SecurityManager
+     */
+    public static SecurityManager getSecurityManager() {
+        SecurityManager result = null;
+        /* body */ {
+            result = security;
+        }
+        return result;
+    }
+
+    /**
      * [FUNCTION] SystemAutomaton::getenv(String) -> String
      */
     public static String getenv(String name) {
@@ -424,8 +435,9 @@ public final class System implements LibSLRuntime.Automaton {
      */
     public static void setErr(PrintStream stream) {
         /* body */ {
-            if (stream == null) {
-                throw new NullPointerException();
+            final SecurityManager sm = security;
+            if (sm != null) {
+                sm.checkPermission(new RuntimePermission("setIO"));
             }
             err = stream;
         }
@@ -436,8 +448,9 @@ public final class System implements LibSLRuntime.Automaton {
      */
     public static void setIn(InputStream stream) {
         /* body */ {
-            if (stream == null) {
-                throw new NullPointerException();
+            final SecurityManager sm = security;
+            if (sm != null) {
+                sm.checkPermission(new RuntimePermission("setIO"));
             }
             in = stream;
         }
@@ -448,8 +461,9 @@ public final class System implements LibSLRuntime.Automaton {
      */
     public static void setOut(PrintStream stream) {
         /* body */ {
-            if (stream == null) {
-                throw new NullPointerException();
+            final SecurityManager sm = security;
+            if (sm != null) {
+                sm.checkPermission(new RuntimePermission("setIO"));
             }
             out = stream;
         }
@@ -484,6 +498,19 @@ public final class System implements LibSLRuntime.Automaton {
             propsMap.set(key, value);
         }
         return result;
+    }
+
+    /**
+     * [FUNCTION] SystemAutomaton::setSecurityManager(SecurityManager) -> void
+     */
+    public static void setSecurityManager(SecurityManager s) {
+        /* body */ {
+            final SecurityManager sm = security;
+            if (sm != null) {
+                sm.checkPermission(new RuntimePermission("setSecurityManager"));
+            }
+            security = s;
+        }
     }
 
     public static final class __$lsl_States {
