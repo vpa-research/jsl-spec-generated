@@ -213,9 +213,10 @@ public final class System implements LibSLRuntime.Automaton {
             if (key.length() == 0) {
                 throw new NullPointerException("key can't be empty");
             }
-            if (propsMap.hasKey(key)) {
-                result = propsMap.get(key);
-                propsMap.remove(key);
+            final LibSLRuntime.Map<String, String> pm = propsMap;
+            if (pm.hasKey(key)) {
+                result = pm.get(key);
+                pm.remove(key);
             }
         }
         return result;
@@ -272,8 +273,9 @@ public final class System implements LibSLRuntime.Automaton {
             if (key.length() == 0) {
                 throw new NullPointerException("key can't be empty");
             }
-            if (propsMap.hasKey(key)) {
-                result = propsMap.get(key);
+            final LibSLRuntime.Map<String, String> pm = propsMap;
+            if (pm.hasKey(key)) {
+                result = pm.get(key);
             } else {
                 result = null;
             }
@@ -293,8 +295,9 @@ public final class System implements LibSLRuntime.Automaton {
             if (key.length() == 0) {
                 throw new NullPointerException("key can't be empty");
             }
-            if (propsMap.hasKey(key)) {
-                result = propsMap.get(key);
+            final LibSLRuntime.Map<String, String> pm = propsMap;
+            if (pm.hasKey(key)) {
+                result = pm.get(key);
             } else {
                 result = def;
             }
@@ -490,12 +493,13 @@ public final class System implements LibSLRuntime.Automaton {
             if (key.length() == 0) {
                 throw new NullPointerException("key can't be empty");
             }
-            if (propsMap.hasKey(key)) {
-                result = propsMap.get(key);
+            final LibSLRuntime.Map<String, String> pm = propsMap;
+            if (pm.hasKey(key)) {
+                result = pm.get(key);
             } else {
                 result = null;
             }
-            propsMap.set(key, value);
+            pm.set(key, value);
         }
         return result;
     }
