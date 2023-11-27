@@ -213,6 +213,10 @@ public final class System implements LibSLRuntime.Automaton {
             if (key.length() == 0) {
                 throw new NullPointerException("key can't be empty");
             }
+            final SecurityManager sm = security;
+            if (sm != null) {
+                sm.checkPermission(new java.util.PropertyPermission(key, "write"));
+            }
             final LibSLRuntime.Map<String, String> pm = propsMap;
             if (pm.hasKey(key)) {
                 result = pm.get(key);
@@ -256,6 +260,10 @@ public final class System implements LibSLRuntime.Automaton {
     public static Properties getProperties() {
         Properties result = null;
         /* body */ {
+            final SecurityManager sm = security;
+            if (sm != null) {
+                sm.checkPropertiesAccess();
+            }
             result = props;
         }
         return result;
@@ -272,6 +280,10 @@ public final class System implements LibSLRuntime.Automaton {
             }
             if (key.length() == 0) {
                 throw new NullPointerException("key can't be empty");
+            }
+            final SecurityManager sm = security;
+            if (sm != null) {
+                sm.checkPropertyAccess(key);
             }
             final LibSLRuntime.Map<String, String> pm = propsMap;
             if (pm.hasKey(key)) {
@@ -294,6 +306,10 @@ public final class System implements LibSLRuntime.Automaton {
             }
             if (key.length() == 0) {
                 throw new NullPointerException("key can't be empty");
+            }
+            final SecurityManager sm = security;
+            if (sm != null) {
+                sm.checkPropertyAccess(key);
             }
             final LibSLRuntime.Map<String, String> pm = propsMap;
             if (pm.hasKey(key)) {
@@ -322,6 +338,10 @@ public final class System implements LibSLRuntime.Automaton {
     public static String getenv(String name) {
         String result = null;
         /* body */ {
+            final SecurityManager sm = security;
+            if (sm != null) {
+                sm.checkPermission(new RuntimePermission("getenv.".concat(name)));
+            }
             result = Engine.makeSymbolic(String.class);
             Engine.assume(result != null);
             final int len = result.length();
@@ -477,6 +497,10 @@ public final class System implements LibSLRuntime.Automaton {
      */
     public static void setProperties(Properties p) {
         /* body */ {
+            final SecurityManager sm = security;
+            if (sm != null) {
+                sm.checkPropertiesAccess();
+            }
             props = p;
         }
     }
@@ -492,6 +516,10 @@ public final class System implements LibSLRuntime.Automaton {
             }
             if (key.length() == 0) {
                 throw new NullPointerException("key can't be empty");
+            }
+            final SecurityManager sm = security;
+            if (sm != null) {
+                sm.checkPermission(new java.util.PropertyPermission(key, "write"));
             }
             final LibSLRuntime.Map<String, String> pm = propsMap;
             if (pm.hasKey(key)) {
