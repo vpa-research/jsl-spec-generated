@@ -32,6 +32,7 @@ import org.jacodb.approximation.annotation.Approximate;
 import org.usvm.api.Engine;
 import org.usvm.api.SymbolicList;
 import runtime.LibSLRuntime;
+import stub.java.util.stream.StreamLSL;
 
 /**
  * ArrayListAutomaton for ArrayList ~> java.util.ArrayList
@@ -331,9 +332,21 @@ public class ArrayList implements LibSLRuntime.Automaton, List, RandomAccess, Cl
     private Stream _makeStream(boolean parallel) {
         Stream result = null;
         /* body */ {
-            result = Engine.makeSymbolic(Stream.class);
-            Engine.assume(result != null);
-            Engine.assume(result.isParallel() == parallel);
+            final int count = this.storage.size();
+            final Object[] items = new Object[count];
+            int i = 0;
+            for (i = 0; i < count; i += 1) {
+                items[i] = this.storage.get(i);
+            }
+            ;
+            result = (StreamLSL) ((Object) new generated.java.util.stream.StreamLSL((Void) null, 
+                /* state = */ generated.java.util.stream.StreamLSL.__$lsl_States.Initialized, 
+                /* storage = */ items, 
+                /* length = */ count, 
+                /* closeHandlers = */ Engine.makeSymbolicList(), 
+                /* isParallel = */ parallel, 
+                /* linkedOrConsumed = */ false
+            ));
         }
         return result;
     }
@@ -690,18 +703,20 @@ public class ArrayList implements LibSLRuntime.Automaton, List, RandomAccess, Cl
         int result = 0;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            if (this.storage.size() == 0) {
-                result = -1;
-            } else {
-                Engine.assume(this.storage.size() > 0);
-                result = LibSLRuntime.ListActions.find(this.storage, o, 0, this.storage.size());
-                if (result != -1) {
-                    final int nextIndex = result + 1;
-                    if (nextIndex < this.storage.size()) {
-                        final int rightIndex = LibSLRuntime.ListActions.find(this.storage, o, nextIndex, this.storage.size());
-                        Engine.assume(rightIndex == -1);
+            result = -1;
+            final int size = this.storage.size();
+            if (size != 0) {
+                Engine.assume(size > 0);
+                final SymbolicList<Object> items = this.storage;
+                int i = 0;
+                for (i = size - 1; i > -1; i += -1) {
+                    final Object e = items.get(i);
+                    if (LibSLRuntime.equals(o, e)) {
+                        result = i;
+                        break;
                     }
                 }
+                ;
             }
         }
         return result;
