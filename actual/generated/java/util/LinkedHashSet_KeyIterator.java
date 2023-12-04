@@ -63,6 +63,7 @@ public final class LinkedHashSet_KeyIterator implements LibSLRuntime.Automaton, 
 
     /**
      * [CONSTRUCTOR] LinkedHashSet_KeyIteratorAutomaton::LinkedHashSet_KeyIterator(LinkedHashSet_KeyIterator, HashMap) -> LinkedHashSet_KeyIterator
+     * Source: java/util/LinkedHashSet.KeyIterator.lsl:65
      */
     private LinkedHashSet_KeyIterator(HashMap source) {
         this((Void) null);
@@ -75,6 +76,7 @@ public final class LinkedHashSet_KeyIterator implements LibSLRuntime.Automaton, 
 
     /**
      * [SUBROUTINE] LinkedHashSet_KeyIteratorAutomaton::_checkForComodification() -> void
+     * Source: java/util/LinkedHashSet.KeyIterator.lsl:55
      */
     private void _checkForComodification() {
         /* body */ {
@@ -87,6 +89,7 @@ public final class LinkedHashSet_KeyIterator implements LibSLRuntime.Automaton, 
 
     /**
      * [FUNCTION] LinkedHashSet_KeyIteratorAutomaton::hasNext(LinkedHashSet_KeyIterator) -> boolean
+     * Source: java/util/LinkedHashSet.KeyIterator.lsl:73
      */
     public boolean hasNext() {
         boolean result = false;
@@ -101,6 +104,7 @@ public final class LinkedHashSet_KeyIterator implements LibSLRuntime.Automaton, 
 
     /**
      * [FUNCTION] LinkedHashSet_KeyIteratorAutomaton::next(LinkedHashSet_KeyIterator) -> Object
+     * Source: java/util/LinkedHashSet.KeyIterator.lsl:83
      */
     public final Object next() {
         Object result = null;
@@ -126,6 +130,7 @@ public final class LinkedHashSet_KeyIterator implements LibSLRuntime.Automaton, 
 
     /**
      * [FUNCTION] LinkedHashSet_KeyIteratorAutomaton::remove(LinkedHashSet_KeyIterator) -> void
+     * Source: java/util/LinkedHashSet.KeyIterator.lsl:106
      */
     public void remove() {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -145,6 +150,7 @@ public final class LinkedHashSet_KeyIterator implements LibSLRuntime.Automaton, 
 
     /**
      * [FUNCTION] LinkedHashSet_KeyIteratorAutomaton::forEachRemaining(LinkedHashSet_KeyIterator, Consumer) -> void
+     * Source: java/util/LinkedHashSet.KeyIterator.lsl:126
      */
     public void forEachRemaining(Consumer userAction) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);

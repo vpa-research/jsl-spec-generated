@@ -53,6 +53,7 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
 
     /**
      * [SUBROUTINE] ArrayList_ListIteratorAutomaton::_checkForComodification() -> void
+     * Source: java/util/ArrayList.ListIterator.lsl:54
      */
     private void _checkForComodification() {
         /* body */ {
@@ -65,6 +66,7 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
 
     /**
      * [FUNCTION] ArrayList_ListIteratorAutomaton::hasPrevious(ArrayList_ListIterator) -> boolean
+     * Source: java/util/ArrayList.ListIterator.lsl:64
      */
     public boolean hasPrevious() {
         boolean result = false;
@@ -76,6 +78,7 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
 
     /**
      * [FUNCTION] ArrayList_ListIteratorAutomaton::nextIndex(ArrayList_ListIterator) -> int
+     * Source: java/util/ArrayList.ListIterator.lsl:70
      */
     public int nextIndex() {
         int result = 0;
@@ -87,6 +90,7 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
 
     /**
      * [FUNCTION] ArrayList_ListIteratorAutomaton::previousIndex(ArrayList_ListIterator) -> int
+     * Source: java/util/ArrayList.ListIterator.lsl:76
      */
     public int previousIndex() {
         int result = 0;
@@ -98,6 +102,7 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
 
     /**
      * [FUNCTION] ArrayList_ListIteratorAutomaton::hasNext(ArrayList_ListIterator) -> boolean
+     * Source: java/util/ArrayList.ListIterator.lsl:82
      */
     public boolean hasNext() {
         boolean result = false;
@@ -110,6 +115,7 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
 
     /**
      * [FUNCTION] ArrayList_ListIteratorAutomaton::next(ArrayList_ListIterator) -> Object
+     * Source: java/util/ArrayList.ListIterator.lsl:91
      */
     public Object next() {
         Object result = null;
@@ -130,6 +136,7 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
 
     /**
      * [FUNCTION] ArrayList_ListIteratorAutomaton::previous(ArrayList_ListIterator) -> Object
+     * Source: java/util/ArrayList.ListIterator.lsl:111
      */
     public Object previous() {
         Object result = null;
@@ -153,6 +160,7 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
 
     /**
      * [FUNCTION] ArrayList_ListIteratorAutomaton::remove(ArrayList_ListIterator) -> void
+     * Source: java/util/ArrayList.ListIterator.lsl:135
      */
     public void remove() {
         /* body */ {
@@ -176,6 +184,7 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
 
     /**
      * [FUNCTION] ArrayList_ListIteratorAutomaton::set(ArrayList_ListIterator, Object) -> void
+     * Source: java/util/ArrayList.ListIterator.lsl:163
      */
     public void set(Object e) {
         /* body */ {
@@ -195,6 +204,7 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
 
     /**
      * [FUNCTION] ArrayList_ListIteratorAutomaton::add(ArrayList_ListIterator, Object) -> void
+     * Source: java/util/ArrayList.ListIterator.lsl:181
      */
     public void add(Object e) {
         /* body */ {
@@ -216,6 +226,7 @@ public final class ArrayList_ListItr implements LibSLRuntime.Automaton, ListIter
 
     /**
      * [FUNCTION] ArrayList_ListIteratorAutomaton::forEachRemaining(ArrayList_ListIterator, Consumer) -> void
+     * Source: java/util/ArrayList.ListIterator.lsl:208
      */
     public void forEachRemaining(Consumer userAction) {
         /* body */ {

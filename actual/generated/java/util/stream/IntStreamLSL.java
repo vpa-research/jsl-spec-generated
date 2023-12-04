@@ -75,6 +75,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [SUBROUTINE] IntStreamAutomaton::_actionApply(IntConsumer) -> void
+     * Source: java/util/stream/IntStream.main.lsl:116
      */
     private void _actionApply(IntConsumer _action) {
         /* body */ {
@@ -91,6 +92,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [SUBROUTINE] IntStreamAutomaton::_findFirst() -> OptionalInt
+     * Source: java/util/stream/IntStream.main.lsl:135
      */
     private OptionalInt _findFirst() {
         OptionalInt result = null;
@@ -107,6 +109,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [SUBROUTINE] IntStreamAutomaton::_sum() -> int
+     * Source: java/util/stream/IntStream.main.lsl:149
      */
     private int _sum() {
         int result = 0;
@@ -125,6 +128,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::filter(IntStream, IntPredicate) -> IntStream
+     * Source: java/util/stream/IntStream.main.lsl:171
      */
     public IntStream filter(IntPredicate predicate) {
         IntStream result = null;
@@ -163,6 +167,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::map(IntStream, IntUnaryOperator) -> IntStream
+     * Source: java/util/stream/IntStream.main.lsl:212
      */
     public IntStream map(IntUnaryOperator mapper) {
         IntStream result = null;
@@ -194,6 +199,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::mapToObj(IntStream, IntFunction) -> Stream
+     * Source: java/util/stream/IntStream.main.lsl:243
      */
     public Stream mapToObj(IntFunction mapper) {
         Stream result = null;
@@ -222,6 +228,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::mapToLong(IntStream, IntToLongFunction) -> LongStream
+     * Source: java/util/stream/IntStream.main.lsl:272
      */
     public LongStream mapToLong(IntToLongFunction mapper) {
         LongStream result = null;
@@ -253,6 +260,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::mapToDouble(IntStream, IntToDoubleFunction) -> DoubleStream
+     * Source: java/util/stream/IntStream.main.lsl:303
      */
     public DoubleStream mapToDouble(IntToDoubleFunction mapper) {
         DoubleStream result = null;
@@ -284,6 +292,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::flatMap(IntStream, IntFunction) -> IntStream
+     * Source: java/util/stream/IntStream.main.lsl:334
      */
     public IntStream flatMap(IntFunction mapper) {
         IntStream result = null;
@@ -303,6 +312,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::sorted(IntStream) -> IntStream
+     * Source: java/util/stream/IntStream.main.lsl:350
      */
     public IntStream sorted() {
         IntStream result = null;
@@ -356,6 +366,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::distinct(IntStream) -> IntStream
+     * Source: java/util/stream/IntStream.main.lsl:413
      */
     public IntStream distinct() {
         IntStream result = null;
@@ -413,6 +424,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::peek(IntStream, IntConsumer) -> IntStream
+     * Source: java/util/stream/IntStream.main.lsl:485
      */
     public IntStream peek(IntConsumer _action) {
         IntStream result = null;
@@ -436,6 +448,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::limit(IntStream, long) -> IntStream
+     * Source: java/util/stream/IntStream.main.lsl:501
      */
     public IntStream limit(long maxSize) {
         IntStream result = null;
@@ -486,6 +499,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::skip(IntStream, long) -> IntStream
+     * Source: java/util/stream/IntStream.main.lsl:543
      */
     public IntStream skip(long n) {
         IntStream result = null;
@@ -544,6 +558,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::forEach(IntStream, IntConsumer) -> void
+     * Source: java/util/stream/IntStream.main.lsl:598
      */
     public void forEach(IntConsumer _action) {
         /* body */ {
@@ -557,6 +572,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::forEachOrdered(IntStream, IntConsumer) -> void
+     * Source: java/util/stream/IntStream.main.lsl:607
      */
     public void forEachOrdered(IntConsumer _action) {
         /* body */ {
@@ -570,6 +586,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::toArray(IntStream) -> array<int>
+     * Source: java/util/stream/IntStream.main.lsl:616
      */
     public int[] toArray() {
         int[] result = null;
@@ -585,6 +602,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::reduce(IntStream, int, IntBinaryOperator) -> int
+     * Source: java/util/stream/IntStream.main.lsl:625
      */
     public int reduce(int identity, IntBinaryOperator accumulator) {
         int result = 0;
@@ -611,6 +629,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::reduce(IntStream, IntBinaryOperator) -> OptionalInt
+     * Source: java/util/stream/IntStream.main.lsl:654
      */
     public OptionalInt reduce(IntBinaryOperator accumulator) {
         OptionalInt result = null;
@@ -641,6 +660,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::collect(IntStream, Supplier, ObjIntConsumer, BiConsumer) -> Object
+     * Source: java/util/stream/IntStream.main.lsl:688
      */
     public Object collect(Supplier supplier, ObjIntConsumer accumulator, BiConsumer combiner) {
         Object result = null;
@@ -670,6 +690,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::min(IntStream) -> OptionalInt
+     * Source: java/util/stream/IntStream.main.lsl:720
      */
     public OptionalInt min() {
         OptionalInt result = null;
@@ -697,6 +718,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::max(IntStream) -> OptionalInt
+     * Source: java/util/stream/IntStream.main.lsl:752
      */
     public OptionalInt max() {
         OptionalInt result = null;
@@ -724,6 +746,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::count(IntStream) -> long
+     * Source: java/util/stream/IntStream.main.lsl:784
      */
     public long count() {
         long result = 0L;
@@ -739,6 +762,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::anyMatch(IntStream, IntPredicate) -> boolean
+     * Source: java/util/stream/IntStream.main.lsl:793
      */
     public boolean anyMatch(IntPredicate predicate) {
         boolean result = false;
@@ -765,6 +789,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::allMatch(IntStream, IntPredicate) -> boolean
+     * Source: java/util/stream/IntStream.main.lsl:821
      */
     public boolean allMatch(IntPredicate predicate) {
         boolean result = false;
@@ -794,6 +819,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::noneMatch(IntStream, IntPredicate) -> boolean
+     * Source: java/util/stream/IntStream.main.lsl:847
      */
     public boolean noneMatch(IntPredicate predicate) {
         boolean result = false;
@@ -823,6 +849,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::findFirst(IntStream) -> OptionalInt
+     * Source: java/util/stream/IntStream.main.lsl:873
      */
     public OptionalInt findFirst() {
         OptionalInt result = null;
@@ -838,6 +865,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::findAny(IntStream) -> OptionalInt
+     * Source: java/util/stream/IntStream.main.lsl:882
      */
     public OptionalInt findAny() {
         OptionalInt result = null;
@@ -853,6 +881,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::iterator(IntStream) -> PrimitiveIterator_OfInt
+     * Source: java/util/stream/IntStream.main.lsl:891
      */
     public PrimitiveIterator.OfInt iterator() {
         PrimitiveIterator.OfInt result = null;
@@ -872,6 +901,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::spliterator(IntStream) -> Spliterator_OfInt
+     * Source: java/util/stream/IntStream.main.lsl:905
      */
     public Spliterator.OfInt spliterator() {
         Spliterator.OfInt result = null;
@@ -894,6 +924,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::isParallel(IntStream) -> boolean
+     * Source: java/util/stream/IntStream.main.lsl:922
      */
     public boolean isParallel() {
         boolean result = false;
@@ -905,6 +936,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::sequential(IntStream) -> IntStream
+     * Source: java/util/stream/IntStream.main.lsl:928
      */
     public IntStream sequential() {
         IntStream result = null;
@@ -917,6 +949,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::parallel(IntStream) -> IntStream
+     * Source: java/util/stream/IntStream.main.lsl:935
      */
     public IntStream parallel() {
         IntStream result = null;
@@ -929,6 +962,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::unordered(IntStream) -> IntStream
+     * Source: java/util/stream/IntStream.main.lsl:942
      */
     public IntStream unordered() {
         IntStream result = null;
@@ -951,6 +985,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::onClose(IntStream, Runnable) -> IntStream
+     * Source: java/util/stream/IntStream.main.lsl:955
      */
     public IntStream onClose(Runnable closeHandler) {
         IntStream result = null;
@@ -967,6 +1002,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::close(IntStream) -> void
+     * Source: java/util/stream/IntStream.main.lsl:967
      */
     public void close() {
         /* body */ {
@@ -984,6 +1020,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::dropWhile(IntStream, IntPredicate) -> IntStream
+     * Source: java/util/stream/IntStream.main.lsl:991
      */
     public IntStream dropWhile(IntPredicate predicate) {
         IntStream result = null;
@@ -1050,6 +1087,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::takeWhile(IntStream, IntPredicate) -> IntStream
+     * Source: java/util/stream/IntStream.main.lsl:1066
      */
     public IntStream takeWhile(IntPredicate predicate) {
         IntStream result = null;
@@ -1116,6 +1154,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::asLongStream(IntStream) -> LongStream
+     * Source: java/util/stream/IntStream.main.lsl:1141
      */
     public LongStream asLongStream() {
         LongStream result = null;
@@ -1157,6 +1196,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::asDoubleStream(IntStream) -> DoubleStream
+     * Source: java/util/stream/IntStream.main.lsl:1183
      */
     public DoubleStream asDoubleStream() {
         DoubleStream result = null;
@@ -1198,6 +1238,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::sum(IntStream) -> int
+     * Source: java/util/stream/IntStream.main.lsl:1225
      */
     public int sum() {
         int result = 0;
@@ -1213,6 +1254,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::average(IntStream) -> OptionalDouble
+     * Source: java/util/stream/IntStream.main.lsl:1235
      */
     public OptionalDouble average() {
         OptionalDouble result = null;
@@ -1234,6 +1276,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::summaryStatistics(IntStream) -> IntSummaryStatistics
+     * Source: java/util/stream/IntStream.main.lsl:1254
      */
     public IntSummaryStatistics summaryStatistics() {
         IntSummaryStatistics result = null;
@@ -1254,6 +1297,7 @@ public class IntStreamLSL implements LibSLRuntime.Automaton, IntStream {
 
     /**
      * [FUNCTION] IntStreamAutomaton::boxed(IntStream) -> Stream
+     * Source: java/util/stream/IntStream.main.lsl:1275
      */
     public Stream boxed() {
         Stream result = null;

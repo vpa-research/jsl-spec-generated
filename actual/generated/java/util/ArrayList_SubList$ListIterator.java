@@ -63,6 +63,7 @@ public final class ArrayList_SubList$ListIterator implements LibSLRuntime.Automa
 
     /**
      * [SUBROUTINE] ArrayList_SubList_ListIteratorAutomaton::_checkForComodification() -> void
+     * Source: java/util/ArrayList.SubList.ListIterator.lsl:57
      */
     private void _checkForComodification() {
         /* body */ {
@@ -75,6 +76,7 @@ public final class ArrayList_SubList$ListIterator implements LibSLRuntime.Automa
 
     /**
      * [FUNCTION] ArrayList_SubList_ListIteratorAutomaton::hasPrevious(ArrayList_SubList_ListIterator) -> boolean
+     * Source: java/util/ArrayList.SubList.ListIterator.lsl:67
      */
     public boolean hasPrevious() {
         boolean result = false;
@@ -86,6 +88,7 @@ public final class ArrayList_SubList$ListIterator implements LibSLRuntime.Automa
 
     /**
      * [FUNCTION] ArrayList_SubList_ListIteratorAutomaton::nextIndex(ArrayList_SubList_ListIterator) -> int
+     * Source: java/util/ArrayList.SubList.ListIterator.lsl:73
      */
     public int nextIndex() {
         int result = 0;
@@ -97,6 +100,7 @@ public final class ArrayList_SubList$ListIterator implements LibSLRuntime.Automa
 
     /**
      * [FUNCTION] ArrayList_SubList_ListIteratorAutomaton::previousIndex(ArrayList_SubList_ListIterator) -> int
+     * Source: java/util/ArrayList.SubList.ListIterator.lsl:79
      */
     public int previousIndex() {
         int result = 0;
@@ -108,6 +112,7 @@ public final class ArrayList_SubList$ListIterator implements LibSLRuntime.Automa
 
     /**
      * [FUNCTION] ArrayList_SubList_ListIteratorAutomaton::hasNext(ArrayList_SubList_ListIterator) -> boolean
+     * Source: java/util/ArrayList.SubList.ListIterator.lsl:85
      */
     public boolean hasNext() {
         boolean result = false;
@@ -119,6 +124,7 @@ public final class ArrayList_SubList$ListIterator implements LibSLRuntime.Automa
 
     /**
      * [FUNCTION] ArrayList_SubList_ListIteratorAutomaton::next(ArrayList_SubList_ListIterator) -> Object
+     * Source: java/util/ArrayList.SubList.ListIterator.lsl:91
      */
     public Object next() {
         Object result = null;
@@ -139,6 +145,7 @@ public final class ArrayList_SubList$ListIterator implements LibSLRuntime.Automa
 
     /**
      * [FUNCTION] ArrayList_SubList_ListIteratorAutomaton::previous(ArrayList_SubList_ListIterator) -> Object
+     * Source: java/util/ArrayList.SubList.ListIterator.lsl:111
      */
     public Object previous() {
         Object result = null;
@@ -162,6 +169,7 @@ public final class ArrayList_SubList$ListIterator implements LibSLRuntime.Automa
 
     /**
      * [FUNCTION] ArrayList_SubList_ListIteratorAutomaton::remove(ArrayList_SubList_ListIterator) -> void
+     * Source: java/util/ArrayList.SubList.ListIterator.lsl:134
      */
     public void remove() {
         /* body */ {
@@ -185,6 +193,7 @@ public final class ArrayList_SubList$ListIterator implements LibSLRuntime.Automa
 
     /**
      * [FUNCTION] ArrayList_SubList_ListIteratorAutomaton::set(ArrayList_SubList_ListIterator, Object) -> void
+     * Source: java/util/ArrayList.SubList.ListIterator.lsl:162
      */
     public void set(Object e) {
         /* body */ {
@@ -205,6 +214,7 @@ public final class ArrayList_SubList$ListIterator implements LibSLRuntime.Automa
 
     /**
      * [FUNCTION] ArrayList_SubList_ListIteratorAutomaton::add(ArrayList_SubList_ListIterator, Object) -> void
+     * Source: java/util/ArrayList.SubList.ListIterator.lsl:182
      */
     public void add(Object e) {
         /* body */ {
@@ -226,6 +236,7 @@ public final class ArrayList_SubList$ListIterator implements LibSLRuntime.Automa
 
     /**
      * [FUNCTION] ArrayList_SubList_ListIteratorAutomaton::forEachRemaining(ArrayList_SubList_ListIterator, Consumer) -> void
+     * Source: java/util/ArrayList.SubList.ListIterator.lsl:209
      */
     public void forEachRemaining(Consumer userAction) {
         /* body */ {

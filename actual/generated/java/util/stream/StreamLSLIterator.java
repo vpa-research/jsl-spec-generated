@@ -44,6 +44,7 @@ public class StreamLSLIterator implements LibSLRuntime.Automaton, Iterator {
 
     /**
      * [FUNCTION] StreamIteratorAutomaton::hasNext(StreamLSLIterator) -> boolean
+     * Source: java/util/stream/Stream.Iterator.lsl:36
      */
     public boolean hasNext() {
         boolean result = false;
@@ -56,6 +57,7 @@ public class StreamLSLIterator implements LibSLRuntime.Automaton, Iterator {
 
     /**
      * [FUNCTION] StreamIteratorAutomaton::next(StreamLSLIterator) -> Object
+     * Source: java/util/stream/Stream.Iterator.lsl:45
      */
     public Object next() {
         Object result = null;
@@ -74,6 +76,7 @@ public class StreamLSLIterator implements LibSLRuntime.Automaton, Iterator {
 
     /**
      * [FUNCTION] StreamIteratorAutomaton::remove(StreamLSLIterator) -> void
+     * Source: java/util/stream/Stream.Iterator.lsl:61
      */
     public void remove() {
         /* body */ {
@@ -83,6 +86,7 @@ public class StreamLSLIterator implements LibSLRuntime.Automaton, Iterator {
 
     /**
      * [FUNCTION] StreamIteratorAutomaton::forEachRemaining(StreamLSLIterator, Consumer) -> void
+     * Source: java/util/stream/Stream.Iterator.lsl:67
      */
     public void forEachRemaining(Consumer userAction) {
         /* body */ {

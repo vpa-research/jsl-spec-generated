@@ -52,6 +52,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [CONSTRUCTOR] RandomAutomaton::Random(Random) -> Random
+     * Source: java/util/Random.main.lsl:137
      */
     public Random() {
         this((Void) null);
@@ -64,6 +65,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [CONSTRUCTOR] RandomAutomaton::Random(Random, long) -> Random
+     * Source: java/util/Random.main.lsl:143
      */
     public Random(long seed) {
         this((Void) null);
@@ -76,6 +78,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [SUBROUTINE] RandomAutomaton::_nextBytes(array<byte>, int) -> void
+     * Source: java/util/Random.main.lsl:72
      */
     private static void _nextBytes(byte[] result, int numBytes) {
         /* body */ {
@@ -86,6 +89,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [SUBROUTINE] RandomAutomaton::_generateRandomIntegerArrayWithBounds(int, int, int) -> array<int>
+     * Source: java/util/Random.main.lsl:79
      */
     private int[] _generateRandomIntegerArrayWithBounds(int size, int randomNumberOrigin,
             int randomNumberBound) {
@@ -104,6 +108,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [SUBROUTINE] RandomAutomaton::_generateRandomLongArrayWithBounds(int, long, long) -> array<long>
+     * Source: java/util/Random.main.lsl:97
      */
     private long[] _generateRandomLongArrayWithBounds(int size, long randomNumberOrigin,
             long randomNumberBound) {
@@ -122,6 +127,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [SUBROUTINE] RandomAutomaton::_generateRandomDoubleArrayWithBounds(int, double, double) -> array<double>
+     * Source: java/util/Random.main.lsl:115
      */
     private double[] _generateRandomDoubleArrayWithBounds(int size, double randomNumberOrigin,
             double randomNumberBound) {
@@ -142,6 +148,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] RandomAutomaton::doubles(Random) -> DoubleStream
+     * Source: java/util/Random.main.lsl:153
      */
     public DoubleStream doubles() {
         DoubleStream result = null;
@@ -161,6 +168,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] RandomAutomaton::doubles(Random, double, double) -> DoubleStream
+     * Source: java/util/Random.main.lsl:163
      */
     public DoubleStream doubles(double randomNumberOrigin, double randomNumberBound) {
         DoubleStream result = null;
@@ -183,6 +191,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] RandomAutomaton::doubles(Random, long) -> DoubleStream
+     * Source: java/util/Random.main.lsl:175
      */
     public DoubleStream doubles(long streamSize) {
         DoubleStream result = null;
@@ -209,6 +218,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] RandomAutomaton::doubles(Random, long, double, double) -> DoubleStream
+     * Source: java/util/Random.main.lsl:192
      */
     public DoubleStream doubles(long streamSize, double randomNumberOrigin,
             double randomNumberBound) {
@@ -239,6 +249,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] RandomAutomaton::ints(Random) -> IntStream
+     * Source: java/util/Random.main.lsl:211
      */
     public IntStream ints() {
         IntStream result = null;
@@ -258,6 +269,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] RandomAutomaton::ints(Random, int, int) -> IntStream
+     * Source: java/util/Random.main.lsl:221
      */
     public IntStream ints(int randomNumberOrigin, int randomNumberBound) {
         IntStream result = null;
@@ -280,6 +292,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] RandomAutomaton::ints(Random, long) -> IntStream
+     * Source: java/util/Random.main.lsl:233
      */
     public IntStream ints(long streamSize) {
         IntStream result = null;
@@ -306,6 +319,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] RandomAutomaton::ints(Random, long, int, int) -> IntStream
+     * Source: java/util/Random.main.lsl:250
      */
     public IntStream ints(long streamSize, int randomNumberOrigin, int randomNumberBound) {
         IntStream result = null;
@@ -335,6 +349,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] RandomAutomaton::longs(Random) -> LongStream
+     * Source: java/util/Random.main.lsl:269
      */
     public LongStream longs() {
         LongStream result = null;
@@ -354,6 +369,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] RandomAutomaton::longs(Random, long) -> LongStream
+     * Source: java/util/Random.main.lsl:279
      */
     public LongStream longs(long streamSize) {
         LongStream result = null;
@@ -380,6 +396,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] RandomAutomaton::longs(Random, long, long) -> LongStream
+     * Source: java/util/Random.main.lsl:296
      */
     public LongStream longs(long randomNumberOrigin, long randomNumberBound) {
         LongStream result = null;
@@ -402,6 +419,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] RandomAutomaton::longs(Random, long, long, long) -> LongStream
+     * Source: java/util/Random.main.lsl:308
      */
     public LongStream longs(long streamSize, long randomNumberOrigin, long randomNumberBound) {
         LongStream result = null;
@@ -431,6 +449,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] RandomAutomaton::nextBoolean(Random) -> boolean
+     * Source: java/util/Random.main.lsl:327
      */
     public boolean nextBoolean() {
         boolean result = false;
@@ -443,6 +462,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] RandomAutomaton::nextBytes(Random, array<byte>) -> void
+     * Source: java/util/Random.main.lsl:333
      */
     public void nextBytes(byte[] bytes) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -453,6 +473,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] RandomAutomaton::nextDouble(Random) -> double
+     * Source: java/util/Random.main.lsl:339
      */
     public double nextDouble() {
         double result = 0.0d;
@@ -467,6 +488,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] RandomAutomaton::nextFloat(Random) -> float
+     * Source: java/util/Random.main.lsl:348
      */
     public float nextFloat() {
         float result = 0.0f;
@@ -481,6 +503,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] RandomAutomaton::nextGaussian(Random) -> double
+     * Source: java/util/Random.main.lsl:357
      */
     public synchronized double nextGaussian() {
         double result = 0.0d;
@@ -495,6 +518,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] RandomAutomaton::nextInt(Random) -> int
+     * Source: java/util/Random.main.lsl:365
      */
     public int nextInt() {
         int result = 0;
@@ -507,6 +531,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] RandomAutomaton::nextInt(Random, int) -> int
+     * Source: java/util/Random.main.lsl:371
      */
     public int nextInt(int bound) {
         int result = 0;
@@ -524,6 +549,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] RandomAutomaton::nextLong(Random) -> long
+     * Source: java/util/Random.main.lsl:383
      */
     public long nextLong() {
         long result = 0L;
@@ -536,6 +562,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] RandomAutomaton::setSeed(Random, long) -> void
+     * Source: java/util/Random.main.lsl:389
      */
     public synchronized void setSeed(long seed) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -546,6 +573,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] RandomAutomaton::readObject(ObjectInputStream) -> void
+     * Source: java/util/Random.main.lsl:397
      */
     private void readObject(ObjectInputStream s) throws java.io.IOException,
             java.lang.ClassNotFoundException {
@@ -556,6 +584,7 @@ public class Random implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] RandomAutomaton::writeObject(ObjectOutputStream) -> void
+     * Source: java/util/Random.main.lsl:403
      */
     private synchronized void writeObject(ObjectOutputStream s) throws java.io.IOException {
         /* body */ {

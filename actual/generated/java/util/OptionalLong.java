@@ -51,6 +51,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
 
     /**
      * [CONSTRUCTOR] OptionalLongAutomaton::LSLOptionalLong(LSLOptionalLong) -> LSLOptionalLong
+     * Source: java/util/OptionalLong.automata.lsl:79
      */
     private OptionalLong() {
         this((Void) null);
@@ -63,6 +64,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
 
     /**
      * [CONSTRUCTOR] OptionalLongAutomaton::LSLOptionalLong(LSLOptionalLong, long) -> LSLOptionalLong
+     * Source: java/util/OptionalLong.automata.lsl:85
      */
     private OptionalLong(long x) {
         this((Void) null);
@@ -75,6 +77,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] OptionalLongAutomaton::empty() -> OptionalLong
+     * Source: java/util/OptionalLong.automata.lsl:93
      */
     public static java.util.OptionalLong empty() {
         java.util.OptionalLong result = null;
@@ -88,6 +91,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] OptionalLongAutomaton::of(long) -> OptionalLong
+     * Source: java/util/OptionalLong.automata.lsl:99
      */
     public static java.util.OptionalLong of(long x) {
         java.util.OptionalLong result = null;
@@ -105,6 +109,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] OptionalLongAutomaton::equals(LSLOptionalLong, Object) -> boolean
+     * Source: java/util/OptionalLong.automata.lsl:110
      */
     public boolean equals(Object other) {
         boolean result = false;
@@ -132,6 +137,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] OptionalLongAutomaton::getAsLong(LSLOptionalLong) -> long
+     * Source: java/util/OptionalLong.automata.lsl:138
      */
     public long getAsLong() {
         long result = 0L;
@@ -147,6 +153,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] OptionalLongAutomaton::hashCode(LSLOptionalLong) -> int
+     * Source: java/util/OptionalLong.automata.lsl:147
      */
     public int hashCode() {
         int result = 0;
@@ -163,6 +170,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] OptionalLongAutomaton::ifPresent(LSLOptionalLong, LongConsumer) -> void
+     * Source: java/util/OptionalLong.automata.lsl:157
      */
     public void ifPresent(LongConsumer consumer) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -178,6 +186,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] OptionalLongAutomaton::ifPresentOrElse(LSLOptionalLong, LongConsumer, Runnable) -> void
+     * Source: java/util/OptionalLong.automata.lsl:171
      */
     public void ifPresentOrElse(LongConsumer consumer, Runnable emptyAction) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -198,6 +207,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] OptionalLongAutomaton::isEmpty(LSLOptionalLong) -> boolean
+     * Source: java/util/OptionalLong.automata.lsl:193
      */
     public boolean isEmpty() {
         boolean result = false;
@@ -210,6 +220,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] OptionalLongAutomaton::isPresent(LSLOptionalLong) -> boolean
+     * Source: java/util/OptionalLong.automata.lsl:199
      */
     public boolean isPresent() {
         boolean result = false;
@@ -222,6 +233,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] OptionalLongAutomaton::orElse(LSLOptionalLong, long) -> long
+     * Source: java/util/OptionalLong.automata.lsl:205
      */
     public long orElse(long other) {
         long result = 0L;
@@ -238,6 +250,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] OptionalLongAutomaton::orElseGet(LSLOptionalLong, LongSupplier) -> long
+     * Source: java/util/OptionalLong.automata.lsl:214
      */
     public long orElseGet(LongSupplier supplier) {
         long result = 0L;
@@ -257,6 +270,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] OptionalLongAutomaton::orElseThrow(LSLOptionalLong) -> long
+     * Source: java/util/OptionalLong.automata.lsl:228
      */
     public long orElseThrow() {
         long result = 0L;
@@ -272,6 +286,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] OptionalLongAutomaton::orElseThrow(LSLOptionalLong, Supplier) -> long
+     * Source: java/util/OptionalLong.automata.lsl:239
      */
     public long orElseThrow(Supplier exceptionSupplier) throws java.lang.Throwable {
         long result = 0L;
@@ -292,6 +307,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] OptionalLongAutomaton::stream(LSLOptionalLong) -> LongStream
+     * Source: java/util/OptionalLong.automata.lsl:260
      */
     public LongStream stream() {
         LongStream result = null;
@@ -305,6 +321,7 @@ public final class OptionalLong implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] OptionalLongAutomaton::toString(LSLOptionalLong) -> String
+     * Source: java/util/OptionalLong.automata.lsl:268
      */
     public String toString() {
         String result = null;

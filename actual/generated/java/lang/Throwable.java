@@ -45,6 +45,7 @@ public class Throwable implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] ThrowableAutomaton::addSuppressed(LSLThrowable, Throwable) -> void
+     * Source: java/lang/Throwable.main.lsl:100
      */
     public final synchronized void addSuppressed(java.lang.Throwable exception) {
         /* body */ {
@@ -53,6 +54,7 @@ public class Throwable implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] ThrowableAutomaton::fillInStackTrace(LSLThrowable) -> Throwable
+     * Source: java/lang/Throwable.main.lsl:106
      */
     public synchronized java.lang.Throwable fillInStackTrace() {
         java.lang.Throwable result = null;
@@ -64,6 +66,7 @@ public class Throwable implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] ThrowableAutomaton::getStackTrace(LSLThrowable) -> array<StackTraceElement>
+     * Source: java/lang/Throwable.main.lsl:133
      */
     public StackTraceElement[] getStackTrace() {
         StackTraceElement[] result = null;
@@ -78,6 +81,7 @@ public class Throwable implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] ThrowableAutomaton::getSuppressed(LSLThrowable) -> array<Throwable>
+     * Source: java/lang/Throwable.main.lsl:143
      */
     public final synchronized java.lang.Throwable[] getSuppressed() {
         java.lang.Throwable[] result = null;
@@ -92,6 +96,7 @@ public class Throwable implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] ThrowableAutomaton::printStackTrace(LSLThrowable) -> void
+     * Source: java/lang/Throwable.main.lsl:160
      */
     public void printStackTrace() {
         /* body */ {
@@ -100,6 +105,7 @@ public class Throwable implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] ThrowableAutomaton::setStackTrace(LSLThrowable, array<StackTraceElement>) -> void
+     * Source: java/lang/Throwable.main.lsl:180
      */
     public void setStackTrace(StackTraceElement[] stackTrace) {
         /* body */ {

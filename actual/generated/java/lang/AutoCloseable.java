@@ -22,6 +22,7 @@ public interface AutoCloseable extends LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] AutoCloseableAutomaton::close(LSLAutoCloseable) -> void
+     * Source: java/lang/AutoCloseable.main.lsl:38
      */
     default void close() {
         /* body */ {

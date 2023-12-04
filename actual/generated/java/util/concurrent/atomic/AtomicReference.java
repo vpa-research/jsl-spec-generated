@@ -45,6 +45,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [CONSTRUCTOR] AtomicReferenceAutomaton::LSLAtomicReference(LSLAtomicReference) -> LSLAtomicReference
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:71
      */
     public AtomicReference() {
         this((Void) null);
@@ -57,6 +58,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [CONSTRUCTOR] AtomicReferenceAutomaton::LSLAtomicReference(LSLAtomicReference, Object) -> LSLAtomicReference
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:77
      */
     public AtomicReference(Object initialValue) {
         this((Void) null);
@@ -69,6 +71,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::accumulateAndGet(LSLAtomicReference, Object, BinaryOperator) -> Object
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:87
      */
     public final Object accumulateAndGet(Object x, BinaryOperator accumulatorFunction) {
         Object result = null;
@@ -82,6 +85,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::compareAndExchange(LSLAtomicReference, Object, Object) -> Object
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:94
      */
     public final Object compareAndExchange(Object expectedValue, Object newValue) {
         Object result = null;
@@ -97,6 +101,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::compareAndExchangeAcquire(LSLAtomicReference, Object, Object) -> Object
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:102
      */
     public final Object compareAndExchangeAcquire(Object expectedValue, Object newValue) {
         Object result = null;
@@ -112,6 +117,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::compareAndExchangeRelease(LSLAtomicReference, Object, Object) -> Object
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:111
      */
     public final Object compareAndExchangeRelease(Object expectedValue, Object newValue) {
         Object result = null;
@@ -127,6 +133,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::compareAndSet(LSLAtomicReference, Object, Object) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:120
      */
     public final boolean compareAndSet(Object expectedValue, Object newValue) {
         boolean result = false;
@@ -142,6 +149,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::get(LSLAtomicReference) -> Object
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:128
      */
     public final Object get() {
         Object result = null;
@@ -154,6 +162,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::getAcquire(LSLAtomicReference) -> Object
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:134
      */
     public final Object getAcquire() {
         Object result = null;
@@ -166,6 +175,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::getAndAccumulate(LSLAtomicReference, Object, BinaryOperator) -> Object
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:141
      */
     public final Object getAndAccumulate(Object x, BinaryOperator accumulatorFunction) {
         Object result = null;
@@ -179,6 +189,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::getAndSet(LSLAtomicReference, Object) -> Object
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:148
      */
     public final Object getAndSet(Object newValue) {
         Object result = null;
@@ -192,6 +203,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::getAndUpdate(LSLAtomicReference, UnaryOperator) -> Object
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:155
      */
     public final Object getAndUpdate(UnaryOperator updateFunction) {
         Object result = null;
@@ -205,6 +217,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::getOpaque(LSLAtomicReference) -> Object
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:162
      */
     public final Object getOpaque() {
         Object result = null;
@@ -217,6 +230,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::getPlain(LSLAtomicReference) -> Object
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:169
      */
     public final Object getPlain() {
         Object result = null;
@@ -229,6 +243,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::lazySet(LSLAtomicReference, Object) -> void
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:176
      */
     public final void lazySet(Object newValue) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -239,6 +254,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::set(LSLAtomicReference, Object) -> void
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:183
      */
     public final void set(Object newValue) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -249,6 +265,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::setOpaque(LSLAtomicReference, Object) -> void
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:189
      */
     public final void setOpaque(Object newValue) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -259,6 +276,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::setPlain(LSLAtomicReference, Object) -> void
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:196
      */
     public final void setPlain(Object newValue) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -269,6 +287,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::setRelease(LSLAtomicReference, Object) -> void
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:203
      */
     public final void setRelease(Object newValue) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -279,6 +298,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::toString(LSLAtomicReference) -> String
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:210
      */
     public String toString() {
         String result = null;
@@ -291,6 +311,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::updateAndGet(LSLAtomicReference, UnaryOperator) -> Object
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:216
      */
     public final Object updateAndGet(UnaryOperator updateFunction) {
         Object result = null;
@@ -304,6 +325,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::weakCompareAndSet(LSLAtomicReference, Object, Object) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:223
      */
     public final boolean weakCompareAndSet(Object expectedValue, Object newValue) {
         boolean result = false;
@@ -319,6 +341,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::weakCompareAndSetAcquire(LSLAtomicReference, Object, Object) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:232
      */
     public final boolean weakCompareAndSetAcquire(Object expectedValue, Object newValue) {
         boolean result = false;
@@ -334,6 +357,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::weakCompareAndSetPlain(LSLAtomicReference, Object, Object) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:241
      */
     public final boolean weakCompareAndSetPlain(Object expectedValue, Object newValue) {
         boolean result = false;
@@ -349,6 +373,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::weakCompareAndSetRelease(LSLAtomicReference, Object, Object) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:250
      */
     public final boolean weakCompareAndSetRelease(Object expectedValue, Object newValue) {
         boolean result = false;
@@ -364,6 +389,7 @@ public class AtomicReference implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicReferenceAutomaton::weakCompareAndSetVolatile(LSLAtomicReference, Object, Object) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicReference.main.lsl:259
      */
     public final boolean weakCompareAndSetVolatile(Object expectedValue, Object newValue) {
         boolean result = false;

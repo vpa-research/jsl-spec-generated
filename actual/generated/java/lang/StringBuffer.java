@@ -56,6 +56,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [CONSTRUCTOR] StringBufferAutomaton::StringBuffer(StringBuffer) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:300
      */
     public StringBuffer() {
         this((Void) null);
@@ -67,6 +68,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [CONSTRUCTOR] StringBufferAutomaton::StringBuffer(StringBuffer, CharSequence) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:307
      */
     public StringBuffer(CharSequence seq) {
         this((Void) null);
@@ -82,6 +84,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [CONSTRUCTOR] StringBufferAutomaton::StringBuffer(StringBuffer, String) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:316
      */
     public StringBuffer(String str) {
         this((Void) null);
@@ -97,6 +100,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [CONSTRUCTOR] StringBufferAutomaton::StringBuffer(StringBuffer, int) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:325
      */
     public StringBuffer(int capacity) {
         this((Void) null);
@@ -108,6 +112,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [SUBROUTINE] StringBufferAutomaton::_checkRange(int, int, int) -> void
+     * Source: java/lang/StringBuffer.main.lsl:100
      */
     private void _checkRange(int start, int end, int len) {
         /* body */ {
@@ -119,6 +124,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [SUBROUTINE] StringBufferAutomaton::_checkRangeSIOOBE(int, int, int) -> void
+     * Source: java/lang/StringBuffer.main.lsl:110
      */
     private void _checkRangeSIOOBE(int start, int end, int len) {
         /* body */ {
@@ -130,6 +136,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [SUBROUTINE] StringBufferAutomaton::_checkIndex(int) -> void
+     * Source: java/lang/StringBuffer.main.lsl:120
      */
     private void _checkIndex(int index) {
         /* body */ {
@@ -141,6 +148,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [SUBROUTINE] StringBufferAutomaton::_checkOffset(int) -> void
+     * Source: java/lang/StringBuffer.main.lsl:130
      */
     private void _checkOffset(int offset) {
         /* body */ {
@@ -152,6 +160,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [SUBROUTINE] StringBufferAutomaton::_isBmpCodePoint(int) -> boolean
+     * Source: java/lang/StringBuffer.main.lsl:139
      */
     private boolean _isBmpCodePoint(int codePoint) {
         boolean result = false;
@@ -163,6 +172,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [SUBROUTINE] StringBufferAutomaton::_isValidCodePoint(int) -> boolean
+     * Source: java/lang/StringBuffer.main.lsl:145
      */
     private boolean _isValidCodePoint(int codePoint) {
         boolean result = false;
@@ -174,6 +184,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [SUBROUTINE] StringBufferAutomaton::_lowSurrogate(int) -> char
+     * Source: java/lang/StringBuffer.main.lsl:151
      */
     private char _lowSurrogate(int codePoint) {
         char result = '?';
@@ -185,6 +196,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [SUBROUTINE] StringBufferAutomaton::_highSurrogate(int) -> char
+     * Source: java/lang/StringBuffer.main.lsl:157
      */
     private char _highSurrogate(int codePoint) {
         char result = '?';
@@ -196,6 +208,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [SUBROUTINE] StringBufferAutomaton::_appendCharSequence(CharSequence) -> void
+     * Source: java/lang/StringBuffer.main.lsl:163
      */
     private void _appendCharSequence(CharSequence seq) {
         /* body */ {
@@ -217,6 +230,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [SUBROUTINE] StringBufferAutomaton::_appendString(String) -> void
+     * Source: java/lang/StringBuffer.main.lsl:191
      */
     private void _appendString(String str) {
         /* body */ {
@@ -232,6 +246,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [SUBROUTINE] StringBufferAutomaton::_delete(int, int) -> void
+     * Source: java/lang/StringBuffer.main.lsl:206
      */
     private void _delete(int start, int end) {
         /* body */ {
@@ -256,6 +271,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [SUBROUTINE] StringBufferAutomaton::_insertCharSequence(int, CharSequence, int, int, int) -> void
+     * Source: java/lang/StringBuffer.main.lsl:241
      */
     private void _insertCharSequence(int dstOffset, CharSequence s, int len, int start, int end) {
         /* body */ {
@@ -286,6 +302,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [SUBROUTINE] StringBufferAutomaton::_substring(int, int) -> String
+     * Source: java/lang/StringBuffer.main.lsl:276
      */
     private String _substring(int start, int end) {
         String result = null;
@@ -307,6 +324,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::append(StringBuffer, CharSequence) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:334
      */
     public synchronized StringBuffer append(CharSequence seq) {
         StringBuffer result = null;
@@ -320,6 +338,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::append(StringBuffer, CharSequence, int, int) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:342
      */
     public synchronized StringBuffer append(CharSequence s, int start, int end) {
         StringBuffer result = null;
@@ -346,6 +365,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::append(StringBuffer, Object) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:364
      */
     public synchronized StringBuffer append(Object obj) {
         StringBuffer result = null;
@@ -366,6 +386,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::append(StringBuffer, String) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:381
      */
     public synchronized StringBuffer append(String str) {
         StringBuffer result = null;
@@ -379,6 +400,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::append(StringBuffer, StringBuffer) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:389
      */
     public synchronized StringBuffer append(StringBuffer sb) {
         StringBuffer result = null;
@@ -401,6 +423,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::append(StringBuffer, boolean) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:407
      */
     public synchronized StringBuffer append(boolean b) {
         StringBuffer result = null;
@@ -420,6 +443,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::append(StringBuffer, char) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:423
      */
     public synchronized StringBuffer append(char c) {
         StringBuffer result = null;
@@ -434,6 +458,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::append(StringBuffer, array<char>) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:431
      */
     public synchronized StringBuffer append(char[] str) {
         StringBuffer result = null;
@@ -449,6 +474,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::append(StringBuffer, array<char>, int, int) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:447
      */
     public synchronized StringBuffer append(char[] str, int offset, int len) {
         StringBuffer result = null;
@@ -474,6 +500,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::append(StringBuffer, double) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:465
      */
     public synchronized StringBuffer append(double d) {
         StringBuffer result = null;
@@ -489,6 +516,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::append(StringBuffer, float) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:474
      */
     public synchronized StringBuffer append(float f) {
         StringBuffer result = null;
@@ -504,6 +532,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::append(StringBuffer, int) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:483
      */
     public synchronized StringBuffer append(int i) {
         StringBuffer result = null;
@@ -519,6 +548,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::append(StringBuffer, long) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:492
      */
     public synchronized StringBuffer append(long lng) {
         StringBuffer result = null;
@@ -534,6 +564,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::appendCodePoint(StringBuffer, int) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:501
      */
     public synchronized StringBuffer appendCodePoint(int codePoint) {
         StringBuffer result = null;
@@ -561,6 +592,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::capacity(StringBuffer) -> int
+     * Source: java/lang/StringBuffer.main.lsl:526
      */
     public synchronized int capacity() {
         int result = 0;
@@ -573,6 +605,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::charAt(StringBuffer, int) -> char
+     * Source: java/lang/StringBuffer.main.lsl:535
      */
     public synchronized char charAt(int index) {
         char result = '?';
@@ -586,6 +619,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::chars(StringBuffer) -> IntStream
+     * Source: java/lang/StringBuffer.main.lsl:544
      */
     public IntStream chars() {
         IntStream result = null;
@@ -612,6 +646,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::codePointAt(StringBuffer, int) -> int
+     * Source: java/lang/StringBuffer.main.lsl:569
      */
     public synchronized int codePointAt(int index) {
         int result = 0;
@@ -625,6 +660,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::codePointBefore(StringBuffer, int) -> int
+     * Source: java/lang/StringBuffer.main.lsl:577
      */
     public synchronized int codePointBefore(int index) {
         int result = 0;
@@ -639,6 +675,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::codePointCount(StringBuffer, int, int) -> int
+     * Source: java/lang/StringBuffer.main.lsl:586
      */
     public synchronized int codePointCount(int beginIndex, int endIndex) {
         int result = 0;
@@ -654,6 +691,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::codePoints(StringBuffer) -> IntStream
+     * Source: java/lang/StringBuffer.main.lsl:596
      */
     public IntStream codePoints() {
         IntStream result = null;
@@ -680,6 +718,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::compareTo(StringBuffer, StringBuffer) -> int
+     * Source: java/lang/StringBuffer.main.lsl:615
      */
     public synchronized int compareTo(StringBuffer another) {
         int result = 0;
@@ -697,6 +736,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::delete(StringBuffer, int, int) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:629
      */
     public synchronized StringBuffer delete(int start, int end) {
         StringBuffer result = null;
@@ -714,6 +754,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::deleteCharAt(StringBuffer, int) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:642
      */
     public synchronized StringBuffer deleteCharAt(int index) {
         StringBuffer result = null;
@@ -728,6 +769,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::ensureCapacity(StringBuffer, int) -> void
+     * Source: java/lang/StringBuffer.main.lsl:652
      */
     public synchronized void ensureCapacity(int minimumCapacity) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -738,6 +780,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::getChars(StringBuffer, int, int, array<char>, int) -> void
+     * Source: java/lang/StringBuffer.main.lsl:659
      */
     public synchronized void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -758,6 +801,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::indexOf(StringBuffer, String) -> int
+     * Source: java/lang/StringBuffer.main.lsl:683
      */
     public int indexOf(String str) {
         int result = 0;
@@ -770,6 +814,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::indexOf(StringBuffer, String, int) -> int
+     * Source: java/lang/StringBuffer.main.lsl:689
      */
     public synchronized int indexOf(String str, int fromIndex) {
         int result = 0;
@@ -782,6 +827,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::insert(StringBuffer, int, CharSequence) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:695
      */
     public StringBuffer insert(int dstOffset, CharSequence s) {
         StringBuffer result = null;
@@ -802,6 +848,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::insert(StringBuffer, int, CharSequence, int, int) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:711
      */
     public synchronized StringBuffer insert(int dstOffset, CharSequence s, int start, int end) {
         StringBuffer result = null;
@@ -822,6 +869,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::insert(StringBuffer, int, Object) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:727
      */
     public synchronized StringBuffer insert(int dstOffset, Object obj) {
         StringBuffer result = null;
@@ -842,6 +890,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::insert(StringBuffer, int, String) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:745
      */
     public synchronized StringBuffer insert(int dstOffset, String s) {
         StringBuffer result = null;
@@ -862,6 +911,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::insert(StringBuffer, int, boolean) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:760
      */
     public StringBuffer insert(int dstOffset, boolean b) {
         StringBuffer result = null;
@@ -882,6 +932,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::insert(StringBuffer, int, char) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:778
      */
     public synchronized StringBuffer insert(int dstOffset, char c) {
         StringBuffer result = null;
@@ -913,6 +964,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::insert(StringBuffer, int, array<char>) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:805
      */
     public synchronized StringBuffer insert(int dstOffset, char[] str) {
         StringBuffer result = null;
@@ -929,6 +981,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::insert(StringBuffer, int, array<char>, int, int) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:817
      */
     public synchronized StringBuffer insert(int index, char[] str, int offset, int len) {
         StringBuffer result = null;
@@ -946,6 +999,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::insert(StringBuffer, int, double) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:832
      */
     public StringBuffer insert(int dstOffset, double d) {
         StringBuffer result = null;
@@ -962,6 +1016,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::insert(StringBuffer, int, float) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:844
      */
     public StringBuffer insert(int dstOffset, float f) {
         StringBuffer result = null;
@@ -978,6 +1033,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::insert(StringBuffer, int, int) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:856
      */
     public StringBuffer insert(int dstOffset, int ii) {
         StringBuffer result = null;
@@ -994,6 +1050,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::insert(StringBuffer, int, long) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:868
      */
     public StringBuffer insert(int dstOffset, long l) {
         StringBuffer result = null;
@@ -1010,6 +1067,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::lastIndexOf(StringBuffer, String) -> int
+     * Source: java/lang/StringBuffer.main.lsl:880
      */
     public int lastIndexOf(String str) {
         int result = 0;
@@ -1022,6 +1080,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::lastIndexOf(StringBuffer, String, int) -> int
+     * Source: java/lang/StringBuffer.main.lsl:886
      */
     public synchronized int lastIndexOf(String str, int fromIndex) {
         int result = 0;
@@ -1034,6 +1093,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::length(StringBuffer) -> int
+     * Source: java/lang/StringBuffer.main.lsl:892
      */
     public synchronized int length() {
         int result = 0;
@@ -1046,6 +1106,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::offsetByCodePoints(StringBuffer, int, int) -> int
+     * Source: java/lang/StringBuffer.main.lsl:898
      */
     public synchronized int offsetByCodePoints(int index, int codePointOffset) {
         int result = 0;
@@ -1059,6 +1120,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::replace(StringBuffer, int, int, String) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:906
      */
     public synchronized StringBuffer replace(int start, int end, String s) {
         StringBuffer result = null;
@@ -1097,6 +1159,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::reverse(StringBuffer) -> StringBuffer
+     * Source: java/lang/StringBuffer.main.lsl:939
      */
     public synchronized StringBuffer reverse() {
         StringBuffer result = null;
@@ -1124,6 +1187,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::setCharAt(StringBuffer, int, char) -> void
+     * Source: java/lang/StringBuffer.main.lsl:973
      */
     public synchronized void setCharAt(int index, char ch) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -1150,6 +1214,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::setLength(StringBuffer, int) -> void
+     * Source: java/lang/StringBuffer.main.lsl:996
      */
     public synchronized void setLength(int newLength) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -1187,6 +1252,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::subSequence(StringBuffer, int, int) -> CharSequence
+     * Source: java/lang/StringBuffer.main.lsl:1047
      */
     public synchronized CharSequence subSequence(int start, int end) {
         CharSequence result = null;
@@ -1199,6 +1265,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::substring(StringBuffer, int) -> String
+     * Source: java/lang/StringBuffer.main.lsl:1053
      */
     public synchronized String substring(int start) {
         String result = null;
@@ -1211,6 +1278,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::substring(StringBuffer, int, int) -> String
+     * Source: java/lang/StringBuffer.main.lsl:1059
      */
     public synchronized String substring(int start, int end) {
         String result = null;
@@ -1223,6 +1291,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::toString(StringBuffer) -> String
+     * Source: java/lang/StringBuffer.main.lsl:1065
      */
     public synchronized String toString() {
         String result = null;
@@ -1235,6 +1304,7 @@ public final class StringBuffer implements LibSLRuntime.Automaton, Serializable,
 
     /**
      * [FUNCTION] StringBufferAutomaton::trimToSize(StringBuffer) -> void
+     * Source: java/lang/StringBuffer.main.lsl:1071
      */
     public synchronized void trimToSize() {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);

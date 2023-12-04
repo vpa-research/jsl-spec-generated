@@ -63,6 +63,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [CONSTRUCTOR] HashSetAutomaton::HashSet(HashSet) -> HashSet
+     * Source: java/util/HashSet.main.lsl:160
      */
     public HashSet() {
         this((Void) null);
@@ -75,6 +76,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [CONSTRUCTOR] HashSetAutomaton::HashSet(HashSet, Collection) -> HashSet
+     * Source: java/util/HashSet.main.lsl:166
      */
     public HashSet(Collection c) {
         this((Void) null);
@@ -88,6 +90,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [CONSTRUCTOR] HashSetAutomaton::HashSet(HashSet, int) -> HashSet
+     * Source: java/util/HashSet.main.lsl:173
      */
     public HashSet(int initialCapacity) {
         this((Void) null);
@@ -101,6 +104,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [CONSTRUCTOR] HashSetAutomaton::HashSet(HashSet, int, float) -> HashSet
+     * Source: java/util/HashSet.main.lsl:185
      */
     public HashSet(int initialCapacity, float loadFactor) {
         this((Void) null);
@@ -119,6 +123,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [CONSTRUCTOR] HashSetAutomaton::HashSet(HashSet, int, float, boolean) -> HashSet
+     * Source: java/util/HashSet.main.lsl:203
      */
     private HashSet(int initialCapacity, float loadFactor, boolean dummy) {
         this((Void) null);
@@ -131,6 +136,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [SUBROUTINE] HashSetAutomaton::_checkForComodification(int) -> void
+     * Source: java/util/HashSet.main.lsl:82
      */
     public void _checkForComodification(int expectedModCount) {
         /* body */ {
@@ -142,6 +148,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [SUBROUTINE] HashSetAutomaton::_addAllElements(Collection) -> boolean
+     * Source: java/util/HashSet.main.lsl:89
      */
     private boolean _addAllElements(Collection c) {
         boolean result = false;
@@ -167,6 +174,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [SUBROUTINE] HashSetAutomaton::_makeStream(boolean) -> Stream
+     * Source: java/util/HashSet.main.lsl:126
      */
     private Stream _makeStream(boolean parallel) {
         Stream result = null;
@@ -195,6 +203,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::add(HashSet, Object) -> boolean
+     * Source: java/util/HashSet.main.lsl:211
      */
     public boolean add(Object obj) {
         boolean result = false;
@@ -214,6 +223,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::clear(HashSet) -> void
+     * Source: java/util/HashSet.main.lsl:229
      */
     public void clear() {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -225,6 +235,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::clone(HashSet) -> Object
+     * Source: java/util/HashSet.main.lsl:236
      */
     public Object clone() {
         Object result = null;
@@ -241,6 +252,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::contains(HashSet, Object) -> boolean
+     * Source: java/util/HashSet.main.lsl:244
      */
     public boolean contains(Object obj) {
         boolean result = false;
@@ -257,6 +269,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::isEmpty(HashSet) -> boolean
+     * Source: java/util/HashSet.main.lsl:253
      */
     public boolean isEmpty() {
         boolean result = false;
@@ -269,6 +282,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::iterator(HashSet) -> Iterator
+     * Source: java/util/HashSet.main.lsl:259
      */
     public Iterator iterator() {
         Iterator result = null;
@@ -290,6 +304,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::remove(HashSet, Object) -> boolean
+     * Source: java/util/HashSet.main.lsl:270
      */
     public boolean remove(Object obj) {
         boolean result = false;
@@ -308,6 +323,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::size(HashSet) -> int
+     * Source: java/util/HashSet.main.lsl:285
      */
     public int size() {
         int result = 0;
@@ -320,6 +336,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::spliterator(HashSet) -> Spliterator
+     * Source: java/util/HashSet.main.lsl:291
      */
     public Spliterator spliterator() {
         Spliterator result = null;
@@ -349,6 +366,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::equals(HashSet, Object) -> boolean
+     * Source: java/util/HashSet.main.lsl:323
      */
     public boolean equals(Object other) {
         boolean result = false;
@@ -378,6 +396,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::hashCode(HashSet) -> int
+     * Source: java/util/HashSet.main.lsl:354
      */
     public int hashCode() {
         int result = 0;
@@ -390,6 +409,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::removeAll(HashSet, Collection) -> boolean
+     * Source: java/util/HashSet.main.lsl:360
      */
     public boolean removeAll(Collection c) {
         boolean result = false;
@@ -432,6 +452,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::toArray(HashSet) -> array<Object>
+     * Source: java/util/HashSet.main.lsl:416
      */
     public Object[] toArray() {
         Object[] result = null;
@@ -455,6 +476,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::toArray(HashSet, array<Object>) -> array<Object>
+     * Source: java/util/HashSet.main.lsl:442
      */
     public Object[] toArray(Object[] a) {
         Object[] result = null;
@@ -485,6 +507,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::toArray(HashSet, IntFunction) -> array<Object>
+     * Source: java/util/HashSet.main.lsl:467
      */
     public Object[] toArray(IntFunction generator) {
         Object[] result = null;
@@ -511,6 +534,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::containsAll(HashSet, Collection) -> boolean
+     * Source: java/util/HashSet.main.lsl:487
      */
     public boolean containsAll(Collection c) {
         boolean result = false;
@@ -535,6 +559,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::addAll(HashSet, Collection) -> boolean
+     * Source: java/util/HashSet.main.lsl:515
      */
     public boolean addAll(Collection c) {
         boolean result = false;
@@ -547,6 +572,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::retainAll(HashSet, Collection) -> boolean
+     * Source: java/util/HashSet.main.lsl:521
      */
     public boolean retainAll(Collection c) {
         boolean result = false;
@@ -576,6 +602,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::removeIf(HashSet, Predicate) -> boolean
+     * Source: java/util/HashSet.main.lsl:555
      */
     public boolean removeIf(Predicate filter) {
         boolean result = false;
@@ -610,6 +637,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::forEach(HashSet, Consumer) -> void
+     * Source: java/util/HashSet.main.lsl:595
      */
     public void forEach(Consumer userAction) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -634,6 +662,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::stream(HashSet) -> Stream
+     * Source: java/util/HashSet.main.lsl:626
      */
     public Stream stream() {
         Stream result = null;
@@ -646,6 +675,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::parallelStream(HashSet) -> Stream
+     * Source: java/util/HashSet.main.lsl:633
      */
     public Stream parallelStream() {
         Stream result = null;
@@ -658,6 +688,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::writeObject(HashSet, ObjectOutputStream) -> void
+     * Source: java/util/HashSet.main.lsl:641
      */
     private void writeObject(ObjectOutputStream s) throws java.io.IOException {
         /* body */ {
@@ -667,6 +698,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::readObject(HashSet, ObjectInputStream) -> void
+     * Source: java/util/HashSet.main.lsl:648
      */
     private void readObject(ObjectInputStream s) throws java.io.IOException,
             java.lang.ClassNotFoundException {
@@ -677,6 +709,7 @@ public class HashSet implements LibSLRuntime.Automaton, Set, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashSetAutomaton::toString(HashSet) -> String
+     * Source: java/util/HashSet.main.lsl:656
      */
     public String toString() {
         String result = null;

@@ -53,6 +53,7 @@ public class LongStreamLSLSpliterator implements LibSLRuntime.Automaton, Spliter
 
     /**
      * [SUBROUTINE] LongStreamSpliteratorAutomaton::_getFence() -> int
+     * Source: java/util/stream/LongStream.Spliterator.lsl:60
      */
     private int _getFence() {
         int result = 0;
@@ -68,6 +69,7 @@ public class LongStreamLSLSpliterator implements LibSLRuntime.Automaton, Spliter
 
     /**
      * [SUBROUTINE] LongStreamSpliteratorAutomaton::_hasCharacteristics(int) -> boolean
+     * Source: java/util/stream/LongStream.Spliterator.lsl:72
      */
     private boolean _hasCharacteristics(int _characteristics) {
         boolean result = false;
@@ -79,6 +81,7 @@ public class LongStreamLSLSpliterator implements LibSLRuntime.Automaton, Spliter
 
     /**
      * [FUNCTION] LongStreamSpliteratorAutomaton::characteristics(LongStreamLSLSpliterator) -> int
+     * Source: java/util/stream/LongStream.Spliterator.lsl:80
      */
     public int characteristics() {
         int result = 0;
@@ -90,6 +93,7 @@ public class LongStreamLSLSpliterator implements LibSLRuntime.Automaton, Spliter
 
     /**
      * [FUNCTION] LongStreamSpliteratorAutomaton::trySplit(LongStreamLSLSpliterator) -> Spliterator_OfLong
+     * Source: java/util/stream/LongStream.Spliterator.lsl:86
      */
     public Spliterator.OfLong trySplit() {
         Spliterator.OfLong result = null;
@@ -115,6 +119,7 @@ public class LongStreamLSLSpliterator implements LibSLRuntime.Automaton, Spliter
 
     /**
      * [FUNCTION] LongStreamSpliteratorAutomaton::forEachRemaining(LongStreamLSLSpliterator, LongConsumer) -> void
+     * Source: java/util/stream/LongStream.Spliterator.lsl:106
      */
     public void forEachRemaining(LongConsumer _action) {
         /* body */ {
@@ -136,6 +141,7 @@ public class LongStreamLSLSpliterator implements LibSLRuntime.Automaton, Spliter
 
     /**
      * [FUNCTION] LongStreamSpliteratorAutomaton::forEachRemaining(LongStreamLSLSpliterator, Consumer) -> void
+     * Source: java/util/stream/LongStream.Spliterator.lsl:132
      */
     public void forEachRemaining(Consumer _action) {
         /* body */ {
@@ -157,6 +163,7 @@ public class LongStreamLSLSpliterator implements LibSLRuntime.Automaton, Spliter
 
     /**
      * [FUNCTION] LongStreamSpliteratorAutomaton::tryAdvance(LongStreamLSLSpliterator, LongConsumer) -> boolean
+     * Source: java/util/stream/LongStream.Spliterator.lsl:158
      */
     public boolean tryAdvance(LongConsumer _action) {
         boolean result = false;
@@ -182,6 +189,7 @@ public class LongStreamLSLSpliterator implements LibSLRuntime.Automaton, Spliter
 
     /**
      * [FUNCTION] LongStreamSpliteratorAutomaton::tryAdvance(LongStreamLSLSpliterator, Consumer) -> boolean
+     * Source: java/util/stream/LongStream.Spliterator.lsl:185
      */
     public boolean tryAdvance(Consumer _action) {
         boolean result = false;
@@ -207,6 +215,7 @@ public class LongStreamLSLSpliterator implements LibSLRuntime.Automaton, Spliter
 
     /**
      * [FUNCTION] LongStreamSpliteratorAutomaton::estimateSize(LongStreamLSLSpliterator) -> long
+     * Source: java/util/stream/LongStream.Spliterator.lsl:212
      */
     public long estimateSize() {
         long result = 0L;
@@ -218,6 +227,7 @@ public class LongStreamLSLSpliterator implements LibSLRuntime.Automaton, Spliter
 
     /**
      * [FUNCTION] LongStreamSpliteratorAutomaton::getComparator(LongStreamLSLSpliterator) -> Comparator
+     * Source: java/util/stream/LongStream.Spliterator.lsl:218
      */
     public Comparator getComparator() {
         Comparator result = null;
@@ -233,6 +243,7 @@ public class LongStreamLSLSpliterator implements LibSLRuntime.Automaton, Spliter
 
     /**
      * [FUNCTION] LongStreamSpliteratorAutomaton::getExactSizeIfKnown(LongStreamLSLSpliterator) -> long
+     * Source: java/util/stream/LongStream.Spliterator.lsl:227
      */
     public long getExactSizeIfKnown() {
         long result = 0L;
@@ -244,6 +255,7 @@ public class LongStreamLSLSpliterator implements LibSLRuntime.Automaton, Spliter
 
     /**
      * [FUNCTION] LongStreamSpliteratorAutomaton::hasCharacteristics(LongStreamLSLSpliterator, int) -> boolean
+     * Source: java/util/stream/LongStream.Spliterator.lsl:233
      */
     public boolean hasCharacteristics(int _characteristics) {
         boolean result = false;

@@ -53,6 +53,7 @@ public class DoubleStreamLSLSpliterator implements LibSLRuntime.Automaton, Split
 
     /**
      * [SUBROUTINE] DoubleStreamSpliteratorAutomaton::_getFence() -> int
+     * Source: java/util/stream/DoubleStream.Spliterator.lsl:60
      */
     private int _getFence() {
         int result = 0;
@@ -68,6 +69,7 @@ public class DoubleStreamLSLSpliterator implements LibSLRuntime.Automaton, Split
 
     /**
      * [SUBROUTINE] DoubleStreamSpliteratorAutomaton::_hasCharacteristics(int) -> boolean
+     * Source: java/util/stream/DoubleStream.Spliterator.lsl:72
      */
     private boolean _hasCharacteristics(int _characteristics) {
         boolean result = false;
@@ -79,6 +81,7 @@ public class DoubleStreamLSLSpliterator implements LibSLRuntime.Automaton, Split
 
     /**
      * [FUNCTION] DoubleStreamSpliteratorAutomaton::characteristics(DoubleStreamLSLSpliterator) -> int
+     * Source: java/util/stream/DoubleStream.Spliterator.lsl:80
      */
     public int characteristics() {
         int result = 0;
@@ -90,6 +93,7 @@ public class DoubleStreamLSLSpliterator implements LibSLRuntime.Automaton, Split
 
     /**
      * [FUNCTION] DoubleStreamSpliteratorAutomaton::trySplit(DoubleStreamLSLSpliterator) -> Spliterator_OfDouble
+     * Source: java/util/stream/DoubleStream.Spliterator.lsl:86
      */
     public Spliterator.OfDouble trySplit() {
         Spliterator.OfDouble result = null;
@@ -115,6 +119,7 @@ public class DoubleStreamLSLSpliterator implements LibSLRuntime.Automaton, Split
 
     /**
      * [FUNCTION] DoubleStreamSpliteratorAutomaton::forEachRemaining(DoubleStreamLSLSpliterator, DoubleConsumer) -> void
+     * Source: java/util/stream/DoubleStream.Spliterator.lsl:106
      */
     public void forEachRemaining(DoubleConsumer _action) {
         /* body */ {
@@ -136,6 +141,7 @@ public class DoubleStreamLSLSpliterator implements LibSLRuntime.Automaton, Split
 
     /**
      * [FUNCTION] DoubleStreamSpliteratorAutomaton::forEachRemaining(DoubleStreamLSLSpliterator, Consumer) -> void
+     * Source: java/util/stream/DoubleStream.Spliterator.lsl:132
      */
     public void forEachRemaining(Consumer _action) {
         /* body */ {
@@ -157,6 +163,7 @@ public class DoubleStreamLSLSpliterator implements LibSLRuntime.Automaton, Split
 
     /**
      * [FUNCTION] DoubleStreamSpliteratorAutomaton::tryAdvance(DoubleStreamLSLSpliterator, DoubleConsumer) -> boolean
+     * Source: java/util/stream/DoubleStream.Spliterator.lsl:158
      */
     public boolean tryAdvance(DoubleConsumer _action) {
         boolean result = false;
@@ -182,6 +189,7 @@ public class DoubleStreamLSLSpliterator implements LibSLRuntime.Automaton, Split
 
     /**
      * [FUNCTION] DoubleStreamSpliteratorAutomaton::tryAdvance(DoubleStreamLSLSpliterator, Consumer) -> boolean
+     * Source: java/util/stream/DoubleStream.Spliterator.lsl:185
      */
     public boolean tryAdvance(Consumer _action) {
         boolean result = false;
@@ -207,6 +215,7 @@ public class DoubleStreamLSLSpliterator implements LibSLRuntime.Automaton, Split
 
     /**
      * [FUNCTION] DoubleStreamSpliteratorAutomaton::estimateSize(DoubleStreamLSLSpliterator) -> long
+     * Source: java/util/stream/DoubleStream.Spliterator.lsl:212
      */
     public long estimateSize() {
         long result = 0L;
@@ -218,6 +227,7 @@ public class DoubleStreamLSLSpliterator implements LibSLRuntime.Automaton, Split
 
     /**
      * [FUNCTION] DoubleStreamSpliteratorAutomaton::getComparator(DoubleStreamLSLSpliterator) -> Comparator
+     * Source: java/util/stream/DoubleStream.Spliterator.lsl:218
      */
     public Comparator getComparator() {
         Comparator result = null;
@@ -233,6 +243,7 @@ public class DoubleStreamLSLSpliterator implements LibSLRuntime.Automaton, Split
 
     /**
      * [FUNCTION] DoubleStreamSpliteratorAutomaton::getExactSizeIfKnown(DoubleStreamLSLSpliterator) -> long
+     * Source: java/util/stream/DoubleStream.Spliterator.lsl:227
      */
     public long getExactSizeIfKnown() {
         long result = 0L;
@@ -244,6 +255,7 @@ public class DoubleStreamLSLSpliterator implements LibSLRuntime.Automaton, Split
 
     /**
      * [FUNCTION] DoubleStreamSpliteratorAutomaton::hasCharacteristics(DoubleStreamLSLSpliterator, int) -> boolean
+     * Source: java/util/stream/DoubleStream.Spliterator.lsl:233
      */
     public boolean hasCharacteristics(int _characteristics) {
         boolean result = false;

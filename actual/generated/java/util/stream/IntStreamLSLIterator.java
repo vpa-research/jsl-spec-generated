@@ -47,6 +47,7 @@ public class IntStreamLSLIterator implements LibSLRuntime.Automaton, PrimitiveIt
 
     /**
      * [FUNCTION] IntStreamIteratorAutomaton::hasNext(IntStreamLSLIterator) -> boolean
+     * Source: java/util/stream/IntStream.Iterator.lsl:40
      */
     public boolean hasNext() {
         boolean result = false;
@@ -59,6 +60,7 @@ public class IntStreamLSLIterator implements LibSLRuntime.Automaton, PrimitiveIt
 
     /**
      * [FUNCTION] IntStreamIteratorAutomaton::next(IntStreamLSLIterator) -> Integer
+     * Source: java/util/stream/IntStream.Iterator.lsl:49
      */
     public Integer next() {
         Integer result = null;
@@ -77,6 +79,7 @@ public class IntStreamLSLIterator implements LibSLRuntime.Automaton, PrimitiveIt
 
     /**
      * [FUNCTION] IntStreamIteratorAutomaton::nextInt(IntStreamLSLIterator) -> int
+     * Source: java/util/stream/IntStream.Iterator.lsl:65
      */
     public int nextInt() {
         int result = 0;
@@ -95,6 +98,7 @@ public class IntStreamLSLIterator implements LibSLRuntime.Automaton, PrimitiveIt
 
     /**
      * [FUNCTION] IntStreamIteratorAutomaton::remove(IntStreamLSLIterator) -> void
+     * Source: java/util/stream/IntStream.Iterator.lsl:81
      */
     public void remove() {
         /* body */ {
@@ -104,6 +108,7 @@ public class IntStreamLSLIterator implements LibSLRuntime.Automaton, PrimitiveIt
 
     /**
      * [FUNCTION] IntStreamIteratorAutomaton::forEachRemaining(IntStreamLSLIterator, Consumer) -> void
+     * Source: java/util/stream/IntStream.Iterator.lsl:87
      */
     public void forEachRemaining(Consumer userAction) {
         /* body */ {
@@ -128,6 +133,7 @@ public class IntStreamLSLIterator implements LibSLRuntime.Automaton, PrimitiveIt
 
     /**
      * [FUNCTION] IntStreamIteratorAutomaton::forEachRemaining(IntStreamLSLIterator, IntConsumer) -> void
+     * Source: java/util/stream/IntStream.Iterator.lsl:112
      */
     public void forEachRemaining(IntConsumer userAction) {
         /* body */ {

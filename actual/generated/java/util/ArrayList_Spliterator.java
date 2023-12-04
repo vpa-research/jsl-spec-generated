@@ -55,6 +55,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
 
     /**
      * [CONSTRUCTOR] ArrayList_SpliteratorAutomaton::ArrayList_Spliterator(ArrayList_Spliterator, ArrayList, int, int, int) -> ArrayList_Spliterator
+     * Source: java/util/ArrayList.Spliterator.lsl:80
      */
     private ArrayList_Spliterator(ArrayList _this, int origin, int fence, int expectedModCount) {
         this((Void) null);
@@ -67,6 +68,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
 
     /**
      * [SUBROUTINE] ArrayList_SpliteratorAutomaton::_getFence() -> int
+     * Source: java/util/ArrayList.Spliterator.lsl:64
      */
     private int _getFence() {
         int result = 0;
@@ -83,6 +85,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
 
     /**
      * [FUNCTION] ArrayList_SpliteratorAutomaton::characteristics(ArrayList_Spliterator) -> int
+     * Source: java/util/ArrayList.Spliterator.lsl:94
      */
     public int characteristics() {
         int result = 0;
@@ -95,6 +98,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
 
     /**
      * [FUNCTION] ArrayList_SpliteratorAutomaton::estimateSize(ArrayList_Spliterator) -> long
+     * Source: java/util/ArrayList.Spliterator.lsl:100
      */
     public long estimateSize() {
         long result = 0L;
@@ -107,6 +111,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
 
     /**
      * [FUNCTION] ArrayList_SpliteratorAutomaton::forEachRemaining(ArrayList_Spliterator, Consumer) -> void
+     * Source: java/util/ArrayList.Spliterator.lsl:106
      */
     public void forEachRemaining(Consumer _action) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -143,6 +148,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
 
     /**
      * [FUNCTION] ArrayList_SpliteratorAutomaton::getExactSizeIfKnown(ArrayList_Spliterator) -> long
+     * Source: java/util/ArrayList.Spliterator.lsl:153
      */
     public long getExactSizeIfKnown() {
         long result = 0L;
@@ -155,6 +161,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
 
     /**
      * [FUNCTION] ArrayList_SpliteratorAutomaton::tryAdvance(ArrayList_Spliterator, Consumer) -> boolean
+     * Source: java/util/ArrayList.Spliterator.lsl:166
      */
     public boolean tryAdvance(Consumer _action) {
         boolean result = false;
@@ -184,6 +191,7 @@ public final class ArrayList_Spliterator implements LibSLRuntime.Automaton, Spli
 
     /**
      * [FUNCTION] ArrayList_SpliteratorAutomaton::trySplit(ArrayList_Spliterator) -> Spliterator
+     * Source: java/util/ArrayList.Spliterator.lsl:196
      */
     public Spliterator trySplit() {
         Spliterator result = null;

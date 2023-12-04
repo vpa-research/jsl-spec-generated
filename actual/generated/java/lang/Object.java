@@ -35,6 +35,7 @@ public class Object implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] ObjectAutomaton::equals(LSLObject, Object) -> boolean
+     * Source: java/lang/Object.main.lsl:59
      */
     public boolean equals(java.lang.Object obj) {
         boolean result = false;
@@ -46,6 +47,7 @@ public class Object implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] ObjectAutomaton::hashCode(LSLObject) -> int
+     * Source: java/lang/Object.main.lsl:77
      */
     public int hashCode() {
         int result = 0;
@@ -57,6 +59,7 @@ public class Object implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] ObjectAutomaton::toString(LSLObject) -> String
+     * Source: java/lang/Object.main.lsl:95
      */
     public String toString() {
         String result = null;

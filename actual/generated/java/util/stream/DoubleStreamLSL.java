@@ -80,6 +80,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [SUBROUTINE] DoubleStreamAutomaton::_actionApply(DoubleConsumer) -> void
+     * Source: java/util/stream/DoubleStream.main.lsl:114
      */
     private void _actionApply(DoubleConsumer _action) {
         /* body */ {
@@ -96,6 +97,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [SUBROUTINE] DoubleStreamAutomaton::_findFirst() -> OptionalDouble
+     * Source: java/util/stream/DoubleStream.main.lsl:133
      */
     private OptionalDouble _findFirst() {
         OptionalDouble result = null;
@@ -112,6 +114,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [SUBROUTINE] DoubleStreamAutomaton::_sum() -> double
+     * Source: java/util/stream/DoubleStream.main.lsl:147
      */
     private double _sum() {
         double result = 0.0d;
@@ -158,6 +161,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::filter(DoubleStream, DoublePredicate) -> DoubleStream
+     * Source: java/util/stream/DoubleStream.main.lsl:194
      */
     public DoubleStream filter(DoublePredicate predicate) {
         DoubleStream result = null;
@@ -196,6 +200,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::map(DoubleStream, DoubleUnaryOperator) -> DoubleStream
+     * Source: java/util/stream/DoubleStream.main.lsl:235
      */
     public DoubleStream map(DoubleUnaryOperator mapper) {
         DoubleStream result = null;
@@ -227,6 +232,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::mapToObj(DoubleStream, DoubleFunction) -> Stream
+     * Source: java/util/stream/DoubleStream.main.lsl:266
      */
     public Stream mapToObj(DoubleFunction mapper) {
         Stream result = null;
@@ -255,6 +261,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::mapToLong(DoubleStream, DoubleToLongFunction) -> LongStream
+     * Source: java/util/stream/DoubleStream.main.lsl:295
      */
     public LongStream mapToLong(DoubleToLongFunction mapper) {
         LongStream result = null;
@@ -286,6 +293,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::mapToInt(DoubleStream, DoubleToIntFunction) -> IntStream
+     * Source: java/util/stream/DoubleStream.main.lsl:326
      */
     public IntStream mapToInt(DoubleToIntFunction mapper) {
         IntStream result = null;
@@ -317,6 +325,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::flatMap(DoubleStream, DoubleFunction) -> DoubleStream
+     * Source: java/util/stream/DoubleStream.main.lsl:357
      */
     public DoubleStream flatMap(DoubleFunction mapper) {
         DoubleStream result = null;
@@ -336,6 +345,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::sorted(DoubleStream) -> DoubleStream
+     * Source: java/util/stream/DoubleStream.main.lsl:373
      */
     public DoubleStream sorted() {
         DoubleStream result = null;
@@ -389,6 +399,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::distinct(DoubleStream) -> DoubleStream
+     * Source: java/util/stream/DoubleStream.main.lsl:436
      */
     public DoubleStream distinct() {
         DoubleStream result = null;
@@ -446,6 +457,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::peek(Stream, DoubleConsumer) -> DoubleStream
+     * Source: java/util/stream/DoubleStream.main.lsl:508
      */
     public DoubleStream peek(DoubleConsumer _action) {
         DoubleStream result = null;
@@ -469,6 +481,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::limit(DoubleStream, long) -> DoubleStream
+     * Source: java/util/stream/DoubleStream.main.lsl:524
      */
     public DoubleStream limit(long maxSize) {
         DoubleStream result = null;
@@ -519,6 +532,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::skip(DoubleStream, long) -> DoubleStream
+     * Source: java/util/stream/DoubleStream.main.lsl:566
      */
     public DoubleStream skip(long n) {
         DoubleStream result = null;
@@ -577,6 +591,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::forEach(DoubleStream, DoubleConsumer) -> void
+     * Source: java/util/stream/DoubleStream.main.lsl:622
      */
     public void forEach(DoubleConsumer _action) {
         /* body */ {
@@ -590,6 +605,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::forEachOrdered(DoubleStream, DoubleConsumer) -> void
+     * Source: java/util/stream/DoubleStream.main.lsl:631
      */
     public void forEachOrdered(DoubleConsumer _action) {
         /* body */ {
@@ -603,6 +619,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::toArray(DoubleStream) -> array<double>
+     * Source: java/util/stream/DoubleStream.main.lsl:640
      */
     public double[] toArray() {
         double[] result = null;
@@ -618,6 +635,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::reduce(DoubleStream, double, DoubleBinaryOperator) -> double
+     * Source: java/util/stream/DoubleStream.main.lsl:649
      */
     public double reduce(double identity, DoubleBinaryOperator accumulator) {
         double result = 0.0d;
@@ -644,6 +662,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::reduce(DoubleStream, DoubleBinaryOperator) -> OptionalDouble
+     * Source: java/util/stream/DoubleStream.main.lsl:678
      */
     public OptionalDouble reduce(DoubleBinaryOperator accumulator) {
         OptionalDouble result = null;
@@ -674,6 +693,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::collect(DoubleStream, Supplier, ObjDoubleConsumer, BiConsumer) -> Object
+     * Source: java/util/stream/DoubleStream.main.lsl:712
      */
     public Object collect(Supplier supplier, ObjDoubleConsumer accumulator, BiConsumer combiner) {
         Object result = null;
@@ -703,6 +723,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::min(DoubleStream) -> OptionalDouble
+     * Source: java/util/stream/DoubleStream.main.lsl:744
      */
     public OptionalDouble min() {
         OptionalDouble result = null;
@@ -730,6 +751,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::max(DoubleStream) -> OptionalDouble
+     * Source: java/util/stream/DoubleStream.main.lsl:776
      */
     public OptionalDouble max() {
         OptionalDouble result = null;
@@ -757,6 +779,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::count(DoubleStream) -> long
+     * Source: java/util/stream/DoubleStream.main.lsl:808
      */
     public long count() {
         long result = 0L;
@@ -772,6 +795,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::anyMatch(DoubleStream, DoublePredicate) -> boolean
+     * Source: java/util/stream/DoubleStream.main.lsl:817
      */
     public boolean anyMatch(DoublePredicate predicate) {
         boolean result = false;
@@ -798,6 +822,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::allMatch(DoubleStream, DoublePredicate) -> boolean
+     * Source: java/util/stream/DoubleStream.main.lsl:845
      */
     public boolean allMatch(DoublePredicate predicate) {
         boolean result = false;
@@ -827,6 +852,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::noneMatch(DoubleStream, DoublePredicate) -> boolean
+     * Source: java/util/stream/DoubleStream.main.lsl:871
      */
     public boolean noneMatch(DoublePredicate predicate) {
         boolean result = false;
@@ -856,6 +882,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::findFirst(DoubleStream) -> OptionalDouble
+     * Source: java/util/stream/DoubleStream.main.lsl:897
      */
     public OptionalDouble findFirst() {
         OptionalDouble result = null;
@@ -871,6 +898,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::findAny(DoubleStream) -> OptionalDouble
+     * Source: java/util/stream/DoubleStream.main.lsl:906
      */
     public OptionalDouble findAny() {
         OptionalDouble result = null;
@@ -886,6 +914,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::iterator(DoubleStream) -> PrimitiveIterator_OfDouble
+     * Source: java/util/stream/DoubleStream.main.lsl:915
      */
     public PrimitiveIterator.OfDouble iterator() {
         PrimitiveIterator.OfDouble result = null;
@@ -905,6 +934,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::spliterator(DoubleStream) -> Spliterator_OfDouble
+     * Source: java/util/stream/DoubleStream.main.lsl:929
      */
     public Spliterator.OfDouble spliterator() {
         Spliterator.OfDouble result = null;
@@ -927,6 +957,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::isParallel(DoubleStream) -> boolean
+     * Source: java/util/stream/DoubleStream.main.lsl:946
      */
     public boolean isParallel() {
         boolean result = false;
@@ -938,6 +969,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::sequential(DoubleStream) -> DoubleStream
+     * Source: java/util/stream/DoubleStream.main.lsl:952
      */
     public DoubleStream sequential() {
         DoubleStream result = null;
@@ -950,6 +982,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::parallel(DoubleStream) -> DoubleStream
+     * Source: java/util/stream/DoubleStream.main.lsl:959
      */
     public DoubleStream parallel() {
         DoubleStream result = null;
@@ -962,6 +995,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::unordered(DoubleStream) -> DoubleStream
+     * Source: java/util/stream/DoubleStream.main.lsl:966
      */
     public DoubleStream unordered() {
         DoubleStream result = null;
@@ -984,6 +1018,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::onClose(DoubleStream, Runnable) -> DoubleStream
+     * Source: java/util/stream/DoubleStream.main.lsl:979
      */
     public DoubleStream onClose(Runnable closeHandler) {
         DoubleStream result = null;
@@ -1000,6 +1035,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::close(DoubleStream) -> void
+     * Source: java/util/stream/DoubleStream.main.lsl:991
      */
     public void close() {
         /* body */ {
@@ -1017,6 +1053,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::dropWhile(DoubleStream, DoublePredicate) -> DoubleStream
+     * Source: java/util/stream/DoubleStream.main.lsl:1015
      */
     public DoubleStream dropWhile(DoublePredicate predicate) {
         DoubleStream result = null;
@@ -1083,6 +1120,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::takeWhile(DoubleStream, DoublePredicate) -> DoubleStream
+     * Source: java/util/stream/DoubleStream.main.lsl:1090
      */
     public DoubleStream takeWhile(DoublePredicate predicate) {
         DoubleStream result = null;
@@ -1149,6 +1187,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::sum(DoubleStream) -> double
+     * Source: java/util/stream/DoubleStream.main.lsl:1165
      */
     public double sum() {
         double result = 0.0d;
@@ -1164,6 +1203,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::average(DoubleStream) -> OptionalDouble
+     * Source: java/util/stream/DoubleStream.main.lsl:1175
      */
     public OptionalDouble average() {
         OptionalDouble result = null;
@@ -1185,6 +1225,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::summaryStatistics(DoubleStream) -> DoubleSummaryStatistics
+     * Source: java/util/stream/DoubleStream.main.lsl:1194
      */
     public DoubleSummaryStatistics summaryStatistics() {
         DoubleSummaryStatistics result = null;
@@ -1205,6 +1246,7 @@ public class DoubleStreamLSL implements LibSLRuntime.Automaton, DoubleStream {
 
     /**
      * [FUNCTION] DoubleStreamAutomaton::boxed(DoubleStream) -> Stream
+     * Source: java/util/stream/DoubleStream.main.lsl:1215
      */
     public Stream boxed() {
         Stream result = null;

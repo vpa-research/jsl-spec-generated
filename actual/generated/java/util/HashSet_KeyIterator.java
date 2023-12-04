@@ -63,6 +63,7 @@ public final class HashSet_KeyIterator implements LibSLRuntime.Automaton, Iterat
 
     /**
      * [CONSTRUCTOR] HashSet_KeyIteratorAutomaton::HashSet_KeyIterator(HashSet_KeyIterator, HashMap) -> HashSet_KeyIterator
+     * Source: java/util/HashSet.KeyIterator.lsl:66
      */
     private HashSet_KeyIterator(HashMap source) {
         this((Void) null);
@@ -75,6 +76,7 @@ public final class HashSet_KeyIterator implements LibSLRuntime.Automaton, Iterat
 
     /**
      * [SUBROUTINE] HashSet_KeyIteratorAutomaton::_checkForComodification() -> void
+     * Source: java/util/HashSet.KeyIterator.lsl:56
      */
     private void _checkForComodification() {
         /* body */ {
@@ -87,6 +89,7 @@ public final class HashSet_KeyIterator implements LibSLRuntime.Automaton, Iterat
 
     /**
      * [FUNCTION] HashSet_KeyIteratorAutomaton::hasNext(HashSet_KeyIterator) -> boolean
+     * Source: java/util/HashSet.KeyIterator.lsl:74
      */
     public boolean hasNext() {
         boolean result = false;
@@ -102,6 +105,7 @@ public final class HashSet_KeyIterator implements LibSLRuntime.Automaton, Iterat
 
     /**
      * [FUNCTION] HashSet_KeyIteratorAutomaton::next(HashSet_KeyIterator) -> Object
+     * Source: java/util/HashSet.KeyIterator.lsl:84
      */
     public final Object next() {
         Object result = null;
@@ -128,6 +132,7 @@ public final class HashSet_KeyIterator implements LibSLRuntime.Automaton, Iterat
 
     /**
      * [FUNCTION] HashSet_KeyIteratorAutomaton::remove(HashSet_KeyIterator) -> void
+     * Source: java/util/HashSet.KeyIterator.lsl:107
      */
     public void remove() {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -148,6 +153,7 @@ public final class HashSet_KeyIterator implements LibSLRuntime.Automaton, Iterat
 
     /**
      * [FUNCTION] HashSet_KeyIteratorAutomaton::forEachRemaining(HashSet_KeyIterator, Consumer) -> void
+     * Source: java/util/HashSet.KeyIterator.lsl:127
      */
     public void forEachRemaining(Consumer userAction) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);

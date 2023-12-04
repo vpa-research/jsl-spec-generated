@@ -44,6 +44,7 @@ public class CRC32 implements LibSLRuntime.Automaton, Checksum {
 
     /**
      * [CONSTRUCTOR] CRC32Automaton::CRC32(CRC32) -> LSLCRC32
+     * Source: java/util/zip/CRC32.automaton.lsl:98
      */
     public CRC32() {
         this((Void) null);
@@ -55,6 +56,7 @@ public class CRC32 implements LibSLRuntime.Automaton, Checksum {
 
     /**
      * [SUBROUTINE] CRC32Automaton::_updateCheck(array<byte>, int, int) -> void
+     * Source: java/util/zip/CRC32.automaton.lsl:49
      */
     private void _updateCheck(byte[] b, int off, int len) {
         /* body */ {
@@ -70,6 +72,7 @@ public class CRC32 implements LibSLRuntime.Automaton, Checksum {
 
     /**
      * [SUBROUTINE] CRC32Automaton::_updateByteBuffer(long) -> int
+     * Source: java/util/zip/CRC32.automaton.lsl:60
      */
     private int _updateByteBuffer(long addr) {
         int result = 0;
@@ -84,6 +87,7 @@ public class CRC32 implements LibSLRuntime.Automaton, Checksum {
 
     /**
      * [SUBROUTINE] CRC32Automaton::_updateBytesCheck(array<byte>, int, int) -> void
+     * Source: java/util/zip/CRC32.automaton.lsl:74
      */
     private void _updateBytesCheck(byte[] b, int off, int len) {
         /* body */ {
@@ -107,6 +111,7 @@ public class CRC32 implements LibSLRuntime.Automaton, Checksum {
 
     /**
      * [FUNCTION] CRC32Automaton::getValue(CRC32) -> long
+     * Source: java/util/zip/CRC32.automaton.lsl:108
      */
     public long getValue() {
         long result = 0L;
@@ -119,6 +124,7 @@ public class CRC32 implements LibSLRuntime.Automaton, Checksum {
 
     /**
      * [FUNCTION] CRC32Automaton::reset(CRC32) -> void
+     * Source: java/util/zip/CRC32.automaton.lsl:114
      */
     public void reset() {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -129,6 +135,7 @@ public class CRC32 implements LibSLRuntime.Automaton, Checksum {
 
     /**
      * [FUNCTION] CRC32Automaton::update(CRC32, ByteBuffer) -> void
+     * Source: java/util/zip/CRC32.automaton.lsl:120
      */
     public void update(ByteBuffer buffer) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -179,6 +186,7 @@ public class CRC32 implements LibSLRuntime.Automaton, Checksum {
 
     /**
      * [FUNCTION] CRC32Automaton::update(CRC32, array<byte>) -> void
+     * Source: java/util/zip/CRC32.automaton.lsl:177
      */
     public void update(byte[] b) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -193,6 +201,7 @@ public class CRC32 implements LibSLRuntime.Automaton, Checksum {
 
     /**
      * [FUNCTION] CRC32Automaton::update(CRC32, array<byte>, int, int) -> void
+     * Source: java/util/zip/CRC32.automaton.lsl:187
      */
     public void update(byte[] b, int off, int len) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -205,6 +214,7 @@ public class CRC32 implements LibSLRuntime.Automaton, Checksum {
 
     /**
      * [FUNCTION] CRC32Automaton::update(CRC32, int) -> void
+     * Source: java/util/zip/CRC32.automaton.lsl:195
      */
     public void update(int b) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);

@@ -68,6 +68,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [CONSTRUCTOR] LinkedListAutomaton::LinkedList(LinkedList) -> LinkedList
+     * Source: java/util/LinkedList.main.lsl:553
      */
     public LinkedList() {
         this((Void) null);
@@ -80,6 +81,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [CONSTRUCTOR] LinkedListAutomaton::LinkedList(LinkedList, Collection) -> LinkedList
+     * Source: java/util/LinkedList.main.lsl:559
      */
     public LinkedList(Collection c) {
         this((Void) null);
@@ -96,6 +98,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [SUBROUTINE] LinkedListAutomaton::_checkForComodification(int) -> void
+     * Source: java/util/LinkedList.main.lsl:108
      */
     public void _checkForComodification(int expectedModCount) {
         /* body */ {
@@ -107,6 +110,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [SUBROUTINE] LinkedListAutomaton::_subListRangeCheck(int, int, int) -> void
+     * Source: java/util/LinkedList.main.lsl:116
      */
     public void _subListRangeCheck(int fromIndex, int toIndex, int size) {
         /* body */ {
@@ -124,6 +128,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [SUBROUTINE] LinkedListAutomaton::_unlinkAny(int) -> Object
+     * Source: java/util/LinkedList.main.lsl:140
      */
     public Object _unlinkAny(int index) {
         Object result = null;
@@ -137,6 +142,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [SUBROUTINE] LinkedListAutomaton::_linkAny(int, Object) -> void
+     * Source: java/util/LinkedList.main.lsl:148
      */
     public void _linkAny(int index, Object e) {
         /* body */ {
@@ -147,6 +153,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [SUBROUTINE] LinkedListAutomaton::_checkElementIndex(int, int) -> void
+     * Source: java/util/LinkedList.main.lsl:155
      */
     public void _checkElementIndex(int index, int size) {
         /* body */ {
@@ -158,6 +165,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [SUBROUTINE] LinkedListAutomaton::_isValidIndex(int, int) -> boolean
+     * Source: java/util/LinkedList.main.lsl:167
      */
     private boolean _isValidIndex(int index, int size) {
         boolean result = false;
@@ -169,6 +177,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [SUBROUTINE] LinkedListAutomaton::_isPositionIndex(int) -> boolean
+     * Source: java/util/LinkedList.main.lsl:173
      */
     private boolean _isPositionIndex(int index) {
         boolean result = false;
@@ -180,6 +189,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [SUBROUTINE] LinkedListAutomaton::_checkPositionIndex(int) -> void
+     * Source: java/util/LinkedList.main.lsl:179
      */
     public void _checkPositionIndex(int index) {
         /* body */ {
@@ -191,6 +201,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [SUBROUTINE] LinkedListAutomaton::_unlinkFirst() -> Object
+     * Source: java/util/LinkedList.main.lsl:191
      */
     private Object _unlinkFirst() {
         Object result = null;
@@ -205,6 +216,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [SUBROUTINE] LinkedListAutomaton::_unlinkByFirstEqualsObject(Object) -> boolean
+     * Source: java/util/LinkedList.main.lsl:200
      */
     private boolean _unlinkByFirstEqualsObject(Object o) {
         boolean result = false;
@@ -221,6 +233,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [SUBROUTINE] LinkedListAutomaton::_addAllElements(int, Collection) -> boolean
+     * Source: java/util/LinkedList.main.lsl:212
      */
     public boolean _addAllElements(int index, Collection c) {
         boolean result = false;
@@ -241,6 +254,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [SUBROUTINE] LinkedListAutomaton::_getFirstElement() -> Object
+     * Source: java/util/LinkedList.main.lsl:237
      */
     private Object _getFirstElement() {
         Object result = null;
@@ -255,6 +269,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [SUBROUTINE] LinkedListAutomaton::_replaceAllRange(UnaryOperator, int, int) -> void
+     * Source: java/util/LinkedList.main.lsl:246
      */
     public void _replaceAllRange(UnaryOperator op, int i, int end) {
         /* body */ {
@@ -272,6 +287,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [SUBROUTINE] LinkedListAutomaton::_removeIf(Predicate, int, int) -> boolean
+     * Source: java/util/LinkedList.main.lsl:268
      */
     public boolean _removeIf(Predicate filter, int start, int end) {
         boolean result = false;
@@ -298,6 +314,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [SUBROUTINE] LinkedListAutomaton::_equalsRange(List, int, int) -> boolean
+     * Source: java/util/LinkedList.main.lsl:298
      */
     public boolean _equalsRange(List other, int from, int to) {
         boolean result = false;
@@ -336,6 +353,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [SUBROUTINE] LinkedListAutomaton::_makeStream(boolean) -> Stream
+     * Source: java/util/LinkedList.main.lsl:373
      */
     private Stream _makeStream(boolean parallel) {
         Stream result = null;
@@ -361,6 +379,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [SUBROUTINE] LinkedListAutomaton::_batchRemove(Collection, boolean, int, int) -> boolean
+     * Source: java/util/LinkedList.main.lsl:400
      */
     public boolean _batchRemove(Collection c, boolean complement, int start, int end) {
         boolean result = false;
@@ -405,6 +424,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [SUBROUTINE] LinkedListAutomaton::_do_sort(int, int, Comparator) -> void
+     * Source: java/util/LinkedList.main.lsl:460
      */
     public void _do_sort(int start, int end, Comparator c) {
         /* body */ {
@@ -457,6 +477,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::add(LinkedList, Object) -> boolean
+     * Source: java/util/LinkedList.main.lsl:572
      */
     public boolean add(Object e) {
         boolean result = false;
@@ -470,6 +491,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::add(LinkedList, int, Object) -> void
+     * Source: java/util/LinkedList.main.lsl:579
      */
     public void add(int index, Object element) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -481,6 +503,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::addAll(LinkedList, Collection) -> boolean
+     * Source: java/util/LinkedList.main.lsl:586
      */
     public boolean addAll(Collection c) {
         boolean result = false;
@@ -493,6 +516,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::addAll(LinkedList, int, Collection) -> boolean
+     * Source: java/util/LinkedList.main.lsl:592
      */
     public boolean addAll(int index, Collection c) {
         boolean result = false;
@@ -505,6 +529,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::addFirst(LinkedList, Object) -> void
+     * Source: java/util/LinkedList.main.lsl:598
      */
     public void addFirst(Object e) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -515,6 +540,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::addLast(LinkedList, Object) -> void
+     * Source: java/util/LinkedList.main.lsl:604
      */
     public void addLast(Object e) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -525,6 +551,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::clear(LinkedList) -> void
+     * Source: java/util/LinkedList.main.lsl:610
      */
     public void clear() {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -536,6 +563,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::clone(LinkedList) -> Object
+     * Source: java/util/LinkedList.main.lsl:617
      */
     public Object clone() {
         Object result = null;
@@ -554,6 +582,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::contains(LinkedList, Object) -> boolean
+     * Source: java/util/LinkedList.main.lsl:628
      */
     public boolean contains(Object o) {
         boolean result = false;
@@ -566,6 +595,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::containsAll(LinkedList, Collection) -> boolean
+     * Source: java/util/LinkedList.main.lsl:635
      */
     public boolean containsAll(Collection c) {
         boolean result = false;
@@ -598,6 +628,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::descendingIterator(LinkedList) -> Iterator
+     * Source: java/util/LinkedList.main.lsl:678
      */
     public Iterator descendingIterator() {
         Iterator result = null;
@@ -611,6 +642,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::element(LinkedList) -> Object
+     * Source: java/util/LinkedList.main.lsl:689
      */
     public Object element() {
         Object result = null;
@@ -623,6 +655,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::equals(LinkedList, Object) -> boolean
+     * Source: java/util/LinkedList.main.lsl:696
      */
     public boolean equals(Object o) {
         boolean result = false;
@@ -652,6 +685,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::forEach(LinkedList, Consumer) -> void
+     * Source: java/util/LinkedList.main.lsl:732
      */
     public void forEach(Consumer _action) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -673,6 +707,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::get(LinkedList, int) -> Object
+     * Source: java/util/LinkedList.main.lsl:757
      */
     public Object get(int index) {
         Object result = null;
@@ -686,6 +721,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::getFirst(LinkedList) -> Object
+     * Source: java/util/LinkedList.main.lsl:764
      */
     public Object getFirst() {
         Object result = null;
@@ -698,6 +734,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::getLast(LinkedList) -> Object
+     * Source: java/util/LinkedList.main.lsl:770
      */
     public Object getLast() {
         Object result = null;
@@ -713,6 +750,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::hashCode(LinkedList) -> int
+     * Source: java/util/LinkedList.main.lsl:780
      */
     public int hashCode() {
         int result = 0;
@@ -725,6 +763,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::indexOf(LinkedList, Object) -> int
+     * Source: java/util/LinkedList.main.lsl:786
      */
     public int indexOf(Object o) {
         int result = 0;
@@ -737,6 +776,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::isEmpty(LinkedList) -> boolean
+     * Source: java/util/LinkedList.main.lsl:793
      */
     public boolean isEmpty() {
         boolean result = false;
@@ -749,6 +789,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::iterator(LinkedList) -> Iterator
+     * Source: java/util/LinkedList.main.lsl:800
      */
     public Iterator iterator() {
         Iterator result = null;
@@ -767,6 +808,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::lastIndexOf(LinkedList, Object) -> int
+     * Source: java/util/LinkedList.main.lsl:810
      */
     public int lastIndexOf(Object o) {
         int result = 0;
@@ -793,6 +835,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::listIterator(LinkedList) -> ListIterator
+     * Source: java/util/LinkedList.main.lsl:842
      */
     public ListIterator listIterator() {
         ListIterator result = null;
@@ -811,6 +854,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::listIterator(LinkedList, int) -> ListIterator
+     * Source: java/util/LinkedList.main.lsl:852
      */
     public ListIterator listIterator(int index) {
         ListIterator result = null;
@@ -830,6 +874,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::offer(LinkedList, Object) -> boolean
+     * Source: java/util/LinkedList.main.lsl:864
      */
     public boolean offer(Object e) {
         boolean result = false;
@@ -843,6 +888,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::offerFirst(LinkedList, Object) -> boolean
+     * Source: java/util/LinkedList.main.lsl:871
      */
     public boolean offerFirst(Object e) {
         boolean result = false;
@@ -856,6 +902,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::offerLast(LinkedList, Object) -> boolean
+     * Source: java/util/LinkedList.main.lsl:878
      */
     public boolean offerLast(Object e) {
         boolean result = false;
@@ -869,6 +916,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::parallelStream(LinkedList) -> Stream
+     * Source: java/util/LinkedList.main.lsl:886
      */
     public Stream parallelStream() {
         Stream result = null;
@@ -881,6 +929,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::peek(LinkedList) -> Object
+     * Source: java/util/LinkedList.main.lsl:892
      */
     public Object peek() {
         Object result = null;
@@ -897,6 +946,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::peekFirst(LinkedList) -> Object
+     * Source: java/util/LinkedList.main.lsl:901
      */
     public Object peekFirst() {
         Object result = null;
@@ -913,6 +963,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::peekLast(LinkedList) -> Object
+     * Source: java/util/LinkedList.main.lsl:910
      */
     public Object peekLast() {
         Object result = null;
@@ -929,6 +980,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::poll(LinkedList) -> Object
+     * Source: java/util/LinkedList.main.lsl:919
      */
     public Object poll() {
         Object result = null;
@@ -945,6 +997,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::pollFirst(LinkedList) -> Object
+     * Source: java/util/LinkedList.main.lsl:928
      */
     public Object pollFirst() {
         Object result = null;
@@ -961,6 +1014,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::pollLast(LinkedList) -> Object
+     * Source: java/util/LinkedList.main.lsl:937
      */
     public Object pollLast() {
         Object result = null;
@@ -977,6 +1031,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::pop(LinkedList) -> Object
+     * Source: java/util/LinkedList.main.lsl:946
      */
     public Object pop() {
         Object result = null;
@@ -989,6 +1044,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::push(LinkedList, Object) -> void
+     * Source: java/util/LinkedList.main.lsl:952
      */
     public void push(Object e) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -999,6 +1055,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::remove(LinkedList) -> Object
+     * Source: java/util/LinkedList.main.lsl:958
      */
     public Object remove() {
         Object result = null;
@@ -1011,6 +1068,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::remove(LinkedList, Object) -> boolean
+     * Source: java/util/LinkedList.main.lsl:964
      */
     public boolean remove(Object o) {
         boolean result = false;
@@ -1023,6 +1081,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::remove(LinkedList, int) -> Object
+     * Source: java/util/LinkedList.main.lsl:970
      */
     public Object remove(int index) {
         Object result = null;
@@ -1036,6 +1095,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::removeAll(LinkedList, Collection) -> boolean
+     * Source: java/util/LinkedList.main.lsl:978
      */
     public boolean removeAll(Collection c) {
         boolean result = false;
@@ -1048,6 +1108,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::removeFirst(LinkedList) -> Object
+     * Source: java/util/LinkedList.main.lsl:984
      */
     public Object removeFirst() {
         Object result = null;
@@ -1060,6 +1121,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::removeFirstOccurrence(LinkedList, Object) -> boolean
+     * Source: java/util/LinkedList.main.lsl:990
      */
     public boolean removeFirstOccurrence(Object o) {
         boolean result = false;
@@ -1072,6 +1134,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::removeIf(LinkedList, Predicate) -> boolean
+     * Source: java/util/LinkedList.main.lsl:997
      */
     public boolean removeIf(Predicate filter) {
         boolean result = false;
@@ -1084,6 +1147,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::removeLast(LinkedList) -> Object
+     * Source: java/util/LinkedList.main.lsl:1003
      */
     public Object removeLast() {
         Object result = null;
@@ -1099,6 +1163,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::removeLastOccurrence(LinkedList, Object) -> boolean
+     * Source: java/util/LinkedList.main.lsl:1012
      */
     public boolean removeLastOccurrence(Object o) {
         boolean result = false;
@@ -1123,6 +1188,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::replaceAll(LinkedList, UnaryOperator) -> void
+     * Source: java/util/LinkedList.main.lsl:1039
      */
     public void replaceAll(UnaryOperator op) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -1137,6 +1203,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::retainAll(LinkedList, Collection) -> boolean
+     * Source: java/util/LinkedList.main.lsl:1050
      */
     public boolean retainAll(Collection c) {
         boolean result = false;
@@ -1149,6 +1216,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::set(LinkedList, int, Object) -> Object
+     * Source: java/util/LinkedList.main.lsl:1056
      */
     public Object set(int index, Object element) {
         Object result = null;
@@ -1163,6 +1231,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::size(LinkedList) -> int
+     * Source: java/util/LinkedList.main.lsl:1064
      */
     public int size() {
         int result = 0;
@@ -1175,6 +1244,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::sort(LinkedList, Comparator) -> void
+     * Source: java/util/LinkedList.main.lsl:1071
      */
     public void sort(Comparator c) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -1185,6 +1255,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::spliterator(LinkedList) -> Spliterator
+     * Source: java/util/LinkedList.main.lsl:1077
      */
     public Spliterator spliterator() {
         Spliterator result = null;
@@ -1203,6 +1274,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::stream(LinkedList) -> Stream
+     * Source: java/util/LinkedList.main.lsl:1086
      */
     public Stream stream() {
         Stream result = null;
@@ -1215,6 +1287,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::subList(LinkedList, int, int) -> List
+     * Source: java/util/LinkedList.main.lsl:1093
      */
     public List subList(int fromIndex, int toIndex) {
         List result = null;
@@ -1235,6 +1308,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::toArray(LinkedList) -> array<Object>
+     * Source: java/util/LinkedList.main.lsl:1107
      */
     public Object[] toArray() {
         Object[] result = null;
@@ -1253,6 +1327,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::toArray(LinkedList, IntFunction) -> array<Object>
+     * Source: java/util/LinkedList.main.lsl:1127
      */
     public Object[] toArray(IntFunction generator) {
         Object[] result = null;
@@ -1273,6 +1348,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::toArray(LinkedList, array<Object>) -> array<Object>
+     * Source: java/util/LinkedList.main.lsl:1145
      */
     public Object[] toArray(Object[] a) {
         Object[] result = null;
@@ -1303,6 +1379,7 @@ public class LinkedList implements LibSLRuntime.Automaton, List, Deque, Cloneabl
 
     /**
      * [FUNCTION] LinkedListAutomaton::toString(LinkedList) -> String
+     * Source: java/util/LinkedList.main.lsl:1177
      */
     public String toString() {
         String result = null;

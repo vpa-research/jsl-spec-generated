@@ -58,6 +58,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [CONSTRUCTOR] StringBuilderAutomaton::StringBuilder(StringBuilder) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:302
      */
     public StringBuilder() {
         this((Void) null);
@@ -69,6 +70,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [CONSTRUCTOR] StringBuilderAutomaton::StringBuilder(StringBuilder, CharSequence) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:309
      */
     public StringBuilder(CharSequence seq) {
         this((Void) null);
@@ -84,6 +86,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [CONSTRUCTOR] StringBuilderAutomaton::StringBuilder(StringBuilder, String) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:318
      */
     public StringBuilder(String str) {
         this((Void) null);
@@ -99,6 +102,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [CONSTRUCTOR] StringBuilderAutomaton::StringBuilder(StringBuilder, int) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:327
      */
     public StringBuilder(int capacity) {
         this((Void) null);
@@ -110,6 +114,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [SUBROUTINE] StringBuilderAutomaton::_checkRange(int, int, int) -> void
+     * Source: java/lang/StringBuilder.main.lsl:103
      */
     private void _checkRange(int start, int end, int len) {
         /* body */ {
@@ -121,6 +126,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [SUBROUTINE] StringBuilderAutomaton::_checkRangeSIOOBE(int, int, int) -> void
+     * Source: java/lang/StringBuilder.main.lsl:113
      */
     private void _checkRangeSIOOBE(int start, int end, int len) {
         /* body */ {
@@ -132,6 +138,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [SUBROUTINE] StringBuilderAutomaton::_checkIndex(int) -> void
+     * Source: java/lang/StringBuilder.main.lsl:123
      */
     private void _checkIndex(int index) {
         /* body */ {
@@ -143,6 +150,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [SUBROUTINE] StringBuilderAutomaton::_checkOffset(int) -> void
+     * Source: java/lang/StringBuilder.main.lsl:133
      */
     private void _checkOffset(int offset) {
         /* body */ {
@@ -154,6 +162,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [SUBROUTINE] StringBuilderAutomaton::_isBmpCodePoint(int) -> boolean
+     * Source: java/lang/StringBuilder.main.lsl:142
      */
     private boolean _isBmpCodePoint(int codePoint) {
         boolean result = false;
@@ -165,6 +174,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [SUBROUTINE] StringBuilderAutomaton::_isValidCodePoint(int) -> boolean
+     * Source: java/lang/StringBuilder.main.lsl:148
      */
     private boolean _isValidCodePoint(int codePoint) {
         boolean result = false;
@@ -176,6 +186,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [SUBROUTINE] StringBuilderAutomaton::_lowSurrogate(int) -> char
+     * Source: java/lang/StringBuilder.main.lsl:154
      */
     private char _lowSurrogate(int codePoint) {
         char result = '?';
@@ -187,6 +198,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [SUBROUTINE] StringBuilderAutomaton::_highSurrogate(int) -> char
+     * Source: java/lang/StringBuilder.main.lsl:160
      */
     private char _highSurrogate(int codePoint) {
         char result = '?';
@@ -198,6 +210,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [SUBROUTINE] StringBuilderAutomaton::_appendCharSequence(CharSequence) -> void
+     * Source: java/lang/StringBuilder.main.lsl:165
      */
     private void _appendCharSequence(CharSequence seq) {
         /* body */ {
@@ -219,6 +232,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [SUBROUTINE] StringBuilderAutomaton::_appendString(String) -> void
+     * Source: java/lang/StringBuilder.main.lsl:193
      */
     private void _appendString(String str) {
         /* body */ {
@@ -234,6 +248,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [SUBROUTINE] StringBuilderAutomaton::_delete(int, int) -> void
+     * Source: java/lang/StringBuilder.main.lsl:208
      */
     private void _delete(int start, int end) {
         /* body */ {
@@ -258,6 +273,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [SUBROUTINE] StringBuilderAutomaton::_insertCharSequence(int, CharSequence, int, int, int) -> void
+     * Source: java/lang/StringBuilder.main.lsl:243
      */
     private void _insertCharSequence(int dstOffset, CharSequence s, int len, int start, int end) {
         /* body */ {
@@ -288,6 +304,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [SUBROUTINE] StringBuilderAutomaton::_substring(int, int) -> String
+     * Source: java/lang/StringBuilder.main.lsl:278
      */
     private String _substring(int start, int end) {
         String result = null;
@@ -309,6 +326,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::append(StringBuilder, CharSequence) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:336
      */
     public StringBuilder append(CharSequence seq) {
         StringBuilder result = null;
@@ -322,6 +340,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::append(StringBuilder, CharSequence, int, int) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:344
      */
     public StringBuilder append(CharSequence seq, int start, int end) {
         StringBuilder result = null;
@@ -347,6 +366,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::append(StringBuilder, Object) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:365
      */
     public StringBuilder append(Object obj) {
         StringBuilder result = null;
@@ -367,6 +387,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::append(StringBuilder, String) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:382
      */
     public StringBuilder append(String str) {
         StringBuilder result = null;
@@ -380,6 +401,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::append(StringBuilder, StringBuffer) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:390
      */
     public StringBuilder append(StringBuffer sb) {
         StringBuilder result = null;
@@ -399,6 +421,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::append(StringBuilder, boolean) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:413
      */
     public StringBuilder append(boolean b) {
         StringBuilder result = null;
@@ -418,6 +441,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::append(StringBuilder, char) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:429
      */
     public StringBuilder append(char c) {
         StringBuilder result = null;
@@ -432,6 +456,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::append(StringBuilder, array<char>) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:437
      */
     public StringBuilder append(char[] str) {
         StringBuilder result = null;
@@ -447,6 +472,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::append(StringBuilder, array<char>, int, int) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:453
      */
     public StringBuilder append(char[] str, int offset, int len) {
         StringBuilder result = null;
@@ -472,6 +498,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::append(StringBuilder, double) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:471
      */
     public StringBuilder append(double d) {
         StringBuilder result = null;
@@ -487,6 +514,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::append(StringBuilder, float) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:480
      */
     public StringBuilder append(float f) {
         StringBuilder result = null;
@@ -502,6 +530,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::append(StringBuilder, int) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:489
      */
     public StringBuilder append(int i) {
         StringBuilder result = null;
@@ -517,6 +546,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::append(StringBuilder, long) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:498
      */
     public StringBuilder append(long lng) {
         StringBuilder result = null;
@@ -532,6 +562,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::appendCodePoint(StringBuilder, int) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:508
      */
     public StringBuilder appendCodePoint(int codePoint) {
         StringBuilder result = null;
@@ -559,6 +590,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::compareTo(StringBuilder, StringBuilder) -> int
+     * Source: java/lang/StringBuilder.main.lsl:533
      */
     public int compareTo(StringBuilder another) {
         int result = 0;
@@ -576,6 +608,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::delete(StringBuilder, int, int) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:547
      */
     public StringBuilder delete(int start, int end) {
         StringBuilder result = null;
@@ -593,6 +626,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::deleteCharAt(StringBuilder, int) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:560
      */
     public StringBuilder deleteCharAt(int index) {
         StringBuilder result = null;
@@ -607,6 +641,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::indexOf(StringBuilder, String) -> int
+     * Source: java/lang/StringBuilder.main.lsl:570
      */
     public int indexOf(String str) {
         int result = 0;
@@ -619,6 +654,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::indexOf(StringBuilder, String, int) -> int
+     * Source: java/lang/StringBuilder.main.lsl:576
      */
     public int indexOf(String str, int fromIndex) {
         int result = 0;
@@ -631,6 +667,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::insert(StringBuilder, int, CharSequence) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:582
      */
     public StringBuilder insert(int dstOffset, CharSequence s) {
         StringBuilder result = null;
@@ -651,6 +688,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::insert(StringBuilder, int, CharSequence, int, int) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:597
      */
     public StringBuilder insert(int dstOffset, CharSequence s, int start, int end) {
         StringBuilder result = null;
@@ -671,6 +709,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::insert(StringBuilder, int, Object) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:612
      */
     public StringBuilder insert(int dstOffset, Object obj) {
         StringBuilder result = null;
@@ -691,6 +730,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::insert(StringBuilder, int, String) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:630
      */
     public StringBuilder insert(int dstOffset, String s) {
         StringBuilder result = null;
@@ -711,6 +751,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::insert(StringBuilder, int, boolean) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:645
      */
     public StringBuilder insert(int dstOffset, boolean b) {
         StringBuilder result = null;
@@ -731,6 +772,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::insert(StringBuilder, int, char) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:663
      */
     public StringBuilder insert(int dstOffset, char c) {
         StringBuilder result = null;
@@ -762,6 +804,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::insert(StringBuilder, int, array<char>) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:690
      */
     public StringBuilder insert(int dstOffset, char[] str) {
         StringBuilder result = null;
@@ -778,6 +821,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::insert(StringBuilder, int, array<char>, int, int) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:702
      */
     public StringBuilder insert(int dstOffset, char[] str, int start, int end) {
         StringBuilder result = null;
@@ -795,6 +839,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::insert(StringBuilder, int, double) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:715
      */
     public StringBuilder insert(int dstOffset, double d) {
         StringBuilder result = null;
@@ -811,6 +856,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::insert(StringBuilder, int, float) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:727
      */
     public StringBuilder insert(int dstOffset, float f) {
         StringBuilder result = null;
@@ -827,6 +873,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::insert(StringBuilder, int, int) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:739
      */
     public StringBuilder insert(int dstOffset, int ii) {
         StringBuilder result = null;
@@ -843,6 +890,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::insert(StringBuilder, int, long) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:751
      */
     public StringBuilder insert(int dstOffset, long l) {
         StringBuilder result = null;
@@ -859,6 +907,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::lastIndexOf(StringBuilder, String) -> int
+     * Source: java/lang/StringBuilder.main.lsl:763
      */
     public int lastIndexOf(String str) {
         int result = 0;
@@ -871,6 +920,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::lastIndexOf(StringBuilder, String, int) -> int
+     * Source: java/lang/StringBuilder.main.lsl:769
      */
     public int lastIndexOf(String str, int fromIndex) {
         int result = 0;
@@ -883,6 +933,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::replace(StringBuilder, int, int, String) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:775
      */
     public StringBuilder replace(int start, int end, String s) {
         StringBuilder result = null;
@@ -921,6 +972,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::reverse(StringBuilder) -> StringBuilder
+     * Source: java/lang/StringBuilder.main.lsl:808
      */
     public StringBuilder reverse() {
         StringBuilder result = null;
@@ -948,6 +1000,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::toString(StringBuilder) -> String
+     * Source: java/lang/StringBuilder.main.lsl:841
      */
     public String toString() {
         String result = null;
@@ -960,6 +1013,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::capacity(StringBuilder) -> int
+     * Source: java/lang/StringBuilder.main.lsl:848
      */
     public int capacity() {
         int result = 0;
@@ -972,6 +1026,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::ensureCapacity(StringBuilder, int) -> void
+     * Source: java/lang/StringBuilder.main.lsl:858
      */
     public void ensureCapacity(int minimumCapacity) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -982,6 +1037,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::length(StringBuilder) -> int
+     * Source: java/lang/StringBuilder.main.lsl:866
      */
     public int length() {
         int result = 0;
@@ -994,6 +1050,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::charAt(StringBuilder, int) -> char
+     * Source: java/lang/StringBuilder.main.lsl:873
      */
     public char charAt(int index) {
         char result = '?';
@@ -1007,6 +1064,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::setLength(StringBuilder, int) -> void
+     * Source: java/lang/StringBuilder.main.lsl:881
      */
     public void setLength(int newLength) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -1044,6 +1102,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::setCharAt(StringBuilder, int, char) -> void
+     * Source: java/lang/StringBuilder.main.lsl:933
      */
     public void setCharAt(int index, char ch) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -1070,6 +1129,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::trimToSize(StringBuilder) -> void
+     * Source: java/lang/StringBuilder.main.lsl:956
      */
     public void trimToSize() {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -1080,6 +1140,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::substring(StringBuilder, int) -> String
+     * Source: java/lang/StringBuilder.main.lsl:964
      */
     public String substring(int start) {
         String result = null;
@@ -1092,6 +1153,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::substring(StringBuilder, int, int) -> String
+     * Source: java/lang/StringBuilder.main.lsl:971
      */
     public String substring(int start, int end) {
         String result = null;
@@ -1104,6 +1166,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::subSequence(StringBuilder, int, int) -> CharSequence
+     * Source: java/lang/StringBuilder.main.lsl:978
      */
     public CharSequence subSequence(int start, int end) {
         CharSequence result = null;
@@ -1116,6 +1179,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::getChars(StringBuilder, int, int, array<char>, int) -> void
+     * Source: java/lang/StringBuilder.main.lsl:985
      */
     public void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -1136,6 +1200,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::codePointCount(StringBuilder, int, int) -> int
+     * Source: java/lang/StringBuilder.main.lsl:1010
      */
     public int codePointCount(int beginIndex, int endIndex) {
         int result = 0;
@@ -1151,6 +1216,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::codePointAt(StringBuilder, int) -> int
+     * Source: java/lang/StringBuilder.main.lsl:1020
      */
     public int codePointAt(int index) {
         int result = 0;
@@ -1164,6 +1230,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::codePointBefore(StringBuilder, int) -> int
+     * Source: java/lang/StringBuilder.main.lsl:1029
      */
     public int codePointBefore(int index) {
         int result = 0;
@@ -1178,6 +1245,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::offsetByCodePoints(StringBuilder, int, int) -> int
+     * Source: java/lang/StringBuilder.main.lsl:1039
      */
     public int offsetByCodePoints(int index, int codePointOffset) {
         int result = 0;
@@ -1191,6 +1259,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::codePoints(StringBuilder) -> IntStream
+     * Source: java/lang/StringBuilder.main.lsl:1048
      */
     public IntStream codePoints() {
         IntStream result = null;
@@ -1217,6 +1286,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::chars(StringBuilder) -> IntStream
+     * Source: java/lang/StringBuilder.main.lsl:1068
      */
     public IntStream chars() {
         IntStream result = null;
@@ -1243,6 +1313,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::writeObject(StringBuilder, ObjectOutputStream) -> void
+     * Source: java/lang/StringBuilder.main.lsl:1095
      */
     private void writeObject(ObjectOutputStream s) throws java.io.IOException {
         /* body */ {
@@ -1252,6 +1323,7 @@ public final class StringBuilder implements LibSLRuntime.Automaton, Serializable
 
     /**
      * [FUNCTION] StringBuilderAutomaton::readObject(StringBuilder, ObjectInputStream) -> void
+     * Source: java/lang/StringBuilder.main.lsl:1103
      */
     private void readObject(ObjectInputStream s) throws java.io.IOException,
             java.lang.ClassNotFoundException {

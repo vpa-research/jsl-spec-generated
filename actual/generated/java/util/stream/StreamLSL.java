@@ -80,6 +80,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [SUBROUTINE] StreamAutomaton::_actionApply(Consumer) -> void
+     * Source: java/util/stream/Stream.main.lsl:131
      */
     private void _actionApply(Consumer _action) {
         /* body */ {
@@ -96,6 +97,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [SUBROUTINE] StreamAutomaton::_findFirst() -> Optional
+     * Source: java/util/stream/Stream.main.lsl:150
      */
     private Optional _findFirst() {
         Optional result = null;
@@ -112,6 +114,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::filter(Stream, Predicate) -> Stream
+     * Source: java/util/stream/Stream.main.lsl:166
      */
     public Stream filter(Predicate predicate) {
         Stream result = null;
@@ -151,6 +154,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::map(Stream, Function) -> Stream
+     * Source: java/util/stream/Stream.main.lsl:207
      */
     public Stream map(Function mapper) {
         Stream result = null;
@@ -183,6 +187,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::mapToInt(Stream, ToIntFunction) -> IntStream
+     * Source: java/util/stream/Stream.main.lsl:238
      */
     public IntStream mapToInt(ToIntFunction mapper) {
         IntStream result = null;
@@ -215,6 +220,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::mapToLong(Stream, ToLongFunction) -> LongStream
+     * Source: java/util/stream/Stream.main.lsl:269
      */
     public LongStream mapToLong(ToLongFunction mapper) {
         LongStream result = null;
@@ -247,6 +253,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::mapToDouble(Stream, ToDoubleFunction) -> DoubleStream
+     * Source: java/util/stream/Stream.main.lsl:300
      */
     public DoubleStream mapToDouble(ToDoubleFunction mapper) {
         DoubleStream result = null;
@@ -279,6 +286,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::flatMap(Stream, Function) -> Stream
+     * Source: java/util/stream/Stream.main.lsl:331
      */
     public Stream flatMap(Function mapper) {
         Stream result = null;
@@ -299,6 +307,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::flatMapToInt(Stream, Function) -> IntStream
+     * Source: java/util/stream/Stream.main.lsl:347
      */
     public IntStream flatMapToInt(Function mapper) {
         IntStream result = null;
@@ -319,6 +328,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::flatMapToLong(Stream, Function) -> LongStream
+     * Source: java/util/stream/Stream.main.lsl:363
      */
     public LongStream flatMapToLong(Function mapper) {
         LongStream result = null;
@@ -339,6 +349,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::flatMapToDouble(Stream, Function) -> DoubleStream
+     * Source: java/util/stream/Stream.main.lsl:379
      */
     public DoubleStream flatMapToDouble(Function mapper) {
         DoubleStream result = null;
@@ -359,6 +370,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::distinct(Stream) -> Stream
+     * Source: java/util/stream/Stream.main.lsl:395
      */
     public Stream distinct() {
         Stream result = null;
@@ -414,6 +426,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::sorted(Stream) -> Stream
+     * Source: java/util/stream/Stream.main.lsl:465
      */
     public Stream sorted() {
         Stream result = null;
@@ -468,6 +481,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::sorted(Stream, Comparator) -> Stream
+     * Source: java/util/stream/Stream.main.lsl:528
      */
     public Stream sorted(Comparator comparator) {
         Stream result = null;
@@ -521,6 +535,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::peek(Stream, Consumer) -> Stream
+     * Source: java/util/stream/Stream.main.lsl:588
      */
     public Stream peek(Consumer _action) {
         Stream result = null;
@@ -545,6 +560,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::limit(Stream, long) -> Stream
+     * Source: java/util/stream/Stream.main.lsl:605
      */
     public Stream limit(long maxSize) {
         Stream result = null;
@@ -600,6 +616,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::skip(Stream, long) -> Stream
+     * Source: java/util/stream/Stream.main.lsl:658
      */
     public Stream skip(long n) {
         Stream result = null;
@@ -659,6 +676,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::forEach(Stream, Consumer) -> void
+     * Source: java/util/stream/Stream.main.lsl:714
      */
     public void forEach(Consumer _action) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -673,6 +691,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::forEachOrdered(Stream, Consumer) -> void
+     * Source: java/util/stream/Stream.main.lsl:723
      */
     public void forEachOrdered(Consumer _action) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -687,6 +706,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::toArray(Stream) -> array<Object>
+     * Source: java/util/stream/Stream.main.lsl:732
      */
     public Object[] toArray() {
         Object[] result = null;
@@ -703,6 +723,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::toArray(Stream, IntFunction) -> array<Object>
+     * Source: java/util/stream/Stream.main.lsl:741
      */
     public Object[] toArray(IntFunction generator) {
         Object[] result = null;
@@ -721,6 +742,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::reduce(Stream, Object, BinaryOperator) -> Object
+     * Source: java/util/stream/Stream.main.lsl:754
      */
     public Object reduce(Object identity, BinaryOperator accumulator) {
         Object result = null;
@@ -748,6 +770,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::reduce(Stream, BinaryOperator) -> Optional
+     * Source: java/util/stream/Stream.main.lsl:783
      */
     public Optional reduce(BinaryOperator accumulator) {
         Optional result = null;
@@ -780,6 +803,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::reduce(Stream, Object, BiFunction, BinaryOperator) -> Object
+     * Source: java/util/stream/Stream.main.lsl:819
      */
     public Object reduce(Object identity, BiFunction accumulator, BinaryOperator combiner) {
         Object result = null;
@@ -810,6 +834,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::collect(Stream, Supplier, BiConsumer, BiConsumer) -> Object
+     * Source: java/util/stream/Stream.main.lsl:852
      */
     public Object collect(Supplier supplier, BiConsumer accumulator, BiConsumer combiner) {
         Object result = null;
@@ -840,6 +865,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::collect(Stream, Collector) -> Object
+     * Source: java/util/stream/Stream.main.lsl:884
      */
     public Object collect(Collector collector) {
         Object result = null;
@@ -864,6 +890,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::min(Stream, Comparator) -> Optional
+     * Source: java/util/stream/Stream.main.lsl:902
      */
     public Optional min(Comparator comparator) {
         Optional result = null;
@@ -895,6 +922,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::max(Stream, Comparator) -> Optional
+     * Source: java/util/stream/Stream.main.lsl:937
      */
     public Optional max(Comparator comparator) {
         Optional result = null;
@@ -926,6 +954,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::count(Stream) -> long
+     * Source: java/util/stream/Stream.main.lsl:972
      */
     public long count() {
         long result = 0L;
@@ -942,6 +971,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::anyMatch(Stream, Predicate) -> boolean
+     * Source: java/util/stream/Stream.main.lsl:981
      */
     public boolean anyMatch(Predicate predicate) {
         boolean result = false;
@@ -969,6 +999,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::allMatch(Stream, Predicate) -> boolean
+     * Source: java/util/stream/Stream.main.lsl:1009
      */
     public boolean allMatch(Predicate predicate) {
         boolean result = false;
@@ -999,6 +1030,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::noneMatch(Stream, Predicate) -> boolean
+     * Source: java/util/stream/Stream.main.lsl:1035
      */
     public boolean noneMatch(Predicate predicate) {
         boolean result = false;
@@ -1029,6 +1061,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::findFirst(Stream) -> Optional
+     * Source: java/util/stream/Stream.main.lsl:1061
      */
     public Optional findFirst() {
         Optional result = null;
@@ -1045,6 +1078,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::findAny(Stream) -> Optional
+     * Source: java/util/stream/Stream.main.lsl:1070
      */
     public Optional findAny() {
         Optional result = null;
@@ -1061,6 +1095,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::iterator(Stream) -> Iterator
+     * Source: java/util/stream/Stream.main.lsl:1080
      */
     public Iterator iterator() {
         Iterator result = null;
@@ -1081,6 +1116,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::spliterator(Stream) -> Spliterator
+     * Source: java/util/stream/Stream.main.lsl:1094
      */
     public Spliterator spliterator() {
         Spliterator result = null;
@@ -1104,6 +1140,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::isParallel(Stream) -> boolean
+     * Source: java/util/stream/Stream.main.lsl:1110
      */
     public boolean isParallel() {
         boolean result = false;
@@ -1116,6 +1153,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::sequential(Stream) -> BaseStream
+     * Source: java/util/stream/Stream.main.lsl:1117
      */
     public BaseStream sequential() {
         BaseStream result = null;
@@ -1129,6 +1167,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::parallel(Stream) -> BaseStream
+     * Source: java/util/stream/Stream.main.lsl:1125
      */
     public BaseStream parallel() {
         BaseStream result = null;
@@ -1142,6 +1181,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::unordered(Stream) -> BaseStream
+     * Source: java/util/stream/Stream.main.lsl:1133
      */
     public BaseStream unordered() {
         BaseStream result = null;
@@ -1165,6 +1205,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::onClose(Stream, Runnable) -> BaseStream
+     * Source: java/util/stream/Stream.main.lsl:1146
      */
     public BaseStream onClose(Runnable arg0) {
         BaseStream result = null;
@@ -1182,6 +1223,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::close(Stream) -> void
+     * Source: java/util/stream/Stream.main.lsl:1158
      */
     public void close() {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -1200,6 +1242,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::dropWhile(Stream, Predicate) -> Stream
+     * Source: java/util/stream/Stream.main.lsl:1182
      */
     public Stream dropWhile(Predicate predicate) {
         Stream result = null;
@@ -1256,6 +1299,7 @@ public class StreamLSL implements LibSLRuntime.Automaton, Stream {
 
     /**
      * [FUNCTION] StreamAutomaton::takeWhile(Stream, Predicate) -> Stream
+     * Source: java/util/stream/Stream.main.lsl:1244
      */
     public Stream takeWhile(Predicate predicate) {
         Stream result = null;

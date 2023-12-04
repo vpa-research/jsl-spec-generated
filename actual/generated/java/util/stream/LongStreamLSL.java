@@ -75,6 +75,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [SUBROUTINE] LongStreamAutomaton::_actionApply(LongConsumer) -> void
+     * Source: java/util/stream/LongStream.main.lsl:116
      */
     private void _actionApply(LongConsumer _action) {
         /* body */ {
@@ -91,6 +92,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [SUBROUTINE] LongStreamAutomaton::_findFirst() -> OptionalLong
+     * Source: java/util/stream/LongStream.main.lsl:135
      */
     private OptionalLong _findFirst() {
         OptionalLong result = null;
@@ -107,6 +109,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [SUBROUTINE] LongStreamAutomaton::_sum() -> long
+     * Source: java/util/stream/LongStream.main.lsl:149
      */
     private long _sum() {
         long result = 0L;
@@ -125,6 +128,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::filter(LongStream, LongPredicate) -> LongStream
+     * Source: java/util/stream/LongStream.main.lsl:171
      */
     public LongStream filter(LongPredicate predicate) {
         LongStream result = null;
@@ -163,6 +167,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::map(LongStream, LongUnaryOperator) -> LongStream
+     * Source: java/util/stream/LongStream.main.lsl:212
      */
     public LongStream map(LongUnaryOperator mapper) {
         LongStream result = null;
@@ -194,6 +199,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::mapToObj(LongStream, LongFunction) -> Stream
+     * Source: java/util/stream/LongStream.main.lsl:243
      */
     public Stream mapToObj(LongFunction mapper) {
         Stream result = null;
@@ -222,6 +228,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::mapToInt(LongStream, LongToIntFunction) -> IntStream
+     * Source: java/util/stream/LongStream.main.lsl:272
      */
     public IntStream mapToInt(LongToIntFunction mapper) {
         IntStream result = null;
@@ -253,6 +260,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::mapToDouble(LongStream, LongToDoubleFunction) -> DoubleStream
+     * Source: java/util/stream/LongStream.main.lsl:303
      */
     public DoubleStream mapToDouble(LongToDoubleFunction mapper) {
         DoubleStream result = null;
@@ -284,6 +292,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::flatMap(LongStream, LongFunction) -> LongStream
+     * Source: java/util/stream/LongStream.main.lsl:334
      */
     public LongStream flatMap(LongFunction mapper) {
         LongStream result = null;
@@ -303,6 +312,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::sorted(LongStream) -> LongStream
+     * Source: java/util/stream/LongStream.main.lsl:350
      */
     public LongStream sorted() {
         LongStream result = null;
@@ -356,6 +366,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::distinct(LongStream) -> LongStream
+     * Source: java/util/stream/LongStream.main.lsl:413
      */
     public LongStream distinct() {
         LongStream result = null;
@@ -413,6 +424,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::peek(Stream, LongConsumer) -> LongStream
+     * Source: java/util/stream/LongStream.main.lsl:485
      */
     public LongStream peek(LongConsumer _action) {
         LongStream result = null;
@@ -436,6 +448,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::limit(LongStream, long) -> LongStream
+     * Source: java/util/stream/LongStream.main.lsl:501
      */
     public LongStream limit(long maxSize) {
         LongStream result = null;
@@ -486,6 +499,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::skip(LongStream, long) -> LongStream
+     * Source: java/util/stream/LongStream.main.lsl:543
      */
     public LongStream skip(long n) {
         LongStream result = null;
@@ -544,6 +558,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::forEach(LongStream, LongConsumer) -> void
+     * Source: java/util/stream/LongStream.main.lsl:599
      */
     public void forEach(LongConsumer _action) {
         /* body */ {
@@ -557,6 +572,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::forEachOrdered(LongStream, LongConsumer) -> void
+     * Source: java/util/stream/LongStream.main.lsl:608
      */
     public void forEachOrdered(LongConsumer _action) {
         /* body */ {
@@ -570,6 +586,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::toArray(LongStream) -> array<long>
+     * Source: java/util/stream/LongStream.main.lsl:617
      */
     public long[] toArray() {
         long[] result = null;
@@ -585,6 +602,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::reduce(LongStream, long, LongBinaryOperator) -> long
+     * Source: java/util/stream/LongStream.main.lsl:626
      */
     public long reduce(long identity, LongBinaryOperator accumulator) {
         long result = 0L;
@@ -611,6 +629,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::reduce(LongStream, LongBinaryOperator) -> OptionalLong
+     * Source: java/util/stream/LongStream.main.lsl:655
      */
     public OptionalLong reduce(LongBinaryOperator accumulator) {
         OptionalLong result = null;
@@ -641,6 +660,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::collect(LongStream, Supplier, ObjLongConsumer, BiConsumer) -> Object
+     * Source: java/util/stream/LongStream.main.lsl:689
      */
     public Object collect(Supplier supplier, ObjLongConsumer accumulator, BiConsumer combiner) {
         Object result = null;
@@ -670,6 +690,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::min(LongStream) -> OptionalLong
+     * Source: java/util/stream/LongStream.main.lsl:721
      */
     public OptionalLong min() {
         OptionalLong result = null;
@@ -697,6 +718,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::max(IntStream) -> OptionalLong
+     * Source: java/util/stream/LongStream.main.lsl:753
      */
     public OptionalLong max() {
         OptionalLong result = null;
@@ -724,6 +746,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::count(LongStream) -> long
+     * Source: java/util/stream/LongStream.main.lsl:785
      */
     public long count() {
         long result = 0L;
@@ -739,6 +762,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::anyMatch(LongStream, LongPredicate) -> boolean
+     * Source: java/util/stream/LongStream.main.lsl:794
      */
     public boolean anyMatch(LongPredicate predicate) {
         boolean result = false;
@@ -765,6 +789,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::allMatch(LongStream, LongPredicate) -> boolean
+     * Source: java/util/stream/LongStream.main.lsl:822
      */
     public boolean allMatch(LongPredicate predicate) {
         boolean result = false;
@@ -794,6 +819,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::noneMatch(LongStream, LongPredicate) -> boolean
+     * Source: java/util/stream/LongStream.main.lsl:848
      */
     public boolean noneMatch(LongPredicate predicate) {
         boolean result = false;
@@ -823,6 +849,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::findFirst(LongStream) -> OptionalLong
+     * Source: java/util/stream/LongStream.main.lsl:874
      */
     public OptionalLong findFirst() {
         OptionalLong result = null;
@@ -838,6 +865,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::findAny(LongStream) -> OptionalLong
+     * Source: java/util/stream/LongStream.main.lsl:883
      */
     public OptionalLong findAny() {
         OptionalLong result = null;
@@ -853,6 +881,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::iterator(LongStream) -> PrimitiveIterator_OfLong
+     * Source: java/util/stream/LongStream.main.lsl:892
      */
     public PrimitiveIterator.OfLong iterator() {
         PrimitiveIterator.OfLong result = null;
@@ -872,6 +901,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::spliterator(LongStream) -> Spliterator_OfLong
+     * Source: java/util/stream/LongStream.main.lsl:906
      */
     public Spliterator.OfLong spliterator() {
         Spliterator.OfLong result = null;
@@ -894,6 +924,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::isParallel(LongStream) -> boolean
+     * Source: java/util/stream/LongStream.main.lsl:923
      */
     public boolean isParallel() {
         boolean result = false;
@@ -905,6 +936,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::sequential(LongStream) -> LongStream
+     * Source: java/util/stream/LongStream.main.lsl:929
      */
     public LongStream sequential() {
         LongStream result = null;
@@ -917,6 +949,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::parallel(LongStream) -> LongStream
+     * Source: java/util/stream/LongStream.main.lsl:936
      */
     public LongStream parallel() {
         LongStream result = null;
@@ -929,6 +962,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::unordered(LongStream) -> LongStream
+     * Source: java/util/stream/LongStream.main.lsl:943
      */
     public LongStream unordered() {
         LongStream result = null;
@@ -951,6 +985,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::onClose(LongStream, Runnable) -> LongStream
+     * Source: java/util/stream/LongStream.main.lsl:956
      */
     public LongStream onClose(Runnable closeHandler) {
         LongStream result = null;
@@ -967,6 +1002,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::close(LongStream) -> void
+     * Source: java/util/stream/LongStream.main.lsl:968
      */
     public void close() {
         /* body */ {
@@ -984,6 +1020,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::dropWhile(LongStream, LongPredicate) -> LongStream
+     * Source: java/util/stream/LongStream.main.lsl:992
      */
     public LongStream dropWhile(LongPredicate predicate) {
         LongStream result = null;
@@ -1050,6 +1087,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::takeWhile(LongStream, LongPredicate) -> LongStream
+     * Source: java/util/stream/LongStream.main.lsl:1067
      */
     public LongStream takeWhile(LongPredicate predicate) {
         LongStream result = null;
@@ -1116,6 +1154,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::asDoubleStream(LongStream) -> DoubleStream
+     * Source: java/util/stream/LongStream.main.lsl:1142
      */
     public DoubleStream asDoubleStream() {
         DoubleStream result = null;
@@ -1157,6 +1196,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::sum(LongStream) -> long
+     * Source: java/util/stream/LongStream.main.lsl:1184
      */
     public long sum() {
         long result = 0L;
@@ -1172,6 +1212,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::average(LongStream) -> OptionalDouble
+     * Source: java/util/stream/LongStream.main.lsl:1194
      */
     public OptionalDouble average() {
         OptionalDouble result = null;
@@ -1193,6 +1234,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::summaryStatistics(LongStream) -> LongSummaryStatistics
+     * Source: java/util/stream/LongStream.main.lsl:1213
      */
     public LongSummaryStatistics summaryStatistics() {
         LongSummaryStatistics result = null;
@@ -1213,6 +1255,7 @@ public class LongStreamLSL implements LibSLRuntime.Automaton, LongStream {
 
     /**
      * [FUNCTION] LongStreamAutomaton::boxed(LongStream) -> Stream
+     * Source: java/util/stream/LongStream.main.lsl:1234
      */
     public Stream boxed() {
         Stream result = null;

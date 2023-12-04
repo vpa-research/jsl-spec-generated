@@ -47,6 +47,7 @@ public class DoubleStreamLSLIterator implements LibSLRuntime.Automaton, Primitiv
 
     /**
      * [FUNCTION] DoubleStreamIteratorAutomaton::hasNext(DoubleStreamLSLIterator) -> boolean
+     * Source: java/util/stream/DoubleStream.Iterator.lsl:40
      */
     public boolean hasNext() {
         boolean result = false;
@@ -59,6 +60,7 @@ public class DoubleStreamLSLIterator implements LibSLRuntime.Automaton, Primitiv
 
     /**
      * [FUNCTION] DoubleStreamIteratorAutomaton::next(DoubleStreamLSLIterator) -> Double
+     * Source: java/util/stream/DoubleStream.Iterator.lsl:49
      */
     public Double next() {
         Double result = null;
@@ -77,6 +79,7 @@ public class DoubleStreamLSLIterator implements LibSLRuntime.Automaton, Primitiv
 
     /**
      * [FUNCTION] DoubleStreamIteratorAutomaton::nextDouble(DoubleStreamLSLIterator) -> double
+     * Source: java/util/stream/DoubleStream.Iterator.lsl:65
      */
     public double nextDouble() {
         double result = 0.0d;
@@ -95,6 +98,7 @@ public class DoubleStreamLSLIterator implements LibSLRuntime.Automaton, Primitiv
 
     /**
      * [FUNCTION] DoubleStreamIteratorAutomaton::remove(DoubleStreamLSLIterator) -> void
+     * Source: java/util/stream/DoubleStream.Iterator.lsl:81
      */
     public void remove() {
         /* body */ {
@@ -104,6 +108,7 @@ public class DoubleStreamLSLIterator implements LibSLRuntime.Automaton, Primitiv
 
     /**
      * [FUNCTION] DoubleStreamIteratorAutomaton::forEachRemaining(DoubleStreamLSLIterator, Consumer) -> void
+     * Source: java/util/stream/DoubleStream.Iterator.lsl:87
      */
     public void forEachRemaining(Consumer userAction) {
         /* body */ {
@@ -128,6 +133,7 @@ public class DoubleStreamLSLIterator implements LibSLRuntime.Automaton, Primitiv
 
     /**
      * [FUNCTION] DoubleStreamIteratorAutomaton::forEachRemaining(DoubleStreamLSLIterator, DoubleConsumer) -> void
+     * Source: java/util/stream/DoubleStream.Iterator.lsl:112
      */
     public void forEachRemaining(DoubleConsumer userAction) {
         /* body */ {

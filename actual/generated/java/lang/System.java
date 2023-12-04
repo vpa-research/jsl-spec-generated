@@ -71,6 +71,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [CONSTRUCTOR] SystemAutomaton::LSLSystem(LSLSystem) -> LSLSystem
+     * Source: java/lang/System.main.lsl:225
      */
     private System() {
         this((Void) null);
@@ -80,6 +81,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [SUBROUTINE] SystemAutomaton::_initProperties() -> void
+     * Source: java/lang/System.main.lsl:96
      */
     private static void _initProperties() {
         /* body */ {
@@ -152,6 +154,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [SUBROUTINE] SystemAutomaton::initPhase1() -> void
+     * Source: java/lang/System.main.lsl:540
      */
     private static void initPhase1() {
         /* body */ {
@@ -184,6 +187,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [SUBROUTINE] SystemAutomaton::initPhase2() -> int
+     * Source: java/lang/System.main.lsl:580
      */
     private static int initPhase2() {
         int result = 0;
@@ -196,6 +200,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [SUBROUTINE] SystemAutomaton::initPhase3() -> void
+     * Source: java/lang/System.main.lsl:592
      */
     private static void initPhase3() {
         /* body */ {
@@ -207,6 +212,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SystemAutomaton::clearProperty(String) -> String
+     * Source: java/lang/System.main.lsl:239
      */
     public static String clearProperty(String key) {
         String result = null;
@@ -232,6 +238,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SystemAutomaton::console() -> Console
+     * Source: java/lang/System.main.lsl:261
      */
     public static Console console() {
         Console result = null;
@@ -243,6 +250,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SystemAutomaton::exit(int) -> void
+     * Source: java/lang/System.main.lsl:274
      */
     public static void exit(int status) {
         /* body */ {
@@ -252,6 +260,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SystemAutomaton::gc() -> void
+     * Source: java/lang/System.main.lsl:281
      */
     public static void gc() {
         /* body */ {
@@ -260,6 +269,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SystemAutomaton::getProperties() -> Properties
+     * Source: java/lang/System.main.lsl:299
      */
     public static Properties getProperties() {
         Properties result = null;
@@ -275,6 +285,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SystemAutomaton::getProperty(String) -> String
+     * Source: java/lang/System.main.lsl:309
      */
     public static String getProperty(String key) {
         String result = null;
@@ -301,6 +312,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SystemAutomaton::getProperty(String, String) -> String
+     * Source: java/lang/System.main.lsl:325
      */
     public static String getProperty(String key, String def) {
         String result = null;
@@ -327,6 +339,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SystemAutomaton::getSecurityManager() -> SecurityManager
+     * Source: java/lang/System.main.lsl:341
      */
     public static SecurityManager getSecurityManager() {
         SecurityManager result = null;
@@ -338,6 +351,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SystemAutomaton::getenv(String) -> String
+     * Source: java/lang/System.main.lsl:361
      */
     public static String getenv(String name) {
         String result = null;
@@ -357,6 +371,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SystemAutomaton::identityHashCode(Object) -> int
+     * Source: java/lang/System.main.lsl:378
      */
     public static int identityHashCode(Object x) {
         int result = 0;
@@ -380,6 +395,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SystemAutomaton::lineSeparator() -> String
+     * Source: java/lang/System.main.lsl:408
      */
     public static String lineSeparator() {
         String result = null;
@@ -391,6 +407,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SystemAutomaton::load(String) -> void
+     * Source: java/lang/System.main.lsl:414
      */
     public static void load(String filename) {
         /* body */ {
@@ -408,6 +425,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SystemAutomaton::loadLibrary(String) -> void
+     * Source: java/lang/System.main.lsl:425
      */
     public static void loadLibrary(String libname) {
         /* body */ {
@@ -425,6 +443,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SystemAutomaton::mapLibraryName(String) -> String
+     * Source: java/lang/System.main.lsl:436
      */
     public static String mapLibraryName(String libname) {
         String result = null;
@@ -451,6 +470,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SystemAutomaton::runFinalization() -> void
+     * Source: java/lang/System.main.lsl:462
      */
     public static void runFinalization() {
         /* body */ {
@@ -459,6 +479,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SystemAutomaton::setErr(PrintStream) -> void
+     * Source: java/lang/System.main.lsl:468
      */
     public static void setErr(PrintStream stream) {
         /* body */ {
@@ -472,6 +493,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SystemAutomaton::setIn(InputStream) -> void
+     * Source: java/lang/System.main.lsl:475
      */
     public static void setIn(InputStream stream) {
         /* body */ {
@@ -485,6 +507,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SystemAutomaton::setOut(PrintStream) -> void
+     * Source: java/lang/System.main.lsl:482
      */
     public static void setOut(PrintStream stream) {
         /* body */ {
@@ -498,6 +521,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SystemAutomaton::setProperties(Properties) -> void
+     * Source: java/lang/System.main.lsl:489
      */
     public static void setProperties(Properties p) {
         /* body */ {
@@ -511,6 +535,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SystemAutomaton::setProperty(String, String) -> String
+     * Source: java/lang/System.main.lsl:500
      */
     public static String setProperty(String key, String value) {
         String result = null;
@@ -538,6 +563,7 @@ public final class System implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SystemAutomaton::setSecurityManager(SecurityManager) -> void
+     * Source: java/lang/System.main.lsl:522
      */
     public static void setSecurityManager(SecurityManager s) {
         /* body */ {

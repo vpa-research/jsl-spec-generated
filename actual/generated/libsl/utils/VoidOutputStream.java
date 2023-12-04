@@ -38,6 +38,7 @@ public final class VoidOutputStream implements LibSLRuntime.Automaton {
 
     /**
      * [SUBROUTINE] VoidOutputStreamAutomaton::_checkFromIndexSize(int, int, int) -> void
+     * Source: libsl/utils/VoidOutputStream.main.lsl:46
      */
     private void _checkFromIndexSize(int fromIndex, int size, int length) {
         /* body */ {
@@ -49,6 +50,7 @@ public final class VoidOutputStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] VoidOutputStreamAutomaton::close(VoidOutputStream) -> void
+     * Source: libsl/utils/VoidOutputStream.main.lsl:60
      */
     public void close() {
         /* body */ {
@@ -58,6 +60,7 @@ public final class VoidOutputStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] VoidOutputStreamAutomaton::flush(VoidOutputStream) -> void
+     * Source: libsl/utils/VoidOutputStream.main.lsl:66
      */
     public void flush() throws java.io.IOException {
         /* body */ {
@@ -66,6 +69,7 @@ public final class VoidOutputStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] VoidOutputStreamAutomaton::write(VoidOutputStream, array<byte>) -> void
+     * Source: libsl/utils/VoidOutputStream.main.lsl:74
      */
     public void write(byte[] b) throws java.io.IOException {
         /* body */ {
@@ -80,6 +84,7 @@ public final class VoidOutputStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] VoidOutputStreamAutomaton::write(VoidOutputStream, array<byte>, int, int) -> void
+     * Source: libsl/utils/VoidOutputStream.main.lsl:85
      */
     public void write(byte[] b, int off, int len) throws java.io.IOException {
         /* body */ {
@@ -92,6 +97,7 @@ public final class VoidOutputStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] VoidOutputStreamAutomaton::write(VoidOutputStream, int) -> void
+     * Source: libsl/utils/VoidOutputStream.main.lsl:93
      */
     public void write(int b) throws java.io.IOException {
         /* body */ {

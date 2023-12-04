@@ -47,6 +47,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::append(System_PrintStream, CharSequence) -> PrintStream
+     * Source: java/lang/System.StdOut.lsl:93
      */
     public PrintStream append(CharSequence csq) {
         PrintStream result = null;
@@ -61,6 +62,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::append(System_PrintStream, CharSequence, int, int) -> PrintStream
+     * Source: java/lang/System.StdOut.lsl:101
      */
     public PrintStream append(CharSequence csq, int start, int end) {
         PrintStream result = null;
@@ -82,6 +84,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::append(System_PrintStream, char) -> PrintStream
+     * Source: java/lang/System.StdOut.lsl:116
      */
     public PrintStream append(char c) {
         PrintStream result = null;
@@ -96,6 +99,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::checkError(System_PrintStream) -> boolean
+     * Source: java/lang/System.StdOut.lsl:124
      */
     public boolean checkError() {
         boolean result = false;
@@ -107,6 +111,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::close(System_PrintStream) -> void
+     * Source: java/lang/System.StdOut.lsl:130
      */
     public void close() {
         /* body */ {
@@ -116,6 +121,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::flush(System_PrintStream) -> void
+     * Source: java/lang/System.StdOut.lsl:137
      */
     public void flush() {
         /* body */ {
@@ -127,6 +133,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::format(System_PrintStream, Locale, String, array<Object>) -> PrintStream
+     * Source: java/lang/System.StdOut.lsl:144
      */
     public PrintStream format(Locale l, String format, Object[] args) {
         PrintStream result = null;
@@ -144,6 +151,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::format(System_PrintStream, String, array<Object>) -> PrintStream
+     * Source: java/lang/System.StdOut.lsl:155
      */
     public PrintStream format(String format, Object[] args) {
         PrintStream result = null;
@@ -161,6 +169,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::print(System_PrintStream, Object) -> void
+     * Source: java/lang/System.StdOut.lsl:166
      */
     public void print(Object obj) {
         /* body */ {
@@ -172,6 +181,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::print(System_PrintStream, String) -> void
+     * Source: java/lang/System.StdOut.lsl:172
      */
     public void print(String s) {
         /* body */ {
@@ -183,6 +193,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::print(System_PrintStream, boolean) -> void
+     * Source: java/lang/System.StdOut.lsl:178
      */
     public void print(boolean b) {
         /* body */ {
@@ -194,6 +205,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::print(System_PrintStream, char) -> void
+     * Source: java/lang/System.StdOut.lsl:184
      */
     public void print(char c) {
         /* body */ {
@@ -205,6 +217,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::print(System_PrintStream, array<char>) -> void
+     * Source: java/lang/System.StdOut.lsl:190
      */
     public void print(char[] s) {
         /* body */ {
@@ -219,6 +232,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::print(System_PrintStream, double) -> void
+     * Source: java/lang/System.StdOut.lsl:199
      */
     public void print(double d) {
         /* body */ {
@@ -230,6 +244,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::print(System_PrintStream, float) -> void
+     * Source: java/lang/System.StdOut.lsl:205
      */
     public void print(float f) {
         /* body */ {
@@ -241,6 +256,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::print(System_PrintStream, int) -> void
+     * Source: java/lang/System.StdOut.lsl:211
      */
     public void print(int i) {
         /* body */ {
@@ -252,6 +268,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::print(System_PrintStream, long) -> void
+     * Source: java/lang/System.StdOut.lsl:217
      */
     public void print(long l) {
         /* body */ {
@@ -263,6 +280,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::printf(System_PrintStream, Locale, String, array<Object>) -> PrintStream
+     * Source: java/lang/System.StdOut.lsl:223
      */
     public PrintStream printf(Locale l, String format, Object[] args) {
         PrintStream result = null;
@@ -280,6 +298,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::printf(System_PrintStream, String, array<Object>) -> PrintStream
+     * Source: java/lang/System.StdOut.lsl:234
      */
     public PrintStream printf(String format, Object[] args) {
         PrintStream result = null;
@@ -297,6 +316,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::println(System_PrintStream) -> void
+     * Source: java/lang/System.StdOut.lsl:245
      */
     public void println() {
         /* body */ {
@@ -308,6 +328,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::println(System_PrintStream, Object) -> void
+     * Source: java/lang/System.StdOut.lsl:251
      */
     public void println(Object x) {
         /* body */ {
@@ -319,6 +340,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::println(System_PrintStream, String) -> void
+     * Source: java/lang/System.StdOut.lsl:257
      */
     public void println(String x) {
         /* body */ {
@@ -330,6 +352,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::println(System_PrintStream, boolean) -> void
+     * Source: java/lang/System.StdOut.lsl:263
      */
     public void println(boolean x) {
         /* body */ {
@@ -341,6 +364,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::println(System_PrintStream, char) -> void
+     * Source: java/lang/System.StdOut.lsl:269
      */
     public void println(char x) {
         /* body */ {
@@ -352,6 +376,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::println(System_PrintStream, array<char>) -> void
+     * Source: java/lang/System.StdOut.lsl:275
      */
     public void println(char[] x) {
         /* body */ {
@@ -366,6 +391,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::println(System_PrintStream, double) -> void
+     * Source: java/lang/System.StdOut.lsl:284
      */
     public void println(double x) {
         /* body */ {
@@ -377,6 +403,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::println(System_PrintStream, float) -> void
+     * Source: java/lang/System.StdOut.lsl:290
      */
     public void println(float x) {
         /* body */ {
@@ -388,6 +415,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::println(System_PrintStream, int) -> void
+     * Source: java/lang/System.StdOut.lsl:296
      */
     public void println(int x) {
         /* body */ {
@@ -399,6 +427,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::println(System_PrintStream, long) -> void
+     * Source: java/lang/System.StdOut.lsl:302
      */
     public void println(long x) {
         /* body */ {
@@ -410,6 +439,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::write(System_PrintStream, array<byte>) -> void
+     * Source: java/lang/System.StdOut.lsl:308
      */
     public void write(byte[] b) throws java.io.IOException {
         /* body */ {
@@ -424,6 +454,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::write(System_PrintStream, array<byte>, int, int) -> void
+     * Source: java/lang/System.StdOut.lsl:319
      */
     public void write(byte[] buf, int off, int len) {
         /* body */ {
@@ -442,6 +473,7 @@ public final class System_PrintStream implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] System_PrintStreamAutomaton::write(System_PrintStream, int) -> void
+     * Source: java/lang/System.StdOut.lsl:332
      */
     public void write(int b) {
         /* body */ {

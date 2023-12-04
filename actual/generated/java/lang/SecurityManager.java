@@ -47,6 +47,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [CONSTRUCTOR] SecurityManagerAutomaton::LSLSecurityManager(LSLSecurityManager) -> LSLSecurityManager
+     * Source: java/lang/SecurityManager.main.lsl:99
      */
     public SecurityManager() {
         this((Void) null);
@@ -59,6 +60,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [SUBROUTINE] SecurityManagerAutomaton::_do_checkPermission(Permission) -> void
+     * Source: java/lang/SecurityManager.main.lsl:87
      */
     private void _do_checkPermission(Permission perm) {
         /* body */ {
@@ -70,6 +72,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkAccept(LSLSecurityManager, String, int) -> void
+     * Source: java/lang/SecurityManager.main.lsl:111
      */
     public void checkAccept(String host, int port) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -86,6 +89,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkAccess(LSLSecurityManager, Thread) -> void
+     * Source: java/lang/SecurityManager.main.lsl:126
      */
     public void checkAccess(Thread t) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -99,6 +103,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkAccess(LSLSecurityManager, ThreadGroup) -> void
+     * Source: java/lang/SecurityManager.main.lsl:139
      */
     public void checkAccess(ThreadGroup g) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -112,6 +117,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkConnect(LSLSecurityManager, String, int) -> void
+     * Source: java/lang/SecurityManager.main.lsl:152
      */
     public void checkConnect(String host, int port) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -128,6 +134,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkConnect(LSLSecurityManager, String, int, Object) -> void
+     * Source: java/lang/SecurityManager.main.lsl:167
      */
     public void checkConnect(String host, int port, Object context) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -144,6 +151,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkCreateClassLoader(LSLSecurityManager) -> void
+     * Source: java/lang/SecurityManager.main.lsl:182
      */
     public void checkCreateClassLoader() {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -154,6 +162,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkDelete(LSLSecurityManager, String) -> void
+     * Source: java/lang/SecurityManager.main.lsl:190
      */
     public void checkDelete(String file) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -167,6 +176,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkExec(LSLSecurityManager, String) -> void
+     * Source: java/lang/SecurityManager.main.lsl:203
      */
     public void checkExec(String cmd) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -180,6 +190,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkExit(LSLSecurityManager, int) -> void
+     * Source: java/lang/SecurityManager.main.lsl:216
      */
     public void checkExit(int status) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -190,6 +201,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkLink(LSLSecurityManager, String) -> void
+     * Source: java/lang/SecurityManager.main.lsl:224
      */
     public void checkLink(String lib) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -203,6 +215,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkListen(LSLSecurityManager, int) -> void
+     * Source: java/lang/SecurityManager.main.lsl:235
      */
     public void checkListen(int port) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -213,6 +226,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkMulticast(LSLSecurityManager, InetAddress) -> void
+     * Source: java/lang/SecurityManager.main.lsl:243
      */
     public void checkMulticast(InetAddress maddr) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -226,6 +240,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkMulticast(LSLSecurityManager, InetAddress, byte) -> void
+     * Source: java/lang/SecurityManager.main.lsl:254
      */
     public void checkMulticast(InetAddress maddr, byte ttl) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -239,6 +254,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkPackageAccess(LSLSecurityManager, String) -> void
+     * Source: java/lang/SecurityManager.main.lsl:265
      */
     public void checkPackageAccess(String pkg) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -252,6 +268,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkPackageDefinition(LSLSecurityManager, String) -> void
+     * Source: java/lang/SecurityManager.main.lsl:276
      */
     public void checkPackageDefinition(String pkg) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -265,6 +282,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkPermission(LSLSecurityManager, Permission) -> void
+     * Source: java/lang/SecurityManager.main.lsl:287
      */
     public void checkPermission(Permission perm) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -278,6 +296,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkPermission(LSLSecurityManager, Permission, Object) -> void
+     * Source: java/lang/SecurityManager.main.lsl:296
      */
     public void checkPermission(Permission perm, Object context) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -295,6 +314,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkPrintJobAccess(LSLSecurityManager) -> void
+     * Source: java/lang/SecurityManager.main.lsl:312
      */
     public void checkPrintJobAccess() {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -305,6 +325,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkPropertiesAccess(LSLSecurityManager) -> void
+     * Source: java/lang/SecurityManager.main.lsl:320
      */
     public void checkPropertiesAccess() {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -315,6 +336,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkPropertyAccess(LSLSecurityManager, String) -> void
+     * Source: java/lang/SecurityManager.main.lsl:328
      */
     public void checkPropertyAccess(String key) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -325,6 +347,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkRead(LSLSecurityManager, FileDescriptor) -> void
+     * Source: java/lang/SecurityManager.main.lsl:336
      */
     public void checkRead(FileDescriptor fd) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -335,6 +358,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkRead(LSLSecurityManager, String) -> void
+     * Source: java/lang/SecurityManager.main.lsl:344
      */
     public void checkRead(String file) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -345,6 +369,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkRead(LSLSecurityManager, String, Object) -> void
+     * Source: java/lang/SecurityManager.main.lsl:352
      */
     public void checkRead(String file, Object context) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -355,6 +380,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkSecurityAccess(LSLSecurityManager, String) -> void
+     * Source: java/lang/SecurityManager.main.lsl:360
      */
     public void checkSecurityAccess(String _target) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -371,6 +397,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkSetFactory(LSLSecurityManager) -> void
+     * Source: java/lang/SecurityManager.main.lsl:374
      */
     public void checkSetFactory() {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -381,6 +408,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkWrite(LSLSecurityManager, FileDescriptor) -> void
+     * Source: java/lang/SecurityManager.main.lsl:382
      */
     public void checkWrite(FileDescriptor fd) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -391,6 +419,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::checkWrite(LSLSecurityManager, String) -> void
+     * Source: java/lang/SecurityManager.main.lsl:390
      */
     public void checkWrite(String file) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -401,6 +430,7 @@ public class SecurityManager implements LibSLRuntime.Automaton {
 
     /**
      * [FUNCTION] SecurityManagerAutomaton::getSecurityContext(LSLSecurityManager) -> Object
+     * Source: java/lang/SecurityManager.main.lsl:398
      */
     public Object getSecurityContext() {
         Object result = null;

@@ -52,6 +52,7 @@ public class StreamLSLSpliterator implements LibSLRuntime.Automaton, Spliterator
 
     /**
      * [SUBROUTINE] StreamSpliteratorAutomaton::_getFence() -> int
+     * Source: java/util/stream/Stream.Spliterator.lsl:58
      */
     private int _getFence() {
         int result = 0;
@@ -67,6 +68,7 @@ public class StreamLSLSpliterator implements LibSLRuntime.Automaton, Spliterator
 
     /**
      * [SUBROUTINE] StreamSpliteratorAutomaton::_hasCharacteristics(int) -> boolean
+     * Source: java/util/stream/Stream.Spliterator.lsl:70
      */
     private boolean _hasCharacteristics(int _characteristics) {
         boolean result = false;
@@ -78,6 +80,7 @@ public class StreamLSLSpliterator implements LibSLRuntime.Automaton, Spliterator
 
     /**
      * [FUNCTION] StreamSpliteratorAutomaton::characteristics(StreamLSLSpliterator) -> int
+     * Source: java/util/stream/Stream.Spliterator.lsl:78
      */
     public int characteristics() {
         int result = 0;
@@ -89,6 +92,7 @@ public class StreamLSLSpliterator implements LibSLRuntime.Automaton, Spliterator
 
     /**
      * [FUNCTION] StreamSpliteratorAutomaton::trySplit(StreamLSLSpliterator) -> Spliterator
+     * Source: java/util/stream/Stream.Spliterator.lsl:84
      */
     public Spliterator trySplit() {
         Spliterator result = null;
@@ -114,6 +118,7 @@ public class StreamLSLSpliterator implements LibSLRuntime.Automaton, Spliterator
 
     /**
      * [FUNCTION] StreamSpliteratorAutomaton::forEachRemaining(StreamLSLSpliterator, Consumer) -> void
+     * Source: java/util/stream/Stream.Spliterator.lsl:104
      */
     public void forEachRemaining(Consumer _action) {
         /* body */ {
@@ -135,6 +140,7 @@ public class StreamLSLSpliterator implements LibSLRuntime.Automaton, Spliterator
 
     /**
      * [FUNCTION] StreamSpliteratorAutomaton::tryAdvance(StreamLSLSpliterator, Consumer) -> boolean
+     * Source: java/util/stream/Stream.Spliterator.lsl:130
      */
     public boolean tryAdvance(Consumer _action) {
         boolean result = false;
@@ -160,6 +166,7 @@ public class StreamLSLSpliterator implements LibSLRuntime.Automaton, Spliterator
 
     /**
      * [FUNCTION] StreamSpliteratorAutomaton::estimateSize(StreamLSLSpliterator) -> long
+     * Source: java/util/stream/Stream.Spliterator.lsl:157
      */
     public long estimateSize() {
         long result = 0L;
@@ -171,6 +178,7 @@ public class StreamLSLSpliterator implements LibSLRuntime.Automaton, Spliterator
 
     /**
      * [FUNCTION] StreamSpliteratorAutomaton::getComparator(StreamLSLSpliterator) -> Comparator
+     * Source: java/util/stream/Stream.Spliterator.lsl:163
      */
     public Comparator getComparator() {
         Comparator result = null;
@@ -186,6 +194,7 @@ public class StreamLSLSpliterator implements LibSLRuntime.Automaton, Spliterator
 
     /**
      * [FUNCTION] StreamSpliteratorAutomaton::getExactSizeIfKnown(StreamLSLSpliterator) -> long
+     * Source: java/util/stream/Stream.Spliterator.lsl:172
      */
     public long getExactSizeIfKnown() {
         long result = 0L;
@@ -197,6 +206,7 @@ public class StreamLSLSpliterator implements LibSLRuntime.Automaton, Spliterator
 
     /**
      * [FUNCTION] StreamSpliteratorAutomaton::hasCharacteristics(StreamLSLSpliterator, int) -> boolean
+     * Source: java/util/stream/Stream.Spliterator.lsl:178
      */
     public boolean hasCharacteristics(int _characteristics) {
         boolean result = false;

@@ -61,6 +61,7 @@ public final class LinkedHashSet_KeySpliterator implements LibSLRuntime.Automato
 
     /**
      * [CONSTRUCTOR] LinkedHashSet_KeySpliteratorAutomaton::LinkedHashSet_KeySpliterator(LinkedHashSet_KeySpliterator, HashMap, int, int, int, int) -> LinkedHashSet_KeySpliterator
+     * Source: java/util/LinkedHashSet.Spliterator.lsl:89
      */
     private LinkedHashSet_KeySpliterator(HashMap source, int origin, int fence, int est,
             int expectedModCount) {
@@ -77,6 +78,7 @@ public final class LinkedHashSet_KeySpliterator implements LibSLRuntime.Automato
 
     /**
      * [SUBROUTINE] LinkedHashSet_KeySpliteratorAutomaton::_getFence() -> int
+     * Source: java/util/LinkedHashSet.Spliterator.lsl:54
      */
     private int _getFence() {
         int result = 0;
@@ -97,6 +99,7 @@ public final class LinkedHashSet_KeySpliterator implements LibSLRuntime.Automato
 
     /**
      * [SUBROUTINE] LinkedHashSet_KeySpliteratorAutomaton::_checkForComodification() -> void
+     * Source: java/util/LinkedHashSet.Spliterator.lsl:79
      */
     private void _checkForComodification() {
         /* body */ {
@@ -109,6 +112,7 @@ public final class LinkedHashSet_KeySpliterator implements LibSLRuntime.Automato
 
     /**
      * [FUNCTION] LinkedHashSet_KeySpliteratorAutomaton::estimateSize(LinkedHashSet_KeySpliterator) -> long
+     * Source: java/util/LinkedHashSet.Spliterator.lsl:100
      */
     public long estimateSize() {
         long result = 0L;
@@ -122,6 +126,7 @@ public final class LinkedHashSet_KeySpliterator implements LibSLRuntime.Automato
 
     /**
      * [FUNCTION] LinkedHashSet_KeySpliteratorAutomaton::characteristics(LinkedHashSet_KeySpliterator) -> int
+     * Source: java/util/LinkedHashSet.Spliterator.lsl:107
      */
     public int characteristics() {
         int result = 0;
@@ -140,6 +145,7 @@ public final class LinkedHashSet_KeySpliterator implements LibSLRuntime.Automato
 
     /**
      * [FUNCTION] LinkedHashSet_KeySpliteratorAutomaton::forEachRemaining(LinkedHashSet_KeySpliterator, Consumer) -> void
+     * Source: java/util/LinkedHashSet.Spliterator.lsl:121
      */
     public void forEachRemaining(Consumer userAction) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -179,6 +185,7 @@ public final class LinkedHashSet_KeySpliterator implements LibSLRuntime.Automato
 
     /**
      * [FUNCTION] LinkedHashSet_KeySpliteratorAutomaton::tryAdvance(LinkedHashSet_KeySpliterator, Consumer) -> boolean
+     * Source: java/util/LinkedHashSet.Spliterator.lsl:168
      */
     public boolean tryAdvance(Consumer userAction) {
         boolean result = false;
@@ -204,6 +211,7 @@ public final class LinkedHashSet_KeySpliterator implements LibSLRuntime.Automato
 
     /**
      * [FUNCTION] LinkedHashSet_KeySpliteratorAutomaton::trySplit(LinkedHashSet_KeySpliterator) -> Spliterator
+     * Source: java/util/LinkedHashSet.Spliterator.lsl:192
      */
     public Spliterator trySplit() {
         Spliterator result = null;

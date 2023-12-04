@@ -55,6 +55,7 @@ public final class LinkedList_SubList$Spliterator implements LibSLRuntime.Automa
 
     /**
      * [SUBROUTINE] LinkedList_SubList_SpliteratorAutomaton::_getFence() -> int
+     * Source: java/util/LinkedList.SubList.Spliterator.lsl:59
      */
     private int _getFence() {
         int result = 0;
@@ -71,6 +72,7 @@ public final class LinkedList_SubList$Spliterator implements LibSLRuntime.Automa
 
     /**
      * [FUNCTION] LinkedList_SubList_SpliteratorAutomaton::characteristics(LinkedList_SubList_Spliterator) -> int
+     * Source: java/util/LinkedList.SubList.Spliterator.lsl:79
      */
     public int characteristics() {
         int result = 0;
@@ -82,6 +84,7 @@ public final class LinkedList_SubList$Spliterator implements LibSLRuntime.Automa
 
     /**
      * [FUNCTION] LinkedList_SubList_SpliteratorAutomaton::estimateSize(LinkedList_SubList_Spliterator) -> long
+     * Source: java/util/LinkedList.SubList.Spliterator.lsl:85
      */
     public long estimateSize() {
         long result = 0L;
@@ -93,6 +96,7 @@ public final class LinkedList_SubList$Spliterator implements LibSLRuntime.Automa
 
     /**
      * [FUNCTION] LinkedList_SubList_SpliteratorAutomaton::forEachRemaining(LinkedList_SubList_Spliterator, Consumer) -> void
+     * Source: java/util/LinkedList.SubList.Spliterator.lsl:91
      */
     public void forEachRemaining(Consumer _action) {
         /* body */ {
@@ -129,6 +133,7 @@ public final class LinkedList_SubList$Spliterator implements LibSLRuntime.Automa
 
     /**
      * [FUNCTION] LinkedList_SubList_SpliteratorAutomaton::getExactSizeIfKnown(LinkedList_SubList_Spliterator) -> long
+     * Source: java/util/LinkedList.SubList.Spliterator.lsl:140
      */
     public long getExactSizeIfKnown() {
         long result = 0L;
@@ -140,6 +145,7 @@ public final class LinkedList_SubList$Spliterator implements LibSLRuntime.Automa
 
     /**
      * [FUNCTION] LinkedList_SubList_SpliteratorAutomaton::tryAdvance(LinkedList_SubList_Spliterator, Consumer) -> boolean
+     * Source: java/util/LinkedList.SubList.Spliterator.lsl:153
      */
     public boolean tryAdvance(Consumer _action) {
         boolean result = false;
@@ -168,6 +174,7 @@ public final class LinkedList_SubList$Spliterator implements LibSLRuntime.Automa
 
     /**
      * [FUNCTION] LinkedList_SubList_SpliteratorAutomaton::trySplit(LinkedList_SubList_Spliterator) -> Spliterator
+     * Source: java/util/LinkedList.SubList.Spliterator.lsl:183
      */
     public Spliterator trySplit() {
         Spliterator result = null;

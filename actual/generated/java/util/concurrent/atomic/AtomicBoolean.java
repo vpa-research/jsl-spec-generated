@@ -46,6 +46,7 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [CONSTRUCTOR] AtomicBooleanAutomaton::LSLAtomicBoolean(LSLAtomicBoolean) -> LSLAtomicBoolean
+     * Source: java/util/concurrent/atomic/AtomicBoolean.main.lsl:63
      */
     public AtomicBoolean() {
         this((Void) null);
@@ -58,6 +59,7 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [CONSTRUCTOR] AtomicBooleanAutomaton::LSLAtomicBoolean(LSLAtomicBoolean, boolean) -> LSLAtomicBoolean
+     * Source: java/util/concurrent/atomic/AtomicBoolean.main.lsl:69
      */
     public AtomicBoolean(boolean initialValue) {
         this((Void) null);
@@ -74,6 +76,7 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicBooleanAutomaton::compareAndExchange(LSLAtomicBoolean, boolean, boolean) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicBoolean.main.lsl:82
      */
     public final boolean compareAndExchange(boolean expectedValue, boolean newValue) {
         boolean result = false;
@@ -93,6 +96,7 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicBooleanAutomaton::compareAndExchangeAcquire(LSLAtomicBoolean, boolean, boolean) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicBoolean.main.lsl:95
      */
     public final boolean compareAndExchangeAcquire(boolean expectedValue, boolean newValue) {
         boolean result = false;
@@ -112,6 +116,7 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicBooleanAutomaton::compareAndExchangeRelease(LSLAtomicBoolean, boolean, boolean) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicBoolean.main.lsl:109
      */
     public final boolean compareAndExchangeRelease(boolean expectedValue, boolean newValue) {
         boolean result = false;
@@ -131,6 +136,7 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicBooleanAutomaton::compareAndSet(LSLAtomicBoolean, boolean, boolean) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicBoolean.main.lsl:123
      */
     public final boolean compareAndSet(boolean expectedValue, boolean newValue) {
         boolean result = false;
@@ -153,6 +159,7 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicBooleanAutomaton::get(LSLAtomicBoolean) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicBoolean.main.lsl:142
      */
     public final boolean get() {
         boolean result = false;
@@ -165,6 +172,7 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicBooleanAutomaton::getAcquire(LSLAtomicBoolean) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicBoolean.main.lsl:149
      */
     public final boolean getAcquire() {
         boolean result = false;
@@ -177,6 +185,7 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicBooleanAutomaton::getAndSet(LSLAtomicBoolean, boolean) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicBoolean.main.lsl:156
      */
     public final boolean getAndSet(boolean newValue) {
         boolean result = false;
@@ -194,6 +203,7 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicBooleanAutomaton::getOpaque(LSLAtomicBoolean) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicBoolean.main.lsl:167
      */
     public final boolean getOpaque() {
         boolean result = false;
@@ -206,6 +216,7 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicBooleanAutomaton::getPlain(LSLAtomicBoolean) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicBoolean.main.lsl:174
      */
     public final boolean getPlain() {
         boolean result = false;
@@ -218,6 +229,7 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicBooleanAutomaton::lazySet(LSLAtomicBoolean, boolean) -> void
+     * Source: java/util/concurrent/atomic/AtomicBoolean.main.lsl:180
      */
     public final void lazySet(boolean newValue) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -232,6 +244,7 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicBooleanAutomaton::set(LSLAtomicBoolean, boolean) -> void
+     * Source: java/util/concurrent/atomic/AtomicBoolean.main.lsl:190
      */
     public final void set(boolean newValue) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -246,6 +259,7 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicBooleanAutomaton::setOpaque(LSLAtomicBoolean, boolean) -> void
+     * Source: java/util/concurrent/atomic/AtomicBoolean.main.lsl:199
      */
     public final void setOpaque(boolean newValue) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -260,6 +274,7 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicBooleanAutomaton::setPlain(LSLAtomicBoolean, boolean) -> void
+     * Source: java/util/concurrent/atomic/AtomicBoolean.main.lsl:209
      */
     public final void setPlain(boolean newValue) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -274,6 +289,7 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicBooleanAutomaton::setRelease(LSLAtomicBoolean, boolean) -> void
+     * Source: java/util/concurrent/atomic/AtomicBoolean.main.lsl:219
      */
     public final void setRelease(boolean newValue) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -288,6 +304,7 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicBooleanAutomaton::toString(LSLAtomicBoolean) -> String
+     * Source: java/util/concurrent/atomic/AtomicBoolean.main.lsl:229
      */
     public String toString() {
         String result = null;
@@ -304,6 +321,7 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicBooleanAutomaton::weakCompareAndSet(LSLAtomicBoolean, boolean, boolean) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicBoolean.main.lsl:238
      */
     public boolean weakCompareAndSet(boolean expectedValue, boolean newValue) {
         boolean result = false;
@@ -326,6 +344,7 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicBooleanAutomaton::weakCompareAndSetAcquire(LSLAtomicBoolean, boolean, boolean) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicBoolean.main.lsl:258
      */
     public final boolean weakCompareAndSetAcquire(boolean expectedValue, boolean newValue) {
         boolean result = false;
@@ -348,6 +367,7 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicBooleanAutomaton::weakCompareAndSetPlain(LSLAtomicBoolean, boolean, boolean) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicBoolean.main.lsl:278
      */
     public boolean weakCompareAndSetPlain(boolean expectedValue, boolean newValue) {
         boolean result = false;
@@ -370,6 +390,7 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicBooleanAutomaton::weakCompareAndSetRelease(LSLAtomicBoolean, boolean, boolean) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicBoolean.main.lsl:298
      */
     public final boolean weakCompareAndSetRelease(boolean expectedValue, boolean newValue) {
         boolean result = false;
@@ -392,6 +413,7 @@ public class AtomicBoolean implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicBooleanAutomaton::weakCompareAndSetVolatile(LSLAtomicBoolean, boolean, boolean) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicBoolean.main.lsl:318
      */
     public final boolean weakCompareAndSetVolatile(boolean expectedValue, boolean newValue) {
         boolean result = false;

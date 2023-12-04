@@ -44,6 +44,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [CONSTRUCTOR] AtomicIntegerAutomaton::LSLAtomicInteger(LSLAtomicInteger) -> LSLAtomicInteger
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:82
      */
     public AtomicInteger() {
         this((Void) null);
@@ -56,6 +57,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [CONSTRUCTOR] AtomicIntegerAutomaton::LSLAtomicInteger(LSLAtomicInteger, int) -> LSLAtomicInteger
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:88
      */
     public AtomicInteger(int initialValue) {
         this((Void) null);
@@ -68,6 +70,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::accumulateAndGet(LSLAtomicInteger, int, IntBinaryOperator) -> int
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:98
      */
     public final int accumulateAndGet(int x, IntBinaryOperator accumulatorFunction) {
         int result = 0;
@@ -81,6 +84,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::addAndGet(LSLAtomicInteger, int) -> int
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:105
      */
     public final int addAndGet(int delta) {
         int result = 0;
@@ -94,6 +98,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::byteValue(LSLAtomicInteger) -> byte
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:113
      */
     public byte byteValue() {
         byte result = ((byte) 0);
@@ -106,6 +111,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::compareAndExchange(LSLAtomicInteger, int, int) -> int
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:119
      */
     public final int compareAndExchange(int expectedValue, int newValue) {
         int result = 0;
@@ -121,6 +127,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::compareAndExchangeAcquire(LSLAtomicInteger, int, int) -> int
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:127
      */
     public final int compareAndExchangeAcquire(int expectedValue, int newValue) {
         int result = 0;
@@ -136,6 +143,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::compareAndExchangeRelease(LSLAtomicInteger, int, int) -> int
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:136
      */
     public final int compareAndExchangeRelease(int expectedValue, int newValue) {
         int result = 0;
@@ -151,6 +159,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::compareAndSet(LSLAtomicInteger, int, int) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:145
      */
     public final boolean compareAndSet(int expectedValue, int newValue) {
         boolean result = false;
@@ -166,6 +175,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::decrementAndGet(LSLAtomicInteger) -> int
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:153
      */
     public final int decrementAndGet() {
         int result = 0;
@@ -179,6 +189,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::doubleValue(LSLAtomicInteger) -> double
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:160
      */
     public double doubleValue() {
         double result = 0.0d;
@@ -191,6 +202,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::floatValue(LSLAtomicInteger) -> float
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:166
      */
     public float floatValue() {
         float result = 0.0f;
@@ -203,6 +215,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::get(LSLAtomicInteger) -> int
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:172
      */
     public final int get() {
         int result = 0;
@@ -215,6 +228,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::getAcquire(LSLAtomicInteger) -> int
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:178
      */
     public final int getAcquire() {
         int result = 0;
@@ -227,6 +241,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::getAndAccumulate(LSLAtomicInteger, int, IntBinaryOperator) -> int
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:185
      */
     public final int getAndAccumulate(int x, IntBinaryOperator accumulatorFunction) {
         int result = 0;
@@ -240,6 +255,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::getAndAdd(LSLAtomicInteger, int) -> int
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:192
      */
     public final int getAndAdd(int delta) {
         int result = 0;
@@ -253,6 +269,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::getAndDecrement(LSLAtomicInteger) -> int
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:199
      */
     public final int getAndDecrement() {
         int result = 0;
@@ -266,6 +283,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::getAndIncrement(LSLAtomicInteger) -> int
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:206
      */
     public final int getAndIncrement() {
         int result = 0;
@@ -279,6 +297,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::getAndSet(LSLAtomicInteger, int) -> int
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:213
      */
     public final int getAndSet(int newValue) {
         int result = 0;
@@ -292,6 +311,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::getAndUpdate(LSLAtomicInteger, IntUnaryOperator) -> int
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:220
      */
     public final int getAndUpdate(IntUnaryOperator updateFunction) {
         int result = 0;
@@ -305,6 +325,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::getOpaque(LSLAtomicInteger) -> int
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:227
      */
     public final int getOpaque() {
         int result = 0;
@@ -317,6 +338,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::getPlain(LSLAtomicInteger) -> int
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:234
      */
     public final int getPlain() {
         int result = 0;
@@ -329,6 +351,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::incrementAndGet(LSLAtomicInteger) -> int
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:241
      */
     public final int incrementAndGet() {
         int result = 0;
@@ -342,6 +365,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::intValue(LSLAtomicInteger) -> int
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:248
      */
     public int intValue() {
         int result = 0;
@@ -354,6 +378,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::lazySet(LSLAtomicInteger, int) -> void
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:254
      */
     public final void lazySet(int newValue) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -364,6 +389,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::longValue(LSLAtomicInteger) -> long
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:261
      */
     public long longValue() {
         long result = 0L;
@@ -376,6 +402,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::set(LSLAtomicInteger, int) -> void
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:267
      */
     public final void set(int newValue) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -386,6 +413,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::setOpaque(LSLAtomicInteger, int) -> void
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:273
      */
     public final void setOpaque(int newValue) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -396,6 +424,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::setPlain(LSLAtomicInteger, int) -> void
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:280
      */
     public final void setPlain(int newValue) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -406,6 +435,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::setRelease(LSLAtomicInteger, int) -> void
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:287
      */
     public final void setRelease(int newValue) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -416,6 +446,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::shortValue(LSLAtomicInteger) -> short
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:295
      */
     public short shortValue() {
         short result = ((short) 0);
@@ -428,6 +459,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::toString(LSLAtomicInteger) -> String
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:301
      */
     public String toString() {
         String result = null;
@@ -440,6 +472,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::updateAndGet(LSLAtomicInteger, IntUnaryOperator) -> int
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:307
      */
     public final int updateAndGet(IntUnaryOperator updateFunction) {
         int result = 0;
@@ -453,6 +486,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::weakCompareAndSet(LSLAtomicInteger, int, int) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:314
      */
     public final boolean weakCompareAndSet(int expectedValue, int newValue) {
         boolean result = false;
@@ -468,6 +502,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::weakCompareAndSetAcquire(LSLAtomicInteger, int, int) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:323
      */
     public final boolean weakCompareAndSetAcquire(int expectedValue, int newValue) {
         boolean result = false;
@@ -483,6 +518,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::weakCompareAndSetPlain(LSLAtomicInteger, int, int) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:332
      */
     public final boolean weakCompareAndSetPlain(int expectedValue, int newValue) {
         boolean result = false;
@@ -498,6 +534,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::weakCompareAndSetRelease(LSLAtomicInteger, int, int) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:341
      */
     public final boolean weakCompareAndSetRelease(int expectedValue, int newValue) {
         boolean result = false;
@@ -513,6 +550,7 @@ public class AtomicInteger implements LibSLRuntime.Automaton, Serializable {
 
     /**
      * [FUNCTION] AtomicIntegerAutomaton::weakCompareAndSetVolatile(LSLAtomicInteger, int, int) -> boolean
+     * Source: java/util/concurrent/atomic/AtomicInteger.main.lsl:350
      */
     public final boolean weakCompareAndSetVolatile(int expectedValue, int newValue) {
         boolean result = false;
