@@ -704,7 +704,6 @@ public class HashMap implements LibSLRuntime.Automaton, Map, Cloneable, Serializ
         boolean result = false;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = false;
             if (this.storage.hasKey(key)) {
                 final Map.Entry<Object, Object> entry = this.storage.get(key);
                 final Object curValue = ((AbstractMap_SimpleEntry) ((Object) entry)).value;
@@ -713,6 +712,8 @@ public class HashMap implements LibSLRuntime.Automaton, Map, Cloneable, Serializ
                     this.modCount += 1;
                     result = true;
                 }
+            } else {
+                result = false;
             }
         }
         return result;
@@ -720,17 +721,18 @@ public class HashMap implements LibSLRuntime.Automaton, Map, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashMapAutomaton::replace(HashMap, Object, Object) -> Object
-     * Source: java/util/HashMap.main.lsl:704
+     * Source: java/util/HashMap.main.lsl:706
      */
     public Object replace(Object key, Object value) {
         Object result = null;
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
         /* body */ {
-            result = null;
             if (this.storage.hasKey(key)) {
                 final Map.Entry<Object, Object> entry = this.storage.get(key);
                 result = ((AbstractMap_SimpleEntry) ((Object) entry)).value;
                 ((AbstractMap_SimpleEntry) ((Object) entry)).value = value;
+            } else {
+                result = null;
             }
         }
         return result;
@@ -738,7 +740,7 @@ public class HashMap implements LibSLRuntime.Automaton, Map, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashMapAutomaton::replace(HashMap, Object, Object, Object) -> boolean
-     * Source: java/util/HashMap.main.lsl:717
+     * Source: java/util/HashMap.main.lsl:722
      */
     public boolean replace(Object key, Object oldValue, Object newValue) {
         boolean result = false;
@@ -759,7 +761,7 @@ public class HashMap implements LibSLRuntime.Automaton, Map, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashMapAutomaton::replaceAll(HashMap, BiFunction) -> void
-     * Source: java/util/HashMap.main.lsl:735
+     * Source: java/util/HashMap.main.lsl:740
      */
     public void replaceAll(BiFunction function) {
         Engine.assume(this.__$lsl_state == __$lsl_States.Initialized);
@@ -786,7 +788,7 @@ public class HashMap implements LibSLRuntime.Automaton, Map, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashMapAutomaton::size(HashMap) -> int
-     * Source: java/util/HashMap.main.lsl:771
+     * Source: java/util/HashMap.main.lsl:776
      */
     public int size() {
         int result = 0;
@@ -799,7 +801,7 @@ public class HashMap implements LibSLRuntime.Automaton, Map, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashMapAutomaton::toString(HashMap) -> String
-     * Source: java/util/HashMap.main.lsl:778
+     * Source: java/util/HashMap.main.lsl:783
      */
     public String toString() {
         String result = null;
@@ -812,7 +814,7 @@ public class HashMap implements LibSLRuntime.Automaton, Map, Cloneable, Serializ
 
     /**
      * [FUNCTION] HashMapAutomaton::values(HashMap) -> Collection
-     * Source: java/util/HashMap.main.lsl:784
+     * Source: java/util/HashMap.main.lsl:789
      */
     public Collection values() {
         Collection result = null;
