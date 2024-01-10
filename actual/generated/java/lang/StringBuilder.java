@@ -17,6 +17,7 @@ import java.lang.IndexOutOfBoundsException;
 import java.lang.NullPointerException;
 import java.lang.Object;
 import java.lang.String;
+import java.lang.StringBuffer;
 import java.lang.StringIndexOutOfBoundsException;
 import java.lang.SuppressWarnings;
 import java.lang.Void;
